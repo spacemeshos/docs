@@ -1,0 +1,4 @@
+---
+id: time
+title: Time
+---

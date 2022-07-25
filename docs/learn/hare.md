@@ -1,0 +1,4 @@
+---
+id: hare
+title: Hare
+---
