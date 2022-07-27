@@ -9,7 +9,7 @@ const config = {
   title: 'Spacemesh documentation',
   tagline: 'All the docs are belong to you',
   url: 'https://spacemeshos.github.io',
-  baseUrl: '/docs',
+  baseUrl: '/docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.png',
