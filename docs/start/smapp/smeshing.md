@@ -1,4 +1,0 @@
----
-id: smeshing
-title: Smeshing
----

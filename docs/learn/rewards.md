@@ -1,4 +1,0 @@
----
-id: rewards
-title: Rewards
----

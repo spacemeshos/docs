@@ -1,4 +1,0 @@
----
-id: serialization
-title: Serialization
----

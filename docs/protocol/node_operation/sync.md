@@ -1,4 +1,0 @@
----
-id: sync
-title: Sync
----

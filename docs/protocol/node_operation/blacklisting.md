@@ -1,4 +1,0 @@
----
-id: blacklisting
-title: Blacklisting
----
