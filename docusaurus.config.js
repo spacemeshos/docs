@@ -67,32 +67,37 @@ const config = {
                     type: "docSidebar",
                     position: "left",
                     sidebarId: "learn",
-                    label: "Learn",
+                    label: "Introduction",
           },
-
         {
                   type: "docSidebar",
                   position: "left",
                   sidebarId: "protocol",
-                  label: "Deep Dive",
+                  label: "Protocol Specs",
         },
         {
                   type: "docSidebar",
                   position: "left",
-                  sidebarId: "start",
-                  label: "Get Started",
+                  sidebarId: "api",
+                  label: "API",
         },
         {
                   type: "docSidebar",
                   position: "left",
                   sidebarId: "ecosystem",
-                  label: "Participate",
+                  label: "Ecosystem",
+        },
+        {
+                  type: "docSidebar",
+                  position: "left",
+                  sidebarId: "start",
+                  label: "Join the Network",
         },
         {
                  to: 'roadmap',
                  label: 'Roadmap',
                  position: 'left'
-             },
+           },
          {
                   to: 'devzone',
                   label: 'Dev Zone',

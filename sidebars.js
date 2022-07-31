@@ -64,5 +64,9 @@ module.exports = {
     'ecosystem/node',
     'ecosystem/poet',
     'ecosystem/dash'
+  ],
+  api: [
+    'api/services',
+    'api/endpoints'
   ]
 };
