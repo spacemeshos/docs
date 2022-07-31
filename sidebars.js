@@ -6,7 +6,8 @@ module.exports = {
       'Spacemesh 101': [
         'learn/crypto',
         'learn/spacemesh',
-        'learn/coin'],
+        'learn/coin',
+        'learn/economics'],
       'Protocol 101': [
         'learn/post',
         'learn/nipost',
