@@ -20,28 +20,21 @@ module.exports = {
       ]
     }
 ],
-  protocol: [
+  specs: [
     {
       'Consensus Protocol': [
-        'protocol/consensus/overview',
-        'protocol/consensus/post-deep',
-        'protocol/consensus/poet',
-        'protocol/consensus/activations',
-        'protocol/consensus/proposals',
-        'protocol/consensus/hare-abstract',
-        'protocol/consensus/tortoise-abstract',
-        'protocol/consensus/weak-coin',
-        'protocol/consensus/random-beacon',
-        'protocol/consensus/rewards-algorithm',
-        'protocol/consensus/block-assembly'],
-      'Node Operation': [
-        'protocol/node_operation/serialization',
-        'protocol/node_operation/startup',
-        'protocol/node_operation/sync',
-        'protocol/node_operation/time',
-        'protocol/node_operation/local-data-model',
-        'protocol/node_operation/blacklisting'],
-    }
+        'specs/consensus/overview',
+        'specs/consensus/post-deep',
+        'specs/consensus/poet',
+        'specs/consensus/activations',
+        'specs/consensus/proposals',
+        'specs/consensus/hare-abstract',
+        'specs/consensus/tortoise-abstract',
+        'specs/consensus/weak-coin',
+        'specs/consensus/random-beacon',
+        'specs/consensus/rewards-algorithm',
+        'specs/consensus/block-assembly'],
+      }
  ],
     start: [
       'start/install',
@@ -69,5 +62,12 @@ module.exports = {
   api: [
     'api/services',
     'api/endpoints'
-  ]
+  ],
+  node: [
+    'node_operation/serialization',
+    'node_operation/startup',
+    'node_operation/sync',
+    'node_operation/time',
+    'node_operation/local-data-model',
+    'node_operation/blacklisting'],
 };

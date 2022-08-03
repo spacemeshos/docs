@@ -67,27 +67,38 @@ const config = {
         items: [
           {
                     type: "docSidebar",
-                    position: "left",
+                      position: 'left',
                     sidebarId: "learn",
                     label: "Introduction",
           },
         {
+          type: 'dropdown',
+          label: 'Documentation',
+          position: 'left',
+          items: [
+        {
                   type: "docSidebar",
-                  position: "left",
-                  sidebarId: "protocol",
-                  label: "Protocol Specs",
+                  sidebarId: "specs",
+                  label: "The Spec",
         },
         {
                   type: "docSidebar",
-                  position: "left",
+                  sidebarId: "node",
+                  label: "Node Operation",
+        },
+
+        {
+                  type: "docSidebar",
                   sidebarId: "api",
                   label: "API",
         },
-        {
+      ],
+    },
+      {
                   type: "docSidebar",
                   position: "left",
                   sidebarId: "ecosystem",
-                  label: "Ecosystem",
+                  label: "Tooling",
         },
         {
                   type: "docSidebar",
