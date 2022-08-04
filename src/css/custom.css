@@ -5,6 +5,55 @@
  */
 
 /* You can override the default Infima variables here. */
+
+/* This CSS resource incorporates links to font software which is the valuable copyrighted property of Monotype and/or its suppliers. You may not attempt to copy, install, redistribute, convert, modify or reverse engineer this font software. Please contact Monotype with any questions regarding Web Fonts: https://www.linotype.com */
+@font-face {
+	font-family: 'Univers LT Std';
+	src: url('/fonts/1475956/5c8d59c2-9c85-4a22-88e3-bf3fba01dcd8.woff2')
+			format('woff2'),
+		url('/fonts/1475956/fc51d03b-0d7d-45df-9415-3c6270c80749.woff')
+			format('woff');
+	font-weight: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Univers LT Std';
+	src: url('/fonts/1475968/8a711a0d-3f17-4bfe-887b-6229858332b3.woff2')
+			format('woff2'),
+		url('/fonts/1475968/05a79c4b-9e9d-46e4-9d4b-610be05371c4.woff')
+			format('woff');
+	font-weight: bold;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Univers LT Std';
+	src: url('/fonts/1476034/215be6ba-8f98-4b15-85a3-7ae5a600566d.woff2')
+			format('woff2'),
+		url('/fonts/1476034/cc5c55d9-a704-4fcb-bebb-cf89ecfbc600.woff')
+			format('woff');
+	font-weight: 800;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Univers LT Std';
+	src: url('/fonts/1476058/00c16471-ed4a-4c2f-b251-37c32e93fc66.woff2')
+			format('woff2'),
+		url('/fonts/1476058/06c0d2ed-14b3-4bec-9445-52bd9b1ddf16.woff')
+			format('woff');
+	font-weight: 900;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Univers LT Std';
+	src: url('/fonts/6479071/fccb03f1-1b0d-4b49-b44f-f66b2cd4b6dc.woff2')
+			format('woff2'),
+		url('/fonts/6479071/be036722-04bf-4866-b4c2-141ab9b2bf90.woff')
+			format('woff');
+	font-weight: 200;
+	font-display: swap;
+}
+
+
 :root {
   --ifm-color-primary: #2e8555;
   --ifm-color-primary-dark: #29784c;
@@ -19,7 +68,7 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary: #3AFFA7;
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
   --ifm-color-primary-darkest: #1a8870;
@@ -27,4 +76,17 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  background-color: #000000;
+}
+
+.navbar {
+  background-color: #000000;
+}
+
+body{
+  font-family: Univers LT Std;
+font-size: 16px;
+line-height: 19px;
+letter-spacing: 0px;
+text-align: left;
 }
