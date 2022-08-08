@@ -51,6 +51,10 @@ padding: 25px 25px 25px 25px;
 margin: 25px 25px 25px 25px;
 }
 
+a:hover{
+  text-decoration: none;
+}
+
 .intro-card-content {
   font-size: 16px;
   font-weight: 400;
