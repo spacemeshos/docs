@@ -31,6 +31,6 @@
 }
 
 .footer{
-  border-top: 1px solid var(--ifm-toc-border-color);
-  background-color: #000000;
+  /* border-top: 1px solid var(--ifm-toc-border-color); */
+  background-color: var(--ifm-navbar-background-color);
 }
