@@ -19,7 +19,7 @@ function HomepageHeader() {
             className="intro-card"
             to="docs/learn/spacemesh/">
             <div class='intro-card-title'>INTRODUCTION</div>
-            <div class='intro-card-content'>Learn the basics about Spacemesh and its technology.</div>
+            <div class='intro-card-content'>Learn the basics about Spacemesh.</div>
           </Link>
 
           <Link
