@@ -39,7 +39,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="intro-card"
-            to="start/smapp/setup/">
+            to="docs/start/smapp/setup/">
             <div class='intro-card-title'>NETWORK</div>
             <div class='intro-card-content'>Join the Spacemesh network as a smesher.</div>
           </Link>
@@ -62,6 +62,7 @@ function HomepageHeader() {
     </header>
   );
 }
+
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
