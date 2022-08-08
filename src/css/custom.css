@@ -30,7 +30,39 @@
   background-color: #000000;
 }
 
-.footer{
+.footer {
   /* border-top: 1px solid var(--ifm-toc-border-color); */
   background-color: var(--ifm-navbar-background-color);
+}
+
+.intro-card {
+border: 1px solid var(--ifm-color-primary);
+border-radius: 20px;
+width: 350px;
+height: 150px;
+color: var(--ifm-font-color-base);
+font-size: 16px;
+font-weight: 400;
+line-height: 19px;
+letter-spacing: 0px;
+text-align: left;
+background-color: #000000;
+padding: 25px 25px 25px 25px;
+margin: 25px 25px 25px 25px;
+}
+
+.intro-card-content {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0px;
+  text-align: left;
+
+}
+
+.intro-card-title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 32px;
+  margin-bottom: 20px;
 }
