@@ -29,3 +29,8 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   background-color: #000000;
 }
+
+.footer{
+  border-top: 1px solid var(--ifm-toc-border-color);
+  background-color: #000000;
+}
