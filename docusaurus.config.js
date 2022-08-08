@@ -83,6 +83,11 @@ const config = {
         },
         {
                   type: "docSidebar",
+                  sidebarId: "vm",
+                  label: "Smart Contracts",
+        },
+        {
+                  type: "docSidebar",
                   sidebarId: "node",
                   label: "Node Operation",
         },

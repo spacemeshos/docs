@@ -21,8 +21,7 @@ module.exports = {
     }
 ],
   specs: [
-    {
-      'Consensus Protocol': [
+
         'specs/consensus/overview',
         'specs/consensus/post-deep',
         'specs/consensus/poet',
@@ -34,9 +33,15 @@ module.exports = {
         'specs/consensus/random-beacon',
         'specs/consensus/rewards-algorithm',
         'specs/consensus/block-assembly'],
-      }
- ],
-    start: [
+  vm:[
+    'specs/smart_contracts/state',
+    'specs/smart_contracts/txs',
+    'specs/smart_contracts/creation',
+    'specs/smart_contracts/built-in',
+    'specs/smart_contracts/model',
+    'specs/smart_contracts/opcodes',
+  ],
+  start: [
       'start/install',
       {
         'Smapp': [
