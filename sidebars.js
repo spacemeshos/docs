@@ -10,7 +10,6 @@ module.exports = {
         'learn/economics'],
       'Protocol 101': [
         'learn/post',
-        'learn/nipost',
         'learn/transactions',
         'learn/hare',
         'learn/tortoise',
