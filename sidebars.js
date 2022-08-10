@@ -20,7 +20,7 @@ module.exports = {
     }
 ],
   specs: [
-
+        'specs/consensus/construction-cons',
         'specs/consensus/overview',
         'specs/consensus/post-deep',
         'specs/consensus/poet',
@@ -33,6 +33,7 @@ module.exports = {
         'specs/consensus/rewards-algorithm',
         'specs/consensus/block-assembly'],
   vm:[
+      'specs/smart_contracts/construction-vm',
     'specs/smart_contracts/state',
     'specs/smart_contracts/txs',
     'specs/smart_contracts/creation',
@@ -57,17 +58,19 @@ module.exports = {
           ]
         }
       ],
-  ecosystem: [
+  ecosystem: [  'ecosystem/construction-eco',
     'ecosystem/smapp',
     'ecosystem/node',
     'ecosystem/poet',
     'ecosystem/dash'
   ],
   api: [
+      'api/construction-api',
     'api/services',
     'api/endpoints'
   ],
   node: [
+      'node_operation/construction-node',
     'node_operation/serialization',
     'node_operation/startup',
     'node_operation/sync',

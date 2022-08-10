@@ -102,3 +102,7 @@ a:hover{
   display: flex;
   flex-direction: column;
 }
+
+.hero__title{
+  margin-top: 30px;
+}
