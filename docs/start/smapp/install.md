@@ -1,4 +1,7 @@
-# Joining the Testnet
+---
+id: install
+title: Install Smapp
+---
 
 To join the Spacemesh 0.2 Tweedledum testnet you need to run the Spacemesh App on your desktop computer.
 
@@ -7,7 +10,7 @@ To join the Spacemesh 0.2 Tweedledum testnet you need to run the Spacemesh App o
 Smapp includes a Spacemesh full p2p node (which we call a Smesher), and a basic Smesh wallet which we call the "Wallet."
 
 ### Smesher
-The Smesher is the software that creates and updates the Spacemesh (SMH) distributed ledger. It also creates and maintains your disk space commitment to the Spacemesh network. The Spacemesh decentralized platform is created by people just like you who run a Smesher on their own desktop computers.
+The Smesher is the software that creates and updates [the Smesh](learn/coin.md) (SMH) distributed ledger. It also creates and maintains your disk space commitment to the Spacemesh network. The Spacemesh decentralized platform is created by people just like you who run a Smesher on their own desktop computers.
 
 Your Smesher participates in the Spacemesh decentralized consensus protocol and is responsible for the block-Smeshing process. Smeshing is the process of submitting blocks with transactions to the Testnet network. You earn Smeshing rewards for submitting blocks with transactions to the Testnet network, according to the rules of the Spacemesh protocol.
 
@@ -27,7 +30,7 @@ Follow the instructions on this page to download, install and run the App.
 
 ## Step 1 - Downloading the Installer
 
-> Before installing, please confirm that your computer meets the minimum system requirements.
+> Before installing, please confirm that your computer meets the [minimum system requirements](requirements.md).
 
 Next, download the App Installer for your OS by visiting our [main website](https://spacemesh.io/start).
 
@@ -37,7 +40,6 @@ Next, download the App Installer for your OS by visiting our [main website](http
 
 > All software released by Spacemesh is 100% open source. The App Installer you are downloading was packaged from code in the [Spacemesh Open Source software repositories](https://github.com/spacemeshos) available on Github. We provide the Installer to make it convenient for non-developers to join the Spacemesh testnet.
 
-> Follow  if you'd like to verify that the Installer you have downloaded is authentic and has not been modified by a third party.
 
 ## Step 2 - Installing the App
 

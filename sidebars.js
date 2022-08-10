@@ -42,9 +42,10 @@ module.exports = {
     'specs/smart_contracts/opcodes',
   ],
   start: [
-      'start/install',
+     'start/start',
       {
         'Smapp': [
+          'start/smapp/install',
           'start/smapp/requirements',
           'start/smapp/setup',
           'start/smapp/smeshing',

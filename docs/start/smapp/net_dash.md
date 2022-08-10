@@ -3,13 +3,13 @@ id: net-dash
 title: Network and Dashboard
 ---
 
-
 Smapp 0.2 now has the Network and Dashboard screens, which allow you to check the status of your node and the network at large.
 
 # Network Screen
 
 The Network screen allows you to check the status of your node. Here you will find the name of the network, its age, your syncing status, layer information, your connection type, and the number of peers you're connected to.  
 
+![](./../../../static/img/v1.0/network_screen.png)
 
 ## Accessing your logs
 
@@ -18,3 +18,5 @@ Your Smapp logs are useful for debugging, and the team may ask you to share them
 # Dashboard
 
 The Dashboard screen gives you live information about the network at large.
+
+![](./../../../static/img/v1.0/dash.png)
