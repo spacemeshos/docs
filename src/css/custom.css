@@ -51,6 +51,27 @@ padding: 25px 25px 25px 25px;
 margin: 25px 25px 25px 25px;
 }
 
+.intro-card-inactive{
+  border: 1px solid #979797;
+  border-radius: 20px;
+  width: 350px;
+  height: 150px;
+  color: #979797;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0px;
+  text-align: left;
+  background-color: #000000;
+  padding: 25px 25px 25px 25px;
+  margin: 25px 25px 25px 25px;
+  cursor: not-allowed;
+}
+
+.intro-card-inactive:hover{
+  color: #979797;
+}
+
 a:hover{
   text-decoration: none;
 }
