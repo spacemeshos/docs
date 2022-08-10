@@ -12,9 +12,7 @@ export default function Devzone() {
           height: '50vh',
           fontSize: '20px',
         }}>
-        <p>
-          The Dev Zone will go here.
-        </p>
+    <h1>UNDER CONSTRUCTION</h1>
       </div>
     </Layout>
   );

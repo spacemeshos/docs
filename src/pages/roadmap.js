@@ -12,9 +12,7 @@ export default function Roadmap() {
           height: '50vh',
           fontSize: '20px',
         }}>
-        <p>
-          The Roadmap will go here.
-        </p>
+      <h1>UNDER CONSTRUCTION</h1>
       </div>
     </Layout>
   );
