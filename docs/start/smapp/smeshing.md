@@ -35,7 +35,7 @@ Also we have a checkbox available that allows us to pause the PoS creation when 
 
 ![](./../../../static/img/v1.0/POS_setup_4_light.png)
 
-Before create the data the Smapp will show us a summary with the creation options selected. If all is correct the we can click **CREATE DATA**, if not we can click **** and go back to change it
+Before create the data the Smapp will show us a summary with the creation options selected. If all is correct the we can click **CREATE DATA**, if not we can click **<** and go back to change it
 
 ![](./../../../static/img/v1.0/POS_setup_5_light.png)
 
