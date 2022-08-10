@@ -49,6 +49,11 @@ text-align: left;
 background-color: #000000;
 padding: 25px 25px 25px 25px;
 margin: 25px 25px 25px 25px;
+text-overflow: ellipsis;
+}
+
+.buttons_AeoN{
+  flex-flow: wrap;
 }
 
 .intro-card-inactive{
@@ -90,4 +95,10 @@ a:hover{
   font-weight: 700;
   line-height: 32px;
   margin-bottom: 20px;
+}
+
+.landing-container{
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
 }

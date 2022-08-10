@@ -11,7 +11,7 @@ function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <header>
-      <div className="container">
+      <div className="container landing-container">
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
@@ -40,8 +40,8 @@ function HomepageHeader() {
           <Link
             className="intro-card"
             to="docs/start/smapp/setup/">
-            <div class='intro-card-title'>NETWORK</div>
-            <div class='intro-card-content'>Join the Spacemesh network as a smesher.</div>
+            <div class='intro-card-title'>GET STARTED</div>
+            <div class='intro-card-content'>Join the Spacsemesh network as a smesher.</div>
           </Link>
 
           <Link
