@@ -20,6 +20,12 @@ function HomepageHeader() {
             <div class='intro-card-title'>INTRODUCTION</div>
             <div class='intro-card-content'>Learn the basics about Spacemesh.</div>
           </Link>
+          <Link
+            className="intro-card"
+            to="docs/start/">
+            <div class='intro-card-title'>GET STARTED</div>
+            <div class='intro-card-content'>Join the Spacsemesh network as a smesher.</div>
+          </Link>
 
           <Link
             className="intro-card-inactive"
@@ -28,21 +34,15 @@ function HomepageHeader() {
             <div class='intro-card-content'>This section is currently under construction.</div>
           </Link>
 
-          <Link
-            className="intro-card-inactive"
-            to="docs/ecosystem/construction-eco/">
-            <div class='intro-card-title'>TOOLING</div>
-            <div class='intro-card-content'>This section is currently under construction.</div>
-          </Link>
+
         </div>
         <div className={styles.buttons}>
-          <Link
-            className="intro-card"
-            to="docs/start/">
-            <div class='intro-card-title'>GET STARTED</div>
-            <div class='intro-card-content'>Join the Spacsemesh network as a smesher.</div>
-          </Link>
-
+        <Link
+          className="intro-card-inactive"
+          to="docs/ecosystem/construction-eco/">
+          <div class='intro-card-title'>TOOLING</div>
+          <div class='intro-card-content'>This section is currently under construction.</div>
+        </Link>
           <Link
             className="intro-card-inactive"
             to="roadmap">

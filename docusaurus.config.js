@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Spacemesh documentation',
+  title: 'Spacemesh Documentation',
   tagline: 'All the docs are belong to you',
   url: 'https://spacemeshos.github.io',
   baseUrl: '/docs/',
@@ -67,7 +67,7 @@ const config = {
     disableSwitch: true,
     respectPrefersColorScheme: false,  },
       navbar: {
-        title: 'Documentation Demo',
+        title: '',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.png',
@@ -78,6 +78,12 @@ const config = {
                       position: 'left',
                     sidebarId: "learn",
                     label: "Introduction",
+          },
+          {
+                    type: "docSidebar",
+                    position: "left",
+                    sidebarId: "start",
+                    label: "Join the Network",
           },
         {
           type: 'dropdown',
@@ -114,21 +120,21 @@ const config = {
                   label: "Tooling",
         },
         {
-                  type: "docSidebar",
-                  position: "left",
-                  sidebarId: "start",
-                  label: "Join the Network",
+          type: 'dropdown',
+              label: 'More',
+              position: 'left',
+              items: [      {
+                             to: 'roadmap',
+                             label: 'Roadmap',
+
+                       },
+                     {
+                              to: 'devzone',
+                              label: 'Dev Zone',
+                          
+                              }]
+
         },
-        {
-                 to: 'roadmap',
-                 label: 'Roadmap',
-                 position: 'left'
-           },
-         {
-                  to: 'devzone',
-                  label: 'Dev Zone',
-                  position: 'left'
-                  }
         ],
       },
       footer: {
