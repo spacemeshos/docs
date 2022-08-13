@@ -8,8 +8,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Spacemesh Documentation',
   tagline: 'All the docs are belong to you',
-  url: 'https://spacemeshos.github.io',
-  baseUrl: '/docs/',
+  url: 'https://platform.spacemesh.io',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.png',
@@ -131,7 +131,7 @@ const config = {
                      {
                               to: 'devzone',
                               label: 'Dev Zone',
-                          
+
                               }]
 
         },
