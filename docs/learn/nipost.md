@@ -1,4 +1,0 @@
----
-id: nipost
-title: NiPoST
----
