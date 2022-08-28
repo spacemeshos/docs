@@ -24,7 +24,7 @@ function HomepageHeader() {
             className="intro-card"
             to="docs/start/">
             <div class='intro-card-title'>GET STARTED</div>
-            <div class='intro-card-content'>Join the Spacsemesh network as a smesher.</div>
+            <div class='intro-card-content'>Join the Spacsemesh testnet network as a smesher.</div>
           </Link>
 
           <Link

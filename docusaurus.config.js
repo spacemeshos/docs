@@ -144,7 +144,7 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Community Website',
+                label: 'Website',
                 href: 'https://spacemesh.io',
               },
               {
@@ -158,20 +158,34 @@ const config = {
             ],
           },
           {
-            title: 'More',
+            title: 'Resources',
             items: [
-              {
-                label: 'Blog',
-                to: 'https://spacemesh.io/blog',
-              },
               {
                 label: 'GitHub',
                 href: 'https://github.com/spacemeshos/',
               },
+              {
+                label: 'FAQ',
+                href: 'https://spacemesh.io/resources',
+              },
             ],
           },
+          {
+            title: 'Network',
+            items: [
+              {
+                label: 'Dashboard',
+                to: 'https://dash.spacemesh.io',
+              },
+              {
+                label: 'Explorer',
+                href: 'https://explorer.spacemesh.io',
+              },
+            ],
+          },
+
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Spacemesh.`,
       },
       prism: {
         theme: lightCodeTheme,
