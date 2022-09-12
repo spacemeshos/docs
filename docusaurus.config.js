@@ -66,6 +66,19 @@ const config = {
     defaultMode: 'dark',
     disableSwitch: true,
     respectPrefersColorScheme: false,  },
+    algolia: {
+      appId: 'OGGMN1SAN3',
+     apiKey: '7cf0a65815dd21a51b77d6d52b9b5e0f',
+     indexName: 'spacemesh',
+
+     // Optional: see doc section bellow
+     contextualSearch: true,
+
+     // Optional: Algolia search parameters
+     searchParameters: {},
+
+     //... other Algolia params
+   },
       navbar: {
         title: '',
         logo: {
