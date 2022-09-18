@@ -5,13 +5,13 @@ title: Smeshing
 
 Smeshing is the process of submitting blocks with transactions to the Testnet network according to the Spacemesh protocol. Before you can Smesh blocks, you need to commit free storage on your computer hard drive to Spacemesh
 
-# Running a local node
+## Running a local node
 
 In order to start smeshing you have to run a full Spacemesh p2p node. When running the Smapp for the first time you will be prompted to set up a node. Click **WALLET + NODE**
 
 ![](./../../../static/img/v1.0/new_wallet.png)
 
-# Setting up PoS from Smeshing Screen
+## Setting up PoS from Smeshing Screen
 
 If you started Smapp in wallet-only mode, and you want to start smeshing, you need to set up Proof of Space.
 
@@ -48,7 +48,7 @@ Click **GOT IT** to finish the set up
 ![](./../../../static/img/v1.0/POS_setup_done.png)
 
 
-# Viewing smeshing status
+## Viewing smeshing status
 
 All the information related to the smeshing process is under the menu **SMESHING**
 
@@ -58,7 +58,7 @@ There, we can view the node ID, the space allocated as a Proof of Space and the 
 
 ![](./../../../static/img/v1.0/smesher_status.png)
 
-# Changing smeshing setup
+## Changing smeshing setup
 
 If we want to change the configuration of the node we have to click on **EDIT**
 
@@ -66,11 +66,11 @@ Now you can **Change the PoS data** or **Stop smeshing and delete PoS data**. Yo
 
 ![](./../../../static/img/v1.0/POS_change.png)
 
-## Modifying PoS data
+### Modifying PoS data
 
 This process is the same as initial configuration.
 
-## Stop smeshing
+### Stop smeshing
 
 If you want to stop smeshing and delete PoS data click on **DELETE DATA**
 
@@ -80,7 +80,7 @@ In order to smeshing again you will have to setup the proof of space again
 
 ![](./../../../static/img/v1.0/POS_smesher_setup.png)
 
-# Viewing your smeshing rewards
+## Viewing your smeshing rewards
 
 To view the smeshing rewards you have received you have to go to the Menu **WALLET**
 

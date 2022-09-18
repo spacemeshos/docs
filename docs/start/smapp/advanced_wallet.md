@@ -2,7 +2,7 @@
 id: advanced-wallet
 title: Advanced Wallet Features
 ---
-# Backing up
+## Backing up
 
 There are 3 options to get to Wallet Backup Screen:
 
@@ -65,7 +65,7 @@ If you’ve placed the words in the right order than you’ll see this message
 
 Now you can return to main screen by click **DONE** or arrow back (**) button.
 
-# Rename wallet
+## Rename wallet
 
 Go to Settings Screen
 
@@ -84,7 +84,7 @@ If you clicked **SAVE** button you will see the renamed name like this
 ![](./../../../static/img/v1.0/renamed_wallet_complete.png)
 
 
-# Change wallet password
+## Change wallet password
 
 Go to Setting Screen
 
@@ -103,7 +103,7 @@ The screen will look as before clicking **CHANGE**
 
 If you clicked **SAVE** than wallet password will be updated!
 
-# Restoring a wallet
+## Restoring a wallet
 
 There are 3 options to restore wallet:
 
@@ -164,7 +164,7 @@ If you’ve typed correct words in correct order than you’ll get to Protect Wa
 
 ![](./../../../static/img/v1.0/protect_wallet.png)
 
-# Adding an account
+## Adding an account
 
 Go to Settings Screen
 
@@ -178,7 +178,7 @@ You’ll see **ADD ACCOUNT** button. Click it and you’ll see popup asking to e
 
 After entering correct password the popup will disappear and you will see new account below existing accounts. Default name for created account is “Account **number**”
 
-# Renaming an account
+## Renaming an account
 
 Go to Settings Screen
 
@@ -202,7 +202,7 @@ After entering correct password and clicking **UNLOCK** button in the popup, it 
 
 ![](./../../../static/img/v1.0/renamed_wallet_complete.png)
 
-# Signing text
+## Signing text
 
 `SIGN TEXT` allows you to sign a text message such as your full name or email address.
 Signing is done with your account's secret key and requires access to it.
@@ -229,7 +229,7 @@ The signature text is copied to the clipboard and can be sent to anyone.
 
 4. Create an email or type a text message to the person you want to share the signature with and paste the signature copied to the clipboard in step 3.
 
-# Creating contacts
+## Creating contacts
 
 There are _2_ options to create contact.
 
@@ -276,7 +276,7 @@ After entering the correct password and clicking **UNLOCK** button, the popup wi
 
 ![](./../../../static/img/v1.0/create_contact_from_tx_3.png)
 
-# Using existing contacts
+## Using existing contacts
 
 Go to **CONTACTS** tab.
 

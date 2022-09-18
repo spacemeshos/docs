@@ -7,7 +7,7 @@ The Spacemesh App includes a Wallet for managing your Smesh.
 
 Follow the instructions on this page to learn how to use your wallet.
 
-# Accessing your Wallet
+## Accessing your Wallet
 
 A new Wallet is created when you open the Spacemesh App for the first time.
 
@@ -26,7 +26,7 @@ The Wallet data is loaded from the wallet file to the App and is decrypted using
 > **IMPORTANT: you will lose access to your wallet if you forget your password.** For this reason, we recommend that you create a `12-word backup` as soon as possible. See how to back up your wallet in the [advanced wallet guide](advanced_wallet.md).
 
 
-# Checking your Smesh Balance
+## Checking your Smesh Balance
 
 After unlocking your Wallet, you should see the following screen:
 
@@ -44,7 +44,7 @@ Your account balance is displayed at the bottom left side of the screen. SMH is 
 
 You can copy your account's public address to your computer's clipboard by clicking on the copy icon on the right side of the displayed  account number. This is useful if you want to receive SMH from another account holder. In this case, you just need to send the copied full account address to that person via any digital means, such as a text message or email.
 
-# Viewing Transactions and Rewards
+## Viewing Transactions and Rewards
 
 Click the `ALL TRANSACTIONS` button to access your wallet transactions log screen.
 
@@ -62,7 +62,7 @@ Click on a transaction to view its details.
 
 ![](./../../../static/img/v1.0/tx_log_details.png)
 
-# Sending Smidge
+## Sending Smidge
 
 1. Navigate to the Wallet screen by clicking `WALLET` in the top-left side of the screen.
 
@@ -98,7 +98,7 @@ You should now see this screen:
 
 Congratulations! You have just sent your first SMH!
 
-# Tracking your Transaction
+## Tracking your Transaction
 
 Your recent transactions are displayed in the `Transactions` area of your Wallet Screen:
 
@@ -113,7 +113,7 @@ Your recent transactions are displayed in the `Transactions` area of your Wallet
 Notice the transaction status. A new transaction you just executed will be in the `PENDING` state and should move to `CONFIRMED` state once it has been added to the Spacemesh ledger.
 
 
-# Getting Smesh from another account
+## Getting Smesh from another account
 
 ### About Accounts and Addresses
 By default, your Spacemesh Wallet has one main account. That account has one public address you can share with anyone in order to receive Smesh.
@@ -133,7 +133,7 @@ You should see this screen:
 4. Ask that person to send SMH to this address using his or her Spacemesh wallet.
 
 
-# Locking Access to your Wallet
+## Locking Access to your Wallet
 
 > When you are done using your wallet in the App, you should log out from it to prevent other people with direct access to your computer from viewing your SMH balance, from performing transactions and from viewing your transaction history.
 
