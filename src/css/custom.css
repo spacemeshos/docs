@@ -107,3 +107,7 @@ a:hover{
   margin-top: 60px;
   margin-bottom: 25px;
 }
+
+.theme-edit-this-page{
+  display:none;
+}
