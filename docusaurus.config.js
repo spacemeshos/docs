@@ -74,8 +74,6 @@ const config = {
 
      // Optional: Algolia search parameters
      searchParameters: {},
-
-     //... other Algolia params
    },
       navbar: {
         title: '',
