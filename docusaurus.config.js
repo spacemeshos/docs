@@ -71,7 +71,7 @@ const config = {
         indexName: 'spacemesh_docs',
 
         // Optional: see doc section bellow
-        contextualSearch: true,
+        contextualSearch: false,
 
         // Optional: Algolia search parameters
         //searchParameters: {},
