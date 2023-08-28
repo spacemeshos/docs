@@ -83,68 +83,13 @@ const config = {
           src: 'img/logo.png',
         },
         items: [
-          {
-                    type: "docSidebar",
-                      position: 'left',
-                    sidebarId: "learn",
-                    label: "Introduction",
-          },
+
           {
                     type: "docSidebar",
                     position: "left",
                     sidebarId: "start",
-                    label: "Join the Network",
+                    label: "Hands-On Guides",
           },
-        {
-          type: 'dropdown',
-          label: 'Documentation',
-          position: 'left',
-          items: [
-        {
-                  type: "docSidebar",
-                  sidebarId: "specs",
-                  label: "The Spec",
-        },
-        {
-                  type: "docSidebar",
-                  sidebarId: "vm",
-                  label: "Smart Contracts",
-        },
-        {
-                  type: "docSidebar",
-                  sidebarId: "node",
-                  label: "Node Operation",
-        },
-
-        {
-                  type: "docSidebar",
-                  sidebarId: "api",
-                  label: "API",
-        },
-      ],
-    },
-      {
-                  type: "docSidebar",
-                  position: "left",
-                  sidebarId: "ecosystem",
-                  label: "Tooling",
-        },
-        {
-          type: 'dropdown',
-              label: 'More',
-              position: 'left',
-              items: [      {
-                             to: 'roadmap',
-                             label: 'Roadmap',
-
-                       },
-                     {
-                              to: 'devzone',
-                              label: 'Dev Zone',
-
-                              }]
-
-        },
         ],
       },
       footer: {
