@@ -1191,83 +1191,6 @@
     "@docsearch/css" "3.1.1"
     algoliasearch "^4.0.0"
 
-"@docusaurus/core@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@docusaurus/core/-/core-2.1.0.tgz"
-  integrity sha512-/ZJ6xmm+VB9Izbn0/s6h6289cbPy2k4iYFwWDhjiLsVqwa/Y0YBBcXvStfaHccudUC3OfP+26hMk7UCjc50J6Q==
-  dependencies:
-    "@babel/core" "^7.18.6"
-    "@babel/generator" "^7.18.7"
-    "@babel/plugin-syntax-dynamic-import" "^7.8.3"
-    "@babel/plugin-transform-runtime" "^7.18.6"
-    "@babel/preset-env" "^7.18.6"
-    "@babel/preset-react" "^7.18.6"
-    "@babel/preset-typescript" "^7.18.6"
-    "@babel/runtime" "^7.18.6"
-    "@babel/runtime-corejs3" "^7.18.6"
-    "@babel/traverse" "^7.18.8"
-    "@docusaurus/cssnano-preset" "2.1.0"
-    "@docusaurus/logger" "2.1.0"
-    "@docusaurus/mdx-loader" "2.1.0"
-    "@docusaurus/react-loadable" "5.5.2"
-    "@docusaurus/utils" "2.1.0"
-    "@docusaurus/utils-common" "2.1.0"
-    "@docusaurus/utils-validation" "2.1.0"
-    "@slorber/static-site-generator-webpack-plugin" "^4.0.7"
-    "@svgr/webpack" "^6.2.1"
-    autoprefixer "^10.4.7"
-    babel-loader "^8.2.5"
-    babel-plugin-dynamic-import-node "^2.3.3"
-    boxen "^6.2.1"
-    chalk "^4.1.2"
-    chokidar "^3.5.3"
-    clean-css "^5.3.0"
-    cli-table3 "^0.6.2"
-    combine-promises "^1.1.0"
-    commander "^5.1.0"
-    copy-webpack-plugin "^11.0.0"
-    core-js "^3.23.3"
-    css-loader "^6.7.1"
-    css-minimizer-webpack-plugin "^4.0.0"
-    cssnano "^5.1.12"
-    del "^6.1.1"
-    detect-port "^1.3.0"
-    escape-html "^1.0.3"
-    eta "^1.12.3"
-    file-loader "^6.2.0"
-    fs-extra "^10.1.0"
-    html-minifier-terser "^6.1.0"
-    html-tags "^3.2.0"
-    html-webpack-plugin "^5.5.0"
-    import-fresh "^3.3.0"
-    leven "^3.1.0"
-    lodash "^4.17.21"
-    mini-css-extract-plugin "^2.6.1"
-    postcss "^8.4.14"
-    postcss-loader "^7.0.0"
-    prompts "^2.4.2"
-    react-dev-utils "^12.0.1"
-    react-helmet-async "^1.3.0"
-    react-loadable "npm:@docusaurus/react-loadable@5.5.2"
-    react-loadable-ssr-addon-v5-slorber "^1.0.1"
-    react-router "^5.3.3"
-    react-router-config "^5.1.1"
-    react-router-dom "^5.3.3"
-    rtl-detect "^1.0.4"
-    semver "^7.3.7"
-    serve-handler "^6.1.3"
-    shelljs "^0.8.5"
-    terser-webpack-plugin "^5.3.3"
-    tslib "^2.4.0"
-    update-notifier "^5.1.0"
-    url-loader "^4.1.1"
-    wait-on "^6.0.1"
-    webpack "^5.73.0"
-    webpack-bundle-analyzer "^4.5.0"
-    webpack-dev-server "^4.9.3"
-    webpack-merge "^5.8.0"
-    webpackbar "^5.0.2"
-
 "@docusaurus/core@2.4.1", "@docusaurus/core@^2.4.1":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@docusaurus/core/-/core-2.4.1.tgz#4b8ff5766131ce3fbccaad0b1daf2ad4dc76f62d"
@@ -1345,16 +1268,6 @@
     webpack-merge "^5.8.0"
     webpackbar "^5.0.2"
 
-"@docusaurus/cssnano-preset@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@docusaurus/cssnano-preset/-/cssnano-preset-2.1.0.tgz"
-  integrity sha512-pRLewcgGhOies6pzsUROfmPStDRdFw+FgV5sMtLr5+4Luv2rty5+b/eSIMMetqUsmg3A9r9bcxHk9bKAKvx3zQ==
-  dependencies:
-    cssnano-preset-advanced "^5.3.8"
-    postcss "^8.4.14"
-    postcss-sort-media-queries "^4.2.1"
-    tslib "^2.4.0"
-
 "@docusaurus/cssnano-preset@2.4.1":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@docusaurus/cssnano-preset/-/cssnano-preset-2.4.1.tgz#eacadefb1e2e0f59df3467a0fe83e4ff79eed163"
@@ -1365,14 +1278,6 @@
     postcss-sort-media-queries "^4.2.1"
     tslib "^2.4.0"
 
-"@docusaurus/logger@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@docusaurus/logger/-/logger-2.1.0.tgz"
-  integrity sha512-uuJx2T6hDBg82joFeyobywPjSOIfeq05GfyKGHThVoXuXsu1KAzMDYcjoDxarb9CoHCI/Dor8R2MoL6zII8x1Q==
-  dependencies:
-    chalk "^4.1.2"
-    tslib "^2.4.0"
-
 "@docusaurus/logger@2.4.1":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@docusaurus/logger/-/logger-2.4.1.tgz#4d2c0626b40752641f9fdd93ad9b5a7a0792f767"
@@ -1380,29 +1285,6 @@
   dependencies:
     chalk "^4.1.2"
     tslib "^2.4.0"
-
-"@docusaurus/mdx-loader@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@docusaurus/mdx-loader/-/mdx-loader-2.1.0.tgz"
-  integrity sha512-i97hi7hbQjsD3/8OSFhLy7dbKGH8ryjEzOfyhQIn2CFBYOY3ko0vMVEf3IY9nD3Ld7amYzsZ8153RPkcnXA+Lg==
-  dependencies:
-    "@babel/parser" "^7.18.8"
-    "@babel/traverse" "^7.18.8"
-    "@docusaurus/logger" "2.1.0"
-    "@docusaurus/utils" "2.1.0"
-    "@mdx-js/mdx" "^1.6.22"
-    escape-html "^1.0.3"
-    file-loader "^6.2.0"
-    fs-extra "^10.1.0"
-    image-size "^1.0.1"
-    mdast-util-to-string "^2.0.0"
-    remark-emoji "^2.2.0"
-    stringify-object "^3.3.0"
-    tslib "^2.4.0"
-    unified "^9.2.2"
-    unist-util-visit "^2.0.3"
-    url-loader "^4.1.1"
-    webpack "^5.73.0"
 
 "@docusaurus/mdx-loader@2.4.1":
   version "2.4.1"
@@ -1441,20 +1323,6 @@
     react-helmet-async "*"
     react-loadable "npm:@docusaurus/react-loadable@5.5.2"
 
-"@docusaurus/module-type-aliases@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@docusaurus/module-type-aliases/-/module-type-aliases-2.1.0.tgz"
-  integrity sha512-Z8WZaK5cis3xEtyfOT817u9xgGUauT0PuuVo85ysnFRX8n7qLN1lTPCkC+aCmFm/UcV8h/W5T4NtIsst94UntQ==
-  dependencies:
-    "@docusaurus/react-loadable" "5.5.2"
-    "@docusaurus/types" "2.1.0"
-    "@types/history" "^4.7.11"
-    "@types/react" "*"
-    "@types/react-router-config" "*"
-    "@types/react-router-dom" "*"
-    react-helmet-async "*"
-    react-loadable "npm:@docusaurus/react-loadable@5.5.2"
-
 "@docusaurus/module-type-aliases@2.4.1":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@docusaurus/module-type-aliases/-/module-type-aliases-2.4.1.tgz#38b3c2d2ae44bea6d57506eccd84280216f0171c"
@@ -1468,28 +1336,6 @@
     "@types/react-router-dom" "*"
     react-helmet-async "*"
     react-loadable "npm:@docusaurus/react-loadable@5.5.2"
-
-"@docusaurus/plugin-content-blog@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@docusaurus/plugin-content-blog/-/plugin-content-blog-2.1.0.tgz"
-  integrity sha512-xEp6jlu92HMNUmyRBEeJ4mCW1s77aAEQO4Keez94cUY/Ap7G/r0Awa6xSLff7HL0Fjg8KK1bEbDy7q9voIavdg==
-  dependencies:
-    "@docusaurus/core" "2.1.0"
-    "@docusaurus/logger" "2.1.0"
-    "@docusaurus/mdx-loader" "2.1.0"
-    "@docusaurus/types" "2.1.0"
-    "@docusaurus/utils" "2.1.0"
-    "@docusaurus/utils-common" "2.1.0"
-    "@docusaurus/utils-validation" "2.1.0"
-    cheerio "^1.0.0-rc.12"
-    feed "^4.2.2"
-    fs-extra "^10.1.0"
-    lodash "^4.17.21"
-    reading-time "^1.5.0"
-    tslib "^2.4.0"
-    unist-util-visit "^2.0.3"
-    utility-types "^3.10.0"
-    webpack "^5.73.0"
 
 "@docusaurus/plugin-content-blog@2.4.1":
   version "2.4.1"
@@ -1513,28 +1359,6 @@
     utility-types "^3.10.0"
     webpack "^5.73.0"
 
-"@docusaurus/plugin-content-docs@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@docusaurus/plugin-content-docs/-/plugin-content-docs-2.1.0.tgz"
-  integrity sha512-Rup5pqXrXlKGIC4VgwvioIhGWF7E/NNSlxv+JAxRYpik8VKlWsk9ysrdHIlpX+KJUCO9irnY21kQh2814mlp/Q==
-  dependencies:
-    "@docusaurus/core" "2.1.0"
-    "@docusaurus/logger" "2.1.0"
-    "@docusaurus/mdx-loader" "2.1.0"
-    "@docusaurus/module-type-aliases" "2.1.0"
-    "@docusaurus/types" "2.1.0"
-    "@docusaurus/utils" "2.1.0"
-    "@docusaurus/utils-validation" "2.1.0"
-    "@types/react-router-config" "^5.0.6"
-    combine-promises "^1.1.0"
-    fs-extra "^10.1.0"
-    import-fresh "^3.3.0"
-    js-yaml "^4.1.0"
-    lodash "^4.17.21"
-    tslib "^2.4.0"
-    utility-types "^3.10.0"
-    webpack "^5.73.0"
-
 "@docusaurus/plugin-content-docs@2.4.1":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@docusaurus/plugin-content-docs/-/plugin-content-docs-2.4.1.tgz#ed94d9721b5ce7a956fb01cc06c40d8eee8dfca7"
@@ -1555,20 +1379,6 @@
     lodash "^4.17.21"
     tslib "^2.4.0"
     utility-types "^3.10.0"
-    webpack "^5.73.0"
-
-"@docusaurus/plugin-content-pages@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@docusaurus/plugin-content-pages/-/plugin-content-pages-2.1.0.tgz"
-  integrity sha512-SwZdDZRlObHNKXTnFo7W2aF6U5ZqNVI55Nw2GCBryL7oKQSLeI0lsrMlMXdzn+fS7OuBTd3MJBO1T4Zpz0i/+g==
-  dependencies:
-    "@docusaurus/core" "2.1.0"
-    "@docusaurus/mdx-loader" "2.1.0"
-    "@docusaurus/types" "2.1.0"
-    "@docusaurus/utils" "2.1.0"
-    "@docusaurus/utils-validation" "2.1.0"
-    fs-extra "^10.1.0"
-    tslib "^2.4.0"
     webpack "^5.73.0"
 
 "@docusaurus/plugin-content-pages@2.4.1":
@@ -1700,26 +1510,6 @@
     tslib "^2.4.0"
     utility-types "^3.10.0"
 
-"@docusaurus/theme-common@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@docusaurus/theme-common/-/theme-common-2.1.0.tgz"
-  integrity sha512-vT1otpVPbKux90YpZUnvknsn5zvpLf+AW1W0EDcpE9up4cDrPqfsh0QoxGHFJnobE2/qftsBFC19BneN4BH8Ag==
-  dependencies:
-    "@docusaurus/mdx-loader" "2.1.0"
-    "@docusaurus/module-type-aliases" "2.1.0"
-    "@docusaurus/plugin-content-blog" "2.1.0"
-    "@docusaurus/plugin-content-docs" "2.1.0"
-    "@docusaurus/plugin-content-pages" "2.1.0"
-    "@docusaurus/utils" "2.1.0"
-    "@types/history" "^4.7.11"
-    "@types/react" "*"
-    "@types/react-router-config" "*"
-    clsx "^1.2.1"
-    parse-numeric-range "^1.3.0"
-    prism-react-renderer "^1.3.5"
-    tslib "^2.4.0"
-    utility-types "^3.10.0"
-
 "@docusaurus/theme-common@2.4.1":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@docusaurus/theme-common/-/theme-common-2.4.1.tgz#03e16f7aa96455e952f3243ac99757b01a3c83d4"
@@ -1742,7 +1532,7 @@
     use-sync-external-store "^1.2.0"
     utility-types "^3.10.0"
 
-"@docusaurus/theme-search-algolia@2.4.1":
+"@docusaurus/theme-search-algolia@2.4.1", "@docusaurus/theme-search-algolia@^2.1.0":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@docusaurus/theme-search-algolia/-/theme-search-algolia-2.4.1.tgz#906bd2cca3fced0241985ef502c892f58ff380fc"
   integrity sha512-6BcqW2lnLhZCXuMAvPRezFs1DpmEKzXFKlYjruuas+Xy3AQeFzDJKTJFIm49N77WFCTyxff8d3E4Q9pi/+5McQ==
@@ -1764,36 +1554,6 @@
     tslib "^2.4.0"
     utility-types "^3.10.0"
 
-"@docusaurus/theme-search-algolia@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@docusaurus/theme-search-algolia/-/theme-search-algolia-2.1.0.tgz"
-  integrity sha512-rNBvi35VvENhucslEeVPOtbAzBdZY/9j55gdsweGV5bYoAXy4mHB6zTGjealcB4pJ6lJY4a5g75fXXMOlUqPfg==
-  dependencies:
-    "@docsearch/react" "^3.1.1"
-    "@docusaurus/core" "2.1.0"
-    "@docusaurus/logger" "2.1.0"
-    "@docusaurus/plugin-content-docs" "2.1.0"
-    "@docusaurus/theme-common" "2.1.0"
-    "@docusaurus/theme-translations" "2.1.0"
-    "@docusaurus/utils" "2.1.0"
-    "@docusaurus/utils-validation" "2.1.0"
-    algoliasearch "^4.13.1"
-    algoliasearch-helper "^3.10.0"
-    clsx "^1.2.1"
-    eta "^1.12.3"
-    fs-extra "^10.1.0"
-    lodash "^4.17.21"
-    tslib "^2.4.0"
-    utility-types "^3.10.0"
-
-"@docusaurus/theme-translations@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@docusaurus/theme-translations/-/theme-translations-2.1.0.tgz"
-  integrity sha512-07n2akf2nqWvtJeMy3A+7oSGMuu5F673AovXVwY0aGAux1afzGCiqIFlYW3EP0CujvDJAEFSQi/Tetfh+95JNg==
-  dependencies:
-    fs-extra "^10.1.0"
-    tslib "^2.4.0"
-
 "@docusaurus/theme-translations@2.4.1":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@docusaurus/theme-translations/-/theme-translations-2.4.1.tgz#4d49df5865dae9ef4b98a19284ede62ae6f98726"
@@ -1806,20 +1566,6 @@
   version "2.0.0-rc.1"
   resolved "https://registry.npmjs.org/@docusaurus/types/-/types-2.0.0-rc.1.tgz"
   integrity sha512-wX25FOZa/aKnCGA5ljWPaDpMW3TuTbs0BtjQ8WTC557p8zDvuz4r+g2/FPHsgWE0TKwUMf4usQU1m3XpJLPN+g==
-  dependencies:
-    "@types/history" "^4.7.11"
-    "@types/react" "*"
-    commander "^5.1.0"
-    joi "^17.6.0"
-    react-helmet-async "^1.3.0"
-    utility-types "^3.10.0"
-    webpack "^5.73.0"
-    webpack-merge "^5.8.0"
-
-"@docusaurus/types@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@docusaurus/types/-/types-2.1.0.tgz"
-  integrity sha512-BS1ebpJZnGG6esKqsjtEC9U9qSaPylPwlO7cQ1GaIE7J/kMZI3FITnNn0otXXu7c7ZTqhb6+8dOrG6fZn6fqzQ==
   dependencies:
     "@types/history" "^4.7.11"
     "@types/react" "*"
@@ -1844,29 +1590,11 @@
     webpack "^5.73.0"
     webpack-merge "^5.8.0"
 
-"@docusaurus/utils-common@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@docusaurus/utils-common/-/utils-common-2.1.0.tgz"
-  integrity sha512-F2vgmt4yRFgRQR2vyEFGTWeyAdmgKbtmu3sjHObF0tjjx/pN0Iw/c6eCopaH34E6tc9nO0nvp01pwW+/86d1fg==
-  dependencies:
-    tslib "^2.4.0"
-
 "@docusaurus/utils-common@2.4.1":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@docusaurus/utils-common/-/utils-common-2.4.1.tgz#7f72e873e49bd5179588869cc3ab7449a56aae63"
   integrity sha512-bCVGdZU+z/qVcIiEQdyx0K13OC5mYwxhSuDUR95oFbKVuXYRrTVrwZIqQljuo1fyJvFTKHiL9L9skQOPokuFNQ==
   dependencies:
-    tslib "^2.4.0"
-
-"@docusaurus/utils-validation@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@docusaurus/utils-validation/-/utils-validation-2.1.0.tgz"
-  integrity sha512-AMJzWYKL3b7FLltKtDXNLO9Y649V2BXvrnRdnW2AA+PpBnYV78zKLSCz135cuWwRj1ajNtP4onbXdlnyvCijGQ==
-  dependencies:
-    "@docusaurus/logger" "2.1.0"
-    "@docusaurus/utils" "2.1.0"
-    joi "^17.6.0"
-    js-yaml "^4.1.0"
     tslib "^2.4.0"
 
 "@docusaurus/utils-validation@2.4.1":
@@ -1879,27 +1607,6 @@
     joi "^17.6.0"
     js-yaml "^4.1.0"
     tslib "^2.4.0"
-
-"@docusaurus/utils@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@docusaurus/utils/-/utils-2.1.0.tgz"
-  integrity sha512-fPvrfmAuC54n8MjZuG4IysaMdmvN5A/qr7iFLbSGSyDrsbP4fnui6KdZZIa/YOLIPLec8vjZ8RIITJqF18mx4A==
-  dependencies:
-    "@docusaurus/logger" "2.1.0"
-    "@svgr/webpack" "^6.2.1"
-    file-loader "^6.2.0"
-    fs-extra "^10.1.0"
-    github-slugger "^1.4.0"
-    globby "^11.1.0"
-    gray-matter "^4.0.3"
-    js-yaml "^4.1.0"
-    lodash "^4.17.21"
-    micromatch "^4.0.5"
-    resolve-pathname "^3.0.0"
-    shelljs "^0.8.5"
-    tslib "^2.4.0"
-    url-loader "^4.1.1"
-    webpack "^5.73.0"
 
 "@docusaurus/utils@2.4.1":
   version "2.4.1"
@@ -3912,11 +3619,6 @@ esutils@^2.0.2:
   version "2.0.3"
   resolved "https://registry.npmjs.org/esutils/-/esutils-2.0.3.tgz"
   integrity sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
-
-eta@^1.12.3:
-  version "1.12.3"
-  resolved "https://registry.npmjs.org/eta/-/eta-1.12.3.tgz"
-  integrity sha512-qHixwbDLtekO/d51Yr4glcaUJCIjGVJyTzuqV4GPlgZo1YpgOKG+avQynErZIYrfM6JIJdtiG2Kox8tbb+DoGg==
 
 eta@^2.0.0:
   version "2.2.0"
