@@ -40,8 +40,6 @@ Next, download the App Installer for your OS by visiting our [main website](http
 
 > All software released by Spacemesh is 100% open source. The Smapp Installer you are downloading was packaged from code in the [Spacemesh Open Source software repositories](https://github.com/spacemeshos) available on Github. We provide the Installer to make it convenient for non-developers to join the Spacemesh .
 
-> Follow [these steps](auth.md) if you'd like to verify that the Installer you have downloaded is authentic and has not been modified by a third party.
-
 ## Step 2 - Installing the App
 
 **Locate the Installer you downloaded and double-click it** to install Smapp.
