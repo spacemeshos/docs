@@ -7,9 +7,11 @@ module.exports = {
         'learn/crypto',
         'learn/spacemesh',
         'learn/coin',
+        'learn/smeshing',
         'learn/economics'],
       'Protocol 101': [
         'learn/post',
+        'learn/poet',
         'learn/hare',
         'learn/tortoise',
         'learn/rewards'
@@ -50,11 +52,7 @@ module.exports = {
           'start/smapp/wallet',
           'start/smapp/advanced-wallet',
           'start/smapp/status',
-          'start/smapp/net-dash'],
-        'SMRepl': [
-          'start/smrepl/setup',
-          'start/smrepl/commands'
-          ]
+          'start/smapp/net-dash']
         }
       ],
   ecosystem: [  'ecosystem/construction-eco',
