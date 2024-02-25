@@ -3,11 +3,9 @@ id: rewards
 title: Rewards
 ---
 
-## Rewards
-
 Like other, similar blockchains, there are two components to rewards in Spacemesh: newly minted coins, i.e., the block subsidy, and fees collected from transactions included in the block. Both are aggregated and distributed to the eligible smeshers that successfully contribute to the construction of each new block.
 
-The protocol mints new coins every layer. The precise details can be found in [economics](https://github.com/spacemeshos/economics/) and are beyond the scope of this document, but in brief, the first few layers issue 477 coins each and this amount decays exponentially over time with a half life of about 30 years. As long as Hare succeeds and a block is successfully produced for a given layer these coins will be minted and divided among the eligible smeshers that submitted proposals (as described above) for the layer. If there is no block for a given layer then those coins are effectively burnt, i.e., they will never be minted.
+The protocol mints new coins every layer. The precise details can be found in [economics](https://github.com/spacemeshos/economics/) and are beyond the scope of this document, but in brief, the first few layers issue 477 coins each and this amount decays exponentially over time with a half life of about 30 years. As long as Hare succeeds and a block is successfully produced for a given layer these coins will be minted and divided among the eligible smeshers that submitted proposals for the layer. If there is no block for a given layer then those coins are effectively burnt, i.e., they will never be minted.
 
 These new coins are added to the total fees collected from all transactions in the layer and are divided according to eligibility weight: this is the weight of the smesher's ATX for the current epoch divided by the total epoch weight, divided by the number of eligibilities in the given epoch. If a smesher fails to produce a proposal in an eligible slot, it will forfeit its reward for that layer and its coins will be divided proportionally among the smeshers that did successfully submit proposals for the layer.
 

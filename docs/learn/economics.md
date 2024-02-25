@@ -1,6 +1,6 @@
 ---
 id: economics
-title: Spacemesh Economic Model
+title: Economics
 ---
 
 The primary goal of Spacemesh is to make mining from home easy and economically sustainable over the long term. This means that home miners should not be "priced out" by large-scale, industrial "whale" mining operations with large economies of scale. While we cannot perfectly eliminate economies of scale--for instance, large scale operations will likely be able to acquire data storage more cheaply on a per-TB basis, and will likely have access to cheaper power--what we can do (and, indeed, have done) is level the playing field by introducing _diseconomies of scale_ that favor home miners.
