@@ -1,6 +1,6 @@
 ---
 id: smesher
-title: Smesher Guide
+title: Advanced Smesher Guide
 ---
 
 # Requirements
@@ -9,7 +9,7 @@ Resource requirements for mining in Spacemesh can be broken down into three cate
 
 ## Full Node
 
-See the official set of [system requirements & recommended hardware](https://spacemesh.io/start/#system-requirements). Resource requirements for running a node are quite modest: an Intel or ARM CPU, a modern operating system, a few dozen GB of free hard disk space, and a reliable broadband Internet connection.
+See the official set of [system requirements & recommended hardware](start/requirements). Resource requirements for running a node are quite modest: an Intel or ARM CPU, a modern operating system, a few dozen GB of free hard disk space, and a reliable broadband Internet connection.
 
 The biggest resource consumed by a Spacemesh node is bandwidth. A full node currently consumes between 150-1500mb/hour of bandwidth. The node is quiescent most of the time, consuming only 100-300kbit/s, but spikes as high as 35Mbit/s every few minutes when a new layer appears and network traffic increases (Hare messages, proposals, etc.). Bandwidth is variable and depends heavily on the network condition and the number and quality of one's peers.
 
@@ -39,7 +39,7 @@ For much more information see [fine-tuning proving](#fine-tuning-proving) and [t
 
 Now that you have the necessary resources ready, it's time to start smeshing! This section will walk you through how to do that. First a couple quick notes:
 
-- this guide is intended as an advanced smeshing guide, covering cases such as smeshing using CLI, parallel init, cloud GPUs, and transferring and managing multiple identities. In particular it does not cover the baseline case of using Smapp to initialize a single smesher. That process is straightforward and mostly automated in Smapp, and the steps are outlined in this [explainer video](https://youtu.be/xwsg7FzuBE0?si=Eing6i_KY7VSE7W4). The guide does explain the differences between mining using Smapp or the CLI where appropriate.
+- this guide is intended as an advanced smeshing guide, covering cases such as parallel init, cloud GPUs, and transferring and managing multiple identities. In particular it does not cover the baseline case of using Smapp to initialize a single smesher. That process is straightforward and mostly automated in Smapp, and the steps are outlined in this [explainer video](https://youtu.be/xwsg7FzuBE0?si=Eing6i_KY7VSE7W4). The guide does explain the differences between mining using Smapp or the CLI where appropriate.
 - the author of this guide uses Linux and CLI commands will be specified as they'd be run on Linux. In most cases, the same commands should work verbatim on other platforms including Windows and macOS with appropriate tweaks (e.g., using the correct platform-specific paths). Contributions containing correct instructions for different platforms are welcome; feel free to [open an issue](https://github.com/spacemeshos/wiki/issues) with a contribution.
 
 # Running a Node
@@ -65,7 +65,7 @@ The simplest way to run a Spacemesh node is using [Smapp](https://github.com/spa
 
 Like running go-spacemesh directly from the command line, Smapp also lets you customize your config file and use the node API directly. Running Smapp doesn't provide any greater or lesser functionality than running go-spacemesh directly, but some technical users may prefer working with CLI rather than GUI, may wish to run go-spacemesh as a system service, etc. Users running without a GUI will of course have no choice but to run go-spacemesh directly via CLI.
 
-### Custom config
+### Custom Smapp Config
 
 While running Smapp, you should see two config files in the Smapp data directory (by default, `$HOME/.config/Spacemesh` on Linux):
 
