@@ -4,7 +4,6 @@ module.exports = {
   learn: [
     {
       'Spacemesh 101': [
-        'learn/crypto',
         'learn/spacemesh',
         'learn/coin',
         'learn/smeshing',
