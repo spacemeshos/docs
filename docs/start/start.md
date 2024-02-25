@@ -5,6 +5,8 @@ title: Getting Started
 
 All the resources you need to start using the Spacemesh network.
 
+Before getting started, please check that your system meets the minimum [system requirements](start/requirements).
+
 ## Choose Your Interface
 
 There are two ways to start interacting with the Spacemesh network: our GUI, Smapp, or our command-line repl, SMRepl.
@@ -12,8 +14,6 @@ There are two ways to start interacting with the Spacemesh network: our GUI, Sma
 ### Smapp
 
 Smapp is recommended for most users, since it's extremely user friendly and doesn't require any specialized technical knowledge.
-
-However, if your system doesn't meet the minimum [system requirements](requirements), or you're interested in a more granular, technical approach, then our other interface may be better for you.
 
 ### CLI
 
