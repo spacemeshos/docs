@@ -3,24 +3,10 @@ id: economics
 title: Spacemesh Economic Model
 ---
 
-## Big Picture
+The primary goal of Spacemesh is to make mining from home easy and economically sustainable over the long term. This means that home miners should not be "priced out" by large-scale, industrial "whale" mining operations with large economies of scale. While we cannot perfectly eliminate economies of scale--for instance, large scale operations will likely be able to acquire data storage more cheaply on a per-TB basis, and will likely have access to cheaper power--what we can do (and, indeed, have done) is level the playing field by introducing _diseconomies of scale_ that favor home miners.
 
-Like Bitcoin, Smesh—the Spacemesh native coin—will be issued over time according to an exponential decay function with a hard supply cap. Issuance will be roughly 7.3x more gradual than Bitcoin, with a half-life of around 29 years. At ten years post-genesis, 25% of total issuance up to that point will be reserved for early investors and builders. However, issuance will continue for a long, long time after that, and eventually this share will fall to 6.25% of total supply. The remaining 94.75% will be issued permissionlessly to Smeshers (Spacemesh miners). Spacemesh does not have a traditional premine: on the day the network goes live, and for the first year thereafter, zero coins will be issued to early supporters. **The only coins in circulation and tradable for the first year are those that were mined permissionlessly by Smeshers.**
+To understand how this works it's necessary to consider [marginal cost](https://en.wikipedia.org/wiki/Marginal_cost). For a miner running her node on a computer that she already owns and uses every day, on a home Internet connection that she already has, the marginal cost is effectively zero. More precisely, the marginal cost is the cost of the GPU-based PoST initialization (which amortizes to zero over time), and the cost of keeping the computer turned on and online all the time rather than during the hours she'd normally use it. For the average home miner with an unmetered broadband Internet connection this works out to around $10-20 annually. Such a miner simply needs to earn more than this per year from mining for it to be worthwhile.
 
-![](./../../static/img/Inflation-NO-HEADLINE.png)
+By contrast, a hobbyist miner investing time and money into building a custom mining setup has both a higher startup cost and a higher ongoing cost. An industrial miner has an even larger, more complex cost structure. The cost of mining at scale--factoring in power, bandwidth, redundancy, fixing drive failures, devops, etc.--means that large scale mining operations are not able to compete on a marginal cost basis with home miners.
 
-## Issuance
-
-Rather than having abrupt “halvenings”, Spacemesh issuance decays predictably and gradually with every layer. The second is that, whereas Bitcoin has a half-life of about four years, the half-life of Spacemesh issuance will be about 29 years. This means that, while the last full Bitcoin will be issued around 2140, the last Smesh coin will be issued hundreds of years after genesis, in around 2899. The third is that a small portion of Spacemesh issuance, 6.25% of the total, flows into “vaults” for early investors and builders, with multi-year vesting.
-
-![](./../../static/img/First-10-Years.png)
-
-![](./../../static/img/First-200-Years.png)
-
-## Premine?
-
-In the name of transparency and accountability, it’s very important that the entire community understands how the project’s earliest supporters are compensated. The most important thing to know is that, as described above, Spacemesh does not have a traditional premine: **on the day the network goes live, and for the first year thereafter, zero coins will be issued to early supporters.** The only coins in circulation and tradable for the first year are those that were mined permissionlessly by Smeshers.
-
-All of the coins granted to early supporters are subject to a four year vesting schedule. At the launch of the network, we will lock 150M coins into smart contracts called Vaults that are owned by the project’s early investors and core team. These coins will begin to vest after one year. For the following three years, these coins will slowly unlock, and they will be fully vested and spendable at the four year mark.
-
-Ten years post-genesis, these coins will represent 25% of total issuance up to that point. Since issuance will continue for a long, long time after that, this share will eventually fall to 6.25% of the supply cap.
+In short, if you're spending money to mine Spacemesh you're very likely to lose money and this is by design.
