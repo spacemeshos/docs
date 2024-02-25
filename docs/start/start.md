@@ -46,7 +46,7 @@ Now that you have the necessary resources ready, it's time to start smeshing! Th
 
 In order to mine one must have a fully synchronized Spacemesh node running. Strictly speaking, running a node is not required during the PoST initialization process, since it relies only upon static data (with one exception, explained in a moment) such as the smesher's identity and the PoST init params (total storage to initialize, max file size, etc.). Most smeshers nevertheless choose to run a full node throughout the init process for several reasons: the node itself can perform the initialization for you, it means you'll have a fully-synchronized node when the init finishes and smeshing begins (with the opportunity to troubleshoot any issues in the interim), and it means you'll have a trustless copy of the highest `commitmentAtxId`.
 
-## `commitmentAtxId`
+### `commitmentAtxId`
 
 The one piece of dynamic data that you need to perform PoST init is the highest `commitmentAtxId`. This is simply the ID of the highest ATX known at the time that PoST initialization begins. It's used to mitigate a certain class of protocol attack; for more information, see [POPS-VRF implementation](https://github.com/spacemeshos/pm/issues/172).
 
@@ -66,12 +66,12 @@ The simplest way to run a Spacemesh node is using [Smapp](https://github.com/spa
 Like running go-spacemesh directly from the command line, Smapp also lets you customize your config file and use the node API directly. Running Smapp doesn't provide any greater or lesser functionality than running go-spacemesh directly, but some technical users may prefer working with CLI rather than GUI, may wish to run go-spacemesh as a system service, etc. Users running without a GUI will of course have no choice but to run go-spacemesh directly via CLI.
 
 
-### CLI
+## CLI
 
 It's possible to run a Spacemesh node entirely from the command line using the [go-spacemesh](https://github.com/spacemeshos/go-spacemesh) full node implementation. You can run a pre-compiled [binary release](https://github.com/spacemeshos/go-spacemesh/releases) for your platform, or you can compile the application yourself. We recommend that only more advanced users attempt this method.
 
-See our [CLI guide](start/CLI/compiling) for more information on setting up your Full Node. 
+See our [CLI guide](start/CLI/compiling) for more information on setting up your Full Node.
 
-## General Smesher Guide
+## Advanced Smesher Guide
 
 For more advanced users, our [Smesher Guide](start/smesher) will help you refine your node's performance and troubleshoot issues.
