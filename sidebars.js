@@ -53,8 +53,13 @@ module.exports = {
           'start/smapp/wallet',
           'start/smapp/advanced-wallet',
           'start/smapp/status',
-          'start/smapp/net-dash']
-        }
+          'start/smapp/net-dash'],
+        'CLI': [
+          'start/CLI/compiling',
+          'start/CLI/running',
+          'start/CLI/config'
+        ]
+        },
       ],
   ecosystem: [  'ecosystem/construction-eco',
     'ecosystem/smapp',
