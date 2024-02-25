@@ -9,7 +9,7 @@ Resource requirements for mining in Spacemesh can be broken down into three cate
 
 ## Full Node
 
-See the official set of [system requirements & recommended hardware](start/requirements). Resource requirements for running a node are quite modest: an Intel or ARM CPU, a modern operating system, a few dozen GB of free hard disk space, and a reliable broadband Internet connection.
+See the official set of [system requirements & recommended hardware](https://docs.spacemesh.io/docs/start/requirements). Resource requirements for running a node are quite modest: an Intel or ARM CPU, a modern operating system, a few dozen GB of free hard disk space, and a reliable broadband Internet connection.
 
 The biggest resource consumed by a Spacemesh node is bandwidth. A full node currently consumes between 150-1500mb/hour of bandwidth. The node is quiescent most of the time, consuming only 100-300kbit/s, but spikes as high as 35Mbit/s every few minutes when a new layer appears and network traffic increases (Hare messages, proposals, etc.). Bandwidth is variable and depends heavily on the network condition and the number and quality of one's peers.
 
