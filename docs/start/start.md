@@ -13,7 +13,7 @@ There are two ways to start interacting with the Spacemesh network: our GUI, Sma
 
 Smapp is recommended for most users, since it's extremely user friendly and doesn't require any specialized technical knowledge.
 
-However, if your system doesn't meet the minimum [system requirements](start/smapp/requirements), or you're interested in a more granular, technical approach, then our other interface may be better for you.
+However, if your system doesn't meet the minimum [system requirements](requirements), or you're interested in a more granular, technical approach, then our other interface may be better for you.
 
 ### CLI
 
