@@ -42,6 +42,7 @@ module.exports = {
   // ],
   start: [
      'start/start',
+     'start/smesher',
       {
         'Smapp': [
           'start/smapp/install',

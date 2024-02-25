@@ -15,8 +15,12 @@ Smapp is recommended for most users, since it's extremely user friendly and does
 
 However, if your system doesn't meet the minimum [system requirements](start/smapp/requirements), or you're interested in a more granular, technical approach, then our other interface may be better for you.
 
-### SMRepl
+### CLI
 
-SMRepl is a Spacemesh API client with wallet functions that operates via command-line.
+CLI is a Spacemesh API client with wallet functions that operates via command-line.
 
-**The SMRepl guide is currently under construction but will be available soon.**
+**The CLI  guide is currently under construction but will be available soon.**
+
+## General Smesher Guide
+
+For more advanced users, our [Smesher Guide](start/smesher) will help you refine your node's performance and troubleshoot issues.
