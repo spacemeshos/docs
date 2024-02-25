@@ -13,12 +13,7 @@ function HomepageHeader() {
     <header>
       <div className="container landing-container">
         <h1 className="hero__title">Welcome to the Spacemesh documentation hub!</h1>
-        <p>Note: This page is still a work-in-progress, as Team Spacemesh is hard at work creating in-depth, comprehensive documentation. In the meantime, please use the guides available to get started on the Spacemesh Network.</p>
-        <h3>What is Spacemesh?</h3>
-        <p>Spacemesh is a layer one cryptocurrency platform that puts home miners first.</p>
-
-        <p>Spacemesh uses idle data storage as the basis of its Proof of Space-Time consensus mechanism, rather than more energy-intensive forms of mining. This, coupled with a uniquely race-free approach to blockchain, makes Spacemesh the ideal cryptocurrency platform for small-scale home miners.</p>
-
+        <p>This page is still a work-in-progress, as Team Spacemesh is hard at work creating in-depth, comprehensive documentation. In the meantime, you can learn the basics of Spacemesh and browse the guides available to get started on the Spacemesh Network.</p>
 
         </div>
       </header>
