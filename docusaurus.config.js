@@ -83,7 +83,12 @@ const config = {
           src: 'img/logo.png',
         },
         items: [
-
+          {
+                    type: "docSidebar",
+                    position: "left",
+                    sidebarId: "learn",
+                    label: "Learn About Spacemesh",
+          },
           {
                     type: "docSidebar",
                     position: "left",
