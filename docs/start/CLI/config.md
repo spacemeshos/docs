@@ -44,7 +44,7 @@ Either way, you should now have a Spacemesh-compatible address in bech32 format 
 
 ### Multiple nodes
 
-It's possible to run multiple `go-spacemesh` processes on a single system. This is of course subject to the [resource requirements](start/requirements) outlined above; in particular, make sure that the system has high enough bandwidth to support many nodes. You'll need to change a few parameters to enable this:
+It's possible to run multiple `go-spacemesh` processes on a single system. This is of course subject to the [resource requirements](https://docs.spacemesh.io/docs/start/requirements) outlined above; in particular, make sure that the system has high enough bandwidth to support many nodes. You'll need to change a few parameters to enable this:
 
 1. Node data directory: each node must have its own data directory to store network state. Specify it on the command line using the `-d datadir` flag or in the config in `{"main":{"data-folder":"<node-data-location>"}}`.
 1. Smeshing data directory: each smeshing node must point to a different PoST data directory. Specify in the config using `{"smeshing":{"smeshing-opts":{"smeshing-opts-datadir":"<post-data-location>"}}}`. **See note below about avoiding equivocation!**

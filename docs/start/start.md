@@ -5,7 +5,7 @@ title: Getting Started
 
 All the resources you need to start using the Spacemesh network.
 
-Before getting started, please check that your system meets the minimum [system requirements](start/requirements).
+Before getting started, please check that your system meets the [minimum requirements](https://docs.spacemesh.io/docs/start/requirements).
 
 ## Choose Your Interface
 
