@@ -7,11 +7,9 @@ module.exports = {
         'learn/crypto',
         'learn/spacemesh',
         'learn/coin',
-        'learn/smeshing',
         'learn/economics'],
       'Protocol 101': [
         'learn/post',
-        'learn/poet',
         'learn/hare',
         'learn/tortoise',
         'learn/rewards'
