@@ -42,11 +42,11 @@ module.exports = {
   start: [
      'start/start',
      'start/requirements',
+     'start/netconfig',
      'start/smesher',
       {
         'Smapp': [
           'start/smapp/install',
-          'start/smapp/netconfig',
           'start/smapp/setup',
           'start/smapp/smeshing',
           'start/smapp/wallet',
