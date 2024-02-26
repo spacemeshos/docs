@@ -43,8 +43,9 @@ module.exports = {
      'start/start',
      'start/requirements',
      'start/netconfig',
+      'start/rewards',
       {
-        'Smapp': [
+        'Smapp Guide': [
           'start/smapp/install',
           'start/smapp/setup',
           'start/smapp/smeshing',
@@ -52,13 +53,18 @@ module.exports = {
           'start/smapp/advanced-wallet',
           'start/smapp/status',
           'start/smapp/net-dash'],
-        'CLI': [
-          'start/CLI/compiling',
-          'start/CLI/running',
-          'start/CLI/config'
+        'Advanced Smesher Guide': [
+          'start/smesher/setup',
+          'start/smesher/post_init',
+          'start/smesher/api',
+          'start/smesher/poet',
+          'start/smesher/networking',
+          'start/smesher/performance',
+          'start/smesher/equivocation',
+          'start/smesher/advanced',
+          'start/smesher/troubleshooting'
         ]
-        },
-        'start/smesher'
+        }
       ],
   ecosystem: [  'ecosystem/construction-eco',
     'ecosystem/smapp',

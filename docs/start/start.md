@@ -9,7 +9,7 @@ Resource requirements for mining in Spacemesh can be broken down into three cate
 
 ## Full Node
 
-See the official set of [system requirements & recommended hardware](start/requirements). Resource requirements for running a node are quite modest: an Intel or ARM CPU, a modern operating system, a few dozen GB of free hard disk space, and a reliable broadband Internet connection.
+See the official set of [system requirements & recommended hardware](./requirements.md). Resource requirements for running a node are quite modest: an Intel or ARM CPU, a modern operating system, a few dozen GB of free hard disk space, and a reliable broadband Internet connection.
 
 The biggest resource consumed by a Spacemesh node is bandwidth. A full node currently consumes between 150-1500mb/hour of bandwidth. The node is quiescent most of the time, consuming only 100-300kbit/s, but spikes as high as 35Mbit/s every few minutes when a new layer appears and network traffic increases (Hare messages, proposals, etc.). Bandwidth is variable and depends heavily on the network condition and the number and quality of one's peers.
 
@@ -29,11 +29,11 @@ Note that initialization can be parallelized across multiple systems or multiple
 
 ## Ongoing Mining
 
-Mining on an ongoing basis does _not_ require a GPU. The only additional resource consideration for mining, beyond the baseline cost of running a full node (as outlined above), is the cost of generating a [proof of space](#proof-of-space) once per epoch. The time required to generate a proof is complicated and multivariate, depending on several factors including CPU speed, disk speed, size of PoST data, and the `smeshing-proving-opts` settings specified in config (more on this below).
+Mining on an ongoing basis does _not_ require a GPU. The only additional resource consideration for mining, beyond the baseline cost of running a full node (as outlined above), is the cost of generating a [proof of space](./../learn/post.md) once per epoch. The time required to generate a proof is complicated and multivariate, depending on several factors including CPU speed, disk speed, size of PoST data, and the `smeshing-proving-opts` settings specified in config (more on this below).
 
 The general requirement is a modern CPU with the [AES-NI](https://en.wikipedia.org/wiki/AES_instruction_set) instruction and a disk that's fast enough to perform a single, sequential read over the entire PoST data in 4-5 hours. This allows enough time to perform a second read during the PoET cycle gap on the off chance that the first pass fails to generate a valid proof. Hard drive performance varies widely but most modern 7200 RPM HDDs can perform a sequential read at 100-200mb/sec (5400 RPM drives are slower). This means that, to be safe, a smesher shouldn't initialize more than 2-4 TB or 8-16 SU on a single HDD. It's certainly possible to initialize more and smeshers with 4TB drives and fast CPUs report no issues generating a proof in time, but the probability of failure increases with each additional byte initialized. It's also possible to achieve much higher read speeds using more expensive technology such as SSD and/or RAID.
 
-For much more information see [fine-tuning proving](#fine-tuning-proving) and [the profiler tool](https://github.com/spacemeshos/post-rs/blob/main/docs/profiler.md) which can be used to benchmark one's hardware.
+For much more information see [fine-tuning proving](./smesher/advanced.md#fine-tuning-proving) and [the profiler tool](https://github.com/spacemeshos/post-rs/blob/main/docs/profiler.md) which can be used to benchmark one's hardware.
 
 # Getting Started
 
@@ -66,12 +66,10 @@ The simplest way to run a Spacemesh node is using [Smapp](https://github.com/spa
 Like running go-spacemesh directly from the command line, Smapp also lets you customize your config file and use the node API directly. Running Smapp doesn't provide any greater or lesser functionality than running go-spacemesh directly, but some technical users may prefer working with CLI rather than GUI, may wish to run go-spacemesh as a system service, etc. Users running without a GUI will of course have no choice but to run go-spacemesh directly via CLI.
 
 
-## CLI
+## Advanced Smeshers
 
 It's possible to run a Spacemesh node entirely from the command line using the [go-spacemesh](https://github.com/spacemeshos/go-spacemesh) full node implementation. You can run a pre-compiled [binary release](https://github.com/spacemeshos/go-spacemesh/releases) for your platform, or you can compile the application yourself. We recommend that only more advanced users attempt this method.
 
-See our [CLI guide](start/CLI/compiling) for more information on setting up your Full Node.
+See our [Advanced Smesher Guide](./smesher/setup.md) for more information on setting up your Full Node.
 
 ## Advanced Smesher Guide
-
-For more advanced users, our [Smesher Guide](start/smesher) will help you refine your node's performance and troubleshoot issues.
