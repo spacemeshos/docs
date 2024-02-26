@@ -43,7 +43,6 @@ module.exports = {
      'start/start',
      'start/requirements',
      'start/netconfig',
-     'start/smesher',
       {
         'Smapp': [
           'start/smapp/install',
@@ -59,6 +58,7 @@ module.exports = {
           'start/CLI/config'
         ]
         },
+        'start/smesher'
       ],
   ecosystem: [  'ecosystem/construction-eco',
     'ecosystem/smapp',
