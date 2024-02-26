@@ -56,6 +56,10 @@ text-overflow: ellipsis;
   flex-flow: wrap;
 }
 
+.buttons_AeoN{
+    flex-flow: wrap;
+}
+
 .intro-card-inactive{
   border: 1px solid #979797;
   border-radius: 20px;
