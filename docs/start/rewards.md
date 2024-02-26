@@ -157,4 +157,4 @@ The end to end reward lifecycle works as follows:
 
 Note that this describes the happy flow. Many things can happen to interfere with this process or slow it down. Proposals may not be gossiped or received on time, in which case a block still be created from the valid proposals that were received on time. If not enough nodes are online to select a Hare committee, Hare may fail, which would temporarily result in empty layers (i.e., layers without blocks), until nodes come back online and a Hare quorum can be re-established.
 
-See also [Rewards](#rewards), above.
+See also [Rewards](./../learn/rewards.md), in our "Protocol 101" primer.
