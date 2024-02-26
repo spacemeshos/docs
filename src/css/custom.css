@@ -52,7 +52,7 @@ margin: 25px 25px 25px 25px;
 text-overflow: ellipsis;
 }
 
-.buttons_AeoN{
+.buttons_src-pages-index-module{
   flex-flow: wrap;
 }
 
@@ -97,6 +97,12 @@ a:hover{
   margin-bottom: 20px;
 }
 
+.landing-description{
+  text-align: center;
+  padding-left: 75px;
+  padding-right: 75px;
+}
+
 .landing-container{
   margin-bottom: 25px;
   display: flex;
@@ -106,6 +112,7 @@ a:hover{
 .hero__title{
   margin-top: 60px;
   margin-bottom: 25px;
+  text-align: center;
 }
 
 .theme-edit-this-page{
