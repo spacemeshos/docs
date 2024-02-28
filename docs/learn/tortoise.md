@@ -3,6 +3,8 @@ id: tortoise
 title: Tortoise
 ---
 
+![Tortoise](./../../static/img/protocol_slides/Tortoise.png)
+
 At the point that Tortoise begins, [Hare](./hare.md) has output a block for the current layer. All smeshers present in the network at the time of the Hare agreement know about this block and the fact that it has been agreed upon by the Hare committee. However, what if a smesher were to join later? How would a later participant know about the validity of older blocks and the entire block history? Even generally, how can we ensure the veracity and finality of older blocks as Hare only gives us the most recent blocks? This is where Tortoise comes in.
 
 Tortoise is essentially a voting mechanism. The object of this voting is the block output by Hare and, consequently, all the blocks before it. This is to ensure that the network keeps voting on the correct blocks and block history so that any state change or transaction is final. This way, the older a block is, the more votes it accumulates, and the harder it becomes to change it as time goes on. In order to be able to participate in Tortoise, a smesher must first become eligible. This is done by publishing eligibility proofs inside ballots, which are published as part of the block proposals.
@@ -15,6 +17,7 @@ Ballot counting
 
 Under normal circumstances, each ballot posted in a layer contains a reference to a ballot it agrees with from the previous layer, along with a reference to the block from the previous layer. Thus, as time goes on, more and more votes accumulate for these blocks in the past layers, thereby strengthening a single history more than any other.
 In order to consider a block valid, Tortoise requires that it have more than ⅔ of the cumulative weight of the ballots voting for that block’s layer.
+
 
 The node prints this message in the logs every time this process has started and fully synced:
 
@@ -29,7 +32,7 @@ In Smapp the same thing looks like this:
 ## Ballot counting
 
 Under normal circumstances, each ballot posted in a layer contains a reference to a ballot it agrees with from the previous layer, along with a reference to the block from the previous layer. Thus, as time goes on, more and more votes accumulate for these blocks in the past layers, thereby strengthening a single history more than any other.
-In order to consider a block valid, Tortoise requires that it have more than ⅔ of the cumulative weight of the ballots voting for that block’s layer
+In order to consider a block valid, Tortoise requires that it have more than ⅔ of the cumulative weight of the ballots voting for that block’s layer.
 
 ## Voting and reward eligibility
 

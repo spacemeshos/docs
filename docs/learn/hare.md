@@ -3,6 +3,8 @@ id: hare
 title: Hare
 ---
 
+![hare](./../../static/img/protocol_slides/Hare.png)
+
 Hare allows the network to reach consensus on the set of block proposals that are valid (i.e., properly signed by an eligible smesher) and were published in time. About 4000 smeshers are sampled in each layer to form the Hare committee. Any valid block proposal that was published within the time window is guaranteed to be included in the block for that layer as long as there is an honest majority within the Hare committee. As such, a smesher has to submit a block proposal in a timely manner so that it is included in the block for that layer. The hare is guaranteed to either reach consensus or agree that consensus hasn’t been reached within a given time window, in which case the layer will be empty.
 
 > Note that **there are currently no rewards for participating in Hare,** but we intend to change this soon.

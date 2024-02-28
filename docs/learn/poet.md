@@ -3,6 +3,8 @@ id: poet
 title: PoET (Proof of Elapsed Time)
 ---
 
+![poet](./../../static/img/protocol_slides/PoET.png)
+
 In order to serve as a proof of _space and time_, the proof of space needs to be linked to a proof of time. Spacemesh uses a construction called proof of elapsed time (PoET) for this purpose. As with the other sections above, the details of this process are beyond the scope of this document, but in brief the PoET performs a type of cryptographic work that must be done sequentially, i.e., it cannot be parallelized. By proving that it's done a certain amount of work, it can therefore prove that a certain amount of real time has passed: in other words, a _proof of sequential work_ serves as a _proof of elapsed time._
 
 The initial PoSp serves as the input data for the PoET service, which then starts performing sequential calculations until the next epoch. The PoET service also maintains a Merkle tree (called a membership tree) of all the initial PoSp values submitted by smeshers to the PoET service. So far, we have understood that during the initialization process, some space is reserved, an initial PoSp is created, this initial PoSp is submitted to the PoET service, the PoET service adds it to a Merkle tree and starts performing sequential calculations using it as input.

@@ -16,3 +16,8 @@ Once the ATX’s absolute weight is derived, its relative weight (ATX weight / w
 Smeshers who submit a valid ATX during an epoch become eligible to publish block proposals in the following epoch. A block proposal is a set of data that includes transactions from the smesher’s mempool, the smesher’s signature, and some data that proves that this smesher is eligible to publish a block proposal in this layer.
 
 Currently, the protocol targets 50 block proposals per layer and there are 4032 layers per epoch, with each layer lasting 5 minutes. The absolute weight of an ATX is divided by the number of block proposals that the smesher is eligible for to determine the weight of each of those block proposals.
+
+
+![Ballots](./../../static/img/protocol_slides/Ballots.png)
+
+![Proposals](./../../static/img/protocol_slides/Block-Proposals.png)
