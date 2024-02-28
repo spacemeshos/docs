@@ -11,6 +11,7 @@ module.exports = {
       'Protocol 101': [
         'learn/post',
         'learn/poet',
+        'learn/atx',
         'learn/hare',
         'learn/tortoise',
         'learn/rewards'

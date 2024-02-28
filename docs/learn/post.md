@@ -3,29 +3,10 @@ id: post
 title: PoST (Proof of Space-time)
 ---
 
-In order to become eligible to mine coins, miners of cryptocurrencies need to prove that they’ve expended a scarce resource in service of the protocol. This is what we call the “consensus mechanism”. You may already be familiar with the most famous of these, Proof of Work, where miners must cryptographically prove that they’ve done the expensive work of  solving extremely complex math problems (this is, in effect, how Bitcoin mining works).
+To start the smeshing process, disk space is first initialized. Initialization is a one-time process by which the allocated space is filled with special data, which must then remain on the disk for as long as one wants to keep participating in the smeshing process. In addition, an initial Proof of Space (PoSp) is constructed which proves that the smesher actually reserved this much space at the initialization stage. At every epoch (two weeks), the smesher must prove that the initialized data is still present on the disk in order to be able to accrue any rewards. One may ask, why must storage space be reserved in this manner? This is to combat Sybil attacks.
 
-Proof of Space-Time is another kind of consensus mechanism, but rather than rely on the computationally expensive “work” that Bitcoin-style proof of work relies on, it instead relies on the resource of storage space. More specifically, the smesher (Spacemesh miner) must prove that they’ve committed a specific amount of storage space over a specific period of time, and used that storage space for nothing other than Spacemesh mining.
+Identity on a blockchain network is cheap. A smesher can keep generating new wallets and masquerade as multiple smeshers. A good solution is to use a real-world resource as a requirement to participate in the consensus algorithm. Bitcoin demands that a computationally-intensive process be performed to participate in the mining process, while Ethereum mandates that some ETH be staked to participate in block validation. Similarly, Spacemesh requires that some disk space be reserved for an epoch to participate in the smeshing process.
 
-## Initialization Phase
+However, only proving that I reserved a given amount of disk space during the initialization phase does not guarantee that I also kept it stored for the whole epoch.  While the initial PoSp proves that a user reserved this much disk space by storing special data during the initialization phase, a later PoSp is used to ensure that the user still has the same data two weeks later. In other words, the special data has spent 14 days stored on the drive.
 
-Spacemesh is a permissionless blockchain, and one of the risks of making a blockchain permissionless is that it exposes the entire network to malicious actors that wish to attack it. Some attacks may include a small number of participants trying to fool the system thar they have more voting power than they actually do. These kinds of attacks are called **Sybil attacks**: the ability to forge multiple identities and use them to skew consensus or otherwise attack the network.
-
-In order to overcome Sybil attacks in a permissionless network, miners need to prove they have incurred some cost in order to participate—i.e., they need to earn their eligibility.
-
-Spacemesh deals with this problem through the initial production of “Proof of Space Time data”—unique “nonsense” data that is used to fill up the allocated storage space. This one-time process is costly, requiring a GPU to be done efficiently, and that’s what makes it essential for the security of the network. If this step wasn’t in place, then the Spacemesh network would be vulnerable to the types of Sybil attack outlined above. Note that, while a miner is free to erase these data, reuse the storage space for another purpose, and only regenerate the data when needed to prove participation, no rational actor would do this since regenerating the data is designed to be much more costly than just storing it in the first place.
-
-![](./../../static/img/protocol_slides/PoST Init.png)
-
-This brings us to the next phase.
-
-## Execution Phase
-
-Once an epoch, during the execution phase, the smesher will prove that she still has access to the PoST data generated during the initialization phase. The smesher generates a challenge based on a deterministic, predictable process, and if their PoST data satisfies the condition of this challenge—by providing random piece of that data—then she can successfully generate a Proof of Space in response to the challenge.
-
-
-### NiPoST
-
-So far, we’ve only talked about the Proof of *Space* aspect of the consensus mechanism, but the *time* aspect is just as important. And that’s where NiPoST comes in. A NiPoST (which stands for non-interactive proof of space time) must include a Proof of Space—generated in the execution phase—but also a Proof of Time. The generation of this proof is explored in Proof of Elapsed Time (PoET). The short version is that the initial challenge of the first execution phase is used as the input to a Spacemesh time server—PoET—which in turn uses this challenge in a process known as “proof of sequential time” to create the seed for its Proof of Elapsed Time. This proof that the required time condition has been met is then transmitted to the entire network, and used to construct the NiPoST (along with the PoS).
-
-![](./../../static/img/protocol_slides/PoST Proving.png)
+How can we prove that the data has definitely spent some time being stored on the drive? This is where another proof, the [Proof of Elapsed Time (PoET)](./poet.md) comes in.
