@@ -8,7 +8,7 @@ Follow the installer's on-screen instruction and proceed to launch the App.
 
 You should now see this welcome screen:
 
-![](./../../../static/img/v1.0/welcome.png)
+![](./../../../static/img/smapp/setup.png)
 
 Let's now proceed to set up the Smesher, Smeshing, and the Wallet. But first, some definitions.
 
@@ -24,11 +24,9 @@ You can send SMH from your account up to your coin balance. So for example, if y
 
 ?> We call the process of producing blocks _Smeshing._
 
-?> A _Rewards Account_ is a wallet account you set up and use to receive Smesh coins in exchange for Smeshing.
-
 Your wallet's main account will be used as your Smesher's rewards account. You will receive rewards to this account.
 
-Let's now set up a new wallet to manage your Smesh and provide your Smesher with a `Rewards Account`.
+Let's now set up a new wallet to manage your Smesh.
 
 ---
 
@@ -36,18 +34,39 @@ Click on `SETUP` to start the setup process.
 
 The next screen should look like this:
 
-![](./../../../static/img/v1.0/create_wallet_password.png)
+![](./../../../static/img/smapp/new_wallet.png)
 
-The App prompts you to enter a password to protect access to your newly-created wallet and to your Smesher. Proceed by choosing a password (8 or more characters) and confirming it.
+Click **WALLET + NODE**
+
+Next you will be asked to select your wallet type. At present, you can only select the Standard Wallet.
+
+![](./../../../static/img/smapp/wallet_select.png)
+
+Now you will need to choose the network. Our main network is selected by default.
+
+![](./../../../static/img/smapp/choose_network.png)
+
+Click `NEXT`.
+
+From here, you will be prompted to back up your wallet mnemonically with either 12 or 24 words. After selected one, you will create your password before being taken to the backup words.
+
+![](./../../../static/img/smapp/enter_password.png)
 
 > You will need to use the newly-created password to access your Wallet after you have locked access to the App. We recommend saving the password in a password manager, such as [1Password](https://1password.com).
 
 > Until you back up your Wallet using the 12 words backup method, you will not be able to access it without your password. **There is no way to restore a wallet that wasn't backed up, if the password has been forgotten.**
 
-Click `NEXT`. You should now see this screen:
+Click `NEXT`. You will be taken to your backup words. We recommend both printing them and saving them on a document.
 
-![](./../../../static/img/v1.0/protect_wallet_confirmed.png)
+![](./../../../static/img/smapp/12_words.png)
 
+You will need to confirm your 12 words by dragging the provided words into the correct slots.
+
+![](./../../../static/img/smapp/confirm_12_words.png)
+
+You will now be able to **Go to Wallet!**
+
+![](./../../../static/img/smapp/wallet_created.png)
 
 ## Step 2 - Setting Up Your Smesher
 
@@ -55,53 +74,62 @@ Click `NEXT`. You should now see this screen:
 
 Spacemesh uses a novel consensus protocol. Instead of constantly solving computational puzzles with your CPU while you participate in a blockchain, as in Proof of Work, it utilizes free space on your hard drive, following a one-time setup phase.
 
-The storage you commit to Spacemesh is attached to your identity on the Spacemesh decentralized ledger. It determines your eligibility to submit blocks with transactions to the Spacemesh Testnet and to receive rewards for your contribution. **The more free disk space you commit, the more frequently you will produce blocks and receive Smesh rewards.**
+The storage you commit to Spacemesh is attached to your identity on the Spacemesh decentralized ledger. It determines your eligibility to submit blocks with transactions to the Spacemesh Testnet and to receive rewards for your contribution. **The more free disk space you commit, the higher the rewards.**
 
 This one-time storage commitment enables Spacemesh to reach consensus on a distributed ledger without using Proof-of-Work or Proof-of-Stake algorithms.
 
 > The free space you commit to your Smesher is not used to store any useful data. It will be filled with cryptographic data that is only used to establish your node identity and your block Smeshing eligibility.
 
-You should now see this screen:
+Click on **SMESHING** in the top left of Smapp. This will take you to the Smeshing screen.
 
-![](./../../../static/img/v1.0/POS_setup_1_light.png)
+![](./../../../static/img/smapp/smeshing_screen_pre_pos.png)
 
-The App prompts you to set up block Smeshing on your computer. You need to specify the directory that you want Spacemesh to save your PoST init file.
+Click **SETUP PROOF OF SPACE**
 
-![](./../../../static/img/v1.0/POS_setup_2_light.png)
+You need to specify the directory that you want Spacemesh to save your PoST init file.
+
+![](./../../../static/img/smapp/pos_select_directory.png)
 
 Click `Select Folder` and locate a directory on one of your hard drives. Click `NEXT`.
 
-You should now see this screen:
+You will now need to select your POS Generation Settings.
 
-![](./../../../static/img/v1.0/POS_setup_3_light.png)
+![](./../../../static/img/smapp/pos_settings.png)
 
-Select the amount of free space you would like to commit to Spacemesh and click `NEXT`.
+You can either go with the default settings, input custom settings which you can test with **TEST CHOSEN OPTIONS**, or run benchmarks to see which settings are best for you. To do this, click **RUN ALL BENCHMARKS**.
 
-> The more storage you allocate for Spacemesh on your drive, the higher your Smesh rewards will be.
+![](./../../../static/img/smapp/pos_run_all_benchmarks.png)
 
-> During this stage of Testnet 0.2, you can only allocate up to 4kb.
+It will take a few moments for the process to complete, after which you will see several options to select, with estimated generation speeds.
 
-You should now see this screen, prompting you to choose your preferred method of POS data generation.
+![](./../../../static/img/smapp/post_benchmarks_done.png)
 
-![](./../../../static/img/v1.0/POS_setup_4_light.png)
+After selecting one of the benchmarked options, or inputing a value of your own, click
 
-Once you've chosen, click `NEXT`.
+Select the amount of free space you would like to commit to Spacemesh and click `NEXT`. Note that space is calculated in Space Units of 64GiB, with the minimum commitment being SU x 4, AKA 256GiB.
 
-![](./../../../static/img/v1.0/POS_setup_5_light.png)
+> The more storage you allocate for Spacemesh on your drive, the higher your Smesh rewards will be. But beware: the Initialization process is long and resource-intensive, so it's up to you to decide the tradeoffs!
+
+The following screen will prompt you to choose your preferred method of POS data generation.
+
+![](./../../../static/img/smapp/post_select_processor.png)
+
+Once you've chosen, click `NEXT`. You will be prompted to select your coinbase account. If you haven't yet created additional accounts, your main account will be your only option.
+
+![](./../../../static/img/smapp/post_coinbase.png)
 
 This will bring you to a confirmation screen. If everything is as you like it, click `CREATE DATA`.
 
+![](./../../../static/img/smapp/post_confirm.png)
+
 And finally, you should end up here:
 
-![](./../../../static/img/v1.0/POS_setup_done.png)
-
-The one-time storage commitment setup process has now begun. At this stage, due to the small size, it should only take a moment.
-
-> Do not turn off your computer before you get a notification about setup completion.
-
-> The account currently selected in your wallet will be used as the `Rewards Address` for block smeshing rewards.
+![](./../../../static/img/smapp/pos_end.png)
 
 Click `GOT IT`.
+
+The one-time storage commitment setup process has now begun. Expect this process to affect your computer's performance. If need be, it can be paused and resumed.
+
 
 ---
 

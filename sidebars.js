@@ -48,11 +48,9 @@ module.exports = {
         'Smapp Guide': [
           'start/smapp/install',
           'start/smapp/setup',
-          'start/smapp/smeshing',
           'start/smapp/wallet',
           'start/smapp/advanced-wallet',
-          'start/smapp/status',
-          'start/smapp/net-dash'],
+        'start/smapp/advanced_config'],
         'Advanced Smesher Guide': [
           'start/smesher/setup',
           'start/smesher/post_init',
