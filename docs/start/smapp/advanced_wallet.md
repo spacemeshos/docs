@@ -200,7 +200,7 @@ If you clicked on **SAVE** you will see a popup asking you to enter wallet passw
 
 After entering correct password and clicking **UNLOCK** button in the popup, it will disappear and you will see the renamed account!
 
-![](./../../../static/img/smapp/rename_account3.pngg)
+![](./../../../static/img/smapp/rename_account3.png)
 
 
 ## Creating contacts
