@@ -14,7 +14,7 @@ function HomepageHeader() {
     <header>
       <div className="container landing-container">
        <h1 className="hero__title">Welcome to the Spacemesh documentation hub!</h1>
-       <p class='landing-description'>This page is still a work-in-progress, as Team Spacemesh is hard at work creating in-depth, comprehensive documentation. In the meantime, you can learn the basics of Spacemesh and browse the guides available to get started on the Spacemesh Network.</p>
+       <p class='landing-description'>This site is still a work-in-progress, as Team Spacemesh is hard at work creating in-depth, comprehensive documentation. In the meantime, you can learn the basics of Spacemesh and browse the guides available to get started on the Spacemesh Network.</p>
 
       <div className={styles.buttons}>
         <Link
