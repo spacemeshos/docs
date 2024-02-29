@@ -9,7 +9,6 @@ module.exports = {
         'learn/smeshing',
         'learn/economics'],
       'Protocol 101': [
-        'learn/smeshing',
         'learn/post',
         'learn/poet',
         'learn/atx',
