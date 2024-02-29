@@ -24,7 +24,7 @@ Memory: 1GiB+
 - A multi-core CPU from the last 8 years
 
 #### To run Smapp:
-- Visual C++ runtime
+- Visual C++ runtime must be installed
 
 > The Spacemesh App is an Electron App. It is supported on any Linux distribution that supports Electron apps.
 
