@@ -15,9 +15,9 @@ At Main Screen - until first time backup there will be the red banner under “B
 
 _OPTION 2:_
 
-On the top right corner of the main screen there is button **SETTINGS** at top right corner
+On the top right corner of the main screen there is the `SETTINGS` button.
 
-Click on the left menu on “WALLETS” option, then scroll down until you see “Wallet Backup” section
+After navigating to Settings, find the `WALLETS` option on the left menu, then scroll down until you see **Wallet Backu** section
 
 ![](./../../../static/img/smapp/settings_backup.png)
 
@@ -27,31 +27,31 @@ Now you are at Wallet Backup Options Screen
 
 ### Option ‘FILE BACKUP’
 
-Click on **FILE BACKUP** button and you’ll get to this screen
+Click on `FILE BACKUP` button and you’ll get to this screen
 
 ![](./../../../static/img/smapp/wallet_file.png)
 
-Clicking on **show file location** button will open file browser window with the wallet backup file selected. The file is saved in “Documents” folder and can be moved to any other folder or ledger.
+Clicking on `show file location` button will open file browser window with the wallet backup file selected. The file is saved in “Documents” folder and can be moved to any other folder or ledger.
 
 ### Option ’MNEMONIC BACKUP’
 
-Click on **’MNEMONIC BACKUP** button and you’ll get to this screen
+Click on `MNEMONIC BACKUP` button and you’ll get to this screen
 
 ![](./../../../static/img/smapp/mnemonic_backup.png)
 
 These words can be used to restore your wallet anywhere using Spacemesh software. They are also called as _seed_ or _seed words_.
 
-For _cold storage_ option - keeping 12 words offline on the paper in some safe place, press **PRINT WORDS** button. This will open standard print dialog and you can print the words on your printer.
+For _cold storage_ option - keeping 12 words offline on the paper in some safe place, press `PRINT WORDS` button. This will open standard print dialog and you can print the words on your printer.
 
-The other button is **COPY WORDS** - if you want to save the words in some kind of encrypted file or vault. After clicking **COPY WORDS** button you will see message in green color confirming that words are copied to your clipboard.
+The other button is `COPY WORDS` - if you want to save the words in some kind of encrypted file or vault. After clicking `COPY WORDS` button you will see message in green  confirming that the words are copied to your clipboard.
 
-After clicking NEXT button you’ll get to the confirmation screen.
+After clicking `NEXT`, you’ll get to the confirmation screen.
 
-You can practice restoring the words in the right order by dragging and dropping the randomly selected 4 words in right places. If you’ve placed all the words and it is not the correct order than you’ll get this message under the **TRY AGAIN** button
+You can practice restoring the words in the right order by dragging and dropping the randomly selected 4 words in right places. If you’ve placed all the words and it is not the correct order than you’ll get this message under the `TRY AGAIN` button
 
 ![](./../../../static/img/smapp/mnemonic_confirm.png)
 
-If you’ve placed the words in the right order than you’ll be able to click **DONE**, and will be returned to the wallet screen.
+If you’ve placed the words in the right order than you’ll be able to click `DONE`, and will be returned to the wallet screen.
 
 
 ## Rename wallet
