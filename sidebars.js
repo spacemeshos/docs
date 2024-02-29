@@ -62,8 +62,9 @@ module.exports = {
           'start/smesher/equivocation',
           'start/smesher/advanced',
           'start/smesher/troubleshooting'
-        ]
-        }
+        ],
+      },
+      'start/integration'
       ],
   ecosystem: [  'ecosystem/construction-eco',
     'ecosystem/smapp',
