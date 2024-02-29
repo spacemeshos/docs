@@ -14,6 +14,9 @@ Memory: 1GiB+
 - Disk: 50GiB of free disk space
 - An always-on, unmetered Internet connection capable of 5 mbps download and 1 mbps upload
 
+#### To run Smapp:
+- Visual C++ runtime must be installed
+
 #### For smeshing in addition to running a node:
 - CPU support for AES-NI
 - 256GiB of free disk space for PoST files
@@ -22,9 +25,6 @@ Memory: 1GiB+
 #### To support more than the minimum space allocation for smeshing, or to allow uninterrupted use of the computer while the node is running, it’s recommended to have:
 - A hard drive that can sustain at least 100MB/s of sequential read
 - A multi-core CPU from the last 8 years
-
-#### To run Smapp:
-- Visual C++ runtime must be installed
 
 > The Spacemesh App is an Electron App. It is supported on any Linux distribution that supports Electron apps.
 
