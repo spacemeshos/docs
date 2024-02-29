@@ -62,7 +62,7 @@ As explained above, each epoch and each layer is a singleton; there's only ever 
 
 ## Blocks and Transactions
 
-See the [explainer](./../learn/blocks.md#Transactions in Blocks).
+See the [explainer](./../learn/blocks.md#blocks-and-transactions).
 
 ## The Mesh
 

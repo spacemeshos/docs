@@ -11,7 +11,7 @@ There can only be multiple valid blocks in a given layer when security assumptio
 
 In practice this means that a _single historical block_ and its contents may be reorg'ed in or out of the canonical chain. When a historical change occurs, the state rolls back (i.e., reorgs) to the point of change and all subsequent canonical state (i.e., all transactions in the new canonical chain) is replayed from that point forward. This could mean that transactions in the canonical chain that were previously effective now become ineffective, or vice versa. It may also mean that the same transaction (uniquely identified by its transaction ID) may appear in multiple blocks, in the same layer or in multiple layers. When this happens, only the first instance of the transaction in the canonical chain is considered effective; later instances are ignored.
 
-## Transactions in Blocks
+## Blocks and Transactions
 
 A layer contains zero or more blocks. Most layers contain exactly one block but it's possible for a layer to have zero blocks (when the network is under attack, or during times when many miners were offline or otherwise acting Byzantine) or more than one block (e.g., after a network partition-and-rejoin). In rare cases of multiple blocks, the network will establish consensus on a single block as canonical; transactions in other blocks will not be included in the canonical mesh nor processed. A block may thus be _valid_ or _invalid_ and there may only be one _valid_ block per layer.
 
