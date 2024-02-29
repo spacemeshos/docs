@@ -17,7 +17,7 @@ You are prompted to secure your Wallet with a password, and we recommend that yo
 
 When you open the Spacemesh App again you should see this screen:
 
-![](./../../../static/img/v1.0/password.png)
+![](./../../../static/img/smapp/restore1.png)
 
 Enter your Wallet password to unlock access to your wallet.
 
@@ -30,7 +30,7 @@ The Wallet data is loaded from the wallet file to the App and is decrypted using
 
 After unlocking your Wallet, you should see the following screen:
 
-![](./../../../static/img/v1.0/wallet_screen.png)
+![](./../../../static/img/smapp/spawn1.png)
 
 The left side of the screen displays the Wallet info:
 
@@ -44,101 +44,72 @@ Your account balance is displayed at the bottom left side of the screen. SMH is 
 
 You can copy your account's public address to your computer's clipboard by clicking on the copy icon on the right side of the displayed  account number. This is useful if you want to receive SMH from another account holder. In this case, you just need to send the copied full account address to that person via any digital means, such as a text message or email.
 
-## Viewing Transactions and Rewards
+## Spawning
 
-Click the `ALL TRANSACTIONS` button to access your wallet transactions log screen.
+In order to perform transactions, you must first spawn your wallet.
 
-![](./../../../static/img/v1.0/wallet_screen.png)
+In order to do so, you must make sure that your account has enough balance to send the spawn transaction. At least 100 000 smidge will do.
 
-In this screen you should see a list of all incoming and outgoing transactions from the account which was selected in the Wallet screen.
+Click the **SPAWN** button on your Wallet screen.
 
-On the righthand side you'll see a summary view of your account activity.
+![](./../../../static/img/smapp/spawn1.png)
 
-![](./../../../static/img/v1.0/tx_log.png)
+After this, select the spawning fee. The more expensive the fee, the faster the spawn.
 
-In the transactions log you should see each transaction you have sent from your account and each transaction that was sent to your account, as well as incoming Smeshing rewards.
+![](./../../../static/img/smapp/spawn2.png)
 
-Click on a transaction to view its details.
+Once your spawn transaction has completed, you will be able to perform other transactions.
 
-![](./../../../static/img/v1.0/tx_log_details.png)
 
 ## Sending Smidge
 
-1. Navigate to the Wallet screen by clicking `WALLET` in the top-left side of the screen.
+From your Wallet screen, click on the `SEND` button.
 
-![](./../../../static/img/v1.0/wallet_screen.png)
-
-2. Click on the `SEND` button.
+![](./../../../static/img/smapp/send1.png)
 
 You should see the Send SMH screen:
 
-![](./../../../static/img/v1.0/send_smc_tx.png)
+![](./../../../static/img/smapp/send2.png)
 
-2. Paste the recipient's account address that he or she shared with you into the `Send to` field.
+Select the fee you will pay for the transaction. The higher the fee, the faster the transaction.
 
-3. Enter the Smidge (1 trillionth of a smesh) amount you would like to send to the recipient in the `Amount` field.
+![](./../../../static/img/smapp/send3.png)
+
+Paste the recipient's account address that he or she shared with you into the `Send to` field.
+
+Enter the Smidge (1 trillionth of a smesh) amount you would like to send to the recipient in the `Amount` field.
+
 
 > The amount must be less than your account's SMH balance, as you cannot spend coins that you do not have.
 
-![](./../../../static/img/v1.0/send_smc_tx_1.png)
+![](./../../../static/img/smapp/send4.png)
 
-4. Click `NEXT`.
+Click `NEXT`.
 
 Review the transaction information in the summary screen:
 
-![](./../../../static/img/v1.0/send_smc_tx_review.png)
+![](./../../../static/img/smapp/send5.png)
 
-5. Click `SEND` to execute the transaction.
+Click `SEND` to execute the transaction.
 
 You should now see this screen:
 
-![](./../../../static/img/v1.0/send_smc_tx_sent.png)
+![](./../../../static/img/smapp/send6.png)
 
-6. Click on 'DONE'.
-
-Congratulations! You have just sent your first SMH!
+Click on 'DONE'.
 
 ## Tracking your Transaction
 
-Your recent transactions are displayed in the `Transactions` area of your Wallet Screen:
+Your recent transactions are displayed in the `Transactions` area of your Wallet Screen.
 
-![](./../../../static/img/v1.0/wallet_tx_view.png)
+Click on `ALL TRANSACTIONS` to view the full transactions log.
 
-1. Click on `ALL TRANSACTIONS` to view the full transactions log.
+Click on a transaction to view its details:
 
-2. Click on a transaction to view its details:
+![](./../../../static/img/smapp/send7.png)
 
-![](./../../../static/img/v1.0/tx_log_details.png)
+Notice the transaction status. A new transaction you just executed will be in the `PENDING` state and should move to `APPLIED` state once it has been added to the Spacemesh ledger. When pending, it will display the transacted amount in orange.
 
-Notice the transaction status. A new transaction you just executed will be in the `PENDING` state and should move to `CONFIRMED` state once it has been added to the Spacemesh ledger.
+When applied, it will be displayed in blue:
 
-
-## Getting Smesh from another account
-
-### About Accounts and Addresses
-By default, your Spacemesh Wallet has one main account. That account has one public address you can share with anyone in order to receive Smesh.
-
-1. Click on the `REQUEST <-` button on your wallet screen:
-
-![](./../../../static/img/v1.0/wallet_screen.png)
-
-You should see this screen:
-
-![](./../../../static/img/v1.0/request_coins.png)
-
-2. Click on the copy icon next to your account public address to copy it to the clipboard.
-
-3. Send the copied address to a friend to request that they send you SMH. You can paste the address directly into an app such as Whatsapp, Signal, or Telegram.
-
-4. Ask that person to send SMH to this address using his or her Spacemesh wallet.
-
-
-## Locking Access to your Wallet
-
-> When you are done using your wallet in the App, you should log out from it to prevent other people with direct access to your computer from viewing your SMH balance, from performing transactions and from viewing your transaction history.
-
-To log out from your wallet, just click on the Lock icon in the top right side of the wallet screen. It looks like this:
-
-![](./../../../static/img/v1.0/lock_button.png)
-
-To access your wallet again, open the app and re-enter your Wallet password.
+![](./../../../static/img/smapp/send8.png)

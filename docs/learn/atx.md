@@ -17,7 +17,6 @@ Smeshers who submit a valid ATX during an epoch become eligible to publish block
 
 Currently, the protocol targets 50 block proposals per layer and there are 4032 layers per epoch, with each layer lasting 5 minutes. The absolute weight of an ATX is divided by the number of block proposals that the smesher is eligible for to determine the weight of each of those block proposals.
 
-
 ![Ballots](./../../static/img/protocol_slides/Ballots.png)
 
 ![Proposals](./../../static/img/protocol_slides/Block-Proposals.png)
