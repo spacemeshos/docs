@@ -50,7 +50,7 @@ In order to perform transactions, you must first spawn your wallet.
 
 In order to do so, you must make sure that your account has enough balance to send the spawn transaction. At least 100 000 smidge will do.
 
-Click the **SPAWN** button on your Wallet screen.
+Click the `SPAWN` button on your Wallet screen.
 
 ![](./../../../static/img/smapp/spawn1.png)
 
@@ -96,7 +96,7 @@ You should now see this screen:
 
 ![](./../../../static/img/smapp/send6.png)
 
-Click on 'DONE'.
+Click on `DONE`.
 
 ## Tracking your Transaction
 

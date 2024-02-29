@@ -80,11 +80,11 @@ This one-time storage commitment enables Spacemesh to reach consensus on a distr
 
 > The free space you commit to your Smesher is not used to store any useful data. It will be filled with cryptographic data that is only used to establish your node identity and your block Smeshing eligibility.
 
-Click on **SMESHING** in the top left of Smapp. This will take you to the Smeshing screen.
+Click on `SMESHING` in the top left of Smapp. This will take you to the Smeshing screen.
 
 ![](./../../../static/img/smapp/smeshing_screen_pre_pos.png)
 
-Click **SETUP PROOF OF SPACE**
+Click `SETUP PROOF OF SPACE`
 
 You need to specify the directory that you want Spacemesh to save your PoST init file.
 
@@ -96,7 +96,7 @@ You will now need to select your POS Generation Settings.
 
 ![](./../../../static/img/smapp/pos_settings.png)
 
-You can either go with the default settings, input custom settings which you can test with **TEST CHOSEN OPTIONS**, or run benchmarks to see which settings are best for you. To do this, click **RUN ALL BENCHMARKS**.
+You can either go with the default settings, input custom settings which you can test with `TEST CHOSEN OPTIONS`, or run benchmarks to see which settings are best for you. To do this, click `RUN ALL BENCHMARKS`.
 
 ![](./../../../static/img/smapp/pos_run_all_benchmarks.png)
 
