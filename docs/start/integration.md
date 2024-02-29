@@ -42,15 +42,9 @@ Time in Spacemesh is broken down into epochs which are two weeks long on mainnet
 
 ## Reorgs and Canonicity
 
-In traditional blockchains such as Bitcoin or Ethereum each block contains a "backwards pointer" to the previous known block (i.e., the previous chain head). In this way it's not possible to replace a single, historical block without replacing every block that came after.
+Explained in our section on [blocks](./../learn/blocks.md).
 
-Due to its mesh design, Spacemesh doesn't work this way. Spacemesh blocks are freestanding, i.e., each individual block is deemed valid or invalid on its own right by the consensus mechanisms, Tortoise and Hare. The protocol allows for zero or more valid blocks in a given layer. The vast majority of layers are expected to have a single valid, effective block. Empty layers may occur from time to time when certain assumptions are violated, e.g., when many miners are offline and the Hare consensus mechanism fails.
-
-There can only be multiple valid blocks in a given layer when security assumptions are temporarily violated, e.g., when the network temporarily loses synchrony or > 1/3 of miners act dishonestly. In this case the protocol dictates that a single block be deterministically chosen as the only _effective_ block for the layer. Over time the network's self-healing mechanism ensures that all honest nodes reach consensus on the canonical set of valid, effective blocks, zero or one per layer.
-
-In practice this means that a _single historical block_ and its contents may be reorg'ed in or out of the canonical chain. When a historical change occurs, the state rolls back (i.e., reorgs) to the point of change and all subsequent canonical state (i.e., all transactions in the new canonical chain) is replayed from that point forward. This could mean that transactions in the canonical chain that were previously effective now become ineffective, or vice versa. It may also mean that the same transaction (uniquely identified by its transaction ID) may appear in multiple blocks, in the same layer or in multiple layers. When this happens, only the first instance of the transaction in the canonical chain is considered effective; later instances are ignored.
-
-See [finality](#finality), below, for more information.
+See [finality](#finality), below, for more in-depth information.
 
 # Data Model
 
@@ -58,13 +52,9 @@ The Spacemesh data model is also different from the data model of other blockcha
 
 ## Accounts
 
-Spacemesh implements a form of native account abstraction (a.k.a., account unification): all accounts are smart contract-based accounts. There are no keypair-based "externally owned accounts" (EOAs) as in Ethereum.
+See our explainer [here](./../learn/accounts.md).
 
-An account has an address (24 bytes long, typically expressed as a [bech32](https://en.bitcoin.it/wiki/Bech32) string starting with `sm1` for mainnet and `stest1` for testnet), a template address, a nonce, a balance, and state. The template contains the smart contract's code; as of now there are no user-deployed smart contracts and no code stored inside account objects, there's only a short set of hardcoded "precompiled" templates (see [below](#accounts-1)).
-
-A "stub" account has only a balance, no template, nonce, or state. This is simply an account that's received one or more inbound transactions but hasn't been spawned yet. The "spawn" operation occurs when the owner of the account reveals the template address and immutable state used to generate the address (i.e., the account preimage). A simple or multisig wallet must be spawned (i.e., the Spawn method must be called) before funds can be spent (i.e., before the Spend method is called).
-
-Any account with a balance can pay for any transaction. The account that pays for a transaction is known as the "principal" of the transaction. Typically a wallet account serves as the principal for its own transactions, but more complex arrangements are possible including multisigs and applications that pay for user transactions. See [Accounts, below](#accounts-1) for more information.
+See [Accounts, below](#accounts-1) for more information.
 
 ## Epochs and Layers
 
@@ -72,17 +62,11 @@ As explained above, each epoch and each layer is a singleton; there's only ever 
 
 ## Blocks and Transactions
 
-Blocks work differently. A layer contains zero or more blocks. Most layers contain exactly one block but it's possible for a layer to have zero blocks (when the network is under attack, or during times when many miners were offline or otherwise acting Byzantine) or more than one block (e.g., after a network partition-and-rejoin). In rare cases of multiple blocks, the network will establish consensus on a single block as canonical; transactions in other blocks will not be included in the canonical mesh nor processed. A block may thus be _valid_ or _invalid_ and there may only be one _valid_ block per layer.
-
-Blocks contain zero or more transactions. Blocks are uniquely indexed by their block hash.
-
-Transactions are uniquely indexed by their transaction ID. The same transaction may be included in multiple blocks, but not in multiple blocks on the canonical chain (i.e., multiple _valid_ blocks). A transaction has a _state_ that may be `pending` (i.e., not processed yet), `mempool` (successfully added to the mempool but not yet mined into a block), or `applied` (successfully mined into a block).
-
-A transaction that was successfully `applied` can still fail if, e.g., the principal account doesn't have enough funds to pay for its gas: we call this an "ineffective" transaction. This is not currently captured cleanly in the API. Implementing transaction receipts is still a work in progress.
+See the [explainer](./../learn/blocks.md#Transactions in Blocks).
 
 ## The Mesh
 
-As explained above, the "mesh" (a.k.a. "chain") consists of the canonical set of explicit, evergreen data (i.e., blocks and the transactions they contain) of all history back to genesis. The mesh typically only grows in append-only fashion, but in rare circumstances it can shrink due to a reorg. That is to say, some number of formerly-canonical blocks from the end of the chain may be removed and replaced with other blocks in case of a reorg.
+The "mesh" (a.k.a. "chain") consists of the canonical set of explicit, evergreen data (i.e., blocks and the transactions they contain) of all history back to genesis. The mesh typically only grows in append-only fashion, but in rare circumstances it can shrink due to a reorg. That is to say, some number of formerly-canonical blocks from the end of the chain may be removed and replaced with other blocks in case of a reorg.
 
 ## Activations
 

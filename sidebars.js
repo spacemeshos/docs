@@ -9,12 +9,15 @@ module.exports = {
         'learn/smeshing',
         'learn/economics'],
       'Protocol 101': [
+        'learn/smeshing',
         'learn/post',
         'learn/poet',
         'learn/atx',
         'learn/hare',
         'learn/tortoise',
-        'learn/rewards'
+        'learn/rewards',
+        'learn/blocks',
+        'learn/accounts'
       ]
     }
 ],
