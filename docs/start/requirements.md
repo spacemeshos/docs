@@ -23,6 +23,9 @@ Memory: 1GiB+
 - A hard drive that can sustain at least 100MB/s of sequential read
 - A multi-core CPU from the last 8 years
 
+#### To run Smapp:
+- Visual C++ runtime
+
 > The Spacemesh App is an Electron App. It is supported on any Linux distribution that supports Electron apps.
 
 #### Supported Processors for proof of space setup
