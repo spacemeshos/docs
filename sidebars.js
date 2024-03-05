@@ -62,6 +62,7 @@ module.exports = {
           'start/smesher/networking',
           'start/smesher/performance',
           'start/smesher/equivocation',
+          'start/smesher/verification',
           'start/smesher/advanced',
           'start/smesher/troubleshooting'
         ],
