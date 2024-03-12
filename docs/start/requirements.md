@@ -14,6 +14,9 @@ Memory: 1GiB+
 - Disk: 50GiB of free disk space
 - An always-on, unmetered Internet connection capable of 5 mbps download and 1 mbps upload
 
+#### To run Smapp:
+- Visual C++ runtime must be installed
+
 #### For smeshing in addition to running a node:
 - CPU support for AES-NI
 - 256GiB of free disk space for PoST files
@@ -50,7 +53,7 @@ You can create proof of space data using your computer's integrated graphics car
 As long as your system and configuration meets the recommended requirements, ongoing utilization of your CPU by the Spacemesh App should be limited during normal operation (after the initial setup phase) to 2 CPU cores.
 
 ### Network Configuration
-Your network should allow the App to accept incoming connections on UDP port 7153 and on TCP port 7153 and your computer firewall should not block incoming UDP and TPC packets on this port. The App attempts to automatically configure your network using UPnP. In some cases you may need to configure your router and firewall manually. Follow [this guide](netconfig.md) to configure your network.
+Your network should allow the App to accept incoming connections on UDP port 7153 and on TCP port 7153 and your computer firewall should not block incoming UDP and TPC packets on this port. The App attempts to automatically configure your network using UPnP. In some cases you may need to configure your router and firewall manually. Follow [this guide](./netconfig.md) to configure your network.
 
 ### Laptop Usage
 You can install the App, run a Smesher and produce blocks on your laptop if it meets the minimum system requirements. However, you will need to make sure you leave your laptop open and connected to power and to the Internet 24/7.

@@ -4,61 +4,70 @@ module.exports = {
   learn: [
     {
       'Spacemesh 101': [
-        'learn/crypto',
         'learn/spacemesh',
         'learn/coin',
+        'learn/smeshing',
         'learn/economics'],
       'Protocol 101': [
         'learn/post',
-        'learn/transactions',
+        'learn/poet',
+        'learn/atx',
         'learn/hare',
         'learn/tortoise',
-        'learn/accounts',
         'learn/rewards',
-        'learn/epochs'
+        'learn/blocks',
+        'learn/accounts'
       ]
     }
 ],
-  specs: [
-        'specs/consensus/construction-cons',
-        'specs/consensus/overview',
-        'specs/consensus/post-deep',
-        'specs/consensus/poet',
-        'specs/consensus/activations',
-        'specs/consensus/proposals',
-        'specs/consensus/hare-abstract',
-        'specs/consensus/tortoise-abstract',
-        'specs/consensus/weak-coin',
-        'specs/consensus/random-beacon',
-        'specs/consensus/rewards-algorithm',
-        'specs/consensus/block-assembly'],
-  vm:[
-      'specs/smart_contracts/construction-vm',
-    'specs/smart_contracts/state',
-    'specs/smart_contracts/txs',
-    'specs/smart_contracts/creation',
-    'specs/smart_contracts/built-in',
-    'specs/smart_contracts/model',
-    'specs/smart_contracts/opcodes',
-  ],
+  // specs: [
+  //       'specs/consensus/construction-cons',
+  //       'specs/consensus/overview',
+  //       'specs/consensus/post-deep',
+  //       'specs/consensus/poet',
+  //       'specs/consensus/activations',
+  //       'specs/consensus/proposals',
+  //       'specs/consensus/hare-abstract',
+  //       'specs/consensus/tortoise-abstract',
+  //       'specs/consensus/weak-coin',
+  //       'specs/consensus/random-beacon',
+  //       'specs/consensus/rewards-algorithm',
+  //       'specs/consensus/block-assembly'],
+  // vm:[
+  //     'specs/smart_contracts/construction-vm',
+  //   'specs/smart_contracts/state',
+  //   'specs/smart_contracts/txs',
+  //   'specs/smart_contracts/creation',
+  //   'specs/smart_contracts/built-in',
+  //   'specs/smart_contracts/model',
+  //   'specs/smart_contracts/opcodes',
+  // ],
   start: [
      'start/start',
+     'start/requirements',
+     'start/netconfig',
+      'start/rewards',
       {
-        'Smapp': [
+        'Smapp Guide': [
           'start/smapp/install',
-          'start/smapp/requirements',
-          'start/smapp/netconfig',
           'start/smapp/setup',
-          'start/smapp/smeshing',
           'start/smapp/wallet',
           'start/smapp/advanced-wallet',
-          'start/smapp/status',
-          'start/smapp/net-dash'],
-        'SMRepl': [
-          'start/smrepl/setup',
-          'start/smrepl/commands'
-          ]
-        }
+        'start/smapp/advanced_config'],
+        'Advanced Smesher Guide': [
+          'start/smesher/setup',
+          'start/smesher/post_init',
+          'start/smesher/api',
+          'start/smesher/poet',
+          'start/smesher/networking',
+          'start/smesher/performance',
+          'start/smesher/equivocation',
+          'start/smesher/verification',
+          'start/smesher/advanced',
+          'start/smesher/troubleshooting'
+        ],
+      },
+      'start/integration'
       ],
   ecosystem: [  'ecosystem/construction-eco',
     'ecosystem/smapp',

@@ -30,7 +30,7 @@ Follow the instructions on this page to download, install and run the App.
 
 ## Step 1 - Downloading the Installer
 
-> Before installing, please confirm that your computer meets the [minimum system requirements](requirements.md).
+> Before installing, please confirm that your computer meets the [minimum system requirements](https://docs.spacemesh.io/docs/start/requirements).
 
 Next, download the App Installer for your OS by visiting our [main website](https://spacemesh.io/start).
 
@@ -39,8 +39,6 @@ Next, download the App Installer for your OS by visiting our [main website](http
 ### Security Notes
 
 > All software released by Spacemesh is 100% open source. The Smapp Installer you are downloading was packaged from code in the [Spacemesh Open Source software repositories](https://github.com/spacemeshos) available on Github. We provide the Installer to make it convenient for non-developers to join the Spacemesh .
-
-> Follow [these steps](auth.md) if you'd like to verify that the Installer you have downloaded is authentic and has not been modified by a third party.
 
 ## Step 2 - Installing the App
 
