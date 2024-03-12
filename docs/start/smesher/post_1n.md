@@ -83,7 +83,62 @@ Consolidating your Spacemesh identities / PoST services onto a single node strea
 
 ### Starting and stopping PoST services
 
-...
+For the prerequisites and initial setup, visit `post-service` [README](https://github.com/spacemeshos/post-rs/blob/main/service/README.md).
+
+To start the PoST service, follow these steps:
+
+1. Create a directory for post-service and put there the most recent post **service** release from [post-rs repository](https://github.com/spacemeshos/post-rs).
+2. Prepare Command Arguments. Remember to `cd` to the correct directory and `chmod` service file. Then you will need to run the post service with the following arguments:
+
+   ```shell
+   ./service --address=http://localhost:9094 --dir=../data1 --operator-address=127.0.0.1:50051 --threads=1 --nonces=128 --randomx-mode=Fast
+   ```
+
+   - `--address`: Points to the node's gRPC address. Ensure it matches the `grpc-post-listener` config option.
+   - `--dir`: Specifies the directory of PoST data. Adjust the path according to your setup.
+   - `--operator-address`: The address for the simple operator API. Change port numbers as needed for your environment. If it's not specified, it will be disabled.
+   - `--threads`, `--nonces`, `--randomx-mode`: Configuration options specific to the post service, not the node.
+3. Enable Debug Logs (Optional): For additional logging, set the `RUST_LOG` environment variable to `DEBUG`:
+
+```sh
+export RUST_LOG=DEBUG
+```
+
+4. Start the Service: Run the command prepared in Step 2. Upon starting, the service will log its configuration and connection attempts to the node. Successful logs will look like this:
+
+```plaintext
+[INFO  service] POST proving settings: PostSettings { threads: 1, nonces: 128, randomx_mode: Fast }
+[INFO  service] not configuring TLS
+[DEBUG post_service::client] connecting to the node on http://localhost:10094/ (attempt 1)
+```
+
+These messages indicate that the PoST service is correctly configured and has started.
+
+### Stopping PoST Services
+
+To **stop** a PoST service, typically, you would terminate the process using your operating system's standard procedure for stopping applications. For services running in a container or through a managed service, use the appropriate command or interface provided by the environment to safely stop the service. Otherwise, you can fikkiw these steos:
+
+1. Identify the Process: Use a process management command like `ps` to find the process ID (PID) of the post service. You can filter the results using `grep`:
+
+   ```sh
+   ps aux | grep service
+   ```
+
+2. Terminate the Process: Once you've identified the PID, use the `kill` command to stop the service:
+
+```sh
+kill [PID]
+```
+
+Replace `[PID]` with the actual process ID of your post service. If the service does not terminate gracefully, you can use `kill -9 [PID]` to force it to stop.
+
+### General Tips
+
+- **Configuration Flexibility**: You can adjust the PoST service configuration (e.g., `--threads`, `--nonces`, `--randomx-mode`) based on your hardware capabilities and preferences.
+- **Multiple Directories**: If you have multiple `./dataN` directories, repeat the starting process for each, adjusting the `--dir` argument accordingly.
+- **Service Management**: Feel free to start, stop, or restart PoST services at any time based on your needs. However, the node should remain running continuously for the system to function properly.
+
+
 
 ### Managing node identities lifecycle
 
@@ -93,7 +148,7 @@ Consolidating your Spacemesh identities / PoST services onto a single node strea
 
 After adding or migrating identities and PoST services, verify they're correctly connected to your node and eligible for rewards by monitoring the node's operational logs. Look for indicators of successful identity recognition and PoST data validation. You should see:
 
-`atxBuilder registered signing key `
+`atxBuilder registered signing key`
 
 for each key, the node could find in the `./node_data/identities/` directory.
 
@@ -114,7 +169,6 @@ A: Initialize PoST data for the new identity using `postcli`, which will generat
 
 **Q: What should I do if I encounter errors during identity or PoST service setup?**
 A: Check your configuration files for accuracy and review node logs for specific error messages. Ensure all paths and identifiers are correctly specified and that there's no overlap of identities across multiple nodes.
-
 
 ## **Appendix**
 
