@@ -22,8 +22,8 @@ Finally, to calculate a miner's estimated rewards for a given epoch simply multi
 Note: It is possible to read more precise values from a node's state database (see below). This sample SQL query will give you the total weight for an epoch:
 
 ```sql
-SELECT SUM(effective_num_units)*SUM(tick_count) FROM atxs WHERE epoch=2;
-3091782534750
+SELECT SUM(effective_num_units*tick_count) FROM atxs WHERE epoch=2;
+781394721
 ```
 
 And this query will give an individual miner's relative weight:
@@ -32,7 +32,7 @@ And this query will give an individual miner's relative weight:
 SELECT 1.0*atxs.effective_num_units*atxs.tick_count/total_weight.weight
   FROM atxs,
        (SELECT SUM(effective_num_units*tick_count) weight FROM atxs WHERE epoch=2) AS total_weight
-  WHERE hex(atxs.id) = "1281641D519CCC57F38C38294BB873A60367DB71AD0FA8DFBD146A55FD60626C" AND atxs.epoch=2;
+  WHERE hex(atxs.id) = '1281641D519CCC57F38C38294BB873A60367DB71AD0FA8DFBD146A55FD60626C' AND atxs.epoch=2;
 0.000519591429387197
 ```
 
