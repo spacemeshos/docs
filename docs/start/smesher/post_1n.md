@@ -100,9 +100,7 @@ for each key, the node could find in the `./node_data/identities/` directory.
 ### **Troubleshooting Tips**
 
 - **Check Configuration Files** : Ensure all identity and service configurations are correctly set up.
-
 - **Review Logs for Errors** : Any connectivity or initialization errors will be detailed in the node's logs.
-
 - **Ensure Unique Operation** : Running multiple nodes with the same identity can lead to issues. Verify that each identity is only active on one node
 
 ### **Advanced Configurations**
@@ -111,7 +109,12 @@ for each key, the node could find in the `./node_data/identities/` directory.
 
 ## **FAQs**
 
-- Addressing common questions
+**Q: I want to generate more POS data. How do I add a new identity to my node?**
+A: Initialize PoST data for the new identity using `postcli`, which will generate a new private key. Then, move the generated `identity.key` to your `data/identities` directory, ensuring it's uniquely named.
+
+**Q: What should I do if I encounter errors during identity or PoST service setup?**
+A: Check your configuration files for accuracy and review node logs for specific error messages. Ensure all paths and identifiers are correctly specified and that there's no overlap of identities across multiple nodes.
+
 
 ## **Appendix**
 
