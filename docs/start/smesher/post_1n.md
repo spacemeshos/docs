@@ -103,7 +103,7 @@ It is however recommended only for advanced users as it does not cover all the c
 
 ## Operational Guide
 
-:::warning
+:::note
 
 This is just example, in real world you should use some kind of process manager like `systemd` or `supervisord` to manage your services. Or use some kind of orchestration tool like `kubernetes` or `docker-compose`.
 
