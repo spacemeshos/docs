@@ -82,8 +82,8 @@ It is possible to merge nodes by hand too
 - Rename the key files respectively for easy identification of each identity.
 - Run: `sqlite3 target_node.sql` where `target_node.sql` is the database file of the node you're consolidating to.
 
- ```attach '<source_path.sql>' as srcDB;
- BEGIN;
+```attach '<source_path.sql>' as srcDB;
+BEGIN;
 insert into initial_post select * from srcDB.initial_post;
 insert into challenge select * from srcDB.challenge;
 insert into poet_registration select * from srcDB.poet_registration;
