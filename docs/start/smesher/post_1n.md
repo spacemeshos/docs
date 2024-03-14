@@ -73,25 +73,28 @@ Run it with the following command:
 
 Where: `source_path` is the path to the node data you want to merge from and `target_path` is the path to the node data you want to merge to.
 
-> [!NOTE]
-> It is possible to merge nodes by hand too
->
-> - Locate the `identity.key` files within the PoST data directories of each node.
-> - Copy these files to the `./node_data/identities` directory on the node you're consolidating to.
-> - Rename the key files respectively for easy identification of each identity.
-> - Run: `sqlite3 target_node.sql` where `target_node.sql` is the database file of the node you're consolidating to.
->
-> ```attach '<source_path.sql>' as srcDB;
-> BEGIN;
-> insert into initial_post select * from srcDB.initial_post;
-> insert into challenge select * from srcDB.challenge;
-> insert into poet_registration select * from srcDB.poet_registration;
-> insert into nipost select * from srcDB.nipost;
-> COMMIT;
-> detach srcDB;
-> ```
->
-> However, it is recommended only for advanced users as it does not cover all the corner cases and may lead to data corruption.
+:::note
+
+It is possible to merge nodes by hand too
+
+- Locate the `identity.key` files within the PoST data directories of each node.
+- Copy these files to the `./node_data/identities` directory on the node you're consolidating to.
+- Rename the key files respectively for easy identification of each identity.
+- Run: `sqlite3 target_node.sql` where `target_node.sql` is the database file of the node you're consolidating to.
+
+ ```attach '<source_path.sql>' as srcDB;
+ BEGIN;
+insert into initial_post select * from srcDB.initial_post;
+insert into challenge select * from srcDB.challenge;
+insert into poet_registration select * from srcDB.poet_registration;
+insert into nipost select * from srcDB.nipost;
+COMMIT;
+detach srcDB;
+```
+
+However, it is recommended only for advanced users as it does not cover all the corner cases and may lead to data corruption.
+
+:::
 
 3. **Configure PoST Services** :
 
@@ -100,8 +103,11 @@ Where: `source_path` is the path to the node data you want to merge from and `ta
 
 ## Operational Guide
 
-> [!WARNING]
-> This is just an example, in the real world you should use some kind of process manager like `systemd` or `supervisord` to manage your services. Or use some orchestration tool like `kubernetes` or `docker-compose`.
+:::note
+
+This is just an example, in the real world you should use some kind of process manager like `systemd` or `supervisord` to manage your services. Or use some orchestration tool like `kubernetes` or `docker-compose`.
+
+:::
 
 ### Starting And Stopping PoST Services
 
