@@ -1,22 +1,22 @@
-# Guide to managing multiple PoST services on a single node
+# Guide To Managing Multiple PoST Services On A Single Node
 
 ## Introduction
 
 This guide is your roadmap to efficiently managing multiple Proof of Space-Time (PoST) services using just a single node. With the Spacemesh protocol's latest advancements, it's now possible to extend a node's capabilities beyond the previous one-identity-per-node model. It means users can streamline their operations, reduce overhead, and increase their participation in the network without multiplying their hardware or maintenance efforts. This approach requires only one database for all identities, reducing local storage needs and minimizing data broadcasted or fetched from the network. It not only simplifies the lifecycle management of multiple identities but also enhances operational efficiency and network performance. Whether you're looking to add new identities, consolidate existing services, or simply optimize your setup for possibly greater rewards, you're in the right place.
 
-## Getting started
+## Getting Started
 
 Before diving into managing multiple PoST services on your node, ensure you have the following aspects covered.
 
 ### Prerequisites
 
-1.**Familiarity with CLI operations:** Basic knowledge of command-line interfaces (CLI) and blockchain concepts.
+1. **Familiarity With CLI Operations:** Basic knowledge of command-line interfaces (CLI) and blockchain concepts.
 
-2.**System specifications:** Ensure your system meets the recommended hardware specifications for running multiple PoST services, including sufficient storage and processing power, as well as OpenCL support.
+2. **System Specifications:** Ensure your system meets the recommended hardware specifications for running multiple PoST services, including sufficient storage and processing power, as well as OpenCL support.
 
-### Initial setup and configuration
+### Initial Setup And Configuration
 
-1.**Spacemesh node setup:** Ensure your Spacemesh node is operational, utilizing the latest release supporting multiple PoST services (1.4.x series or newer). For detailed setup instructions, refer to the [go-spacemesh documentation](https://github.com/spacemeshos/go-spacemesh/blob/develop/README.md).
+1. **Spacemesh Node Setup:** Ensure your Spacemesh node is operational, utilizing the latest release supporting multiple PoST services (1.4.x series or newer). For detailed setup instructions, refer to the [go-spacemesh documentation](https://github.com/spacemeshos/go-spacemesh/blob/develop/README.md).
 
 For this feature setup process, make sure your node is not smeshing. You should specify in your config:
 
@@ -26,9 +26,9 @@ For this feature setup process, make sure your node is not smeshing. You should 
 }
 ```
 
-2.**Software requirements:** The latest versions of `postcli` and `post-service` from the Spacemesh GitHub repository.
+2. **Software Requirements:** The latest versions of `postcli` and `post-service` from the Spacemesh GitHub repository.
 
-3.**Your case:** Gather info and organize all your node and PoS data paths, POST services configs and details, and hardware access if necessary.
+3. **Your Case:** Gather info and organize all your node and PoS data paths, POST services configs and details, and hardware access if necessary.
 
 For the sake of conciseness, we assume you have:
 
@@ -36,46 +36,46 @@ For the sake of conciseness, we assume you have:
 - `./node_data/identities/` directory (create it if it doesn't exist)
 - PoS data in: `./data1/` and `./data2/` directories
 
-## Adding new identities and PoST services
+## Adding New Identities And PoST Services
 
-### Procedure overview
+### Procedure Overview
 
 Adding new identities and PoST services involves initializing PoST data for each new identity with specific parameters using `postcli`. This process generates a new private key, so a new identity.
 
-### Detailed steps
+### Detailed Steps
 
-1.**Initialize PoST data** : Use `postcli` to initialize PoST data. The command includes specifying your provider, the number of PoST units, and the commitment ATX ID for the new identity. More details in [postcli repo](https://github.com/spacemeshos/post/blob/develop/cmd/postcli/README.md).
+1. **Initialize PoST Data** : Use `postcli` to initialize PoST data. The command includes specifying your provider, the number of PoST units, and the commitment ATX ID for the new identity. More details in [postcli repo](https://github.com/spacemeshos/post/blob/develop/cmd/postcli/README.md).
 
-2.**Store the private key** : Upon initialization, `postcli` generates a new private key stored as `identity.key` in the PoST data directory. This key should then be moved to your `./node_data/identities/` directory, renamed for unique identification.
+2. **Store The Private Key** : Upon initialization, `postcli` generates a new private key stored as `identity.key` in the PoST data directory. This key should then be moved to your `./node_data/identities/` directory, renamed for unique identification.
 
-3.**Configure the PoST service** : Set up the `post-service` with the newly initialized data, ensuring it's configured to connect to your node. This step integrates the new identity with your node's operational framework.
+3. **Configure The PoST Service** : Set up the `post-service` with the newly initialized data, ensuring it's configured to connect to your node. This step integrates the new identity with your node's operational framework.
 
-## Migrating existing identities/PoST services
+## Migrating Existing Identities/PoST Services
 
-### Migration strategy
+### Migration Strategy
 
 Consolidating your Spacemesh identities / PoST services onto a single node streamlines operations and enhances efficiency. The key to a successful migration lies in safely transferring identity keys and PoST data to your chosen node, ensuring no identities are active on more than one node simultaneously to prevent equivocation (the act of a node signing two different blocks at the same layer, which is considered malicious) and being permanently banned and disqualified for rewards.
 
-### Step-by-step migration
+### Step-By-Step Migration
 
 1. **Preparation** : Before starting, stop all operations on your current nodes to ensure data integrity during the migration.
 
-2. **Transfer identity keys** :
+2. **Transfer Identity Keys** :
 
 - Locate the `identity.key` files within the PoST data directories of each node.
 - Copy these files to the `./node_data/identities` directory on the node you're consolidating to.
 - Rename the key files respectively for easy identification of each identity.
 
-3. **Restart the primary node** : With the identity keys in place, initiate the node that will now manage all identities.
+3. **Restart The Primary Node** : With the identity keys in place, initiate the node that will now manage all identities.
 
-4. **Configure PoST services** :
+4. **Configure PoST Services** :
 
 - For each identity, set up a PoST service that utilizes the existing PoST data linked to that identity. This ensures the node can continue to participate in the network without redoing the PoST.
 - Detailed configuration steps can be found in the `post-service` [README](https://github.com/spacemeshos/post-rs/blob/main/service/README.md), guiding you through connecting each PoST service to your node.
 
-## Operational guide
+## Operational Guide
 
-### Starting and stopping PoST services
+### Starting And Stopping PoST Services
 
 For the prerequisites and initial setup, visit `post-service` [README](https://github.com/spacemeshos/post-rs/blob/main/service/README.md).
 
@@ -109,7 +109,7 @@ export RUST_LOG=DEBUG
 
 These messages indicate that the PoST service is correctly configured and has started.
 
-### Stopping PoST services
+### Stopping PoST Services
 
 To **stop** a PoST service, typically, you would terminate the process using your operating system's standard procedure for stopping applications. For services running in a container or through a managed service, use the appropriate command or interface provided by the environment to safely stop the service. Otherwise, you can follow these steps:
 
@@ -127,25 +127,25 @@ kill [PID]
 
 Replace `[PID]` with the actual process ID of your post service. If the service does not terminate gracefully, you can use `kill -9 [PID]` to force it to stop.
 
-### General tips
+### General Tips
 
-#### Configuration flexibility
+#### Configuration Flexibility
 
 You can adjust the PoST service configuration (e.g., `--threads`, `--nonces`, `--randomx-mode`) based on your hardware capabilities and preferences.
 
-#### Multiple directories
+#### Multiple Directories
 
 If you have multiple `./dataN` directories, repeat the starting process for each, adjusting the `--dir` argument accordingly.
 
-#### Service management
+#### Service Management
 
 Feel free to start, stop, or restart PoST services at any time based on your needs. However, the node should remain running continuously for the system to function properly.
 
-### Managing node identities lifecycle
+### Managing Node Identities Lifecycle
 
 ...
 
-### Verifying connection and reward eligibility
+### Verifying Connection And Reward Eligibility
 
 After adding or migrating identities and PoST services, verify they're correctly connected to your node and eligible for rewards by monitoring the node's operational logs. Look for indicators of successful identity recognition and PoST data validation. You should see:
 
@@ -153,25 +153,25 @@ After adding or migrating identities and PoST services, verify they're correctly
 
 for each key, the node could find in the `./node_data/identities/` directory.
 
-### Troubleshooting tips
+### Troubleshooting Tips
 
-- **Check configuration files** : Ensure all identity and service configurations are correctly set up.
-- **Review logs for errors** : Any connectivity or initialization errors will be detailed in the node's logs.
-- **Ensure unique operation** : Running multiple nodes with the same identity can lead to issues. Verify that each identity is only active on one node
+- **Check Configuration Files** : Ensure all identity and service configurations are correctly set up.
+- **Review Logs For Errors** : Any connectivity or initialization errors will be detailed in the node's logs.
+- **Ensure Unique Operation** : Running multiple nodes with the same identity can lead to issues. Verify that each identity is only active on one node
 
-### Advanced configurations
+### Advanced Configurations
 
-- Customizing settings for optimal performance
+- Customizing Settings For Optimal Performance
 
 ## FAQs
 
-**Q: I want to generate more POS data. How do I add a new identity to my node?**
+**Q: I Want To Generate More PoS Data. How Do I Add A New Identity To My Node?**
 A: Initialize PoST data for the new identity using `postcli`, which will generate a new private key. Then, move the generated `identity.key` to your `data/identities` directory, ensuring it's uniquely named.
 
-**Q: What should I do if I encounter errors during identity or PoST service setup?**
+**Q: What Should I Do If I Encounter Errors During Identity Or PoST Service Setup?**
 A: Check your configuration files for accuracy and review node logs for specific error messages. Ensure all paths and identifiers are correctly specified and that there's no overlap of identities across multiple nodes.
 
-## **Appendix**
+## Appendix
 
-- Reference links
-- Glossary of terms
+- Reference Links
+- Glossary Of Terms
