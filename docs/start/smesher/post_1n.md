@@ -245,8 +245,3 @@ A: Initialize PoST data for the new identity using `postcli`, which will generat
 
 **Q: What Should I Do If I Encounter Errors During Identity Or PoST Service Setup?**
 A: Check your configuration files for accuracy and review node logs for specific error messages. Ensure all paths and identifiers are correctly specified and that there's no overlap of identities across multiple nodes.
-
-## Appendix
-
-- Reference Links
-- Glossary Of Terms
