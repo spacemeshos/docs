@@ -64,6 +64,7 @@ module.exports = {
           'start/smesher/equivocation',
           'start/smesher/verification',
           'start/smesher/advanced',
+          'start/smesher/post_1n',
           'start/smesher/troubleshooting'
         ],
       },
