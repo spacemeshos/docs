@@ -47,7 +47,7 @@ Adding new identities and PoST services involves initializing PoST data for each
 
 ### Detailed Steps
 
-1. **Initialized PoST Data** : We assume that the data is already intialized. If it's not the case yet then please visit [docs for that](https://docs.spacemesh.io/docs/start/smesher/post_init).
+1. **Initialized PoST Data** : We assume that the data is already initialized. If it's not the case yet then please visit [docs for that](https://docs.spacemesh.io/docs/start/smesher/post_init).
 
 2. **Store The Private Key** : Upon initialization, `postcli` generates a new private key stored as `identity.key` in the PoST data directory. This key should then be moved to your `./node_data/identities/` directory, renamed for unique identification.
 
@@ -61,9 +61,9 @@ Consolidating your Spacemesh identities / PoST services onto a single node strea
 
 ### Step-By-Step Migration
 
-1. **Preparation** : Before starting, stop all operations on your current nodes to ensure data integrity during the migration. Make sure that all nodes _were_ running in latest version of Spacemesh newer or equal 1.4.0. This is crucial to avoid any potential issues with the migration process. Nodes that were running 1.3.x series **only** cannot be migrated directly.
+1. **Preparation** : Before starting, stop all operations on your current nodes to ensure data integrity during the migration. Make sure that all nodes _were_ running the latest version of Spacemesh newer or equal 1.4.0. This is crucial to avoid any potential issues with the migration process. Nodes that were running 1.3.x series **only** cannot be migrated directly.
 
-2. In the go-spacemesh release you'll find `merge-node` tool. It's a tool that allows you to merge two or more nodes into one. Currently it assumes all or nothing during merging.
+2. In the go-spacemesh release you'll find `merge-node` tool. It's a tool that allows you to merge two or more nodes into one. Currently, it assumes all or nothing during merging.
 
 Run it with the following command:
 
@@ -73,41 +73,35 @@ Run it with the following command:
 
 Where: `source_path` is the path to the node data you want to merge from and `target_path` is the path to the node data you want to merge to.
 
-:::note
-
-It is possible to merge nodes by hand too
-
-- Locate the `identity.key` files within the PoST data directories of each node.
-- Copy these files to the `./node_data/identities` directory on the node you're consolidating to.
-- Rename the key files respectively for easy identification of each identity.
-- Run: `sqlite3 target_node.sql` where `target_node.sql` is the database file of the node you're consolidating to.
-
-```attach '<source_path.sql>' as srcDB;
-BEGIN;
-insert into initial_post select * from srcDB.initial_post;
-insert into challenge select * from srcDB.challenge;
-insert into poet_registration select * from srcDB.poet_registration;
-insert into nipost select * from srcDB.nipost;
-COMMIT;
-detach srcDB;
-```
-
-It is however recommended only for advanced users as it does not cover all the corner cases and may lead to data corruption.
-
-:::
+> [!NOTE]
+> It is possible to merge nodes by hand too
+>
+> - Locate the `identity.key` files within the PoST data directories of each node.
+> - Copy these files to the `./node_data/identities` directory on the node you're consolidating to.
+> - Rename the key files respectively for easy identification of each identity.
+> - Run: `sqlite3 target_node.sql` where `target_node.sql` is the database file of the node you're consolidating to.
+>
+> ```attach '<source_path.sql>' as srcDB;
+> BEGIN;
+> insert into initial_post select * from srcDB.initial_post;
+> insert into challenge select * from srcDB.challenge;
+> insert into poet_registration select * from srcDB.poet_registration;
+> insert into nipost select * from srcDB.nipost;
+> COMMIT;
+> detach srcDB;
+> ```
+>
+> However, it is recommended only for advanced users as it does not cover all the corner cases and may lead to data corruption.
 
 3. **Configure PoST Services** :
 
-- For each identity, set up a PoST service that utilizes the existing PoST data linked to that identity. This ensures the node can continue to participate in the network without redoing the PoST.
+- For each identity, set up a PoST service that utilizes the existing PoST data linked to that identity. This ensures the node can continue participating in the network without redoing the PoST.
 - Detailed configuration steps can be found in the `post-service` [README](https://github.com/spacemeshos/post-rs/blob/main/service/README.md), guiding you through connecting each PoST service to your node.
 
 ## Operational Guide
 
-:::note
-
-This is just example, in real world you should use some kind of process manager like `systemd` or `supervisord` to manage your services. Or use some kind of orchestration tool like `kubernetes` or `docker-compose`.
-
-:::
+> [!WARNING]
+> This is just an example, in the real world you should use some kind of process manager like `systemd` or `supervisord` to manage your services. Or use some orchestration tool like `kubernetes` or `docker-compose`.
 
 ### Starting And Stopping PoST Services
 
@@ -173,7 +167,7 @@ If you have multiple `./dataN` directories, repeat the starting process for each
 
 #### Service Management
 
-Feel free to start, stop, or restart PoST services at any time based on your needs. However, the node should remain running continuously for the system to function properly. Each PoST service exposes operator-api you can use it to query it's state and to stop it.
+Feel free to start, stop, or restart PoST services whenever you need it. However, the node should remain running continuously for the system to function properly. Each PoST service exposes operator-api you can use it to query its state and to stop it.
 
 ```
 # Not doing anything
@@ -197,19 +191,19 @@ Feel free to start, stop, or restart PoST services at any time based on your nee
 "DoneProving"
 ```
 
-More info about oprerator API can be found in the [post-rs repository](https://github.com/spacemeshos/post-rs/blob/main/service/README.md#operator-api).
+More info about operator API can be found in the [post-rs repository](https://github.com/spacemeshos/post-rs/blob/main/service/README.md#operator-api).
 
-Before stopping a post service with `DoneProving` state you need to make sure that node fetched the proof. You can check it by running `grpcurl` command:
+Before stopping a post service with `DoneProving` state you need to make sure that the node fetched the proof. You can check it by running `grpcurl` command:
 
 ```bash
 grpcurl --plaintext localhost:9094 spacemesh.v1.PostInfoService.PostStates
 ```
 
-if given post service is `PROVING` then you should NOT stop it.
+if a given post service is `PROVING` then you should NOT stop it.
 
 ### Verifying the setup
 
-After adding or migrating identities and PoST services, verify they're correctly connected to your node and eligible for rewards by monitoring the node's Events. Look for indicators of successful identity recognition and PoST data validation. For example you can list the Post states with:
+After adding or migrating identities and PoST services, verify they're correctly connected to your node and eligible for rewards by monitoring the node's Events. Look for indicators of successful identity recognition and PoST data validation. For example, you can list the Post states with:
 
 ```bash
 grpcurl --plaintext localhost:9094 spacemesh.v1.PostInfoService.PostStates
@@ -225,7 +219,7 @@ to list the configuered SmesherIDs.
 
 ### Node Events
 
-Method `spacemesh.v1.AdminService.EventsStream` have been extended with `smesher` field in the events. So you're expected to see event PER post service now.
+Method `spacemesh.v1.AdminService.EventsStream` have been extended with `smesher` field in the events. So you're expected to see the event PER post service now.
 
 ### Troubleshooting Tips
 
@@ -237,7 +231,7 @@ Method `spacemesh.v1.AdminService.EventsStream` have been extended with `smesher
 
 #### Customizing Settings For Optimal Performance
 
-As mentioned previously each post service accepts it's own configuration. You can adjust the `--threads`, `--nonces`, `--randomx-mode` based on your hardware capabilities and preferences.
+As mentioned previously each post service accepts its own configuration. You can adjust the `--threads`, `--nonces`, `--randomx-mode` based on your hardware capabilities and preferences.
 
 #### Smart Orchestration For Running Multiple PoST Services
 
