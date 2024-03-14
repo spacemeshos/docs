@@ -194,6 +194,8 @@ Feel free to start, stop, or restart PoST services at any time based on your nee
 "DoneProving"
 ```
 
+More info about oprerator API can be found in the [post-rs repository](https://github.com/spacemeshos/post-rs/blob/main/service/README.md#operator-api).
+
 Before stopping a post service with `DoneProving` state you need to make sure that node fetched the proof. You can check it by running `grpcurl` command:
 
 ```bash
