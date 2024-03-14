@@ -2,7 +2,6 @@
 id: post_1n
 title: Managing Multiple PoST Services On A Single Node
 ---
-
 ## Introduction
 
 This guide is your roadmap to efficiently managing multiple Proof of Space-Time (PoST) services using just a single node. With the Spacemesh protocol's latest advancements, it's now possible to extend a node's capabilities beyond the previous one-identity-per-node model. It means users can streamline their operations, reduce overhead, and increase their participation in the network without multiplying their hardware or maintenance efforts. This approach requires only one database for all identities, reducing local storage needs and minimizing data broadcasted or fetched from the network. It not only simplifies the lifecycle management of multiple identities but also enhances operational efficiency and network performance. Whether you're looking to add new identities, consolidate existing services, or simply optimize your setup for possibly greater rewards, you're in the right place.
@@ -14,8 +13,17 @@ Before diving into managing multiple PoST services on your node, ensure you have
 ### Prerequisites
 
 1. **Familiarity With CLI Operations:** Basic knowledge of command-line interfaces (CLI) and blockchain concepts.
-
 2. **System Specifications:** Ensure your system meets the recommended hardware specifications for running multiple PoST services, including sufficient storage and processing power, as well as OpenCL support.
+
+### Backup
+
+**Important Reminder:** Before you begin following this guide or making any changes to your node and PoST services setup, it's crucial to back up all your critical data. These steps will help ensure that you can recover your system to its correct state in case of unexpected issues.
+
+**What to Back Up:**
+
+1. Node and PoST configuration details, node state.
+2. Private Keys and credentials, especially `identity.key` files for each of your PoST identities.
+3. Other sensitive information: Any other details from your custom setup, e.g. concerning external drives, encrypting etc.
 
 ### Initial Setup And Configuration
 
@@ -30,7 +38,6 @@ For this feature setup process, make sure your node is not smeshing. You should 
 ```
 
 2. **Software Requirements:** The latest versions of `postcli` and `post-service` from the Spacemesh GitHub repository.
-
 3. **Your Case:** Gather info and organize all your node and PoS data paths, POST services configs and details, and hardware access if necessary.
 
 For the sake of conciseness, we assume you have:
@@ -48,9 +55,7 @@ Adding new identities and PoST services involves initializing PoST data for each
 ### Detailed Steps
 
 1. **Initialized PoST Data** : We assume that the data is already initialized. If it's not the case yet then please visit [docs for that](https://docs.spacemesh.io/docs/start/smesher/post_init).
-
 2. **Store The Private Key** : Upon initialization, `postcli` generates a new private key stored as `identity.key` in the PoST data directory. This key should then be moved to your `./node_data/identities/` directory, renamed for unique identification.
-
 3. **Configure The PoST Service** : Set up the `post-service` with the newly initialized data, ensuring it's configured to connect to your node. This step integrates the new identity with your node's operational framework.
 
 ## Migrating Existing Identities/PoST Services
@@ -62,7 +67,6 @@ Consolidating your Spacemesh identities / PoST services onto a single node strea
 ### Step-By-Step Migration
 
 1. **Preparation** : Before starting, stop all operations on your current nodes to ensure data integrity during the migration. Make sure that all nodes _were_ running the latest version of Spacemesh newer or equal 1.4.0. This is crucial to avoid any potential issues with the migration process. Nodes that were running 1.3.x series **only** cannot be migrated directly.
-
 2. In the go-spacemesh release you'll find `merge-node` tool. It's a tool that allows you to merge two or more nodes into one. Currently, it assumes all or nothing during merging.
 
 Run it with the following command:
@@ -82,7 +86,7 @@ It is possible to merge nodes by hand too
 - Rename the key files respectively for easy identification of each identity.
 - Run: `sqlite3 target_node.sql` where `target_node.sql` is the database file of the node you're consolidating to.
 
-```attach '<source_path.sql>' as srcDB;
+```attach
 BEGIN;
 insert into initial_post select * from srcDB.initial_post;
 insert into challenge select * from srcDB.challenge;
@@ -126,7 +130,6 @@ To start the PoST service, follow these steps:
    - `--dir`: Specifies the directory of PoST data. Adjust the path according to your setup.
    - `--operator-address`: The address for the simple operator API. Change port numbers as needed for your environment. If it's not specified, it will be disabled.
    - `--threads`, `--nonces`, `--randomx-mode`: Configuration options specific to the post service, not the node.
-
 3. Enable debug logs (Optional): For additional logging, set the `RUST_LOG` environment variable to `DEBUG`:
 
 ```sh
@@ -152,7 +155,6 @@ To **stop** a PoST service, typically, you would terminate the process using you
    ```sh
    ps aux | grep service
    ```
-
 2. Terminate the process: Once you've identified the PID, use the `kill` command to stop the service:
 
 ```sh
