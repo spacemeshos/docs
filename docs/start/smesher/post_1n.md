@@ -234,6 +234,10 @@ Method `spacemesh.v1.AdminService.EventsStream` have been extended with `smesher
 
 As mentioned previously each post service accepts it's own configuration. You can adjust the `--threads`, `--nonces`, `--randomx-mode` based on your hardware capabilities and preferences.
 
+#### Smart Orchestration For Running Multiple PoST Services
+
+We have prepared a demonstration of how to operate multiple PoST services efficiently. You can access it [here](https://github.com/spacemeshos/multiple_post_services_demo). While it simplifies certain aspects, the emphasis is on showcasing the capabilities.
+
 ## FAQs
 
 **Q: I Want To Generate More PoS Data. How Do I Add A New Identity To My Node?**
