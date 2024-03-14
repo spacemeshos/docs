@@ -68,7 +68,7 @@ Run it with the following command:
 ./merge-node --from <source_path> --to <target_path>
 ```
 
-Where: `source_path` is the path to the node you want to merge from and `target_path` is the path to the node you want to merge to.
+Where: `source_path` is the path to the node data you want to merge from and `target_path` is the path to the node data you want to merge to.
 
 :::note
 
