@@ -229,6 +229,18 @@ to list the configuered SmesherIDs.
 
 Method `spacemesh.v1.AdminService.EventsStream` have been extended with `smesher` field in the events. So you're expected to see the event PER post service now.
 
+### Security
+
+The security of your private keys is fundamentally tied to the control and safety of your digital assets and your identity within the Spacemesh network and any mesh or blockchain ecosystem. 
+
+Given the significant risks associated with the exposure of private keys, it is crucial to take proactive measures to secure them. This includes:
+
+* **Using Hardware Wallets:** Hardware wallets are physical devices designed to securely store private keys offline, providing a high level of security against online attacks.
+* **Secure Storage Solutions:** For backup, use encrypted storage solutions and consider distributing backups in secure locations to prevent loss from local disasters.
+* **Strong Access Controls:** Implement strong access controls and use multi-factor authentication to protect any digital storage or interfaces that can access the private keys.
+* **Regular Security Reviews:** Regularly review your security practices and stay informed about new threats and security solutions in the blockchain space.
+* **Regular Software Updates:** Regularly check and upgrade your operating system, antimalware programs, and of course, the Spacemesh software, making sure you always run the official, stable releases from trusted sources.
+
 ### Troubleshooting Tips
 
 - **Check Configuration Files** : Ensure all identity and service configurations are correctly set up.
