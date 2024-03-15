@@ -264,3 +264,6 @@ A: Initialize PoST data for the new identity using `postcli`, which will generat
 
 **Q: What Should I Do If I Encounter Errors During Identity Or PoST Service Setup?**
 A: Check your configuration files for accuracy and review node logs for specific error messages. Ensure all paths and identifiers are correctly specified and that there's no overlap of identities across multiple nodes.
+
+**Q: How do I verify that my PoST services are correctly set up and running?**
+A: After adding or migrating identities and PoST services, verify they're correctly connected to your node and eligible for rewards by monitoring the node's Events and using `grpcurl` commands to list configured SmesherIDs and check POST states.
