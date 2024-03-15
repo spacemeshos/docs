@@ -2,6 +2,7 @@
 id: post_1n
 title: Managing Multiple PoST Services On A Single Node
 ---
+
 ## Introduction
 
 This guide is your roadmap to efficiently managing multiple Proof of Space-Time (PoST) services using just a single node. With the Spacemesh protocol's latest advancements, it's now possible to extend a node's capabilities beyond the previous one-identity-per-node model. It means users can streamline their operations, reduce overhead, and increase their participation in the network without multiplying their hardware or maintenance efforts. This approach requires only one database for all identities, reducing local storage needs and minimizing data broadcasted or fetched from the network. It not only simplifies the lifecycle management of multiple identities but also enhances operational efficiency and network performance. Whether you're looking to add new identities, consolidate existing services, or simply optimize your setup for possibly greater rewards, you're in the right place.
@@ -130,6 +131,7 @@ To start the PoST service, follow these steps:
    - `--dir`: Specifies the directory of PoST data. Adjust the path according to your setup.
    - `--operator-address`: The address for the simple operator API. Change port numbers as needed for your environment. If it's not specified, it will be disabled.
    - `--threads`, `--nonces`, `--randomx-mode`: Configuration options specific to the post service, not the node.
+
 3. Enable debug logs (Optional): For additional logging, set the `RUST_LOG` environment variable to `DEBUG`:
 
 ```sh
@@ -221,7 +223,7 @@ grpcurl --plaintext localhost:9094 spacemesh.v1.PostInfoService.PostStates
 you can also query
 
 ```bash
-grpcurl -plaintext 127.0.0.1:9093 spacemesh.v1.Smesher.SmesherIDs
+grpcurl -plaintext 127.0.0.1:9093 spacemesh.v1.SmesherService.SmesherIDs
 ```
 
 to list the configuered SmesherIDs.
