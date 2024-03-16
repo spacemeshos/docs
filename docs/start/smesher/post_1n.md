@@ -23,7 +23,7 @@ Before diving into managing multiple PoST services on your node, ensure you have
 **What to Back Up:**
 
 1. Node and PoST configuration details, node state.
-2. Private Keys and credentials, especially `identity.key` files for each of your PoST identities.
+2. Private Keys and credentials, especially `identity.key` files for each of your PoST identities. If you're upgrading from earlier releases make sure that you backup `key.bin` from the post directory too.
 3. Other sensitive information: Any other details from your custom setup, e.g. concerning external drives, encrypting etc.
 
 ### Initial Setup And Configuration
@@ -37,6 +37,20 @@ For this feature setup process, make sure your node is not smeshing. You should 
     "smeshing-start": false
 }
 ```
+
+Additionally, you should not have any `smeshing-opts` in your configuration, but it will not negatively impact the system if they are present. If you are migrating from existing nodes, you can transfer all `smeshing-proving-opts` directly to the corresponding post-service configuration without issues.
+
+:::note
+
+You must ensure the node is set to not smeshing, as supervised PoST service and remote PoST services cannot operate simultaneously. This guide focuses on adding multiple PoST services to the node, so the supervised PoST service must be disabled.
+
+:::
+
+:::note
+
+You still need to set the coinbase on the node where the PoST services are connected. The configuration option for this remains unchanged, specifically `smeshing-coinbase`.
+
+:::
 
 2. **Software Requirements:** The latest versions of `postcli` and `post-service` from the Spacemesh GitHub repository.
 3. **Your Case:** Gather info and organize all your node and PoS data paths, POST services configs and details, and hardware access if necessary.
