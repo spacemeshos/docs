@@ -82,7 +82,8 @@ Consolidating your Spacemesh identities / PoST services onto a single node strea
 ### Step-By-Step Migration
 
 1. **Preparation** : Before starting, stop all operations on your current nodes to ensure data integrity during the migration. Make sure that all nodes _were_ running the latest version of Spacemesh newer or equal 1.4.0. This is crucial to avoid any potential issues with the migration process. Nodes that were running 1.3.x series **only** cannot be migrated directly.
-2. In the go-spacemesh release you'll find `merge-nodes` tool. It's a tool that allows you to merge two or more nodes into one. Currently, it assumes all or nothing during merging.
+2. Rename your source node's `local.key` file to a more descriptive name, such as `my_super_secret_key.key`. This naming convention is for your convenience only. Ensure that on the target node, there is no file named `local.key`.
+3. In the go-spacemesh release you'll find `merge-nodes` tool. It's a tool that allows you to merge two or more nodes into one. Currently, it assumes all or nothing during merging.
 
 Run it with the following command:
 
