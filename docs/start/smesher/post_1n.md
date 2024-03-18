@@ -139,7 +139,7 @@ To start the PoST service, follow these steps:
 2. Prepare command arguments. Remember to `cd` to the correct directory and `chmod` service file. Then you will need to run the post service with the following arguments:
 
    ```shell
-   ./service --address=http://localhost:9094 --dir=../data1 --operator-address=127.0.0.1:50051 --threads=1 --nonces=128 --randomx-mode=Fast
+   ./service --address=http://localhost:9094 --dir=../data1 --operator-address=127.0.0.1:50051 --threads=1 --nonces=128 --randomx-mode=fast
    ```
 
    - `--address`: Points to the node's gRPC address. Ensure it matches the `grpc-post-listener` config option.
