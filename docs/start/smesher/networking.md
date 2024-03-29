@@ -3,7 +3,6 @@ id: networking
 title: Networking
 ---
 
-
 Most miners should never need to think much about their network settings. The Spacemesh node software ships with a reasonable default set of parameters that should work well for most node operators and most miners, and the software is built on top of the popular [libp2p network stack](https://libp2p.io/) which includes many useful features and support for things like peer discovery and NAT traversal.
 
 ### NAT Traversal
@@ -40,52 +39,3 @@ Even more settings are available. See the [p2p config](https://github.com/spacem
 A miner running [multiple nodes](#multiple-nodes) or [multiple identities](#identity-management) may wish to manually configure how the nodes peer with and communicate with one another. In other words, miners can configure a custom network topology among their own nodes. One very common configuration is to have one or more public "gateway" nodes that are publicly accessible and responsible for communicating with the outside world that relay information from the public p2p network to many private nodes. Such a configuration can save an enormous amount of bandwidth compared to each of several nodes joining the public p2p network directly.
 
 Such a configuration is achieved through the use of the `bootnodes` and `direct` parameters in the `p2p` config. The process is fully documented in the [go-spacemesh p2p README](https://github.com/spacemeshos/go-spacemesh/blob/develop/p2p/README.md).
-
-#### Performance optimizations while running public-private nodes setup
-
-If you're running a public-private nodes setup, you may wish to tweak the following settings to improve the CPU resource usage of your **private** nodes.
-
-##### Disabling verifying POST on private nodes
-Verification of POST proofs in ATX that come from the network is significantly hard work for the CPU. In a setup where only some nodes are public, it makes no sense to repeat this work on the private nodes if they can trust the public nodes to do the work honestly.
-
-Post verification can be disabled completely on selected nodes by using `--smeshing-opts-verifying-disable` CLI flag or the following config entry:
-```json
-{
-  "smeshing": {
-    "smeshing-verifying-opts": {
-      "smeshing-opts-verifying-disable": true
-    }
-}
-```
-
-> [!WARNING]
-> Using this is safe **only on the private** nodes because the **public** node will verify ATXs for it. Given that the private nodes are only connected to public nodes, there is no risk involved here. It is strongly **discouraged** to use this setting on **public** nodes.
-
-##### Changing k3 parameter
-
-```yaml
-  "post": {
-    "post-k3": 0
-  }
-```
-
-It will significantly lower the CPU requirements while verifying the incoming ATXs.
-
-By default `k3` parameter is equal to `k2` which is currently 37. Setting it to a lower value than 37 will check fewer labels in the proofs and therefore speed up the checks. The downside is that it will lower the security of the ATX verification. The lower the value the lower the security. Setting it to 0 will disable the proof labels verification completely. The node will still verify the k2pow with RandomX though.
-
-> [!WARNING]
-> Setting k3 to 0 is safe to use on **only on the private** nodes because the **public** node will verify whole proofs and not just one label as set in the config above. And given that the private nodes are only connected to public nodes then there is no risk involved here. It is strongly **discouraged** to use this setting on **public** nodes.
-
-##### RandomX Fast mode
-
-To improve ATX verification speed on **public** nodes you can use the following setting. It will require roughly additional 2GB of RAM per node used only during ATX verification.
-
-```yaml
-  "smeshing": {
-    "smeshing-verifying-opts": {
-    "smeshing-opts-verifying-powflags": 14
-    }
-  }
-```
-
-If you have spare ram on the private nodes then that setting is safe to set there too. Please remember about the requirement of 2GiB extra memory per node though.
