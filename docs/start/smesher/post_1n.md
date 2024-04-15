@@ -1,10 +1,7 @@
-
 ---
 id: post_1n
 title: Managing Multiple PoST Services On A Single Node
 ---
-
-# Guide To Managing Multiple PoST Services On A Single Node
 
 
 ## Introduction
@@ -18,8 +15,17 @@ Before diving into managing multiple PoST services on your node, ensure you have
 ### Prerequisites
 
 1. **Familiarity With CLI Operations:** Basic knowledge of command-line interfaces (CLI) and blockchain concepts.
-
 2. **System Specifications:** Ensure your system meets the recommended hardware specifications for running multiple PoST services, including sufficient storage and processing power, as well as OpenCL support.
+
+### Backup
+
+**Important Reminder:** Before you begin following this guide or making any changes to your node and PoST services setup, it's crucial to back up all your critical data. These steps will help ensure that you can recover your system to its correct state in case of unexpected issues.
+
+**What to Back Up:**
+
+1. Node and PoST configuration details, node state.
+2. Private Keys and credentials, especially `identity.key` files for each of your PoST identities. If you're upgrading from earlier releases make sure that you backup `key.bin` from the post directory too.
+3. Other sensitive information: Any other details from your custom setup, e.g. concerning external drives, encrypting etc.
 
 ### Initial Setup And Configuration
 
@@ -33,8 +39,21 @@ For this feature setup process, make sure your node is not smeshing. You should 
 }
 ```
 
-2. **Software Requirements:** The latest versions of `postcli` and `post-service` from the Spacemesh GitHub repository.
+Additionally, you should not have any `smeshing-opts` in your configuration, but it will not negatively impact the system if they are present. If you are migrating from existing nodes, you can transfer all `smeshing-proving-opts` directly to the corresponding post-service configuration without issues.
 
+:::note
+
+You must ensure the node is set to not smeshing, as supervised PoST service and remote PoST services cannot operate simultaneously. This guide focuses on adding multiple PoST services to the node, so the supervised PoST service must be disabled.
+
+:::
+
+:::note
+
+You still need to set the coinbase on the node where the PoST services are connected. The configuration option for this remains unchanged, specifically `smeshing-coinbase`.
+
+:::
+
+2. **Software Requirements:** The latest versions of `postcli` and `post-service` from the Spacemesh GitHub repository.
 3. **Your Case:** Gather info and organize all your node and PoS data paths, POST services configs and details, and hardware access if necessary.
 
 For the sake of conciseness, we assume you have:
@@ -51,10 +70,8 @@ Adding new identities and PoST services involves initializing PoST data for each
 
 ### Detailed Steps
 
-1. **Initialized PoST Data** : We assume that the data is already intialized. If it's not the case yet then please visit [docs for that](https://docs.spacemesh.io/docs/start/smesher/post_init).
-
+1. **Initialized PoST Data** : We assume that the data is already initialized. If it's not the case yet then please visit [docs for that](https://docs.spacemesh.io/docs/start/smesher/post_init).
 2. **Store The Private Key** : Upon initialization, `postcli` generates a new private key stored as `identity.key` in the PoST data directory. This key should then be moved to your `./node_data/identities/` directory, renamed for unique identification.
-
 3. **Configure The PoST Service** : Set up the `post-service` with the newly initialized data, ensuring it's configured to connect to your node. This step integrates the new identity with your node's operational framework.
 
 ## Migrating Existing Identities/PoST Services
@@ -65,14 +82,14 @@ Consolidating your Spacemesh identities / PoST services onto a single node strea
 
 ### Step-By-Step Migration
 
-1. **Preparation** : Before starting, stop all operations on your current nodes to ensure data integrity during the migration. Make sure that all nodes _were_ running in latest version of Spacemesh newer or equal 1.4.0. This is crucial to avoid any potential issues with the migration process. Nodes that were running 1.3.x series **only** cannot be migrated directly.
-
-2. In the go-spacemesh release you'll find `merge-node` tool. It's a tool that allows you to merge two or more nodes into one. Currently it assumes all or nothing during merging.
+1. **Preparation** : Before starting, stop all operations on your current nodes to ensure data integrity during the migration. Make sure that all nodes _were_ running the latest version of Spacemesh newer or equal 1.4.0. This is crucial to avoid any potential issues with the migration process. Nodes that were running 1.3.x series **only** cannot be migrated directly.
+2. Rename your source node's `local.key` file to a more descriptive name, such as `my_super_secret_key.key`. This naming convention is for your convenience only. Ensure that on the target node, there is no file named `local.key`.
+3. In the go-spacemesh release you'll find `merge-nodes` tool. It's a tool that allows you to merge two or more nodes into one. Currently, it assumes all or nothing during merging.
 
 Run it with the following command:
 
 ```bash
-./merge-node --from <source_path> --to <target_path>
+./merge-nodes --from <source_path> --to <target_path>
 ```
 
 Where: `source_path` is the path to the node data you want to merge from and `target_path` is the path to the node data you want to merge to.
@@ -86,7 +103,7 @@ It is possible to merge nodes by hand too
 - Rename the key files respectively for easy identification of each identity.
 - Run: `sqlite3 target_node.sql` where `target_node.sql` is the database file of the node you're consolidating to.
 
-```attach '<source_path.sql>' as srcDB;
+```attach
 BEGIN;
 insert into initial_post select * from srcDB.initial_post;
 insert into challenge select * from srcDB.challenge;
@@ -96,20 +113,20 @@ COMMIT;
 detach srcDB;
 ```
 
-It is however recommended only for advanced users as it does not cover all the corner cases and may lead to data corruption.
+However, it is recommended only for advanced users as it does not cover all the corner cases and may lead to data corruption.
 
 :::
 
 3. **Configure PoST Services** :
 
-- For each identity, set up a PoST service that utilizes the existing PoST data linked to that identity. This ensures the node can continue to participate in the network without redoing the PoST.
+- For each identity, set up a PoST service that utilizes the existing PoST data linked to that identity. This ensures the node can continue participating in the network without redoing the PoST.
 - Detailed configuration steps can be found in the `post-service` [README](https://github.com/spacemeshos/post-rs/blob/main/service/README.md), guiding you through connecting each PoST service to your node.
 
 ## Operational Guide
 
-:::warning
+:::note
 
-This is just example, in real world you should use some kind of process manager like `systemd` or `supervisord` to manage your services. Or use some kind of orchestration tool like `kubernetes` or `docker-compose`.
+This is just an example, in the real world you should use some kind of process manager like `systemd` or `supervisord` to manage your services. Or use some orchestration tool like `kubernetes` or `docker-compose`.
 
 :::
 
@@ -123,7 +140,7 @@ To start the PoST service, follow these steps:
 2. Prepare command arguments. Remember to `cd` to the correct directory and `chmod` service file. Then you will need to run the post service with the following arguments:
 
    ```shell
-   ./service --address=http://localhost:9094 --dir=../data1 --operator-address=127.0.0.1:50051 --threads=1 --nonces=128 --randomx-mode=Fast
+   ./service --address=http://localhost:9094 --dir=../data1 --operator-address=127.0.0.1:50051 --threads=1 --nonces=128 --randomx-mode=fast
    ```
 
    - `--address`: Points to the node's gRPC address. Ensure it matches the `grpc-post-listener` config option.
@@ -177,7 +194,7 @@ If you have multiple `./dataN` directories, repeat the starting process for each
 
 #### Service Management
 
-Feel free to start, stop, or restart PoST services at any time based on your needs. However, the node should remain running continuously for the system to function properly. Each PoST service exposes operator-api you can use it to query it's state and to stop it.
+Feel free to start, stop, or restart PoST services whenever you need it. However, the node should remain running continuously for the system to function properly. Each PoST service exposes operator-api you can use it to query its state and to stop it.
 
 ```
 # Not doing anything
@@ -201,19 +218,19 @@ Feel free to start, stop, or restart PoST services at any time based on your nee
 "DoneProving"
 ```
 
-More info about oprerator API can be found in the [post-rs repository](https://github.com/spacemeshos/post-rs/blob/main/service/README.md#operator-api).
+More info about operator API can be found in the [post-rs repository](https://github.com/spacemeshos/post-rs/blob/main/service/README.md#operator-api).
 
-Before stopping a post service with `DoneProving` state you need to make sure that node fetched the proof. You can check it by running `grpcurl` command:
+Before stopping a post service with `DoneProving` state you need to make sure that the node fetched the proof. You can check it by running `grpcurl` command:
 
 ```bash
 grpcurl --plaintext localhost:9094 spacemesh.v1.PostInfoService.PostStates
 ```
 
-if given post service is `PROVING` then you should NOT stop it.
+if a given post service is `PROVING` then you should NOT stop it.
 
 ### Verifying the setup
 
-After adding or migrating identities and PoST services, verify they're correctly connected to your node and eligible for rewards by monitoring the node's Events. Look for indicators of successful identity recognition and PoST data validation. For example you can list the Post states with:
+After adding or migrating identities and PoST services, verify they're correctly connected to your node and eligible for rewards by monitoring the node's Events. Look for indicators of successful identity recognition and PoST data validation. For example, you can list the Post states with:
 
 ```bash
 grpcurl --plaintext localhost:9094 spacemesh.v1.PostInfoService.PostStates
@@ -222,14 +239,26 @@ grpcurl --plaintext localhost:9094 spacemesh.v1.PostInfoService.PostStates
 you can also query
 
 ```bash
-grpcurl -plaintext 127.0.0.1:9093 spacemesh.v1.Smesher.SmesherIDs
+grpcurl -plaintext 127.0.0.1:9093 spacemesh.v1.SmesherService.SmesherIDs
 ```
 
 to list the configuered SmesherIDs.
 
 ### Node Events
 
-Method `spacemesh.v1.AdminService.EventsStream` have been extended with `smesher` field in the events. So you're expected to see event PER post service now.
+Method `spacemesh.v1.AdminService.EventsStream` have been extended with `smesher` field in the events. So you're expected to see the event PER post service now.
+
+### Security
+
+The security of your private keys is fundamentally tied to the control and safety of your digital assets and your identity within the Spacemesh network and any mesh or blockchain ecosystem.
+
+Given the significant risks associated with the exposure of private keys, it is crucial to take proactive measures to secure them. This includes:
+
+- **Using Hardware Wallets:** Hardware wallets are physical devices designed to securely store private keys offline, providing a high level of security against online attacks.
+- **Secure Storage Solutions:** For backup, use encrypted storage solutions and consider distributing backups in secure locations to prevent loss from local disasters.
+- **Strong Access Controls:** Implement strong access controls and use multi-factor authentication to protect any digital storage or interfaces that can access the private keys.
+- **Regular Security Reviews:** Regularly review your security practices and stay informed about new threats and security solutions in the blockchain space.
+- **Regular Software Updates:** Regularly check and upgrade your operating system, antimalware programs, and of course, the Spacemesh software, making sure you always run the official, stable releases from trusted sources.
 
 ### Troubleshooting Tips
 
@@ -241,7 +270,7 @@ Method `spacemesh.v1.AdminService.EventsStream` have been extended with `smesher
 
 #### Customizing Settings For Optimal Performance
 
-As mentioned previously each post service accepts it's own configuration. You can adjust the `--threads`, `--nonces`, `--randomx-mode` based on your hardware capabilities and preferences.
+As mentioned previously each post service accepts its own configuration. You can adjust the `--threads`, `--nonces`, `--randomx-mode` based on your hardware capabilities and preferences.
 
 #### Smart Orchestration For Running Multiple PoST Services
 
@@ -254,3 +283,6 @@ A: Initialize PoST data for the new identity using `postcli`, which will generat
 
 **Q: What Should I Do If I Encounter Errors During Identity Or PoST Service Setup?**
 A: Check your configuration files for accuracy and review node logs for specific error messages. Ensure all paths and identifiers are correctly specified and that there's no overlap of identities across multiple nodes.
+
+**Q: How do I verify that my PoST services are correctly set up and running?**
+A: After adding or migrating identities and PoST services, verify they're correctly connected to your node and eligible for rewards by monitoring the node's Events and using `grpcurl` commands to list configured SmesherIDs and check POST states.
