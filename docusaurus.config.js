@@ -35,7 +35,6 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
        sitemap: {
-         lastmod: 'date',
          changefreq: 'weekly',
          priority: 0.5,
          ignorePatterns: ['/tags/**'],
