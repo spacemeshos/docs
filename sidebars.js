@@ -65,6 +65,7 @@ module.exports = {
           'start/smesher/verification',
           'start/smesher/advanced',
           'start/smesher/post_1n',
+            'start/smesher/multigpu',
           'start/smesher/troubleshooting'
         ],
       },

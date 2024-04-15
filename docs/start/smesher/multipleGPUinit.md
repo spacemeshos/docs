@@ -1,4 +1,7 @@
-# Guide to Using `postcli` for Initializing a Subset of PoST Data
+---
+id: multigpu
+title: Initializing a Subset of PoST Data With postcli
+---
 
 ## Introduction
 
