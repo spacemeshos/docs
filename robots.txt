@@ -1,0 +1,7 @@
+User-agent: Googlebot-Image
+Disallow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://docs.spacemesh.io/sitemap.xml
