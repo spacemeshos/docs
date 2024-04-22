@@ -82,6 +82,10 @@ const config = {
         // Optional: Algolia search parameters
         //searchParameters: {},
       },
+      tableOfContents: {
+     minHeadingLevel: 2,
+     maxHeadingLevel: 5,
+   },
       navbar: {
         title: '',
         logo: {
