@@ -5,7 +5,7 @@ title: PoST Initialization
 
 # Proof Generation
 
-Once an epoch, after the node has received a PoET proof and during the PoET cycle gap, the node will generate a [proof of spacetime](#proofs-of-spacetime), which requires that it sequentially read all of the PoST data. The details aren't something most miners need to worry about as the node will handle the process for you; see [Fine-tuning Proving](#fine-tuning-proving) for information on benchmarks and parameters that can be tweaked.
+Once an epoch, after the node has received a PoET proof and during the PoET cycle gap, the node will generate a [proof of spacetime](#proofs-of-spacetime), which requires that it sequentially read all of the PoST data. The details aren't something most miners need to worry about as the node will handle the process for you; see [Fine-tuning Node Performance](./performance.md) for information on benchmarks and parameters that can be tweaked.
 
 The first part of the proving process is an initial proof of work phase called **k2pow** that uses a proof of work algorithm called [RandomX](https://github.com/tevador/RandomX). During this phase, which is CPU bound, you should see CPU usage spike briefly for a few minutes. There should be very little network or disk activity during this phase. As explained in the [Profiler docs](https://github.com/spacemeshos/post-rs/blob/main/docs/profiler.md#is-that-all-that-is-happening-during-the-proof-generation), it should take a low-end CPU around 2.5 minutes to compute k2pow for 4 SU; computation time scales linearly with the hash rate and number of storage units being proven. See the [RandomX Benchmark](https://xmrig.com/benchmark) to get a sense of your CPU's RandomX hash rate.
 
