@@ -71,7 +71,7 @@ In general Spacemesh is agnostic to the choice of filesystem. You can successful
 
 1. If there is any chance you will want to move the identity from one operating system to another, we strongly recommend using the [exFAT](https://en.wikipedia.org/wiki/ExFAT) filesystem. This is the only filesystem that works out of the box across all the major operating systems. Keep in mind that _copying_ an entire identity from one filesystem to another could take a very long time, whereas with an exFAT filesystem you can just "plug and chug" on any computer. You should be able to initialize and format a new exFAT filesystem easily in any operating system.
 
-1. Different filesystems utilize space differently and require different amounts of overhead. As such, the number of storage units you will be able to fit on a given disk will depend to some extent upon the filesystem used to format the disk. In our personal experience, we've found that exFAT is more efficient than EXT4, and may allow one extra storage unit to be placed on the same physical disk.
+1. Different file systems utilize space differently and require different amounts of overhead. As such, the number of storage units you will be able to fit on a given disk will depend to some extent upon the filesystem used to format the disk. In our personal experience, we've found that exFAT is more efficient than EXT4, and may allow one extra storage unit to be placed on the same physical disk.
 
 We also recommend that you _not encrypt_ the drive or partition used to store the PoST data. You should of course protect the `key.bin` file (which contains a miner's private key) and not allow it to fall into anyone else's hands, but full drive encryption feels like overkill and could slow down [proof generation](#proof-generation).
 
@@ -130,7 +130,7 @@ As mentioned, `go-spacemesh` will automatically choose the fastest GPU to perfor
 
 The first two (with IDs 0 and 1) are the GPUs; the last (with ID 4294967295) is the CPU. To select the second GPU with ID 1, use the following config:
 
-```
+```json
   "smeshing": {
     "smeshing-opts": {
       "smeshing-opts-datadir": "<post_data_directory>",
@@ -141,3 +141,27 @@ The first two (with IDs 0 and 1) are the GPUs; the last (with ID 4294967295) is 
     ...
   },
 ```
+
+## Resizing PoST
+
+The size of the data used for proof generation can be changed after initialization. This is useful if you want to add more storage units to your identity, or if you want to reduce the number of storage units to free up space on your drive. To do this, you can change the `numunits` parameter in the `smeshing-opts` section of the `config.json` file. Stop your node,
+change the config file, and restart the node. The node will automatically resize the PoST data to the new size:
+
+```json
+  "smeshing": {
+    "smeshing-opts": {
+      "smeshing-opts-datadir": "<post_data_directory>",
+      "smeshing-opts-maxfilesize": <post_file_size>,
+      "smeshing-opts-numunits": <new_num_units>,
+      "smeshing-opts-provider": "<gpu_id>"
+    },
+    ...
+  },
+```
+
+**Info:** Resizing PoST data is a time-consuming process during which the node is not able to generate proofs. The node will automatically generate proofs once the resizing process is complete. Time your resizing process accordingly - start after your PoET cycle gap ends and the node has generated a PoST proof and finish before the next PoET cycle gap.
+
+**Be aware:** Decreasing your PoST size will reduce your rewards and becomes affective in the epoch after the resizing process is complete and the node has generated a PoST proof.
+Increasing your PoST size will increase your rewards, but it takes 2 epochs to become effective. Example: If you increase your PoST size before the PoET cycle gap in epoch 10, your rewards will be increased starting from epoch 12.
+
+You can also resize PoST data using the [`postcli` tool](https://github.com/spacemeshos/post/tree/develop/cmd/postcli), which allows you to have greater control. For information on how to initialize only the data you don't already have and merge it with the existing data refer to the section [Initializing a subset of post data](https://github.com/spacemeshos/post/tree/develop/cmd/postcli#initializing-a-subset-of-post-data).
