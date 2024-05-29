@@ -24,7 +24,7 @@ Before diving into managing multiple PoST services on your node, ensure you have
 **What to Back Up:**
 
 1. Node and PoST configuration details, node state.
-2. Private Keys and credentials, especially `identity.key` files for each of your PoST identities. If you're upgrading from earlier releases make sure that you backup `key.bin` from the post directory too.
+2. Private Keys and credentials, especially `identity.key` files for each of your PoST identities. If you're upgrading from earlier releases make sure that you backup `local.key` from the post directory too.
 3. Other sensitive information: Any other details from your custom setup, e.g. concerning external drives, encrypting etc.
 
 ### Initial Setup And Configuration

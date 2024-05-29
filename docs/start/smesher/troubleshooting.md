@@ -18,8 +18,8 @@ This message indicates that, despite the presence of a complete identity, the mi
 
 ```bash
 > postcli -datadir /Volumes/post/7c8cef2b -fromFile 531 -verify -fraction 0.01
-2023/09/18 13:51:59 cli: verifying key.bin
-2023/09/18 13:51:59 cli: key.bin is valid
+2023/09/18 13:51:59 cli: verifying local.key
+2023/09/18 13:51:59 cli: local.key is valid
 2023/09/18 13:51:59 cli: verifying POS data
 2023-09-18T13:51:59.504-0400    INFO    verifying POS data in /Volumes/post/7c8cef2b  {"module": "post::pos_verification", "file": "src/pos_verification.rs", "line": 34}
 2023-09-18T13:51:59.504-0400    INFO    verifying POS files 531 -> 927  {"module": "post::pos_verification", "file": "src/pos_verification.rs", "line": 39}

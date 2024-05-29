@@ -73,7 +73,7 @@ In general Spacemesh is agnostic to the choice of filesystem. You can successful
 
 1. Different file systems utilize space differently and require different amounts of overhead. As such, the number of storage units you will be able to fit on a given disk will depend to some extent upon the filesystem used to format the disk. In our personal experience, we've found that exFAT is more efficient than EXT4, and may allow one extra storage unit to be placed on the same physical disk.
 
-We also recommend that you _not encrypt_ the drive or partition used to store the PoST data. You should of course protect the `key.bin` file (which contains a miner's private key) and not allow it to fall into anyone else's hands, but full drive encryption feels like overkill and could slow down [proof generation](#proof-generation).
+We also recommend that you _not encrypt_ the drive or partition used to store the PoST data. You should of course protect the `local.key` file (which contains a miner's private key) and not allow it to fall into anyone else's hands, but full drive encryption feels like overkill and could slow down [proof generation](#proof-generation).
 
 ## Number of Units
 
