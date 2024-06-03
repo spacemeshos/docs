@@ -3,15 +3,15 @@ id: requirements
 title: System Requirements
 ---
 
-## Spacemesh Genesis Candidate System Requirements
+## Spacemesh Mainnet System Requirements
 
 ### System Requirements
 
 #### Minimum requirements for running a node:
 - CPU: Intel or AMD x86-64 or 64-bit ARM, including Apple Silicon (but not Raspberry Pi)
-Memory: 1GiB+
+Memory: 8GiB+
 - OS: Windows 10/11, MacOS, Ubuntu 22.04+ or Fedora 36+
-- Disk: 50GiB of free disk space
+- Disk: 100GiB of free disk space
 - An always-on, unmetered Internet connection capable of 5 mbps download and 1 mbps upload
 
 #### To run Smapp:
@@ -33,18 +33,16 @@ Memory: 1GiB+
 You can create proof of space data using your computer's integrated graphics card, a discrete graphics card, or your computer's main CPU. The following processors are supported:
 
 - A modern Intel or AMD x86-64 cpu.
-- An Nvidia GPU with CUDA support (minimum compute compatibility 5.0, maximum compute compatibility 8.6), and Nvidia drivers version R450 or newer. [Nvidia GPUs CUDA compute compatibility info](https://developer.nvidia.com/cuda-gpus).
-- A GPU and drivers with Vulkan 1.2 support, such as a modern AMD, Apple M1 and M2, and Intel GPUs.
+- A GPU and drivers with OpenCL support, such as a modern Nvidia, AMD, Apple M*, and Intel GPUs.
 
 #### Popular Supported Processors Models
 
-- Nvidia Geforce RTX 2070 / 2080.
-- Nvidia GTX 1060.
-- AMD Radeon RX [550](https://www.newegg.com/onda-model-rx550-4g/p/1DW-00C1-00001) / 570 / 580.
-- AMD Radeon Pro 555x.
-- Nvidia Tesla V100, T4, P100 or P4.
-- Apple M1 and M2.
-- Intel UHD Graphics 630.
+- Nvidia Geforce RTX
+- Nvidia Datacenter GPUs - A100, H100, A series, L series etc.
+- AMD Radeon GPUs
+- Apple M* GPUs
+- Intel UHD Graphics
+- Intel Iris Xe GPUs
 
 
 ## Operational Notes
@@ -66,9 +64,9 @@ Following are the requirements for running the a Spacemesh 0.2 full node without
 
 > With this setup, your computer will be dedicated to running the Spacemesh full node and will not be used for running other interactive apps.
 
-- A computer with a modern Intel, an AMD CPU (2 cores / 4 native threads) or an Apple M1 CPU.
+- A computer with a modern Intel, an AMD CPU (2 cores / 4 native threads) or an Apple M* CPU.
 - OS: Windows 10/11, macOS, Ubuntu 22.04, Fedora 36.
-- 4 GB RAM.
+- 10 GB RAM.
 - 300 GiB free disk space (HDD or SSD).
 - One of the supported processors for proof of space setup.
 - An always-on, unmetered Internet connection capable of 10 mbps download and 1 mbps upload.
