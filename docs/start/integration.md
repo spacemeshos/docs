@@ -55,7 +55,7 @@ The Spacemesh data model is also different from the data model of other blockcha
 
 See our explainer [here](./../learn/accounts.md).
 
-See [Accounts, below](#accounts-1) for more information.
+See [Accounts, below](#accounts) for more information.
 
 ## Epochs and Layers
 
