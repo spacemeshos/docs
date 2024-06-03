@@ -51,7 +51,7 @@ See [finality](#finality), below, for more in-depth information.
 
 The Spacemesh data model is also different from the data model of other blockchains you may be familiar with.
 
-## Accounts
+## Spacemesh Accounts
 
 See our explainer [here](./../learn/accounts.md).
 
