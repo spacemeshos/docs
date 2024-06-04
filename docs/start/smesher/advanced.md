@@ -13,32 +13,7 @@ You can find community-contributed examples of both of these in [this list](http
 
 ## Increasing and Decreasing Storage
 
-Eventually Spacemesh will allow miners to both increase and decrease their committed storage, i.e., their identity size, as well as to combine existing identities. Unfortunately these features have not yet been implemented. You may track progress [here](https://github.com/spacemeshos/pm/issues/253) and [here](https://github.com/spacemeshos/pm/issues/267).
-
-In the meantime it's only possible for a miner to change their committed storage _before_ they've committed to the storage, i.e., before they've [generated a proof](#proof-generation), bundled it into an ATX and submitted it to the network. Changing the identity size is as simple as changing the number of units (`smeshing-opts-numunits` in the [config](#config)); if you decrease this value and then run the node, **it will erase the redundant files beyond the specified number of units**, so be very careful. If you increase this value and then run the node, it will continue to initialize until the specified number of units has been initialized.
-
-If you're not sure whether your node has already submitted an ATX, check your event log for a message such as the following:
-
-```bash
-{
-  "timestamp": "2023-09-18T01:55:32.528857736Z",
-  "help": "Published activation for the current epoch. Node needs to wait till the start of the target epoch in order to be eligible for rewards.",
-  "atxPublished": {
-    "current": 4,
-    "target": 5,
-    "id": "abcde",
-    "wait": "367467.471143316s"
-  }
-}
-```
-
-You should see the following in the node log:
-
-```
-spacemesh-log.txt:2023-09-17T17:44:08.967-0400     INFO    c6322.atxBuilder        atx published   {"node_id": "abcde", "module": "atxBuilder", "sessionId": "3917e715-39c0-4a4d-8b65-1d5c45df4b5f", "event": true, "atx_id": "abcde", "challenge": "abcde", "smesher": "abcde", "prev_atx_id": "abcde", "pos_atx_id": "a1ba824af9", "coinbase": "sm1q...abcde", "epoch": 4, "num_units": 4, "sequence_number": 3, "size": 902, "name": "atxBuilder"}
-```
-
-If you suspect that your node has already submitted an ATX to commit to a specific number of units, don't attempt to change the number of storage units as this will result in invalid proofs and zero rewards. If you're certain that your node has not yet submitted an ATX to commit to its storage size, you can freely change the number of units.
+This topic is covered in the [PoST Initialization](./post_init#resizing-post) section.
 
 ## Very Large Identities
 
