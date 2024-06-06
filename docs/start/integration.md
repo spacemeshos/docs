@@ -3,10 +3,12 @@ id: integration
 title: Integration Guide
 ---
 
-> [!INFO]
-> We're currently working on the new version of the API. It's currently available as `v2alpha` but we strongly recommend doing any new integrations with it. The old version `v1` will be deprecated afterwards. The API description is available [here](https://github.com/spacemeshos/api/tree/master/spacemesh/v2alpha1).
-> There is also public instance exposing the JSON-RPC api at `mainnet-api.spacemesh.network`
+:::info
 
+We're currently working on the new version of the API. It's currently available as `v2alpha` but we strongly recommend doing any new integrations with it. The old version `v1` will be deprecated afterwards. The API description is available [here](https://github.com/spacemeshos/api/tree/master/spacemesh/v2alpha1).
+There is also public instance exposing the JSON-RPC api at `mainnet-api.spacemesh.network`
+
+:::
 
 This document explains how to integrate Spacemesh into existing infrastructure, including a block explorer, an exchange, and other types of applications. Note that we are still working on libraries including a [SDK](https://github.com/spacemeshos/spacemesh-sdk) in multiple programming languages including Go, Rust, and JavaScript to make it easier to integrate Spacemesh including talking to a node, address and transaction generation. In the meantime and until these libraries are available, below you'll find all the information you need to write such code yourself and build applications on Spacemesh.
 
