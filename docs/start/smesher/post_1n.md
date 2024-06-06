@@ -34,8 +34,8 @@ its correct state in case of unexpected issues.
 **What to Back Up:**
 
 1. Node and PoST configuration details, node state.
-2. Private Keys and credentials, especially `identity.key` files for each of your PoST identities. If you're upgrading
-   from earlier releases make sure that you backup `identity.key` in the `node_data/identities` folder.
+2. Private Keys and credentials, especially `*.key` files for each of your PoST identities. If you're upgrading from
+   earlier releases make sure that you backup `*.key` files in the `node_data/identities` folder.
 3. Other sensitive information: Any other details from your custom setup, e.g. concerning external drives, encrypting etc.
 
 ### Initial Setup And Configuration
@@ -114,8 +114,8 @@ disqualified for rewards.
    migration. Make sure that all nodes _were_ running the latest version of Spacemesh newer or equal 1.4.0. This is
    crucial to avoid any potential issues with the migration process. Nodes that were running 1.3.x series **only**
    cannot be migrated directly.
-2. Rename your source node's `identity.key` file to a more descriptive name, such as `my_super_secret_key.key`. This
-   naming convention is for your convenience only. Ensure that on the target node, there is no file named `identity.key`.
+2. Rename your source node's `local.key` file to a more descriptive name, such as `my_super_secret_key.key`. This
+   naming convention is for your convenience only. Ensure that on the target node, there is no file named `local.key`.
 3. In the go-spacemesh release you'll find `merge-nodes` tool. It's a tool that allows you to merge two or more nodes
    into one. Currently, it assumes all or nothing during merging.
 

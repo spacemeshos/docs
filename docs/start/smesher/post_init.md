@@ -118,7 +118,7 @@ things in mind when choosing a filesystem.
    storage unit to be placed on the same physical disk.
 
 We also recommend that you _not encrypt_ the drive or partition used to store the PoST data. You should of course
-protect the `identity.key` file (which contains a miner's private key and is located in the `node_data/identities`
+protect the `local.key` file (which contains a miner's private key and is located in the `node_data/identities`
 folder) and not allow it to fall into anyone else's hands, but full drive encryption feels like overkill and could slow
 down [proof generation](#proof-generation).
 

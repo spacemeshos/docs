@@ -24,8 +24,8 @@ When moving a miner identity from one place to another, **perform the following 
 1. Copy the files to the new location (see previous section)
 1. **Double-check that the old miner was shut down.** Check again one more time to make sure. If you get this part
    wrong, you risk permanently disqualifying the miner identity for equivalence and invalidation of the PoST data.
-1. Make sure the `identity.key` file is intact in the new location. Compare it to the `identity.key` file in the old
-   location and make sure the contents are the same. Delete the old `identity.key` file, or at the very least, rename it
+1. Make sure the `local.key` file is intact in the new location. Compare it to the `local.key` file in the old
+   location and make sure the contents are the same. Delete the old `local.key` file, or at the very least, rename it
    or move it to ensure that you don't accidentally run the same identity again on the old system.
 1. Start the miner in the new location. Make sure that you specify the correct `smeshing-opts-datadir` in the config,
    and make sure that the other `smeshing-opts` are the same as they were in the old system, and that they match the
@@ -37,6 +37,6 @@ When moving a miner identity from one place to another, **perform the following 
 
 You can use one system to generate multiple PoST identities - this is a common usage pattern for a user who wants to,
 e.g., generate multiple identities on a system with a GPU, then transfer them to other systems. However, once you've
-moved the PoST data files (`postdata_*.bin`) to their new location, and copied the associated `identity.key` as well,
-**make absolutely certain that `identity.key` has been removed** in the source location. If the file still exists, the
+moved the PoST data files (`postdata_*.bin`) to their new location, and copied the associated `local.key` as well,
+**make absolutely certain that `local.key` has been removed** in the source location. If the file still exists, the
 next PoST identity you generate will be identical to the prior one and equivocation may occur as a result.
