@@ -83,7 +83,7 @@ const config = {
         //searchParameters: {},
       },
       tableOfContents: {
-     minHeadingLevel: 1,
+     minHeadingLevel: 2,
      maxHeadingLevel: 5,
    },
       navbar: {
