@@ -57,11 +57,11 @@ See [finality](#finality), below, for more in-depth information.
 
 The Spacemesh data model is also different from the data model of other blockchains you may be familiar with.
 
-## Spacemesh Accounts
+## Accounts
 
 See our explainer [here](./../learn/accounts.md).
 
-See [Accounts, below](#accounts) for more information.
+See [Accounts, below](#spacemesh-accounts) for more information.
 
 ## Epochs and Layers
 
@@ -296,7 +296,7 @@ It's come to our attention that, due to various shortfalls in the node API as ou
 
 We strongly encourage developers to use only the official gRPC node API, as documented here, for reading canonical Spacemesh data.
 
-# Accounts​
+# Spacemesh Accounts​
 
 Spacemesh accounts are controlled by [Ed25519](https://ed25519.cr.yp.to/) keypairs. Every pubkey maps to precisely one valid account address. However, this mapping is more complex than in other blockchains due to account abstraction (aka account unification). Every Spacemesh account is an instance of a smart contract that links to one of the four hardcoded templates (aka precompiles):
 
