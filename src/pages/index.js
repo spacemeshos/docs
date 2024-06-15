@@ -27,7 +27,7 @@ function HomepageHeader() {
           className="intro-card"
           to="docs/start/">
           <div class='intro-card-title'>GUIDES</div>
-          <div class='intro-card-content'>Learn how to join the Spacemesh network as a smesher.</div>
+          <div class='intro-card-content'>Start smeshing on Spacemesh.</div>
         </Link>
 
       </div>

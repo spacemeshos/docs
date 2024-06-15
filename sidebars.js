@@ -48,7 +48,7 @@ module.exports = {
      'start/netconfig',
       'start/rewards',
       {
-        'Smapp Guide': [
+        'Basic Smeshing Guide': [
           'start/smapp/install',
           'start/smapp/setup',
           'start/smapp/wallet',
