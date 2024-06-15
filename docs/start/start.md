@@ -1,64 +1,27 @@
 ---
 id: start
-title: Getting Started With Smeshing
+title: Smeshing Guide
 ---
 
 This guide will walk you through all the steps for becoming a smesher. Smeshing is similar to "mining" in other blockchain networks. So, as a smesher, you will contribute some of your hard drive storage and computing power in order to participate in network operation and security, thereby becoming eligible to earn rewards in SMH, the native token of the Spacemesh protocol.
 
-## Before You Begin
+If you are completely new to this space and have never participated in a blockchain network before, no need to worry. This guide caters to blockchain new-comers and experienced users, alike.
 
-If you are completely new to this space and have never participated in a blockchain network before, no need to worry. This guide caters to blockchain new-comers and experienced users, alike. Once you have understood and followed the guide, you can check out the [advanced smeshing guide](./smesher/advanced.md). 
-
-### Got Questions?
+## Got Questions?
 
 If you run across any issues or have any questions, be sure to reach out to us in our [Discord server](https://discord.gg/mq7KXvzc). After joining, ask your questions in the [community troubleshooting](https://discord.com/channels/623195163510046732/1141736098830229584) channel by creating a post and someone from the Spacemesh team or the community will get back to you. This will not only help you solve the issue, but will also be a great resource for someone who may have the same issue in the future.
 
-### Requirements
+## System Requirements
 
-To start smeshing, you must first register your computer as a node on the Spacemesh protocol. The requirements for running a node are very modest: any modern AMD or Intel CPU, a modern OS, 100 GiB (107.5 GB) of free disk space, and a constant, un-metered internet connection.
-
-#### Running a Spacemesh Node
-
-The minimum requirements for running a node are quite modest: an Intel or ARM CPU, a modern operating system, a few dozen GB of free hard disk space, and a reliable broadband Internet connection. For a detailed description of the requirements, visit the [system requirements & recommended hardware](./requirements.md) page.
-
-#### Practical Considerations
-
-The biggest resource consumed by a Spacemesh node is bandwidth. A full node currently consumes between 150-1500mb/hour of bandwidth. The node is quiescent most of the time, consuming only 100-300kbit/s, but spikes as high as 35Mbit/s every few minutes when a new layer appears and network traffic increases (Hare messages, proposals, etc.). Bandwidth is variable and depends heavily on the network condition and the number and quality of one's peers.
-
-It's important that a node be run on an **unmetered Internet connection** or bandwidth charges will add up quickly.
-
-We have plans to drastically reduce bandwidth consumption via a more efficient Hare protocol and other improvements, but these upgrades aren't finished and aren't scheduled yet.
-
-As of epoch 5, a full node requires around 1.6gb to store the state database (note that versions of `go-spacemesh` prior to v1.2.0 consumed significantly more hard disk space). We strongly recommend storing the node state (i.e., the `data-folder`) on a fast drive such as a SSD, as opposed to a HDD, to ensure that disk throughput doesn't limit the node's ability to keep up with the network.
-
-Resource requirements for mining in Spacemesh can be broken down into three categories: those for running a full node, which are required for all nodes regardless of whether or not they're mining; those required for the PoST initialization process that's required before mining starts; and those required for ongoing mining.
-
-## PoST Initialization
-
-PoST init is designed to be done with a GPU. It can be done with a CPU, but it will be orders of magnitude slower. The newer and faster the GPU, the faster the initialization process.
-
-As a benchmark, the minimum PoST data size (256GiB, or 4 storage units) can be initialized in 8-10 hours using a single Nvidia GeForce RTX 4090. The same data would take around 36 hours using a Nvidia GeForce RTX 3060. Initialization time scales linearly, so that initializing 40 SU would take 10x as long as initializing 4 SU.
-
-Note that initialization can be parallelized across multiple systems or multiple GPUs, and it can be performed on one system (including in the cloud) and the resultant data moved to another system (e.g., one without a GPU) for long-term storage and mining. There's more information on this below.
-
-## Ongoing Mining
-
-Mining on an ongoing basis does _not_ require a GPU. The only additional resource consideration for mining, beyond the baseline cost of running a full node (as outlined above), is the cost of generating a [proof of space](./../learn/post.md) once per epoch. The time required to generate a proof is complicated and multivariate, depending on several factors including CPU speed, disk speed, size of PoST data, and the `smeshing-proving-opts` settings specified in config (more on this below).
-
-The general requirement is a modern CPU with the [AES-NI](https://en.wikipedia.org/wiki/AES_instruction_set) instruction and a disk that's fast enough to perform a single, sequential read over the entire PoST data in 4-5 hours. This allows enough time to perform a second read during the PoET cycle gap on the off chance that the first pass fails to generate a valid proof. Hard drive performance varies widely but most modern 7200 RPM HDDs can perform a sequential read at 100-200mb/sec (5400 RPM drives are slower). This means that, to be safe, a smesher shouldn't initialize more than 2-4 TB or 8-16 SU on a single HDD. It's certainly possible to initialize more and smeshers with 4TB drives and fast CPUs report no issues generating a proof in time, but the probability of failure increases with each additional byte initialized. It's also possible to achieve much higher read speeds using more expensive technology such as SSD and/or RAID.
-
-For much more information see [fine-tuning proving](./smesher/advanced.md#fine-tuning-proving) and [the profiler tool](https://github.com/spacemeshos/post-rs/blob/main/docs/profiler.md) which can be used to benchmark one's hardware.
+To start smeshing, you must first become a full node on the Spacemesh protocol. A **full node** only stores the blockchain ledger and executes the transactions contained in valid. A full node can only become a **smeshing node** if it satisfies the additional requirements for smeshing. Visit the [requirements](./requirements.md) page to see if your system satisfies the requirements. If it does, congratulations! continue reading to start smeshing.
 
 ## Getting Started
 
-Now that you have the necessary resources ready, it's time to start smeshing! This section will walk you through how to do that. First a couple quick notes:
+Now that your system satisfies the requirements, it is time to start smeshing! This section will walk you through how to do just that. Up first is running a full node.
 
-- this guide is intended as an advanced smeshing guide, covering cases such as parallel init, cloud GPUs, and transferring and managing multiple identities. In particular it does not cover the baseline case of using Smapp to initialize a single smesher. That process is straightforward and mostly automated in Smapp, and the steps are outlined in this [explainer video](https://youtu.be/xwsg7FzuBE0?si=Eing6i_KY7VSE7W4). The guide does explain the differences between mining using Smapp or the CLI where appropriate.
-- the author of this guide uses Linux and CLI commands will be specified as they'd be run on Linux. In most cases, the same commands should work verbatim on other platforms including Windows and macOS with appropriate tweaks (e.g., using the correct platform-specific paths). Contributions containing correct instructions for different platforms are welcome; feel free to [open an issue](https://github.com/spacemeshos/wiki/issues) with a contribution.
+# Running a Full Node
 
-# Running a Node
-
-In order to mine one must have a fully synchronized Spacemesh node running. Strictly speaking, running a node is not required during the PoST initialization process, since it relies only upon static data (with one exception, explained in a moment) such as the smesher's identity and the PoST init params (total storage to initialize, max file size, etc.). Most smeshers nevertheless choose to run a full node throughout the init process for several reasons: the node itself can perform the initialization for you, it means you'll have a fully-synchronized node when the init finishes and smeshing begins (with the opportunity to troubleshoot any issues in the interim), and it means you'll have a trustless copy of the highest `commitmentAtxId`.
+As noted above, in order to smesh, one must have a fully synchronized Spacemesh node running. Strictly speaking, running a node is not required during the PoST initialization process, since it relies only upon static data (with one exception, explained in a moment) such as the smesher's identity and the PoST init params (total storage to initialize, max file size, etc.). Most smeshers nevertheless choose to run a full node throughout the init process for several reasons: the node itself can perform the initialization for you, it means you'll have a fully-synchronized node when the init finishes and smeshing begins (with the opportunity to troubleshoot any issues in the interim), and it means you'll have a trustless copy of the highest `commitmentAtxId`.
 
 ### `commitmentAtxId`
 

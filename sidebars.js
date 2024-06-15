@@ -54,19 +54,19 @@ module.exports = {
           'start/smapp/wallet',
           'start/smapp/advanced-wallet',
         'start/smapp/advanced_config'],
-        'Advanced Smesher Guide': [
-          'start/smesher/setup',
-          'start/smesher/post_init',
-          'start/smesher/api',
-          'start/smesher/poet',
-          'start/smesher/networking',
-          'start/smesher/performance',
-          'start/smesher/equivocation',
-          'start/smesher/verification',
-          'start/smesher/advanced',
-          'start/smesher/post_1n',
-            'start/smesher/multigpu',
-          'start/smesher/troubleshooting'
+        'Advanced Smeshing Guide': [
+          'start/smeshing_adv/setup',
+          'start/smeshing_adv/post_init',
+          'start/smeshing_adv/api',
+          'start/smeshing_adv/poet',
+          'start/smeshing_adv/networking',
+          'start/smeshing_adv/performance',
+          'start/smeshing_adv/equivocation',
+          'start/smeshing_adv/verification',
+          'start/smeshing_adv/advanced',
+          'start/smeshing_adv/post_1n',
+            'start/smeshing_adv/multigpu',
+          'start/smeshing_adv/troubleshooting'
         ],
       },
       'start/integration'
