@@ -1,6 +1,6 @@
 ---
 id: start
-title: Getting Started
+title: Smeshing Guide
 ---
 
 This guide will walk you through all the steps for becoming a smesher. Smeshing is similar to "mining" in other blockchain networks. So, as a smesher, you will contribute some of your hard drive storage and computing power in order to participate in network operation and security, thereby becoming eligible to earn rewards in SMH, the native token of the Spacemesh protocol.
@@ -13,21 +13,21 @@ If you run across any issues or have any questions, be sure to reach out to us i
 
 ## System Requirements
 
-To start smeshing, you must first become a full node on the Spacemesh protocol. A **full node** only stores the blockchain ledger and executes the transactions contained in valid. A full node can only become a **smeshing node** if it satisfies the additional requirements for smeshing. Visit the [requirements](./requirements.md) page to see if your system satisfies the requirements. If it does, congratulations! continue reading to start smeshing.
+To start smeshing, you must first become a full node on the Spacemesh protocol. A **full node** only stores the blockchain ledger and executes the transactions contained in valid. A full node can only become a **smeshing node** if it satisfies the additional requirements for smeshing. Visit the [requirements](../requirements.md) page to see if your system satisfies the requirements. If it does, congratulations! continue reading to start smeshing.
 
 ## Choosing Your Guide
 
 Now that your system satisfies the requirements, it is time to start smeshing! At this stage, you have two ways to start smeshing:
 
-- If you are new to smeshing and/or do not want to use a Command Line Interface (CLI), you can follow the [Basic Smeshing Guide](start/smapp/install).
+- If you are new to smeshing and/or do not want to use a Command Line Interface (CLI), you can follow the [Basic Smeshing Guide](./smeshing_basic/install.md).
 - If you are an advanced user and/or want more control over your smeshing, you can follow the Advanced Smeshing Guide.
 
 ### Smapp - Basic Smeshing
 
-The simplest way to run a Spacemesh node is using the [Spacemesh App (Smapp)](https://github.com/spacemeshos/smapp/). You can simply download and install the [latest release](https://github.com/spacemeshos/smapp/releases) for your platform and be up and running in no time. Smapp will automatically download the correct configuration file, and will show you visually the network status, its synchronization status, and the status of PoST init and smeshing. Smapp bundles a full `go-spacemesh` instance under the hood and manages it for you, including upgrades. See [our Basic Smeshing guide](start/smapp/install) for more information on setting up Smapp and smeshing using it.
+The simplest way to run a Spacemesh node is using the [Spacemesh App (Smapp)](https://github.com/spacemeshos/smapp/). You can simply download and install the [latest release](https://github.com/spacemeshos/smapp/releases) for your platform and be up and running in no time. Smapp will automatically download the correct configuration file, and will show you visually the network status, its synchronization status, and the status of PoST init and smeshing. Smapp bundles a full `go-spacemesh` instance under the hood and manages it for you, including upgrades. See [our Basic Smeshing guide](start/smeshing/smeshing_basic/install) for more information on setting up Smapp and smeshing using it.
 
 Smapp also lets you customize your config file and use the node API directly. Running Smapp does not provide any greater or lesser functionality than running go-spacemesh directly, but some technical users who prefer working with a CLI rather than a GUI may wish to run `go-spacemesh` as a system service, etc. Users running without a GUI will of course have no choice but to run `go-spacemesh` directly via CLI.
 
 ### CLI - Advanced Smeshing
 
-It is also possible to run a Spacemesh node entirely from the command line using the [go-spacemesh](https://github.com/spacemeshos/go-spacemesh) full node implementation. You can run a pre-compiled [binary release](https://github.com/spacemeshos/go-spacemesh/releases) for your platform, or you can compile the application yourself. We recommend that only more advanced users attempt this method. See our [Advanced Smeshing Guide](./smesher/setup.md) for more information on setting up your Full Node.
+It is also possible to run a Spacemesh node entirely from the command line using the [go-spacemesh](https://github.com/spacemeshos/go-spacemesh) full node implementation. You can run a pre-compiled [binary release](https://github.com/spacemeshos/go-spacemesh/releases) for your platform, or you can compile the application yourself. We recommend that only more advanced users attempt this method. See our [Advanced Smeshing Guide](./smeshing_basic/setup.md) for more information on setting up your Full Node.

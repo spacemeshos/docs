@@ -43,32 +43,42 @@ module.exports = {
   //   'specs/smart_contracts/opcodes',
   // ],
   start: [
-     'start/start',
+     // Smeshing Guide > Smeshing Guide Baseic, Smeshing Guid Adv
+     {
+      type: 'category',
+      label: 'Smeshing Guide',
+      items: [
+        {
+          'Basic Smeshing Guide': [
+            'start/smeshing/smeshing_basic/install',
+            'start/smeshing/smeshing_basic/additional',
+            'start/smeshing/smeshing_basic/advanced_config',
+            'start/smeshing/smeshing_basic/advanced-wallet',
+            'start/smeshing/smeshing_basic/setup',
+            'start/smeshing/smeshing_basic/smeshing',
+            'start/smeshing/smeshing_basic/status',
+            'start/smeshing/smeshing_basic/wallet',
+          ],
+          'Advanced Smesher Guide': [
+          'start/smeshing/smeshing_adv/setup',
+          'start/smeshing/smeshing_adv/post_init',
+          'start/smeshing/smeshing_adv/api',
+          'start/smeshing/smeshing_adv/poet',
+          'start/smeshing/smeshing_adv/networking',
+          'start/smeshing/smeshing_adv/performance',
+          'start/smeshing/smeshing_adv/equivocation',
+          'start/smeshing/smeshing_adv/verification',
+          'start/smeshing/smeshing_adv/advanced',
+          'start/smeshing/smeshing_adv/post_1n',
+          'start/smeshing/smeshing_adv/multigpu',
+          'start/smeshing/smeshing_adv/troubleshooting'
+        ],
+        }
+      ],
+     },
      'start/requirements',
      'start/netconfig',
       'start/rewards',
-      {
-        'Basic Smeshing Guide': [
-          'start/smapp/install',
-          'start/smapp/setup',
-          'start/smapp/wallet',
-          'start/smapp/advanced-wallet',
-        'start/smapp/advanced_config'],
-        'Advanced Smeshing Guide': [
-          'start/smeshing_adv/setup',
-          'start/smeshing_adv/post_init',
-          'start/smeshing_adv/api',
-          'start/smeshing_adv/poet',
-          'start/smeshing_adv/networking',
-          'start/smeshing_adv/performance',
-          'start/smeshing_adv/equivocation',
-          'start/smeshing_adv/verification',
-          'start/smeshing_adv/advanced',
-          'start/smeshing_adv/post_1n',
-            'start/smeshing_adv/multigpu',
-          'start/smeshing_adv/troubleshooting'
-        ],
-      },
       'start/integration'
       ],
   ecosystem: [  'ecosystem/construction-eco',
