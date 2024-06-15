@@ -1,6 +1,6 @@
 ---
 id: start
-title: Smeshing Guide
+title: Getting Started
 ---
 
 This guide will walk you through all the steps for becoming a smesher. Smeshing is similar to "mining" in other blockchain networks. So, as a smesher, you will contribute some of your hard drive storage and computing power in order to participate in network operation and security, thereby becoming eligible to earn rewards in SMH, the native token of the Spacemesh protocol.

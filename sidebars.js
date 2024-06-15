@@ -48,6 +48,8 @@ module.exports = {
       type: 'category',
       label: 'Smeshing Guide',
       items: [
+        'start/smeshing/start',
+        'start/smeshing/requirements',
         {
           'Basic Smeshing Guide': [
             'start/smeshing/smeshing_basic/install',
@@ -76,7 +78,6 @@ module.exports = {
         }
       ],
      },
-     'start/requirements',
      'start/netconfig',
       'start/rewards',
       'start/integration'
