@@ -20,7 +20,7 @@ To start smeshing, you must first become a full node on the Spacemesh protocol. 
 Now that your system satisfies the requirements, it is time to start smeshing! At this stage, you have two ways to start smeshing:
 
 - If you are new to smeshing and/or do not want to use a Command Line Interface (CLI), you can follow the [Basic Smeshing Guide](./smeshing_basic/install.md).
-- If you are an advanced user and/or want more control over your smeshing, you can follow the [Advanced Smeshing Guide](./smeshing_adv/advanced.md).
+- If you are an advanced user and/or want more control over your smeshing, you can follow the [Advanced Smeshing Guide](./smeshing_adv/setup.md).
 
 ### Smapp - Basic Smeshing
 
