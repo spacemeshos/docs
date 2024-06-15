@@ -1,15 +1,27 @@
 ---
 id: start
-title: Getting Started
+title: Getting Started With Smeshing
 ---
 
-# Requirements
+This guide will walk you through all the steps for becoming a smesher. Smeshing is similar to "mining" in other blockchain networks. So, as a smesher, you will contribute some of your hard drive storage and computing power in order to participate in network operation and security, thereby becoming eligible to earn rewards in SMH, the native token of the Spacemesh protocol.
 
-Resource requirements for mining in Spacemesh can be broken down into three categories: those for running a full node, which are required for all nodes regardless of whether or not they're mining; those required for the PoST initialization process that's required before mining starts; and those required for ongoing mining.
+## Before You Begin
 
-## Full Node
+If you are completely new to this space and have never participated in a blockchain network before, no need to worry. This guide caters to blockchain new-comers and experienced users, alike. Once you have understood and followed the guide, you can check out the [advanced smeshing guide](./smesher/advanced.md). 
 
-See the official set of [system requirements & recommended hardware](./requirements.md). Resource requirements for running a node are quite modest: an Intel or ARM CPU, a modern operating system, a few dozen GB of free hard disk space, and a reliable broadband Internet connection.
+### Got Questions?
+
+If you run across any issues or have any questions, be sure to reach out to us in our [Discord server](https://discord.gg/mq7KXvzc). After joining, ask your questions in the [community troubleshooting](https://discord.com/channels/623195163510046732/1141736098830229584) channel by creating a post and someone from the Spacemesh team or the community will get back to you. This will not only help you solve the issue, but will also be a great resource for someone who may have the same issue in the future.
+
+### Requirements
+
+To start smeshing, you must first register your computer as a node on the Spacemesh protocol. The requirements for running a node are very modest: any modern AMD or Intel CPU, a modern OS, 100 GiB (107.5 GB) of free disk space, and a constant, un-metered internet connection.
+
+#### Running a Spacemesh Node
+
+The minimum requirements for running a node are quite modest: an Intel or ARM CPU, a modern operating system, a few dozen GB of free hard disk space, and a reliable broadband Internet connection. For a detailed description of the requirements, visit the [system requirements & recommended hardware](./requirements.md) page.
+
+#### Practical Considerations
 
 The biggest resource consumed by a Spacemesh node is bandwidth. A full node currently consumes between 150-1500mb/hour of bandwidth. The node is quiescent most of the time, consuming only 100-300kbit/s, but spikes as high as 35Mbit/s every few minutes when a new layer appears and network traffic increases (Hare messages, proposals, etc.). Bandwidth is variable and depends heavily on the network condition and the number and quality of one's peers.
 
@@ -18,6 +30,8 @@ It's important that a node be run on an **unmetered Internet connection** or ban
 We have plans to drastically reduce bandwidth consumption via a more efficient Hare protocol and other improvements, but these upgrades aren't finished and aren't scheduled yet.
 
 As of epoch 5, a full node requires around 1.6gb to store the state database (note that versions of `go-spacemesh` prior to v1.2.0 consumed significantly more hard disk space). We strongly recommend storing the node state (i.e., the `data-folder`) on a fast drive such as a SSD, as opposed to a HDD, to ensure that disk throughput doesn't limit the node's ability to keep up with the network.
+
+Resource requirements for mining in Spacemesh can be broken down into three categories: those for running a full node, which are required for all nodes regardless of whether or not they're mining; those required for the PoST initialization process that's required before mining starts; and those required for ongoing mining.
 
 ## PoST Initialization
 
@@ -35,7 +49,7 @@ The general requirement is a modern CPU with the [AES-NI](https://en.wikipedia.o
 
 For much more information see [fine-tuning proving](./smesher/advanced.md#fine-tuning-proving) and [the profiler tool](https://github.com/spacemeshos/post-rs/blob/main/docs/profiler.md) which can be used to benchmark one's hardware.
 
-# Getting Started
+## Getting Started
 
 Now that you have the necessary resources ready, it's time to start smeshing! This section will walk you through how to do that. First a couple quick notes:
 
