@@ -21,6 +21,6 @@ To recap,
 
 - Spacemesh is a blockchain protocol with a distributed ledger, a consensus algorithm, and a native coin (called a Spacemesh coin or “$SMH”) which is awarded to those who participate in securing the network.
 - The Spacemesh consensus mechanism is based on a novel protocol called Proof of Spacetime which, in combination with several auxiliary mechanisms), is more environmentally-friendly, more robust, and more decentralized than alternatives such as Proof of Work or Proof of Stake.
-- One just needs a minimum of 264 GiB free hard drive space to participate in the consensus mechanism and earn rewards.
+- One just needs a minimum of 256 GiB free hard drive space to participate in the consensus mechanism and earn rewards.
 - There is no race to produce the next block. Everyone participating in the mining process is guaranteed a share of rewards proportional to the storage space they have allocated.
 - The rewards scale linearly with the amount of space allocated. No one is given an unfair advantage in this regard. Allocate more space, earn more rewards.
