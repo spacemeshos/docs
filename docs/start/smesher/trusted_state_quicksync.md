@@ -23,7 +23,7 @@ We have prepared a simple tool called [quicksync-rs](https://github.com/spacemes
 
 The most recent archive for a given version can be found at: `https://quicksync.spacemesh.io/<version>/latest.zst`. This URL will always redirect to the most recent archive for the given version.
 
-The archive is compressed with `zstd` and can be decompressed using the following command: `zstd -d --long=31 o state.sql latest.sql.zst`. Note that the decompressed archive should be placed in the node data directory (`/opt/go-spacemesh/`) of the node.
+The archive is compressed with `zstd` and can be decompressed using the following command: `zstd -d --long=31 o state.sql latest.sql.zst`. Note that the decompressed archive should be placed in the node data directory of the node.
 
 Doing all of this using the CLI would look like the following:
 ```
