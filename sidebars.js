@@ -50,6 +50,7 @@ module.exports = {
       items: [
         'start/smeshing/start',
         'start/smeshing/requirements',
+        'start/smeshing/netconfig',
         {
           'Basic Smeshing Guide': [
             'start/smeshing/smeshing_basic/install',
@@ -61,7 +62,7 @@ module.exports = {
             'start/smeshing/smeshing_basic/status',
             'start/smeshing/smeshing_basic/wallet',
           ],
-          'Advanced Smesher Guide': [
+          'Advanced Smeshing Guide': [
           'start/smeshing/smeshing_adv/setup',
           'start/smeshing/smeshing_adv/post_init',
           'start/smeshing/smeshing_adv/api',
@@ -78,7 +79,6 @@ module.exports = {
         }
       ],
      },
-     'start/netconfig',
       'start/rewards',
       'start/integration'
       ],

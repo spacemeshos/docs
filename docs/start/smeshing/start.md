@@ -13,7 +13,13 @@ If you run across any issues or have any questions, be sure to reach out to us i
 
 ## System Requirements
 
-To start smeshing, you must first become a full node on the Spacemesh protocol. A **full node** only stores the blockchain ledger and executes the transactions contained in valid. A full node can only become a **smeshing node** if it satisfies the additional requirements for smeshing. Visit the [requirements](./requirements.md) page to see if your system satisfies the requirements. If it does, congratulations! continue reading to start smeshing.
+To start smeshing, you must first become a full node on the Spacemesh protocol. A **full node** only stores the blockchain ledger and executes the transactions contained in valid. A full node can only become a **smeshing node** if it satisfies the additional requirements for smeshing. Visit the [System Requirements](./requirements.md) page to see if your system satisfies the requirements. If it does, congratulations! continue reading to start smeshing.
+
+## Network Configuration
+
+While setting up a full or smeshing node is as simple as running the Smapp and going through the steps, if you run into any network-related issues, visit the [Network Configuration](./netconfig.md) page. It is also recommended to go through the Network Configuration page to see that all the network-related settings are in order so you can have a smooth, uninterrupted smeshing experience.
+
+If you come across any network-related issue and cannot find its solution on the Network Configuration page, post your problem on Discord (invite given above) and someone should reach out to you with a solution.
 
 ## Choosing Your Guide
 
