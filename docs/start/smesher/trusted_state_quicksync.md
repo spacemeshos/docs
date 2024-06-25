@@ -5,32 +5,27 @@ title: Trusted State aka Quicksync
 
 ## Quicksync
 
-In a response for the growing difficulty of syncing fresh node we've prepared a way to speed up the process. It's called Quicksync.
+In response to the growing difficulty of syncing a fresh node, we have prepared a way to speed up the syncing process. Introducing, Quicksync.
 
-Before reading any further plaese read the annoucement about Quicksync [here](https://spacemesh.io/blog/making-sync-faster/).
+Before reading any further, plaese read the annoucement about Quicksync [here](https://spacemesh.io/blog/making-sync-faster/).
 
-
-### Automated way of getting the archive
+### Getting the archive automatically
 
 #### Smapp
 
-Smapp will propose to run the quicksync automatically
+Smapp will propose to run Quicksync automatically.
 
 #### CLI
 
-We have prepared simple tool [quicksync-rs](https://github.com/spacemeshos/quicksync-rs) that simplifies the process of getting the archive.
+We have prepared a simple tool called [quicksync-rs](https://github.com/spacemeshos/quicksync-rs) that simplifies the process of getting the archive.
 
+### Getting the archive manually
 
-### Manual way of getting the archive
+The most recent archive for a given version can be found at: `https://quicksync.spacemesh.io/<version>/latest.zst`. This URL will always redirect to the most recent archive for the given version.
 
-The most recent archive for given version can be found at:
-`https://quicksync.spacemesh.io/<version>/latest.zst` It will always redirect to the most recent archive for the given version.
+The archive is compressed with `zstd` and can be decompressed using the following command: `zstd -d --long=31 o state.sql latest.sql.zst`. Note that the decompressed archive should be placed in the node data directory (`/opt/go-spacemesh/`) of the node.
 
-As you can see the archive is compressed with zstd. You can decompress it with `zstd` tool. Downloaded archive can be decompressed with the following command:
-`zstd -d --long=31 o state.sql latest.sql.zst``
-
-
-A script doing that all could look like:
+Doing all of this using the CLI would look like the following:
 ```
 Select your spacemesh version
 SM_VERSION=v1.6.0
@@ -48,5 +43,3 @@ zstd -d --long=31 -o $SM_DATA_DIR/state.sql $TMP_DIR/state.sql.zst
 # Delete the TMP Dir
 rm -fr $TMP_DIR
 ```
-
-Archive should be placed in the node data directory of the node.
