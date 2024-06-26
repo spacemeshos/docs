@@ -25,7 +25,7 @@ The most recent archive for a given version can be found at: `https://quicksync.
 
 The archive is compressed with `zstd` and can be decompressed using the following command: `zstd -d --long=31 o state.sql latest.sql.zst`. Note that the decompressed archive should be placed in the node data directory of the node.
 
-Doing all of this using the CLI would look like the following:
+Doing all of this using the CLI would look like the following (assuming bash shell):
 ```
 Select your spacemesh version
 SM_VERSION=v1.6.0
