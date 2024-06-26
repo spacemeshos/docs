@@ -7,7 +7,7 @@ title: Trusted State aka Quicksync
 
 In response to the growing difficulty of syncing a fresh node, we have prepared a way to speed up the syncing process. Introducing, Quicksync.
 
-Before reading any further, plaese read the annoucement about Quicksync [here](https://spacemesh.io/blog/making-sync-faster/).
+Before reading any further, please read the announcement about Quicksync [here](https://spacemesh.io/blog/making-sync-faster/).
 
 ### Getting the archive automatically
 
