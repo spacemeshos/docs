@@ -17,7 +17,7 @@ Smapp will propose to run Quicksync automatically.
 
 #### CLI
 
-We have prepared a simple tool called [quicksync-rs](https://github.com/spacemeshos/quicksync-rs) that simplifies the process of getting the archive.
+We prepared a simple tool called [quicksync-rs](https://github.com/spacemeshos/quicksync-rs) that simplifies the process of getting the archive.
 
 ### Getting the archive manually
 
