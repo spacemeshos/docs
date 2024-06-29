@@ -3,7 +3,7 @@ id: start
 title: Getting Started
 ---
 
-This guide will walk you through all the steps for becoming a smesher. Smeshing is similar to "mining" in other blockchain networks. So, as a smesher, you will contribute some of your hard drive storage and computing power in order to participate in network operation and security, thereby becoming eligible to earn rewards in SMH, the native token of the Spacemesh protocol.
+This guide will walk you through all the steps for becoming a smesher. Smeshing is analogous to "mining" in other blockchain networks. Thus, as a smesher, you will contribute some of your hard drive storage and computing power in order to participate in network operation and security, thereby becoming eligible to earn rewards in SMH, the native token of the Spacemesh protocol.
 
 If you are completely new to this space and have never participated in a blockchain network before, no need to worry. This guide caters to blockchain new-comers and experienced users, alike.
 
@@ -36,4 +36,4 @@ Smapp also lets you customize your config file and use the node API directly. Ru
 
 ### CLI - Advanced Smeshing
 
-It is also possible to run a Spacemesh node entirely from the command line using the [go-spacemesh](https://github.com/spacemeshos/go-spacemesh) full node implementation. You can run a pre-compiled [binary release](https://github.com/spacemeshos/go-spacemesh/releases) for your platform, or you can compile the application yourself. We recommend that only more advanced users attempt this method. See our [Advanced Smeshing Guide](./smeshing_basic/setup.md) for more information on setting up your Full Node.
+It is also possible to run a Spacemesh node entirely from the command line using the [go-spacemesh](https://github.com/spacemeshos/go-spacemesh) full node implementation. You can run a pre-compiled [binary release](https://github.com/spacemeshos/go-spacemesh/releases) for your platform, or you can compile the application yourself. We recommend that only more advanced users attempt this method. See our [Advanced Smeshing Guide](./smeshing_adv/setup.md) for more information on setting up your Full Node.

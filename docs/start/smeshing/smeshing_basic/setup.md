@@ -4,6 +4,7 @@ title: Smapp Setup
 ---
 
 ## Step 1 - Setting up a Wallet
+
 Follow the installer's on-screen instruction and proceed to launch the App.
 
 You should now see this welcome screen:
