@@ -48,3 +48,5 @@ The following popular processor models are supported:
 - Apple M* GPUs
 - Intel UHD Graphics
 - Intel Iris Xe GPUs
+
+Having understood the system requirments, it is understanding the [Practical Considerations](./) of smeshing.

@@ -50,6 +50,7 @@ module.exports = {
       items: [
         'start/smeshing/start',
         'start/smeshing/requirements',
+        'start/considerations',
         'start/smeshing/netconfig',
         {
           'Basic Smeshing Guide': [

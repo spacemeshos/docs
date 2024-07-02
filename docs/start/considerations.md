@@ -3,8 +3,6 @@ id: considerations
 title: Practical Considerations
 ---
 
-## Practical Considerations
-
 Having understood the requirements for running a full node or a smeshing node, it is important to take note of the following considerations as you embark on your smeshing journey.
 
 ### CPU Usage
@@ -52,3 +50,5 @@ Mining on an ongoing basis does _not_ require a GPU. The only additional resourc
 The general requirement is a modern CPU with the [AES-NI](https://en.wikipedia.org/wiki/AES_instruction_set) instruction and a disk that's fast enough to perform a single, sequential read over the entire PoST data in 4-5 hours. This allows enough time to perform a second read during the PoET cycle gap on the off chance that the first pass fails to generate a valid proof. Hard drive performance varies widely but most modern 7200 RPM HDDs can perform a sequential read at 100-200mb/sec (5400 RPM drives are slower). This means that, to be safe, a smesher shouldn't initialize more than 2-4 TB or 8-16 SU on a single HDD. It's certainly possible to initialize more and smeshers with 4TB drives and fast CPUs report no issues generating a proof in time, but the probability of failure increases with each additional byte initialized. It's also possible to achieve much higher read speeds using more expensive technology such as SSD and/or RAID.
 
 For much more information see [fine-tuning proving](./smesher/advanced.md#fine-tuning-proving) and [the profiler tool](https://github.com/spacemeshos/post-rs/blob/main/docs/profiler.md) which can be used to benchmark one's hardware.
+
+The next step is to see if your network is configured properly to support smeshing operations. While it is more than likely that your network is ready for smeshing, it is nonetheless worth going over the [network configuration requirements](./smeshing/netconfig.md) for smeshing.
