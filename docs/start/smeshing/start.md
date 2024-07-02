@@ -73,7 +73,7 @@ Some advantages of smeshing using `go-spacemesh` and `postcli` over Smapp includ
 - `postcli`:
     - Does not require internet or for your node to be synced to generate PoS data. Smapp will first start a full node and sync it before generating the PoS data.
     - Can generate PoS data for multiple systems. Using Smapp for this purpose is not possible yet.
-    - Can be used to split the workload in multi-gpu setups (e.g., generating multiple PoS data concurrently using different GPUs)
+    - Can be used to [split the initialization workload](./smeshing_adv/setup.md/#parallel-initialization) in multi-GPU setups.
     - Can be used to generate PoS data on a cloud compute service.
 
 Note that we recommend only the more advanced users to smesh using the CLI programs. See our [Advanced Smeshing Guide](./smeshing_adv/setup.md) for more information.
