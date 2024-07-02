@@ -5,17 +5,17 @@ title: Getting Started
 
 This guide will walk you through all the steps for becoming a smesher. Smeshing is analogous to "mining" in other blockchain networks. Thus, as a smesher, you will contribute some of your hard drive storage and computing power in order to participate in network operation and security, thereby becoming eligible to earn rewards in SMH, the native token of the Spacemesh protocol.
 
-If you are completely new to this space and have never participated in a blockchain network before, no need to worry. This guide caters to blockchain new-comers and experienced users, alike.
+If you are completely new to this space and have never participated in a blockchain network before, no need to worry. This guide caters to blockchain newcomers and experienced users, alike.
 
 ## Got Questions?
 
-If you run across any issues or have any questions, be sure to reach out to us in our [Discord server](https://discord.gg/mq7KXvzc). After joining, ask your questions in the [community troubleshooting](https://discord.com/channels/623195163510046732/1141736098830229584) channel by creating a post and someone from the Spacemesh team or the community will get back to you. This will not only help you solve the issue, but will also be a great resource for someone who may have the same issue in the future.
+If you run across any issues or have any questions, be sure to reach out to us on our [Discord server](https://discord.gg/mq7KXvzc). After joining, ask your questions in the [community troubleshooting](https://discord.com/channels/623195163510046732/1141736098830229584) channel by creating a post and someone from the Spacemesh team or the community will get back to you. This will not only help you solve the issue but will also be a great resource for someone who may have the same issue in the future.
 
 With this in mind, let us start smeshing!
 
 ## What Is Smeshing?
 
-Smeshing (short for "**S**pace**mesh** min**ing**") is a way for users to help secure the Spacemesh network by contributing their resources (primarily disk space) and, in turn, earn rewards proportional to their contribution.
+Smeshing (short for "**S**pace**mesh** min**ing**") is a way for users to help secure the Spacemesh network by contributing their resources (primarily disk space) and, in turn, earning rewards proportional to their contribution.
 
 Smeshing is a three-step process:
 
@@ -35,7 +35,7 @@ Now that you have an idea of what smeshing is, it is time to see if your system 
 
 ## System Requirements
 
-To start smeshing, you must first become a full node on the Spacemesh protocol. A **full node** only stores the blockchain ledger and executes the transactions contained in valid. A full node can only become a **smeshing node** if it satisfies the [additional requirements](./requirements.md/#minimum-requirements-for-smeshing) for smeshing.
+To start smeshing, you must first become a full node on the Spacemesh protocol. A **full node** only stores the blockchain ledger and executes the transactions. A full node can only become a **smeshing node** if it satisfies the [additional requirements](./requirements.md/#minimum-requirements-for-smeshing) for smeshing.
 
 Visit the [System Requirements](./requirements.md) page to see if your system satisfies the requirements. If it does, congratulations! Continue reading to start smeshing.
 
@@ -54,10 +54,26 @@ Now that your system satisfies the requirements, it is time to start smeshing! A
 
 ### Smapp - Basic Smeshing
 
-The simplest way to run a Spacemesh node is using the [Spacemesh App (Smapp)](https://github.com/spacemeshos/smapp/). You can simply download and install the [latest release](https://github.com/spacemeshos/smapp/releases) for your platform and be up and running in no time. Smapp will automatically download the correct configuration file, and will show you visually the network status, its synchronization status, and the status of PoS initialization and smeshing. Smapp bundles a full `go-spacemesh` instance under the hood and manages it for you, including upgrades. See [our Basic Smeshing guide](start/smeshing/smeshing_basic/install) for more information on setting up Smapp and smeshing using it.
+The simplest way to run a Spacemesh node is by using the [Spacemesh App (Smapp)](https://github.com/spacemeshos/smapp/). You can simply download and install the [latest release](https://github.com/spacemeshos/smapp/releases) for your platform and be up and running in no time. Smapp will automatically download the correct configuration file, and will show you visually the network status, its synchronization status, and the status of PoS initialization and smeshing. Smapp bundles a full `go-spacemesh` instance under the hood and manages it for you, including upgrades. See [our Basic Smeshing guide](start/smeshing/smeshing_basic/install) for more information on setting up Smapp and smeshing using it.
 
 Smapp also lets you customize your config file and use the node API directly. Running Smapp does not provide any greater or lesser functionality than running go-spacemesh directly, but some technical users who prefer working with a CLI rather than a GUI may wish to run `go-spacemesh` as a system service, etc. Users running without a GUI will of course have no choice but to run `go-spacemesh` directly via CLI.
 
 ### CLI - Advanced Smeshing
 
-It is also possible to run a Spacemesh node entirely from the command line using the [go-spacemesh](https://github.com/spacemeshos/go-spacemesh) full node implementation. You can run a pre-compiled [binary release](https://github.com/spacemeshos/go-spacemesh/releases) for your platform, or you can compile the application yourself. We recommend that only more advanced users attempt this method. See our [Advanced Smeshing Guide](./smeshing_adv/setup.md) for more information on setting up your Full Node.
+You can also run a full or smeshing node entirely from the command line using [go-spacemesh](https://github.com/spacemeshos/go-spacemesh). In addition, the [`postcli`](https://github.com/spacemeshos/post/blob/develop/cmd/postcli/README.md) tool can be used to generate PoS data with much more fine-grain control.
+
+Some advantages of smeshing using `go-spacemesh` and `postcli` over Smapp include:
+
+- `go-spacemesh`:
+    - More lightweight compared to Smapp.
+    - Can run on headless (non-GUI) systems.
+    - Advanced configuration is possible. Smapp has pre-programmed values and changing them is not as straightforward as it is on `go-spacemesh`.
+    - 1:N (one identity, multiple nodes) setup is not yet supported on Smapp.
+    - Works well with Docker.
+- `postcli`:
+    - Does not require internet or for your node to be synced to generate PoS data. Smapp will first start a full node and sync it before generating the PoS data.
+    - Can generate PoS data for multiple systems. Using Smapp for this purpose is not possible yet.
+    - Can be used to split the workload in multi-gpu setups (e.g., generating multiple PoS data concurrently using different GPUs)
+    - Can be used to generate PoS data on a cloud compute service.
+
+Note that we recommend only the more advanced users to smesh using the CLI programs. See our [Advanced Smeshing Guide](./smeshing_adv/setup.md) for more information.
