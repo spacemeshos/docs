@@ -3,7 +3,7 @@ id: poet
 title: PoET Servers
 ---
 
-As described in our introduction to [Proof of Elapsed Time](./../../learn/poet.md), the Spacemesh protocol depends for security not only upon committed _disk space_ but also _elapsed time_ (the time dimension in proofs of spacetime). For the time component, miners rely on a third-party service called a PoET ("proof of elapsed time") server.
+As described in our introduction to [Proof of Elapsed Time](./../../../learn/poet.md), the Spacemesh protocol depends for security not only upon committed _disk space_ but also _elapsed time_ (the time dimension in proofs of spacetime). For the time component, miners rely on a third-party service called a PoET ("proof of elapsed time") server.
 
 Note: Anyone can run their own PoET server, but this is non-trivial, expensive, and requires specialized hardware and devops. More importantly, a single PoET server can serve proofs to thousands of miners. Since the PoET server performs intensive, expensive computation on behalf of the miners it serves, and since a miner only needs a single PoET proof for a given epoch, it's more efficient and less energy intensive to run a small number of PoET servers rather than having each miner run their own.
 
