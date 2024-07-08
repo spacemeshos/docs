@@ -67,7 +67,6 @@ Some advantages of smeshing using `go-spacemesh` and `postcli` over Smapp includ
 - `go-spacemesh`:
     - More lightweight compared to Smapp.
     - Can run on headless (non-GUI) systems.
-    - Advanced configuration is possible. Smapp has pre-programmed values and changing them is not as straightforward as it is on `go-spacemesh`.
     - 1:N (one identity, multiple nodes) setup is not yet supported on Smapp.
     - Works well with Docker.
 - `postcli`:
