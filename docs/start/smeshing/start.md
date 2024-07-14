@@ -65,7 +65,6 @@ You can also run a full or smeshing node entirely from the command line using [g
 Some advantages of smeshing using `go-spacemesh` and `postcli` over Smapp include:
 
 - `go-spacemesh`:
-    - More lightweight compared to Smapp.
     - Can run on headless (non-GUI) systems.
     - 1:N (one identity, multiple nodes) setup is not yet supported on Smapp.
     - Works well with Docker.
