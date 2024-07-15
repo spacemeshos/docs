@@ -72,6 +72,7 @@ module.exports = {
           'start/smeshing/smeshing_adv/performance',
           'start/smeshing/smeshing_adv/equivocation',
           'start/smeshing/smeshing_adv/verification',
+          'start/smeshing/smeshing_adv/quicksync',
           'start/smeshing/smeshing_adv/advanced',
           'start/smeshing/smeshing_adv/post_1n',
           'start/smeshing/smeshing_adv/multigpu',
