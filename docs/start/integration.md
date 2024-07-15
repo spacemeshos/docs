@@ -570,14 +570,16 @@ The API [currently defines](https://github.com/spacemeshos/api/blob/master/space
 
 Spacemesh has two separate consensus mechanisms, Tortoise and Hare, and each provides different finality guarantees.
 
-The Hare mechanism provides fast optimistic finality, typically within five minutes, i.e., within the span of a single layer time. Layers that have passed Hare (i.e., for which a signed Hare certificate is available) are applied optimistically applied to the Spacemesh state and are marked `LAYER_STATUS_APPROVED` in the API. In practical terms this should be regarded as the equivalent of multiple PoW confirmations of a blockchain with a comparable market capitalization to Spacemesh.
+The Hare mechanism provides fast optimistic finality, typically within five minutes, i.e., within the span of a single layer time. Layers that have passed Hare (i.e., for which a signed Hare certificate is available) are applied optimistically to the Spacemesh state and are marked `LAYER_STATUS_APPROVED` in the API. In practical terms this should be regarded as the equivalent of multiple PoW confirmations of a blockchain with a comparable market capitalization to Spacemesh.
 
 The Tortoise mechanism provides a second layer of stronger, probabilistic finality that grows over time, just as in Nakamoto consensus/PoW-based blockchains like Bitcoin. As in Bitcoin no layer is ever completely final in Tortoise, and there could always be a different chain tip with greater accumulated weight, but the likelihood of this happening falls exponentially over time. Layers that have passed Tortoise are marked `LAYER_STATUS_CONFIRMED` in the API and may be considered finalized barring an exceptional violation of the security assumptions coupled with an exceptional reorg.
 
 While a reorg is highly unlikely, you may monitor for one by periodically using [`MeshService.LayersQuery`](https://pkg.go.dev/github.com/spacemeshos/go-spacemesh@v1.2.1/api/grpcserver#MeshService.LayersQuery) or [`MeshService.LayerStream`](https://pkg.go.dev/github.com/spacemeshos/go-spacemesh@v1.2.1/api/grpcserver#MeshService.LayerStream) (look for a changing block `id` or layer `hash` or `rootStateHash`).
 
+Note that, unlike other blockchains, blocks in Spacemesh do not contain pointers to previous blocks. As a result, a single, historical block can be replaced (i.e., reorged) without directly affecting the following blocks. As such, the fact that new blocks have appeared does _not_ in and of itself imply that a historic block has a higher degree of confidence or finality. Rather, Tortoise measures confidence in terms of the accumulated _weight_ of proposals that vote for a given historic block. See [Blocks and Transactions](./../learn/blocks.md#blocks-and-transactions) for more information.
+
 ## Resources
 
-- [[Smesher Guide]]
+- [Smesher Guide](./../learn/blocks.md#blocks-and-transactions)
 - https://github.com/lrettig/awesome-spacemesh/
 - [Explorer](https://explorer.spacemesh.io/overview)
