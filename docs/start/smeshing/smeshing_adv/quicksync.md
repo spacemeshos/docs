@@ -54,11 +54,11 @@ rm -fr $TMP_DIR
 # Select your spacemesh version
 $SM_VERSION = "v1.6.0"
 # Default path to the node data directory, change if needed
-$SM_DATA_DIR = "C:\Users\{USERNAME}\spacemesh\node-data"
+$SM_DATA_DIR = C:\Users\{USERNAME}\spacemesh\node-data
 # Create a temp dir
 $TMP_DIR = New-Item -ItemType Directory -Path ([System.IO.Path]::GetTempPath())
 # Path to the zstd executable, change if needed
-$ZSTD = "C:\Program Files\zstd\zstd.exe"
+$ZSTD = C:\Program Files\zstd\zstd.exe
 
 
 # Download the archive
