@@ -2,8 +2,29 @@
 id: setup
 title: Advanced Setup
 ---
+Now that you have the necessary resources ready, it is time to start smeshing! This section will walk you through how to do that. First, a couple of quick notes:
 
-## Compiling
+- This guide is intended as an advanced smeshing guide, covering cases such as parallel init, cloud GPUs, and transferring and managing multiple identities. In particular it does not cover the baseline case of using Smapp to initialize a single smesher. That process is straightforward and mostly automated in Smapp, and the steps are outlined in this explainer video. The guide does explain the differences between mining using Smapp or the CLI where appropriate.
+
+- This guide uses Linux. So, all the commands are for a Linux terminal, and should be the same for most UNIX-based systems. In most cases, the same commands should work verbatim on other platforms including Windows and macOS with appropriate tweaks (e.g., using the correct platform-specific paths). Contributions containing correct instructions for different platforms are welcome. Feel free to open an issue with a contribution.
+
+- In order to smesh one must have a fully synchronized Spacemesh node running. Strictly speaking, running a node is not required during the PoST initialization process, since it relies only upon static data (with one exception, explained in a moment) such as the smesher's identity and the PoST init params (total storage to initialize, max file size, etc.). Most smeshers nevertheless choose to run a full node throughout the init process for several reasons: the node itself can perform the initialization for you, it means you will have a fully-synchronized node when the init finishes and smeshing begins (with the opportunity to troubleshoot any issues in the interim), and it means you will have a trustless copy of the highest `commitmentAtxId`.
+
+## `commitmentAtxId​`
+
+The one piece of dynamic data that you need to perform PoST init is the highest commitmentAtxId. This is simply the ID of the highest ATX known at the time that PoST initialization begins. It is used to mitigate a certain class of protocol attack; for more information, see POPS-VRF implementation.
+The simplest way to get this is to ask your own node, using the API as such:
+
+```bash
+> grpcurl -plaintext 127.0.0.1:9092 spacemesh.v1.ActivationService.Highest | jq -r '.atx.id.id' | base64 -d | xxd -p -c 64
+435fa442517e9c75087de1b06d2a9d12c345505f3cac93ac52b816171ce48308
+```
+
+While we plan to operate public nodes in the near future, we do not operate any at present. Therefore, we strongly encourage you to double-check this information, ideally by running your own node, or alternatively by checking with the community on Discord.
+
+Continue reading to run your own node and start smeshing.
+
+## Compiling `go-spacemesh`
 
 go-spacemesh has a very limited set of dependencies and requirements, the main one being a Go toolchain. It also requires `make` and [Git Large File Storage](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage). Make sure you have a [recent version of Go](https://go.dev/dl/) installed, clone the [go-spacemesh repository](https://github.com/spacemeshos/go-spacemesh), then run `make install`, which will install the other dependencies for you automatically. Note that this includes a compiled version of the Spacemesh PoST library, but as long as your Go toolchain is set up correctly, this should work out of the box.
 
@@ -21,7 +42,7 @@ This builds the `go-spacemesh` binary in the `build/` directory.
 
 For the most up to date information on compiling check the [README](https://github.com/spacemeshos/go-spacemesh#readme), [Makefile](https://github.com/spacemeshos/go-spacemesh/blob/develop/Makefile) and [Makefile-libs](https://github.com/spacemeshos/go-spacemesh/blob/develop/Makefile-libs.Inc), and the [release workflow](https://github.com/spacemeshos/go-spacemesh/blob/develop/.github/workflows/release.yml).
 
-## Running
+## Running the Node
 
 The node features a set of reasonable default parameters that should work well out of the box for most users and most use cases, but you can change all of them using command line flags and/or the config file. The exact command you use to run `go-spacemesh` will depend upon your local configuration and requirements. See the [README](https://github.com/spacemeshos/go-spacemesh#readme) and run `go-spacemesh -h` for the full list of arguments:
 
@@ -59,7 +80,7 @@ Assuming everything else is set up correctly in your config file (see next secti
 > go-spacemesh -c node-config.json
 ```
 
-## Configuring
+## Configuring the Node
 
 The node currently does not need any config to run with mainnet. You can however request the config and override any needed value. To request the current mainnet compatible config please run:
 
@@ -90,7 +111,7 @@ Assuming you're starting with the default network config file, you'll want to ad
 
 For more information on choosing the `smeshing-opts` and `smeshing-proving-opts`, see [fine-tuning proving](#fine-tuning-proving), [the postcli README](https://github.com/spacemeshos/post/tree/develop/cmd/postcli) and [the profiler README](https://github.com/spacemeshos/post-rs/blob/main/docs/profiler.md), respectively, and the sections below on these topics.
 
-### Coinbase
+### Collecting Rewards
 
 The coinbase account (specified in the config, above, as `smeshing-coinbase`) is the account that will receive the rewards from smeshing. The coinbase account is fixed per smesher, per epoch, as the smesher commits to it in an ATX for an entire epoch. However, it can be changed at any time, and the change will take effect in the epoch that the next published ATX targets. Note that many smeshers can also use the same coinbase (although to do so would reduce privacy since those smeshers could be associated via the shared coinbase address), and also that there's no requirement that a smesher even provide a coinbase that they control. In theory the coinbase could be set to someone else's account, or even to a burn account.
 
@@ -100,9 +121,9 @@ If you prefer you can use the [`smcli` tool](https://github.com/spacemeshos/smcl
 
 Either way, you should now have a Spacemesh-compatible address in bech32 format that starts with `sm1`.
 
-### Multiple nodes
+### Running Multiple Nodes
 
-It's possible to run multiple `go-spacemesh` processes on a single system. This is of course subject to the [resource requirements](https://docs.spacemesh.io/docs/start/requirements) outlined above; in particular, make sure that the system has high enough bandwidth to support many nodes. You'll need to change a few parameters to enable this:
+It is possible to run multiple `go-spacemesh` processes on a single system. This is of course subject to the [resource requirements](https://docs.spacemesh.io/docs/start/requirements) outlined above; in particular, make sure that the system has high enough bandwidth to support many nodes. You'll need to change a few parameters to enable this:
 
 1. Node data directory: each node must have its own data directory to store network state. Specify it on the command line using the `-d datadir` flag or in the config in `{"main":{"data-folder":"<node-data-location>"}}`.
 1. Smeshing data directory: each smeshing node must point to a different PoST data directory. Specify in the config using `{"smeshing":{"smeshing-opts":{"smeshing-opts-datadir":"<post-data-location>"}}}`. **See note below about avoiding equivocation!**

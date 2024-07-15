@@ -10,7 +10,7 @@ _OPTION 1:_
 
 At Main Screen - until first time backup there will be the red banner under “BALANCE” section saying “BACKUP YOUR WALLET”
 
-![](./../../../static/img/smapp/wallet_screen.png)
+![](./../../../../static/img/smapp/wallet_screen.png)
 
 
 _OPTION 2:_
@@ -19,17 +19,17 @@ On the top right corner of the main screen there is the `SETTINGS` button.
 
 After navigating to Settings, find the `WALLETS` option on the left menu, then scroll down until you see **Wallet Backu** section
 
-![](./../../../static/img/smapp/settings_backup.png)
+![](./../../../../static/img/smapp/settings_backup.png)
 
 Now you are at Wallet Backup Options Screen
 
-![](./../../../static/img/smapp/wallet_backup.png)
+![](./../../../../static/img/smapp/wallet_backup.png)
 
 ### Option ‘FILE BACKUP’
 
 Click on `FILE BACKUP` button and you’ll get to this screen
 
-![](./../../../static/img/smapp/wallet_file.png)
+![](./../../../../static/img/smapp/wallet_file.png)
 
 Clicking on `show file location` button will open file browser window with the wallet backup file selected. The file is saved in “Documents” folder and can be moved to any other folder or ledger.
 
@@ -37,7 +37,7 @@ Clicking on `show file location` button will open file browser window with the w
 
 Click on `MNEMONIC BACKUP` button and you’ll get to this screen
 
-![](./../../../static/img/smapp/mnemonic_backup.png)
+![](./../../../../static/img/smapp/mnemonic_backup.png)
 
 These words can be used to restore your wallet anywhere using Spacemesh software. They are also called as _seed_ or _seed words_.
 
@@ -49,7 +49,7 @@ After clicking `NEXT`, you’ll get to the confirmation screen.
 
 You can practice restoring the words in the right order by dragging and dropping the randomly selected 4 words in right places. If you’ve placed all the words and it is not the correct order than you’ll get this message under the `TRY AGAIN` button
 
-![](./../../../static/img/smapp/mnemonic_confirm.png)
+![](./../../../../static/img/smapp/mnemonic_confirm.png)
 
 If you’ve placed the words in the right order than you’ll be able to click `DONE`, and will be returned to the wallet screen.
 
@@ -60,17 +60,17 @@ Go to Settings Screen
 
 Click on `WALLETS` on in left menu and you’ll see **Display Name** section
 
-![](./../../../static/img/smapp/rename1.png)
+![](./../../../../static/img/smapp/rename1.png)
 
 After clicking on the `RENAME` button, the wallet name will switch to input where you can type in the new name for the wallet
 
-![](./../../../static/img/smapp/rename2.png)
+![](./../../../../static/img/smapp/rename2.png)
 
 After typing in new name click on `SAVE` button if you want to finish renaming, or `CANCEL` if you wish to leave the existing name
 
 If you clicked `SAVE` button you will see that your wallet has the new name you chose:
 
-![](./../../../static/img/smapp/rename3.png)
+![](./../../../../static/img/smapp/rename3.png)
 
 
 ## Change wallet password
@@ -79,12 +79,12 @@ Go to Setting Screen
 
 Click on `WALLETS` option in left menu and scroll down until you see **Wallet Password** section
 
-![](./../../../static/img/smapp/password1.png)
+![](./../../../../static/img/smapp/password1.png)
 
 
 Click on `CHANGE` button and password line will switch to three inputs: one for confirming your old password, one for typing in new the password, and one for confirming your new password.
 
-![](./../../../static/img/smapp/password2.png)
+![](./../../../../static/img/smapp/password2.png)
 
 If you wish to proceed with changing password - click `SAVE`, if not - click `CANCEL`.
 
@@ -98,11 +98,11 @@ _OPTION 1:_
 
 On app start at the Unlock Wallet Screen there is an `OPEN AN EXISTING WALLET` button below password input field
 
-![](./../../../static/img/smapp/restore1.png)
+![](./../../../../static/img/smapp/restore1.png)
 
 This will bring you to a screen with three options:
 
-![](./../../../static/img/smapp/restore2.png)
+![](./../../../../static/img/smapp/restore2.png)
 
 _OPTION 2:_
 
@@ -110,7 +110,7 @@ If you have an unlocked wallet, go to Settings Screen
 
 Click on `WALLETS` option in left menu and scroll down until you see **Open Wallet** section. There, you have three options:
 
-![](./../../../static/img/smapp/restore_settings.png)
+![](./../../../../static/img/smapp/restore_settings.png)
 
 Regardless of which option you choose, the following steps will be the same:
 
@@ -118,13 +118,13 @@ _Option A: File Restore_
 
 After clicking on `RESTORE FROM FILE` you’ll get to this screen.
 
-![](./../../../static/img/smapp/restore3_file.png)
+![](./../../../../static/img/smapp/restore3_file.png)
 
 You can drag and drop your file on the designated area or click on `locate file on your computer`.
 
 Click on `OPEN` button at the bottom right and you’ll be asked to confirm wallet import. Click `CONFIRM`.
 
-![](./../../../static/img/smapp/restore3_file_confirm.png)
+![](./../../../../static/img/smapp/restore3_file_confirm.png)
 
 Now you will be prompted to enter your password.
 
@@ -137,7 +137,7 @@ The method for restoring from 12 or 24 words is the same, so we will demonstrate
 
 After clicking on `12 WORDS RESTORE` button you’’ll get to this screen
 
-![](./../../../static/img/smapp/restore3_mnemo.png)
+![](./../../../../static/img/smapp/restore3_mnemo.png)
 
 If you’ve typed correct words in correct order than you’ll be prompted to set up a new wallet.
 
@@ -149,11 +149,11 @@ Click on `ACCOUNTS` option in left menu
 
 You’ll see `ADD ACCOUNT` button.
 
-![](./../../../static/img/smapp/add_wallet.png)
+![](./../../../../static/img/smapp/add_wallet.png)
 
 After entering correct password the popup will disappear and you will be taken to the Wallet screen. You will now see the option to switch accounts. The default name for created account is “Account **number**”
 
-![](./../../../static/img/smapp/switch.png)
+![](./../../../../static/img/smapp/switch.png)
 
 ## Renaming a Wallet
 
@@ -163,17 +163,17 @@ Click on `WALLETS` option in left menu
 
 Scroll to until you see account which you want to rename. Below account name you will see `RENAME` button.
 
-![](./../../../static/img/smapp/rename1.png)
+![](./../../../../static/img/smapp/rename1.png)
 
 After clicking on `RENAME` button the name of the account will switch to an input where you can type new account name
 
-![](./../../../static/img/smapp/rename2.png)
+![](./../../../../static/img/smapp/rename2.png)
 
 After typing the new name, if you want to save it click `SAVE` or to discard changes - click `CANCEL`.
 
 If you click `SAVE`, you will see your new Wallet name:
 
-![](./../../../static/img/smapp/rename3.png)
+![](./../../../../static/img/smapp/rename3.png)
 
 
 ## Renaming an account
@@ -184,11 +184,11 @@ Click on `ACCOUNTS` option in left menu
 
 Scroll to until you see account which you want to rename. Below account name you will see `RENAME` button.
 
-![](./../../../static/img/smapp/rename_account1.png)
+![](./../../../../static/img/smapp/rename_account1.png)
 
 After clicking on `RENAME` button the name of the account will switch to an input where you can type new account name
 
-![](./../../../static/img/smapp/rename_account2.png)
+![](./../../../../static/img/smapp/rename_account2.png)
 
 After typing the new name, if you want to save it click `SAVE` or to discard changes - click `CANCEL`
 
@@ -196,7 +196,7 @@ If you clicked on `SAVE` you will see a popup asking you to enter wallet passwor
 
 After entering correct password and clicking `UNLOCK` button in the popup, it will disappear and you will see the renamed account!
 
-![](./../../../static/img/smapp/rename_account3.png)
+![](./../../../../static/img/smapp/rename_account3.png)
 
 
 ## Creating contacts
@@ -207,19 +207,19 @@ _Option 1:_ -->
 
 In order to create new contact go to CONTACTS tab!
 
-![](./../../../static/img/smapp/contacts1.png)
+![](./../../../../static/img/smapp/contacts1.png)
 
 Click on `CREATE NEW CONTACT` button!
 
 The screen will change to this state where you have 2 inputs - one for nickname and second for address!
 
-![](./../../../static/img/smapp/contacts2.png)
+![](./../../../../static/img/smapp/contacts2.png)
 
 After filling the details and pressing `CREATE` button you will see the popup asking to enter wallet password.
 
 After entering correct password and clicking `UNLOCK` button you will see newly created contact in your contacts list:
 
-![](./../../../static/img/smapp/contacts3.png)
+![](./../../../../static/img/smapp/contacts3.png)
 
 <!-- _Option 2:_
 

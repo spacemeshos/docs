@@ -7,7 +7,7 @@ Open the App, if it is not already open, and click on the `SMESHER` tab on the t
 
 You should now see your Smesher status screen:
 
-![](./../../../static/img/v1.0/miner_running.png)
+![](./../../../../static/img/v1.0/miner_running.png)
 
 This screen is where you will track your Smesher operation, and view your total rewards.
 
@@ -27,7 +27,7 @@ You will be prompted to quit the app or to switch it to run in the background. C
 
 You did it - you are now up and running a Smesher, and you will start receiving Smesh rewards for producing blocks on the Spacemesh platform.
 
-![](./../../../static/img/fireworks.gif)
+![](./../../../../static/img/fireworks.gif)
 
 ---
 ## Join our Community

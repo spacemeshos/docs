@@ -4,11 +4,12 @@ title: Smapp Setup
 ---
 
 ## Step 1 - Setting up a Wallet
+
 Follow the installer's on-screen instruction and proceed to launch the App.
 
 You should now see this welcome screen:
 
-![](./../../../static/img/smapp/setup.png)
+![](./../../../../static/img/smapp/setup.png)
 
 Let's now proceed to set up the Smesher, Smeshing, and the Wallet. But first, some definitions.
 
@@ -34,23 +35,23 @@ Click on `SETUP` to start the setup process.
 
 The next screen should look like this:
 
-![](./../../../static/img/smapp/new_wallet.png)
+![](./../../../../static/img/smapp/new_wallet.png)
 
 Click **WALLET + NODE**
 
 Next you will be asked to select your wallet type. At present, you can only select the Standard Wallet.
 
-![](./../../../static/img/smapp/wallet_select.png)
+![](./../../../../static/img/smapp/wallet_select.png)
 
 Now you will need to choose the network. Our main network is selected by default.
 
-![](./../../../static/img/smapp/choose_network.png)
+![](./../../../../static/img/smapp/choose_network.png)
 
 Click `NEXT`.
 
 From here, you will be prompted to back up your wallet mnemonically with either 12 or 24 words. After selected one, you will create your password before being taken to the backup words.
 
-![](./../../../static/img/smapp/enter_password.png)
+![](./../../../../static/img/smapp/enter_password.png)
 
 > You will need to use the newly-created password to access your Wallet after you have locked access to the App. We recommend saving the password in a password manager, such as [1Password](https://1password.com).
 
@@ -58,15 +59,15 @@ From here, you will be prompted to back up your wallet mnemonically with either 
 
 Click `NEXT`. You will be taken to your backup words. We recommend both printing them and saving them on a document.
 
-![](./../../../static/img/smapp/12_words.png)
+![](./../../../../static/img/smapp/12_words.png)
 
 You will need to confirm your 12 words by dragging the provided words into the correct slots.
 
-![](./../../../static/img/smapp/confirm_12_words.png)
+![](./../../../../static/img/smapp/confirm_12_words.png)
 
 You will now be able to **Go to Wallet!**
 
-![](./../../../static/img/smapp/wallet_created.png)
+![](./../../../../static/img/smapp/wallet_created.png)
 
 ## Step 2 - Setting Up Your Smesher
 
@@ -82,27 +83,27 @@ This one-time storage commitment enables Spacemesh to reach consensus on a distr
 
 Click on `SMESHING` in the top left of Smapp. This will take you to the Smeshing screen.
 
-![](./../../../static/img/smapp/smeshing_screen_pre_pos.png)
+![](./../../../../static/img/smapp/smeshing_screen_pre_pos.png)
 
 Click `SETUP PROOF OF SPACE`
 
 You need to specify the directory that you want Spacemesh to save your PoST init file.
 
-![](./../../../static/img/smapp/pos_select_directory.png)
+![](./../../../../static/img/smapp/pos_select_directory.png)
 
 Click `Select Folder` and locate a directory on one of your hard drives. Click `NEXT`.
 
 You will now need to select your POS Generation Settings.
 
-![](./../../../static/img/smapp/pos_settings.png)
+![](./../../../../static/img/smapp/pos_settings.png)
 
 You can either go with the default settings, input custom settings which you can test with `TEST CHOSEN OPTIONS`, or run benchmarks to see which settings are best for you. To do this, click `RUN ALL BENCHMARKS`.
 
-![](./../../../static/img/smapp/pos_run_all_benchmarks.png)
+![](./../../../../static/img/smapp/pos_run_all_benchmarks.png)
 
 It will take a few moments for the process to complete, after which you will see several options to select, with estimated generation speeds.
 
-![](./../../../static/img/smapp/post_benchmarks_done.png)
+![](./../../../../static/img/smapp/post_benchmarks_done.png)
 
 After selecting one of the benchmarked options, or inputing a value of your own, click
 
@@ -112,19 +113,19 @@ Select the amount of free space you would like to commit to Spacemesh and click 
 
 The following screen will prompt you to choose your preferred method of POS data generation.
 
-![](./../../../static/img/smapp/post_select_processor.png)
+![](./../../../../static/img/smapp/post_select_processor.png)
 
 Once you've chosen, click `NEXT`. You will be prompted to select your coinbase account. If you haven't yet created additional accounts, your main account will be your only option.
 
-![](./../../../static/img/smapp/post_coinbase.png)
+![](./../../../../static/img/smapp/post_coinbase.png)
 
 This will bring you to a confirmation screen. If everything is as you like it, click `CREATE DATA`.
 
-![](./../../../static/img/smapp/post_confirm.png)
+![](./../../../../static/img/smapp/post_confirm.png)
 
 And finally, you should end up here:
 
-![](./../../../static/img/smapp/pos_end.png)
+![](./../../../../static/img/smapp/pos_end.png)
 
 Click `GOT IT`.
 

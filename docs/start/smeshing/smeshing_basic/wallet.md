@@ -17,7 +17,7 @@ You are prompted to secure your Wallet with a password, and we recommend that yo
 
 When you open the Spacemesh App again you should see this screen:
 
-![](./../../../static/img/smapp/restore1.png)
+![](./../../../../static/img/smapp/restore1.png)
 
 Enter your Wallet password to unlock access to your wallet.
 
@@ -30,7 +30,7 @@ The Wallet data is loaded from the wallet file to the App and is decrypted using
 
 After unlocking your Wallet, you should see the following screen:
 
-![](./../../../static/img/smapp/spawn1.png)
+![](./../../../../static/img/smapp/spawn1.png)
 
 The left side of the screen displays the Wallet info:
 
@@ -52,11 +52,11 @@ In order to do so, you must make sure that your account has enough balance to se
 
 Click the `SPAWN` button on your Wallet screen.
 
-![](./../../../static/img/smapp/spawn1.png)
+![](./../../../../static/img/smapp/spawn1.png)
 
 After this, select the spawning fee. The more expensive the fee, the faster the spawn.
 
-![](./../../../static/img/smapp/spawn2.png)
+![](./../../../../static/img/smapp/spawn2.png)
 
 Once your spawn transaction has completed, you will be able to perform other transactions.
 
@@ -65,15 +65,15 @@ Once your spawn transaction has completed, you will be able to perform other tra
 
 From your Wallet screen, click on the `SEND` button.
 
-![](./../../../static/img/smapp/send1.png)
+![](./../../../../static/img/smapp/send1.png)
 
 You should see the Send SMH screen:
 
-![](./../../../static/img/smapp/send2.png)
+![](./../../../../static/img/smapp/send2.png)
 
 Select the fee you will pay for the transaction. The higher the fee, the faster the transaction.
 
-![](./../../../static/img/smapp/send3.png)
+![](./../../../../static/img/smapp/send3.png)
 
 Paste the recipient's account address that he or she shared with you into the `Send to` field.
 
@@ -82,19 +82,19 @@ Enter the Smidge (1 trillionth of a smesh) amount you would like to send to the 
 
 > The amount must be less than your account's SMH balance, as you cannot spend coins that you do not have.
 
-![](./../../../static/img/smapp/send4.png)
+![](./../../../../static/img/smapp/send4.png)
 
 Click `NEXT`.
 
 Review the transaction information in the summary screen:
 
-![](./../../../static/img/smapp/send5.png)
+![](./../../../../static/img/smapp/send5.png)
 
 Click `SEND` to execute the transaction.
 
 You should now see this screen:
 
-![](./../../../static/img/smapp/send6.png)
+![](./../../../../static/img/smapp/send6.png)
 
 Click on `DONE`.
 
@@ -106,10 +106,10 @@ Click on `ALL TRANSACTIONS` to view the full transactions log.
 
 Click on a transaction to view its details:
 
-![](./../../../static/img/smapp/send7.png)
+![](./../../../../static/img/smapp/send7.png)
 
 Notice the transaction status. A new transaction you just executed will be in the `PENDING` state and should move to `APPLIED` state once it has been added to the Spacemesh ledger. When pending, it will display the transacted amount in orange.
 
 When applied, it will be displayed in blue:
 
-![](./../../../static/img/smapp/send8.png)
+![](./../../../../static/img/smapp/send8.png)
