@@ -47,26 +47,3 @@ zstd -d --long=31 -o $SM_DATA_DIR/state.sql $TMP_DIR/state.sql.zst
 # Delete the temp directory
 rm -fr $TMP_DIR
 ```
-
-#### Windows instructions (Powershell terminal)
-
-```powershell
-# Select your spacemesh version
-$SM_VERSION = "v1.6.0"
-# Default path to the node data directory, change if needed
-$SM_DATA_DIR = C:\Users\{USERNAME}\spacemesh\node-data
-# Create a temp dir
-$TMP_DIR = New-Item -ItemType Directory -Path ([System.IO.Path]::GetTempPath())
-# Path to the zstd executable, change if needed
-$ZSTD = C:\Program Files\zstd\zstd.exe
-
-
-# Download the archive
-Invoke-WebRequest -Uri "https://quicksync.spacemesh.network/$SM_VERSION/state.zst" -OutFile "$TMP_DIR\state.sql.zst"
-
-# Extract the archive
-$ZSTD -d --long=31 -o "$SM_DATA_DIR\state.sql" "$TMP_DIR\state.sql.zst"
-
-# Delete the temp dir
-Remove-Item -Recurse -Force $TMP_DIR
-```
