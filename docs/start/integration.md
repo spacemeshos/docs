@@ -20,14 +20,16 @@ You can choose to either run a **full node** or a **smeshing node**. The former 
 
 To start running a full node, first ensure that your computer meets (or better yet, exceeds) the minimum [system requirements](./smeshing/requirements.md). Then, you can follow the "running a local Full Node" section of the:
 
-- [Basic Smeshing](./smeshing/smeshing_basic/smeshing.md/#running-a-local-node) guide to easily set up your node using Smapp (GUI), or the
-- [Advanced Smeshing](./smeshing/smeshing_adv/setup.md/#running-the-node) guide to set up your full node using the `go-spacemesh` (CLI).
+- [Basic Smeshing](./smeshing/smeshing_basic/smeshing.md/#running-a-local-full-node) guide to easily set up your node using Smapp (GUI), or the
+- [Advanced Smeshing](./smeshing/smeshing_adv/setup.md/#running-a-local-full-node) guide to set up your full node using the `go-spacemesh` (CLI).
 
-See [[Running a Node|Smesher Guide#running-a-node]] in the [[Smesher Guide]]. Obviously a node backing an application does not need to smesh (mine), so you can ignore the steps related to PoST initialization and mining. We strongly encourage you to run multiple, redundant nodes so that you have a fallback in case one node has issues or falls out of sync. We also encourage you to take regular snapshots of the data directory of your nodes (ideally, after closing the node) so that you can restore your node more quickly in case of a problem, rather than needing to sync from scratch, which is time-consuming.
+If you only need to run a Full Node for integration purposes, you can ignore the instructions for smeshing.
+
+We encourage you to run multiple, redundant nodes so that you have a fallback in case one node has issues or falls out of sync. We also encourage you to take regular snapshots of the data directory of your nodes (ideally, after closing the node) so that you can restore your node more quickly in case of a problem, rather than needing to sync from scratch, which is time-consuming.
 
 ### Connecting to a Public Node
 
-We don't currently operate public nodes, but we intend to in the future. This depends upon improving the existing node API. You may follow [this issue](https://github.com/spacemeshos/pm/issues/250) for updates. For now, if you plan to build an application on Spacemesh, you'll need to rely on running your own nodes.
+Currently, we do not operate public nodes. However, we do plan to do so in the future. This depends upon improving the existing node API. You may follow [this issue](https://github.com/spacemeshos/pm/issues/250) for updates. For now, if you plan to build an application on Spacemesh, you will need to run your own nodes.
 
 ## Fundamental Concepts
 
@@ -35,9 +37,11 @@ It helps to have an understanding of some basic concepts before building an appl
 
 ### Mesh vs. Chain
 
-In Spacemesh we often talk about the "mesh"; indeed, it's where the "mesh" in the name "Spacemesh" comes from. For all intents and purposes, as far as applications and integration are concerned, you can consider this a legacy idea (in its original design Spacemesh consisted of a DAG topology with many blocks per layer, but the design has evolved) as there is only one canonical block per layer and all transactions in a layer have a strict ordering. We therefore use the terms "mesh" and "chain" interchangeably. The "mesh" still refers to the many proposals produced each layer, but these are ephemeral (read on) and are usually not relevant from the application layer.
+In Spacemesh, we often talk about the "mesh". Indeed, this is where the "mesh" in "Space**mesh**" comes from. As far as applications and integration are concerned, you can consider this a legacy idea (in its original design, Spacemesh consisted of a DAG topology with many blocks per layer, but the design has since evolved).
 
-Besides, let's face it, "Spacemesh" sounds much cooler than "Spacechain" 😀
+Now, there is only one canonical block per layer and all transactions in a layer have a strict ordering. Therefore, we use the terms "mesh" and "chain" interchangeably. The "mesh" still refers to the many proposals produced each layer, but these are ephemeral (read on) and are usually not relevant from the application layer perspective.
+
+Besides, let's face it, "Spacemesh" sounds much cooler than "Spacechain". 😀
 
 ### Two Types of Data
 
