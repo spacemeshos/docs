@@ -5,17 +5,23 @@ title: Integration Guide
 
 :::info
 
-We're currently working on the new version of the API. It's currently available as `v2alpha` but we strongly recommend doing any new integrations with it. The old version `v1` will be deprecated afterwards. The API description is available [here](https://github.com/spacemeshos/api/tree/master/spacemesh/v2alpha1).
-There is also public instance exposing the JSON-RPC api at `mainnet-api.spacemesh.network`
+We are currently working on the new version of the Spacemesh API. It is currently available as `v2alpha` but we strongly recommend doing any new integrations with it. The old version `v1` will be deprecated afterwards. The API description is available [here](https://github.com/spacemeshos/api/tree/master/spacemesh/v2alpha1).
+There is also public instance exposing the JSON-RPC api at `mainnet-api.spacemesh.network`.
 
 :::
 
-This document explains how to integrate Spacemesh into existing infrastructure, including a block explorer, an exchange, and other types of applications. Note that we are still working on libraries including a [SDK](https://github.com/spacemeshos/spacemesh-sdk) in multiple programming languages including Go, Rust, and JavaScript to make it easier to integrate Spacemesh including talking to a node, address and transaction generation. In the meantime and until these libraries are available, below you'll find all the information you need to write such code yourself and build applications on Spacemesh.
+This guide explains how to integrate Spacemesh into existing infrastructure, including block explorers, exchanges, and other types of applications. Note that libraries are still being worked on, including an [SDK](https://github.com/spacemeshos/spacemesh-sdk) in multiple programming languages like Go, Rust, and JavaScript. This is to make it easier for developers to integrate Spacemesh into their applications and perform actions such as talking to a Spacemesh node, generating addresses, and creating transactions. Until these libraries become available, this guide will provide you with all the information you need to write such code yourself and build applications on Spacemesh.
 
 ## Node Management​
 
+You can choose to either run a **full node** or a **smeshing node**. The former is a pre-requisite for the latter, and the difference between the two node types is that the full node only stores the blockchain state and executes the transactions in valid blocks, while the smeshing node performs smeshing as well.
 
-### Running a Private Node
+### Running a Full Node
+
+To start running a full node, first ensure that your computer meets (or better yet, exceeds) the minimum [system requirements](./smeshing/requirements.md). Then, you can either follow the:
+
+- [Basic Smeshing](./smeshing/smeshing_adv/) guide to easily set up your node using Smapp (GUI), or the
+- [Advanced Smeshing]() guide to set up your full node using the `go-spacemesh` (CLI).
 
 See [[Running a Node|Smesher Guide#running-a-node]] in the [[Smesher Guide]]. Obviously a node backing an application does not need to smesh (mine), so you can ignore the steps related to PoST initialization and mining. We strongly encourage you to run multiple, redundant nodes so that you have a fallback in case one node has issues or falls out of sync. We also encourage you to take regular snapshots of the data directory of your nodes (ideally, after closing the node) so that you can restore your node more quickly in case of a problem, rather than needing to sync from scratch, which is time-consuming.
 
