@@ -18,10 +18,10 @@ You can choose to either run a **full node** or a **smeshing node**. The former 
 
 ### Running a Full Node
 
-To start running a full node, first ensure that your computer meets (or better yet, exceeds) the minimum [system requirements](./smeshing/requirements.md). Then, you can either follow the:
+To start running a full node, first ensure that your computer meets (or better yet, exceeds) the minimum [system requirements](./smeshing/requirements.md). Then, you can follow the "running a local Full Node" section of the:
 
-- [Basic Smeshing](./smeshing/smeshing_adv/) guide to easily set up your node using Smapp (GUI), or the
-- [Advanced Smeshing]() guide to set up your full node using the `go-spacemesh` (CLI).
+- [Basic Smeshing](./smeshing/smeshing_basic/smeshing.md/#running-a-local-node) guide to easily set up your node using Smapp (GUI), or the
+- [Advanced Smeshing](./smeshing/smeshing_adv/setup.md/#running-the-node) guide to set up your full node using the `go-spacemesh` (CLI).
 
 See [[Running a Node|Smesher Guide#running-a-node]] in the [[Smesher Guide]]. Obviously a node backing an application does not need to smesh (mine), so you can ignore the steps related to PoST initialization and mining. We strongly encourage you to run multiple, redundant nodes so that you have a fallback in case one node has issues or falls out of sync. We also encourage you to take regular snapshots of the data directory of your nodes (ideally, after closing the node) so that you can restore your node more quickly in case of a problem, rather than needing to sync from scratch, which is time-consuming.
 
