@@ -45,23 +45,21 @@ Besides, let's face it, "Spacemesh" sounds much cooler than "Spacechain". 😀
 
 ### Two Types of Data
 
-The Spacemesh network consists of both _ephemeral_ and _evergreen_ data. Ephemeral data is gossiped and may be stored for some time, but eventually pruned as it's not required to sync from genesis, reconstruct history, or verify the current state. Only archival nodes store ephemeral data forever. Miner proposals (stored temporarily) and Hare messages (never stored) are ephemeral.
+The Spacemesh network consists of both **ephemeral** and **evergreen** data. Ephemeral data is gossiped and may be stored for some time, but is eventually pruned as it is not required to sync from genesis, reconstruct history, or verify the current state. Only archival nodes store ephemeral data forever. Block proposals (stored temporarily) and Hare messages (never stored) are ephemeral.
 
-By contrast, evergreen data must be kept forever. It's essential to reconstructing history and to verifying the current state of the mesh. Therefore, all nodes store it forever. Blocks and transactions are evergreen.
+By contrast, evergreen data is kept forever. It is essential for reconstructing history and for verifying the current state of the mesh. Therefore, all nodes store it forever. Blocks and transactions are evergreen.
 
 ### Global State
 
-The global state is the current state of every Spacemesh account: i.e., its balance, code, counter value, and storage. The entire global state as of a current block or layer can be summarized in a single global state hash value (which two nodes can compare to see if they agree on the canonical state at any given point in time). Global state is never gossiped or shared among nodes (except as part of fast sync, which we haven't built yet). It's calculated based on a node's view of history, i.e., every canonical block and transaction since genesis. Global state is therefore _implicit_ rather than _explicit._
+The global state is the current state of every Spacemesh account (i.e., its balance, code, counter value, and storage). The entire global state as of a current block or layer can be summarized in a single global state hash value (which two nodes can compare to see if they agree on the canonical state at any given point in time). Global state is never gossiped or shared among nodes (except as part of fast sync, which we have not built yet). Tge global state is calculated based on a node's view of history (i.e., every canonical block and transaction since genesis). Global state is therefore _implicit_ rather than _explicit._
 
 ### Time
 
-Time in Spacemesh is broken down into epochs which are two weeks long on mainnet. Epochs contain layers that are five minutes long; one epoch is exactly 4032 layers. Epochs and layers are both zero-indexed. The first two epochs, i.e., epochs 0 and 1, consisting of layers [0-8063], were an initial genesis bootstrapping period that contained no blocks or transactions. Epochs and layers are uniquely identified by their index, and there can never be more than one with the same index; it doesn't make sense to talk about two "different" layers with the same index, just as it doesn't make sense to talk about two "different" days with the same date.
+Time in Spacemesh is broken down into epochs which are two weeks long on the mainnet. An epoch contain layers that are five minutes long, and one epoch is exactly 4032 layers. Epochs and layers are both zero-indexed. The first two epochs (i.e., epochs 0 and 1, consisting of layers [0-8063]) were an initial genesis bootstrapping period that contained no blocks or transactions. Epochs and layers are uniquely identified by their index, and there can never be more than one with the same index. Reason being, it does not make sense to talk about two "different" layers with the same index, just as it does not make sense to talk about two "different" days with the same date.
 
 ### Reorgs and Canonicity
 
-Explained in our section on [blocks](./../learn/blocks.md).
-
-See [finality](#finality), below, for more in-depth information.
+Explained in our section on [blocks](./../learn/blocks.md). See [finality](#finality), below, for more in-depth information.
 
 ## Data Model
 
@@ -69,17 +67,15 @@ The Spacemesh data model is also different from the data model of other blockcha
 
 ### Spacemesh Accounts
 
-See our explainer [here](./../learn/accounts.md).
-
-See [Accounts, below](#accounts) for more information.
+Read our explainer [here](./../learn/accounts.md). Also, see [Accounts](#accounts), below, for more information.
 
 ### Epochs and Layers
 
-As explained above, each epoch and each layer is a singleton; there's only ever one epoch 4 and one layer 9237. One epoch consists of (contains) 4032 layers.
+As explained above, each epoch and each layer is a singleton. For example, there is (and will be) only ever one epoch 4 and one layer 9237. One epoch consists of (contains) 4032 layers.
 
 ### Blocks and Transactions
 
-See the [explainer](./../learn/blocks.md#blocks-and-transactions).
+Read the explainer [here](./../learn/blocks.md#blocks-and-transactions).
 
 ### The Mesh
 
@@ -87,39 +83,39 @@ The "mesh" (a.k.a. "chain") consists of the canonical set of explicit, evergreen
 
 ### Activations
 
-Miners in Spacemesh establish their eligibility to mine by generating and submitting proofs to the network. These proofs are contained in objects called ATXs ("activation transactions", though they are not actually transactions). See the [[Smesher Guide|Smesher-Guide#post-initialization]] for more information.
+Smeshers establish their eligibility to smesh by generating and submitting a [Proof of Space-Time (PoST)](../learn/post.md) to the network. This proof is contained in objects called ATXs ("activation transactions", though these are not actually transactions). See the [Advanced Smeshing Guide](./smeshing/smeshing_adv/post_init.md/#initialization) for more information.
 
-Each ATX is linked to one miner, identified by that miner's smesherID (a 32 byte public key), and each ATX targets one epoch. If a miner generates multiple ATXs targeting the same epoch, that miner is guilty of [equivocation](#malfeasance) and its identity will be disqualified.
+Each ATX is linked to one smesher, is identified by that smesher's `smesherID` (a 32-byte public key), and targets one epoch. If a smesher generates multiple ATXs targeting the same epoch, that smesher becomes guilty of [equivocation](#malfeasance) and its identity will be disqualified.
 
-ATXs have an associated [[weight|Smesher-Guide#atxs-and-weight]] which depends on the contents of the miner's proof of spacetime.
+ATXs have an associated [weight](../learn/atx.md/#weight) which depends on the contents of the smesher's PoST.
 
 ### Proposals and Rewards
 
-Miners that successfully establish eligibility to mine in a given epoch will be given one or more eligibility slots (i.e., layers); every miner gets at least one such slot per epoch. If the miner is online and in sync when their slot arrives they'll generate and submit a proposal to the network. The proposal contains a subset of the transactions in the miner's view of the mempool, chosen so that the union of all proposals from all miners is enough to efficiently fill a block with unique, valid transactions. (In practice, until transaction throughput increases and blocks are regularly full, proposals will include the entire contents of a miner's view of the mempool.) The [[Hare|Smesher-Guide#hare]] consensus mechanism subsequently allows the network to agree on the canonical set of proposals for a given layer, which get assembled deterministically into a block for the layer.
+Smeshers who successfully establish eligibility to smesh in a given epoch will be allotted one or more **[eligibility slots](#add-link)** (which are layers). Every smesher gets at least one such slot per epoch. If a smesher is online and in sync when their slot arrives, they will generate and submit a **[block proposal](#add-link)** to the network. The proposal contains a subset of the transactions present in the smesher's view of the **mempool** (the place where unconfirmed transactions live before being selected to be included in block proposals).
 
-This mechanism allows Spacemesh to scale transaction throughput efficiently by achieving high throughput (i.e., big blocks per layer) with small messages (i.e., proposals that can be gossiped with low latency). Full blocks are never gossiped over the network in the course of protocol execution; rather, each node deterministically computes the block for each layer on the basis of these proposals.
+These transactions are chosen in such a way that the union of all proposals from all smeshers is enough to efficiently fill a **block** (a set of confirmed transactions) with unique, valid transactions. In practice, until transaction throughput increases and blocks are regularly full, proposals will include the *entire* contents of a smesher's view of the mempool. The [Hare](#add-link) consensus mechanism subsequently allows the network to agree on the canonical set of block proposals for a given layer, which then get deterministically assembled into a block for the layer.
 
-The block contains rewards for all miners that successfully submitted a valid, on time proposal for the layer; rewards are specified in _relative_ terms as a set of ATXs (i.e., the ATX for the eligible miner) and relative weights. These get _implicitly_ added to account balances when a layer is processed, and implicitly-calculated rewards are added to the database once a layer is processed.
+This mechanism allows Spacemesh to scale transaction throughput efficiently by achieving high throughput (i.e., big blocks per layer) with small messages (i.e., proposals that can be gossiped with low latency). Full blocks are never gossiped over the network in the course of protocol execution. Instead, each node deterministically computes the block for each layer on the basis of these proposals.
 
-Proposals are ephemeral; blocks and rewards are evergreen.
+A block also contains rewards for all miners that successfully submitted a valid, on-time proposal for the layer. Rewards are specified in _relative_ terms as a set of ATXs (i.e., the ATX for the eligible miner) and relative weights, and get _implicitly_ added to account balances when a layer is processed. These implicitly-calculated rewards are added to the state database once a layer is processed. Block proposals are ephemeral while blocks and rewards are evergreen.
 
 ### Malfeasance
 
-A miner's identity may be disqualified from further participation in consensus and further rewards for equivocating in several protocols and publishing conflicting messages including activations, proposals, and Hare messages. This should not be relevant for most applications.
+A smesher's identity [may be disqualified](./smeshing/smeshing_adv/equivocation.md) from further participation in consensus and rewards for equivocating in several protocols and publishing conflicting messages including activations, proposals, and Hare messages. This should not be relevant for most applications.
 
 ## Node Interaction​
 
-The Spacemesh node implements a gRPC API that can be used to perform basic queries. See [[API|Smesher Guide#api]] for more information. Note that this API has certain limitations at the moment, including:
+The Spacemesh node implements a [gRPC API](./smeshing/smeshing_adv/api.md) that can be used to perform basic queries. Note that this API has certain limitations at the moment, including:
 
-- inability to query individual miner rewards
-- some queries aren't implemented cleanly and can cause [memory and CPU issues](https://github.com/spacemeshos/go-spacemesh/issues/5006)
-- [finality isn't perfectly captured](https://github.com/spacemeshos/pm/issues/256)
-- some queries (e.g., account data) cannot be performed on a layer range
-- some data (e.g., rewards) are only available as a stream; there's no way to query them directly
+- Inability to query individual smesher rewards.
+- Some queries are not implemented cleanly and can cause [memory and CPU issues](https://github.com/spacemeshos/go-spacemesh/issues/5006).
+- [Finality is not perfectly captured](https://github.com/spacemeshos/pm/issues/256).
+- Some queries (e.g., account data) cannot be performed on a layer range.
+- Some data (e.g., rewards) is only available as a stream and there is no way to query it directly.
 
-Improving the API and/or building [a new API from scratch](https://github.com/spacemeshos/pm/issues/269) is a high priority task and should happen soon.
+Improving the API and/or building [a new API from scratch](https://github.com/spacemeshos/pm/issues/269) is a high-priority task and should happen soon.
 
-Here's how to perform some common integration tasks using the API. Note that examples here will use the [`grpcurl` tool](https://github.com/fullstorydev/grpcurl), but the gRPC API can easily be integrated into an application using the [`github.com/spacemeshos/api/release/go`](https://github.com/spacemeshos/api/tree/master/release/go) published Golang module ([godoc](https://pkg.go.dev/github.com/spacemeshos/api/release/go@v1.21.0/spacemesh/v1)) or compiled [from source](https://github.com/spacemeshos/api/tree/master/spacemesh/v1).
+The following shows how to perform some common integration tasks using the API. Note that while the examples mentioned will use the [`grpcurl` tool](https://github.com/fullstorydev/grpcurl), the gRPC API can easily be integrated into an application using the [`github.com/spacemeshos/api/release/go`](https://github.com/spacemeshos/api/tree/master/release/go) published Golang module ([godoc](https://pkg.go.dev/github.com/spacemeshos/api/release/go@v1.21.0/spacemesh/v1)) or compiled [from source](https://github.com/spacemeshos/api/tree/master/spacemesh/v1).
 
 ### Current Epoch and Layer
 
@@ -140,7 +136,7 @@ Query the current epoch and layer using [`MeshService.CurrentEpoch`](https://pkg
 }
 ```
 
-Note: unlike a proof of work chain like Bitcoin where blocks arrive after random intervals, layer time in Spacemesh is based on wall clock time and is totally deterministic and predictable. Mainnet genesis occurred at `2023-07-14T08:00:00Z` and it's always possible to tell the current layer by counting the number of five minute intervals since that moment. Epochs are two weeks long, or 4032 layers. The code that converts from time to layer and epoch number can be found in [`github.com/spacemeshos/go-spacemesh/timesync`](https://github.com/spacemeshos/go-spacemesh/tree/develop/timesync) ([godoc](https://pkg.go.dev/github.com/spacemeshos/go-spacemesh/timesync)).
+Note: Unlike a proof-of-work chain like Bitcoin where blocks arrive after random intervals, layer time in Spacemesh is based on wall-clock time and is totally deterministic and predictable. Mainnet genesis occurred at `2023-07-14T08:00:00Z` and it is always possible to tell the current layer by counting the number of five minute intervals since that moment. Epochs are two weeks long, or 4032 layers. The code that converts from time to layer and epoch number can be found at [`github.com/spacemeshos/go-spacemesh/timesync`](https://github.com/spacemeshos/go-spacemesh/tree/develop/timesync) ([godoc](https://pkg.go.dev/github.com/spacemeshos/go-spacemesh/timesync)).
 
 ### Chain Head
 
@@ -182,7 +178,7 @@ You can subscribe to a node's opinion of the current chain head (latest layer an
 
 ### Fetching a Block​
 
-You can fetch the canonical block for a given layer using [`MeshService.LayersQuery`](https://pkg.go.dev/github.com/spacemeshos/go-spacemesh@v1.2.1/api/grpcserver#MeshService.LayersQuery). Make sure you set both `start_layer` and `end_layer`:
+You can fetch the canonical block for a given layer using [`MeshService.LayersQuery`](https://pkg.go.dev/github.com/spacemeshos/go-spacemesh@v1.2.1/api/grpcserver#MeshService.LayersQuery). Make sure that you set both the `start_layer` and `end_layer` fields:
 
 ```bash
 > grpcurl -plaintext -d '{"start_layer": {"number": 20000}, "end_layer": {"number": 20000}}' localhost:9092 spacemesh.v1.MeshService.LayersQuery
@@ -233,11 +229,11 @@ Unless security assumptions are violated, there will be zero or one block per la
 
 According to the Spacemesh protocol, only one block per layer may be considered canonical and only the transactions in that block may be included in the mesh. For more information on how this works in the protocol, see [explorer-backend#92](https://github.com/spacemeshos/explorer-backend/issues/92#issuecomment-1841293498).
 
-Unfortunately block validity is not currently exposed in the API (we're [working on it](https://github.com/spacemeshos/api/issues/287)). It can be manually read from the node database.
+Unfortunately, block validity is not currently exposed in the API (we're [working on it](https://github.com/spacemeshos/api/issues/287)). However, it can be manually read from the node database.
 
 ### Fetching Account Balance
 
-Use [`GlobalStateService.Account`](https://pkg.go.dev/github.com/spacemeshos/go-spacemesh@v1.2.1/api/grpcserver#GlobalStateService.Account). Balance is denominated in smidge, where 1 SMH = 1 billion smidge (1e9 smidge). `stateCurrent` shows the current account balance; `stateProjected` includes transactions that have been mined into blocks but not yet applied to state (because the layer hasn't been finalized).
+To get the balance of an account, use [`GlobalStateService.Account`](https://pkg.go.dev/github.com/spacemeshos/go-spacemesh@v1.2.1/api/grpcserver#GlobalStateService.Account). Balance is denominated in a **smidge**, where 1 SMH = 1 billion smidge (1e9 smidge). `stateCurrent` shows the current account balance while `stateProjected` includes transactions that have been mined into blocks but not yet applied to state (because the layer has not yet been finalized).
 
 ```bash
 > grpcurl -plaintext -d '{ "account_id": { "address": "sm1qqqqqqzlfwsz6j6tgjnhxt489nt0j23h7xy0nacxj0mhg" }}' localhost:9092 spacemesh.v1.GlobalStateService.Account
@@ -262,7 +258,7 @@ Use [`GlobalStateService.Account`](https://pkg.go.dev/github.com/spacemeshos/go-
 
 ### Fetching a Transaction​
 
-Use [`TransactionService.TransactionsState`](https://pkg.go.dev/github.com/spacemeshos/go-spacemesh@v1.2.1/api/grpcserver#TransactionService.TransactionsState). Note that the transaction `id` must be specified in base64 format when using grpcurl.
+To fetch a transaction, use [`TransactionService.TransactionsState`](https://pkg.go.dev/github.com/spacemeshos/go-spacemesh@v1.2.1/api/grpcserver#TransactionService.TransactionsState). Note that the transaction `id` must be specified in `base64` format when using `grpcurl`.
 
 ```bash
 > grpcurl -d '{"include_transactions":"true", "transaction_id": [{"id": "bBA1/TtkLQr8Io9NO9MYkRaqM+kcnoua2ueK/zBhWT4="}]}' -plaintext localhost:9392 spacemesh.v1.TransactionService.TransactionsState
@@ -302,44 +298,48 @@ Use [`TransactionService.TransactionsState`](https://pkg.go.dev/github.com/space
 
 ### Explorer Backend API
 
-It's come to our attention that, due to various shortfalls in the node API as outlined here, some third party applications have chosen to instead read data from the [explorer backend API](https://github.com/spacemeshos/explorer-backend/tree/master). Please be aware that **this is not currently a supported method of reading Spacemesh data.** The explorer backend is used to power the official [Spacemesh explorer](https://explorer.spacemesh.io/) but, unlike the official node API, we make no guarantees about its availability, correctness, or completeness. For example, it currently [filters out multisig transactions entirely](https://github.com/spacemeshos/explorer-backend/issues/92#issuecomment-1836105402), and we've found [previous inconsistencies](https://github.com/spacemeshos/explorer-backend/issues/95) between this and the official API. This API also **does not support reorgs.** Furthermore this API is likely to change in future without notice.
+It has come to our attention that due to various shortfalls in the node API (as outlined above), some third-party applications have chosen to instead read data from the [explorer backend API](https://github.com/spacemeshos/explorer-backend/tree/master). Please be aware that **this is not currently a supported method of reading Spacemesh data.** 
 
-We strongly encourage developers to use only the official gRPC node API, as documented here, for reading canonical Spacemesh data.
+The explorer backend is used to power the official [Spacemesh explorer](https://explorer.spacemesh.io/). However, unlike the official node API, we make no guarantees about its availability, correctness, or completeness. For example, it currently [filters out multisig transactions entirely](https://github.com/spacemeshos/explorer-backend/issues/92#issuecomment-1836105402) and we have found [previous inconsistencies](https://github.com/spacemeshos/explorer-backend/issues/95) between this and the official API. This API also **does not support reorgs.** and is likely to change in the future without notice.
+
+We strongly encourage developers to only use the official gRPC node API, as documented here, for reading canonical Spacemesh data.
 
 ## Accounts​
 
-Spacemesh accounts are controlled by [Ed25519](https://ed25519.cr.yp.to/) keypairs. Every pubkey maps to precisely one valid account address. However, this mapping is more complex than in other blockchains due to account abstraction (aka account unification). Every Spacemesh account is an instance of a smart contract that links to one of the four hardcoded templates (aka precompiles):
+Spacemesh accounts are controlled by [Ed25519](https://ed25519.cr.yp.to/) key pairs. Every pubkey (public key) maps to precisely one valid account address. However, this mapping is more complex than in other blockchains due to account abstraction (aka account unification). Every Spacemesh account is an instance of a smart contract that links to one of the four hardcoded templates (aka precompiles):
 
-- Multisig: a Wallet controlled by multiple keys
-- Vault: a special account, hardcoded at genesis, with a balance that vests over time
-- Vesting: a special Multisig that is bound to a particular Vault
-- Wallet: a standard wallet controlled by a single keypair
+- **Multisig**: A Wallet controlled by multiple keys.
+- **Vault**: A special account, hardcoded at genesis, with a balance that vests over time.
+- **Vesting**: A special Multisig that is bound to a particular Vault.
+- **Wallet**: A standard wallet controlled by a single key pair.
 
-Most applications only need to concern themselves with `Wallet` and `Multisig` accounts; the other two can be safely ignored.
+Most applications only need to concern themselves with `Wallet` and `Multisig` accounts. The other two can be safely ignored.
 
 ### Address Generation
 
-Account addresses are 24 bytes long, typically expressed as a [bech32](https://en.bitcoin.it/wiki/Bech32) string starting with the `sm1` HRP for mainnet and `stest1` for testnet. An account address is computed as the [Blake3](https://github.com/BLAKE3-team/BLAKE3) hash of the concatenation of the [SCALE-encoded](https://github.com/paritytech/parity-scale-codec) account template address and the SCALE-encoded args required to spawn the account (otherwise known as the immutable state). In other words, in case of a simple, single-sig Wallet:
+Account addresses are 24 bytes long, typically expressed as a [bech32](https://en.bitcoin.it/wiki/Bech32) string starting with the `sm1` HRP for mainnet and `stest1` for testnet. An account address is computed as the [Blake3](https://github.com/BLAKE3-team/BLAKE3) hash of the concatenation of the [SCALE-encoded](https://github.com/paritytech/parity-scale-codec) account template address and the SCALE-encoded args required to spawn the account (otherwise known as the immutable state). 
+
+In case of a simple, single-signature Wallet, the address can be calculated thus:
 
 ```go
 args := WalletTemplate.SpawnArguments{key}
 account_address := Blake3(scale_encode(WalletTemplate.Address) || scale_encode(args))
 ```
 
-and in the case of a Multisig:
+and in the case of a multisig:
 
 ```go
 args := MultisigTemplate.SpawnArguments{n, keys}
 account_address := Blake3(scale_encode(MultisigTemplate.Address) || scale_encode(args))
 ```
 
-where `key` is a single Ed25519 pubkey, `keys` is an array of such keys, and `n` is the minimum number of required signatures for the multisig.
+In the above, `key` is a single `Ed25519` public key, `keys` is an array of such keys, and `n` is the minimum number of required signatures for the multisig.
 
 ### Spawning
 
-Accounts can receive funds at any time, but before spending funds an account must be spawned. An account that has received funds but hasn't yet been spawned is called a "stub" account: it has a balance but no other state and no linked template code. There is no way to tell the type of account of a stub, nor whether it's even a valid address, until it's spawned. The act of spawning an account provides the missing pieces of the puzzle: the template address and the spawn arguments (immutable state). In other words, it involves revealing the Blake3 preimage of the account address (as described above).
+Accounts can receive funds at any time. However, before spending funds, an account must first be spawned. An account that has received funds but has not yet been spawned is called a **stub** account: it has a balance but no other state and no linked template code. Until a stub is spawned, there is no way to tell what type of account it is or if it is even a valid address. The act of spawning an account provides the missing pieces of the puzzle: the **template address** and the **spawn arguments** (immutable state). In other words, it involves revealing the `Blake3` pre-image of the account address (as described above).
 
-Spawning an account requires a Spawn transaction, which has an associated fee. A stub account with a sufficient balance can spawn itself via a SelfSpawn operation; otherwise, another account can pay for the Spawn operation. A SelfSpawn operation (which is a wrapper over the Spawn operation) looks like:
+Spawning an account requires a Spawn transaction, which has an associated fee. A stub account with a sufficient balance can spawn itself via a `SelfSpawn` operation. Otherwise, another account can pay for the Spawn operation. A `SelfSpawn` operation (which is a wrapper over the Spawn operation) looks like:
 
 ```go
 args := WalletTemplate.SpawnArguments{key}
@@ -358,42 +358,40 @@ WalletTemplate.Spawn(key, WalletTemplate.Address, args, nonce)
 
 ### Sample Code
 
-While we don't yet have a production-ready SDK or library to perform address generation, the process is straightforward enough and you may find sample code in the `go-spacemesh` tests:
+While we do not yet have a production-ready SDK or library to perform address generation, the process is straightforward enough and you can find sample code in the `go-spacemesh` tests:
 
-- [single sig example](https://github.com/spacemeshos/go-spacemesh/blob/81f79f5d0bcd3ceaedae2f955a54f2a780fa9219/genvm/vm_test.go#L90-L102)
+- [Single-sig example](https://github.com/spacemeshos/go-spacemesh/blob/81f79f5d0bcd3ceaedae2f955a54f2a780fa9219/genvm/vm_test.go#L90-L102)
 - [multisig example](https://github.com/spacemeshos/go-spacemesh/blob/81f79f5d0bcd3ceaedae2f955a54f2a780fa9219/genvm/vm_test.go#L140-L175)
 
 ### HD Derivation
 
-Spacemesh supports standard BIP32 and BIP44-style HD derivation paths for addresses, as well as BIP39-style mnemonic seed phrases. It uses the coin type 540, followed by key and chain codes of zero, followed by account index. All path elements must be hardened. The default HD path is therefore `m/44'/540'/0'/0'/0'`. The second key derived from the same seed has the path `m/44'/540'/0'/0'/1'`.
+Spacemesh supports standard `BIP32` and `BIP44`-style HD derivation paths for addresses, as well as `BIP39`-style mnemonic seed phrases. It uses the coin type 540, followed by key and chain codes of zero, followed by account index. All path elements must be hardened. The default HD path is therefore `m/44'/540'/0'/0'/0'`. The second key derived from the same seed has the path `m/44'/540'/0'/0'/1'`.
 
-Public keys derived in this fashion must be converted into addresses using the [process described above](#address-generation).
-
-You may find sample derivation code in the [`smcli` application](https://github.com/spacemeshos/smcli/) (Go) and in the [`spacemesh-sdk`](https://github.com/spacemeshos/spacemesh-sdk/) (Rust).
+Public keys derived in this fashion must be converted into addresses using the [process described above](#address-generation). You may find sample derivation code in the [`smcli` application](https://github.com/spacemeshos/smcli/) (Go) and in the [`spacemesh-sdk`](https://github.com/spacemeshos/spacemesh-sdk/) (Rust).
 
 ## Transactions
 
-As in other blockchains a transaction is the only way to mutate state in Spacemesh, including sending coins. Due to account abstraction, however, unlike in other blockchains a transaction does not have a sender in the ordinary sense of the word. Instead, it has a principal (i.e., source of funds) that must sign the transaction. In the case of a single-sig Wallet, it must contain a single signature; in the case of a Multisig, it must contain multiple signatures. See [Accounts, above](#accounts-1) for more information on the different types of accounts.
+As in other blockchains, a transaction is the only way to mutate state in Spacemesh, including sending coins. However, due to account abstraction, unlike in other blockchains, a transaction does not have a sender in the ordinary sense of the word. Instead, it has a principal (i.e., source of funds) that must sign the transaction. In the case of a single-sig wallet, it must contain a single signature, whereas in the case of a multisig wallet, it must contain multiple signatures. See [Accounts](#accounts) above for more information about the different types of accounts.
 
 ### Structure
 
-A transaction consists of a Header that contains:
+A transaction consists of a header that contains:
 
-- principal (i.e., account that's the source of funds)
-- template address (of the principal account)
-- method selector (uint8)
-- nonce (uint64)
-- max gas (uint64)
-- gas price (uint64)
-- max spend (uint64)
+- Principal (i.e., account that is the source of funds)
+- Template address (of the principal account)
+- Method selector (uint8)
+- Nonce (uint64)
+- Max gas (uint64)
+- Gas price (uint64)
+- Max spend (uint64)
 
-This data structure is serialized (for transmission over the wire) using the SCALE codec; the transaction ID is the Blake3 hash of the the Header.
+This data structure is serialized (for transmission over the wire) using the SCALE codec and the transaction ID is the `Blake3` hash of the the header.
 
 ### Decoding
 
-The simplest way to decode a serialized raw transaction is using the [`TransactionService.ParseTransaction`](https://pkg.go.dev/github.com/spacemeshos/go-spacemesh@v1.2.1/api/grpcserver#TransactionService.ParseTransaction) method of the node API, e.g.:
+The simplest way to decode a serialized raw transaction is using the [`TransactionService.ParseTransaction`](https://pkg.go.dev/github.com/spacemeshos/go-spacemesh@v1.2.1/api/grpcserver#TransactionService.ParseTransaction) method of the node API:
 
-```
+```bash
 > grpcurl -d '{"transaction":"AAAAAAAr9R5vjoYl+pRgCczqh39jOHD6O0AEBAAAAAAr9R5vjoYl+pRgCczqh39jOHD6OwR6cSZP3dFfiTjGMU8H5UGI+3PNZg3YyFFnJzNXpSbssMvmsdly+yOnLMVGwHHlgGgWI9kloCAK79y6STVjZ2MI"}' -plaintext localhost:9092 spacemesh.v1.TransactionService.ParseTransaction
 {
   "tx": {
@@ -416,44 +414,44 @@ The simplest way to decode a serialized raw transaction is using the [`Transacti
 }
 ```
 
-The logic to manually parse and validate a transaction isn't terribly straightforward and may be found in the [`go-spacemesh` VM code](https://github.com/spacemeshos/go-spacemesh/blob/develop/genvm/vm.go).
+The logic to manually parse and validate a transaction may be found in the [`go-spacemesh` VM code](https://github.com/spacemeshos/go-spacemesh/blob/develop/genvm/vm.go).
 
 ### Types
 
-As mentioned above Spacemesh implements native account abstraction: all accounts are represented by precompiled smart contracts known as "templates." There are no EOAs (keypair-controlled accounts).
+As mentioned above, Spacemesh implements native account abstraction: all accounts are represented by precompiled smart contracts known as "templates." There are no EOAs (i.e., accounts controlled by key pairs).
 
-Spacemesh currently supports two types of transactions, corresponding to the following two templates:
+Spacemesh currently supports two types of transactions corresponding to the following two templates:
 
-- SingleSig wallet: emulates an EOA. Supports two methods, `Spawn` and `Spend`.
-- MultiSig wallet: same as SingleSig wallet but implements m-of-n key verification. Supports the same two methods, `Spawn` and `Spend`.
+- Single-sig wallet: emulates an EOA and supports two methods, `Spawn` and `Spend`.
+- Multisig wallet: same as Single-sig wallet but implements `m-of-n` key verification. Supports the same two methods, `Spawn` and `Spend`.
 
-Once a transaction has been decoded as above its type may be parsed by looking at the `template` and `method` fields. Here's a legend for mainnet transactions:
+Once a transaction has been decoded as above, its type may be parsed by looking at the `template` and `method` fields. Here is a legend for mainnet transactions:
 
 - SingleSig spawn: template `sm1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqg56ypy7`, method `0` (or unset)
 - SingleSig spend: template `sm1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqg56ypy7`, method `16`
 - MultiSig spawn: template `sm1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqsl0g40s`, method `0` (or unset)
 - MultiSig spend: template `sm1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqsl0g40s`, method `16`
 
-Spend transactions have a destination (recipient) account and an amount. These are encoded inside the transaction's raw payload. These data are not currently exposed via the API; we're [working on it](https://github.com/spacemeshos/api/issues/288). For now, in order to fully parse a transaction, you'll have to manually write code such as this [VM code](https://github.com/spacemeshos/go-spacemesh/blob/3d8eedfd44c6f9f8987e604b768596f6001fe703/genvm/templates/wallet/handler.go#L57-L72) that handles tx parsing.
+Spend transactions have a destination (recipient) account and an amount. These are encoded inside the transaction's raw payload. This data is not currently exposed via the API but we're [working on it](https://github.com/spacemeshos/api/issues/288). For now, in order to fully parse a transaction, you will have to manually write code such as this [VM code](https://github.com/spacemeshos/go-spacemesh/blob/3d8eedfd44c6f9f8987e604b768596f6001fe703/genvm/templates/wallet/handler.go#L57-L72) that handles transaction parsing.
 
-Note: there is one additional template, a Vault wallet, that's a special type of MultiSig wallet that's used to access the funds locked in the genesis vaults. However, vaulted funds don't begin to vest until one year post-genesis, i.e., in July 2024. Vault transactions shouldn't appear before that time, and will be invalid before that time.
+Note: there is one additional template: a Vault wallet, this is a special type of multisig wallet that is used to access the funds locked in the genesis vaults. However, vaulted funds do not begin to vest until one year post-genesis (i.e., in July 2024). Vault transactions should not appear before that time and will be invalid if they do so
 
 ### Lifecycle
 
 The process of creating, broadcasting, and tracking a transaction looks something like the following:
 
-1. Calculate the recipient account address, following the instructions above
-1. Construct a transaction, setting principal and recipient, amount, gasprice, etc.
-1. Sign the transaction using the principal's private key
-1. Send the transaction to a full node
-1. The full node gossips the transaction to the network
-1. Within a few minutes, the transaction should get included in one or more proposals, then mined into a block
-1. Within a few minutes the layer gets approved, and the transaction gets applied
-1. Check the transaction status with a full node and see that it was applied
+1. Calculate the recipient account address, following the instructions above.
+2. Construct a transaction, setting principal, recipient, amount, gasprice, etc.
+3. Sign the transaction using the principal's private key.
+4. Send the transaction to a full node.
+5. The full node gossips the transaction to the network.
+6. Within a few minutes, the transaction should get included in one or more block proposals and then put into a block.
+7. Within a few minutes, the layer gets approved and the transaction gets applied, changing the state.
+8. Check the transaction status with a full node and see that it was applied.
 
 ### Construction
 
-Assuming you have the required information, creating a transaction is quite straightforward and can be accomplished with a few lines of code.
+Assuming that you have the required information, creating a transaction is quite straightforward and can be accomplished with a few lines of code.
 
 #### Estimating and Setting Fees
 
@@ -465,17 +463,17 @@ Transactions include three fee-related fields:
 
 `maxSpend` is currently unused and can be ignored for now.
 
-`maxGas` is the amount of gas (in gas units) actually consumed by an effective transaction. It consists of [a fixed portion and a variable portion added together](https://github.com/spacemeshos/go-spacemesh/blob/e8189e42ecc30d46db29329ea9c4b681f6220aac/genvm/core/gas.go#L8-L11). The fixed portion is the same for all transactions of the same type (e.g., all SingleSig Spend operations pay the same fixed gas). The variable portion, known as intrinsic gas, accounts for the _overhead_ of transmitting and storing a transaction, and as such it varies in the size of the transaction. The fixed portion, known as fixed gas, accounts for the cost of actually executing the transaction.
+`maxGas` is the amount of gas (in gas units) actually consumed by an effective transaction. It consists of [a **fixed portion** and a **variable portion** added together](https://github.com/spacemeshos/go-spacemesh/blob/e8189e42ecc30d46db29329ea9c4b681f6220aac/genvm/core/gas.go#L8-L11). The fixed portion is the same for all transactions of the same type (e.g., all single-sig spend operations pay the same fixed gas). The variable portion, known as **intrinsic gas**, accounts for the _overhead_ of transmitting and storing a transaction, and as such, it varies with the size of the transaction. The fixed portion, known as **fixed gas**, accounts for the cost of actually executing the transaction.
 
-`maxGas` does not need to be specified and will be set automatically by the VM. The gas price table may be found in [github.com/spacemeshos/go-spacemesh/genvm/core](https://pkg.go.dev/github.com/spacemeshos/go-spacemesh@v1.2.1/genvm/core#pkg-constants). For reference an ordinary single-sig send operation costs around 36,000 units of gas (this will vary slightly in the size of the transaction). A single-sig spawn operation costs 100,432 gas. Note that these numbers are subject to change and should not be hardcoded. Rely on the Spacemesh node infrastructure to calculate and set these values correctly.
+`maxGas` does not need to be specified and will be set automatically by the VM. The gas price table may be found at [github.com/spacemeshos/go-spacemesh/genvm/core](https://pkg.go.dev/github.com/spacemeshos/go-spacemesh@v1.2.1/genvm/core#pkg-constants). For reference, an ordinary single-sig send operation costs around 36,000 units of gas (this will vary slightly with the size of the transaction). A single-sig spawn operation costs 100,432 gas. Note that these numbers are subject to change and should not be hardcoded. Rely on the Spacemesh node infrastructure to calculate and set these values correctly.
 
-Gas is an arbitrary unit and has no cost on its own; as in Ethereum, the actual cost of a transaction is its gas cost multiplied by `gasPrice`. `gasPrice` defaults to one (i.e., one smidge per unit gas), where one smidge is one-billionth of one SMH, i.e., 1 SMH = 1e9 smidge. `gasPrice` may be increased to two or three smidge, but until Spacemesh blocks are full, all transactions should be processed regardless of gas price so it isn't necessary to set this very high.
+Gas is an arbitrary unit and has no cost of its own. As in Ethereum, the actual cost of a transaction is its gas cost (in gas units) multiplied by the `gasPrice` (in SMH per gas unit). `gasPrice` defaults to one (i.e., one smidge per unit gas), where one smidge is one-billionth of one SMH (i.e., 1 SMH = 1e9 smidge). `gasPrice` may be increased to 2 or 3 smidge, but until Spacemesh blocks are full, all transactions should be processed regardless of gas price. Thus, it is not necessary to set this very high.
 
-A single-sig send operation with a `maxGas` of 36,218 and a `gasPrice` of one will end up paying 36,218 smidge, or 0.000036218 SMH; the same operation with a gas price of three will pay 3 * 36,218 = 108,654 smidge, or 0.000108654 SMH.
+A single-sig send operation with a `maxGas` of 36,218 and a `gasPrice` of 1 will end up paying 36,218 smidge, or 0.000036218 SMH. The same operation with a gas price of three will pay 3 * 36,218 = 108,654 smidge or 0.000108654 SMH.
 
 #### Genesis ID
 
-Each Spacemesh chain (e.g., mainnet, testnet, private networks) has a unique Genesis ID value. This is hashed into a transaction at the serialization stage, and thus affects the raw transaction body, the signature, and the txid. This is a form of cross-chain replay protection: a valid, signed tx on one chain/network cannot be broadcast to or used within another chain/network.
+Each Spacemesh chain (e.g., mainnet, testnets, and private networks) has a unique Genesis ID value. This is hashed into a transaction at the serialization stage and thus affects the raw transaction body, the signature, and the transaction id. This is a form of cross-chain replay protection: a valid, signed transaction on one chain/network cannot be broadcast to or used within another chain/network.
 
 You need the Genesis ID for a given network before generating, signing, or broadcasting a new transaction. The Genesis ID may be read from any running node using [`MeshService.GenesisID`](https://pkg.go.dev/github.com/spacemeshos/go-spacemesh@v1.2.1/api/grpcserver#MeshService.GenesisID):
 
@@ -486,7 +484,7 @@ You need the Genesis ID for a given network before generating, signing, or broad
 }
 ```
 
-The above value is the fixed mainnet genesis ID (in base64 format); in hex format it is `0x9eebff023abb17ccb775c602daade8ed708f0a50`. See the below code snippet for how to use this in transaction construction.
+The above value is the fixed mainnet genesis ID (in base64 format). In hexadecimal format, it is `0x9eebff023abb17ccb775c602daade8ed708f0a50`. See the code example [below](#example) to learn how to use the Genesis ID in transaction construction.
 
 ### Signing
 
@@ -498,7 +496,14 @@ A signed, raw transaction may be submitted to any Spacemesh node that's online a
 
 ### Example
 
-Following is an example of generating a transaction, signing it, parsing it, and broadcasting it. This example is for a simple send transaction using a single sig wallet, but it should contain enough information to create other types of transactions. It uses Go and error checking is not implemented. `amount` contains the amount to send (denominated in smidge), `principal` is an account object containing the principal (i.e., sender) account and `privkey` contains the corresponding Ed25519 private key, and `recipientAddressStr` contains the address of the recipient in standard bech32 format (`sm1...`). Note how the example reads the Genesis ID from a running node and also gets the latest (projected) principal balance and nonce. `nodeUri` contains the gRPC URI of the running node to talk to, e.g., `localhost:9092`.
+The following is an example of generating a transaction, signing it, parsing it, and broadcasting it. While this example is for a simple send transaction using a single-sig wallet, it should contain enough information to create other types of transactions as well. It uses Go and error handling is not implemented. 
+
+- `amount` contains the amount to send (denominated in smidge).
+- `principal` is an account object containing the principal (i.e., the sender) account.
+- `privkey` contains the corresponding `Ed25519` private key.
+- `recipientAddressStr` contains the address of the recipient in standard `bech32` format (`sm1...`). 
+
+Note how the example reads the Genesis ID from a running node and also gets the latest (projected) principal balance and nonce. `nodeUri` contains the gRPC URI of the running node to talk to (e.g., `localhost:9092`).
 
 ```go
 import (
@@ -550,9 +555,11 @@ fmt.Printf("status code: %d, txid: %s, tx state: %s\n",
 
 ### Tracking
 
-As [explained above](#lifecycle), the transaction lifecycle in Spacemesh is fairly straightforward. Once a transaction has been broadcast, assuming it's syntactically correct (i.e., that it could be parsed and has a valid signature), it'll be gossiped across the network and enter the mempool of running miners. Assuming it's also contextually valid (i.e., the principal account has enough balance, the nonce is valid, it pays a high enough fee, it doesn't conflict with another transaction, etc.), it'll then be mined into a block within a few minutes. Once the layer containing that block has been confirmed by the Tortoise consensus mechanism, the block and its transactions will be applied to the state.
+As [explained above](#lifecycle), the transaction lifecycle in Spacemesh is fairly straightforward. Once a transaction has been broadcast, assuming it is syntactically correct (i.e., that it could be parsed and has a valid signature), it will be gossiped throughout the network and thus enter into the mempool of active smeshers.
 
-The status of a transaction can be monitored using the [`TransactionService.TransactionsState`](https://pkg.go.dev/github.com/spacemeshos/go-spacemesh@v1.2.1/api/grpcserver#TransactionService.TransactionsState) API endpoint, e.g.:
+Further assuming that the transaction is also contextually valid (i.e., the principal account has enough balance, the nonce is valid, it pays a high enough fee, it does not conflict with another transaction, etc.), it will then be mined into a block within a few minutes. Once the layer containing that block has been confirmed by the Tortoise consensus mechanism, the block and its transactions will be applied to the state.
+
+The status of a transaction can be monitored using the [`TransactionService.TransactionsState`](https://pkg.go.dev/github.com/spacemeshos/go-spacemesh@v1.2.1/api/grpcserver#TransactionService.TransactionsState) API endpoint:
 
 ```
 > grpcurl -d '{"transaction_id":[{"id":"aiTyekUcGcbLp+MU63aPLMgDUf3m+5rphO4NqwM+Qv0="}]}' -plaintext localhost:9092 spacemesh.v1.TransactionService.TransactionsState
@@ -572,7 +579,7 @@ The `state` in the response will be one of `TRANSACTION_STATE_MEMPOOL` or `TRANS
 
 #### Full VM
 
-In the future, once we introduce a full VM, the transaction lifecycle will change. For instance, it'll be possible for a transaction to be "processed" (a.k.a., applied) but "ineffective" or "failed" (akin to a reverted transaction in Ethereum). We'll also be adding a [`TransactionReceipt`](https://pkg.go.dev/github.com/spacemeshos/api/release/go/spacemesh/v1#TransactionReceipt) object to allow applications to fetch more information about a processed transaction: the amount of gas spent, fee paid, applied layer, index within the layer/block, associated state changes, etc. These are not yet implemented.
+In the future, once we introduce a full VM, the transaction lifecycle will evolve. For instance, it will be possible for a transaction to be "processed" (i.e., applied) but also to be "ineffective" or "failed" (akin to a reverted transaction in Ethereum). We will also be adding a [`TransactionReceipt`](https://pkg.go.dev/github.com/spacemeshos/api/release/go/spacemesh/v1#TransactionReceipt) object to allow applications to fetch more information about a processed transaction like the amount of gas spent, fee paid, applied layer, index within the layer/block, associated state changes, etc.
 
 The API [currently defines](https://github.com/spacemeshos/api/blob/master/spacemesh/v1/tx_types.proto) additional types of transaction states, but these are unused for now.
 
@@ -580,9 +587,9 @@ The API [currently defines](https://github.com/spacemeshos/api/blob/master/space
 
 Spacemesh has two separate consensus mechanisms, Tortoise and Hare, and each provides different finality guarantees.
 
-The Hare mechanism provides fast optimistic finality, typically within five minutes, i.e., within the span of a single layer time. Layers that have passed Hare (i.e., for which a signed Hare certificate is available) are applied optimistically to the Spacemesh state and are marked `LAYER_STATUS_APPROVED` in the API. In practical terms this should be regarded as the equivalent of multiple PoW confirmations of a blockchain with a comparable market capitalization to Spacemesh.
+The Hare mechanism provides fast optimistic finality, typically within five minutes (i.e., within the span of a single layer). Layers that have passed Hare (i.e., for which a signed Hare certificate is available) are applied optimistically to the Spacemesh state and are marked `LAYER_STATUS_APPROVED` in the API. In practical terms, this should be regarded as the equivalent of multiple PoW confirmations of a blockchain with a comparable market capitalization to Spacemesh.
 
-The Tortoise mechanism provides a second layer of stronger, probabilistic finality that grows over time, just as in Nakamoto consensus/PoW-based blockchains like Bitcoin. As in Bitcoin no layer is ever completely final in Tortoise, and there could always be a different chain tip with greater accumulated weight, but the likelihood of this happening falls exponentially over time. Layers that have passed Tortoise are marked `LAYER_STATUS_CONFIRMED` in the API and may be considered finalized barring an exceptional violation of the security assumptions coupled with an exceptional reorg.
+The Tortoise mechanism provides a second layer of stronger, probabilistic finality that grows over time, just as in Nakamoto consensus/proof-of-work-based blockchains like Bitcoin. Just as in Bitcoin, no layer is ever completely final in Tortoise, and there could always be a different chain tip with greater accumulated weight. However, the likelihood of this happening decreases exponentially over time. Layers that have passed Tortoise are marked `LAYER_STATUS_CONFIRMED` in the API and may be considered finalized barring an exceptional violation of the security assumptions coupled with an exceptional reorg.
 
 While a reorg is highly unlikely, you may monitor for one by periodically using [`MeshService.LayersQuery`](https://pkg.go.dev/github.com/spacemeshos/go-spacemesh@v1.2.1/api/grpcserver#MeshService.LayersQuery) or [`MeshService.LayerStream`](https://pkg.go.dev/github.com/spacemeshos/go-spacemesh@v1.2.1/api/grpcserver#MeshService.LayerStream) (look for a changing block `id` or layer `hash` or `rootStateHash`).
 
@@ -590,6 +597,6 @@ Note that, unlike other blockchains, blocks in Spacemesh do not contain pointers
 
 ## Resources
 
-- [Smesher Guide](./../learn/blocks.md#blocks-and-transactions)
+- [Smeshing Guide](../start/smeshing/start.md)
 - https://github.com/lrettig/awesome-spacemesh/
 - [Explorer](https://explorer.spacemesh.io/overview)

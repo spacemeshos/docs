@@ -25,7 +25,7 @@ or IO bound, depending on the configuration. (It also doesn't touch the network.
 
 ## Initialization
 
-The hardest and most important part of becoming a smesher is the PoST initialization (sometimes referred to as
+The most important part of becoming a smesher is the PoST initialization (sometimes referred to as
 "plotting"). This process requires a GPU and is designed to be costly and time-consuming due to the crypto-economic
 design of the protocol. As described above, unlike in proof of stake networks, there's no "slashing" (burning a portion
 of stake) in the Spacemesh protocol. Instead, the sanction for engaging in malicious behavior such as equivocation is
