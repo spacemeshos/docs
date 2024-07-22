@@ -14,16 +14,14 @@ This guide explains how to integrate Spacemesh into existing infrastructure, inc
 
 ## Node Management​
 
-You can choose to either run a **full node** or a **smeshing node**. The former is a pre-requisite for the latter, and the difference between the two node types is that the full node only stores the blockchain state and executes the transactions in valid blocks, while the smeshing node performs smeshing as well.
+### Running a Private Node
 
-### Running a Full Node
-
-To start running a full node, first ensure that your computer meets (or better yet, exceeds) the minimum [system requirements](./smeshing/requirements.md). Then, you can follow the "running a local Full Node" section of the:
+To start running a private node, first ensure that your computer meets (or better yet, exceeds) the minimum [system requirements](./smeshing/requirements.md). Then, you can follow the "running a local Full Node" section of the:
 
 - [Basic Smeshing](./smeshing/smeshing_basic/smeshing.md/#running-a-local-full-node) guide to easily set up your node using Smapp (GUI), or the
-- [Advanced Smeshing](./smeshing/smeshing_adv/setup.md/#running-a-local-full-node) guide to set up your full node using the `go-spacemesh` (CLI).
+- [Advanced Smeshing](./smeshing/smeshing_adv/setup.md/#running-a-local-full-node) guide to set up your node using the `go-spacemesh` (CLI).
 
-If you only need to run a Full Node for integration purposes, you can ignore the instructions for smeshing.
+If you only need to run anNode for integration purposes, you can ignore the instructions for smeshing.
 
 We encourage you to run multiple, redundant nodes so that you have a fallback in case one node has issues or falls out of sync. We also encourage you to take regular snapshots of the data directory of your nodes (ideally, after closing the node) so that you can restore your node more quickly in case of a problem, rather than needing to sync from scratch, which is time-consuming.
 
@@ -117,7 +115,7 @@ Improving the API and/or building [a new API from scratch](https://github.com/sp
 
 The following shows how to perform some common integration tasks using the API. Note that while the examples mentioned will use the [`grpcurl` tool](https://github.com/fullstorydev/grpcurl), the gRPC API can easily be integrated into an application using the [`github.com/spacemeshos/api/release/go`](https://github.com/spacemeshos/api/tree/master/release/go) published Golang module ([godoc](https://pkg.go.dev/github.com/spacemeshos/api/release/go@v1.21.0/spacemesh/v1)) or compiled [from source](https://github.com/spacemeshos/api/tree/master/spacemesh/v1).
 
-Note that in the examples that follow, `localhost:9092` points to the instance of the local Spacemesh full node that you are running at port 9092.
+Note that in the examples that follow, `localhost:9092` points to the instance of the local Spacemesh node that you are running at port 9092.
 
 ### Current Epoch and Layer
 
