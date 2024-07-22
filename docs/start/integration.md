@@ -91,9 +91,9 @@ ATXs have an associated [weight](../learn/atx.md/#weight) which depends on the c
 
 ### Proposals and Rewards
 
-Smeshers who successfully establish eligibility to smesh in a given epoch will be allotted one or more **[eligibility slots](#add-link)** (which are layers). Every smesher gets at least one such slot per epoch. If a smesher is online and in sync when their slot arrives, they will generate and submit a **[block proposal](#add-link)** to the network. The proposal contains a subset of the transactions present in the smesher's view of the **mempool** (the place where unconfirmed transactions live before being selected to be included in block proposals).
+Smeshers who successfully establish eligibility to smesh in a given epoch will be allotted one or more **eligibility slots** (which are layers). Every smesher gets at least one such slot per epoch. If a smesher is online and in sync when their slot arrives, they will generate and submit a **[block proposal]** to the network. The proposal contains a subset of the transactions present in the smesher's view of the **mempool** (the place where unconfirmed transactions live before being selected to be included in block proposals).
 
-These transactions are chosen in such a way that the union of all proposals from all smeshers is enough to efficiently fill a **block** (a set of confirmed transactions) with unique, valid transactions. In practice, until transaction throughput increases and blocks are regularly full, proposals will include the *entire* contents of a smesher's view of the mempool. The [Hare](#add-link) consensus mechanism subsequently allows the network to agree on the canonical set of block proposals for a given layer, which then get deterministically assembled into a block for the layer.
+These transactions are chosen in such a way that the union of all proposals from all smeshers is enough to efficiently fill a **block** (a set of confirmed transactions) with unique, valid transactions. In practice, until transaction throughput increases and blocks are regularly full, proposals will include the *entire* contents of a smesher's view of the mempool. The Hare consensus mechanism subsequently allows the network to agree on the canonical set of block proposals for a given layer, which then get deterministically assembled into a block for the layer.
 
 This mechanism allows Spacemesh to scale transaction throughput efficiently by achieving high throughput (i.e., big blocks per layer) with small messages (i.e., proposals that can be gossiped with low latency). Full blocks are never gossiped over the network in the course of protocol execution. Instead, each node deterministically computes the block for each layer on the basis of these proposals.
 
@@ -116,6 +116,8 @@ The Spacemesh node implements a [gRPC API](./smeshing/smeshing_adv/api.md) that 
 Improving the API and/or building [a new API from scratch](https://github.com/spacemeshos/pm/issues/269) is a high-priority task and should happen soon.
 
 The following shows how to perform some common integration tasks using the API. Note that while the examples mentioned will use the [`grpcurl` tool](https://github.com/fullstorydev/grpcurl), the gRPC API can easily be integrated into an application using the [`github.com/spacemeshos/api/release/go`](https://github.com/spacemeshos/api/tree/master/release/go) published Golang module ([godoc](https://pkg.go.dev/github.com/spacemeshos/api/release/go@v1.21.0/spacemesh/v1)) or compiled [from source](https://github.com/spacemeshos/api/tree/master/spacemesh/v1).
+
+Note that in the examples that follow, `localhost:9092` points to the instance of the local Spacemesh full node that you are running at port 9092.
 
 ### Current Epoch and Layer
 
