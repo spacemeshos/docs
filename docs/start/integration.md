@@ -97,7 +97,7 @@ These transactions are chosen in such a way that the union of all proposals from
 
 This mechanism allows Spacemesh to scale transaction throughput efficiently by achieving high throughput (i.e., big blocks per layer) with small messages (i.e., proposals that can be gossiped with low latency). Full blocks are never gossiped over the network in the course of protocol execution. Instead, each node deterministically computes the block for each layer on the basis of these proposals.
 
-A block also contains rewards for all miners that successfully submitted a valid, on-time proposal for the layer. Rewards are specified in _relative_ terms as a set of ATXs (i.e., the ATX for the eligible miner) and relative weights, and get _implicitly_ added to account balances when a layer is processed. These implicitly-calculated rewards are added to the state database once a layer is processed. Block proposals are ephemeral while blocks and rewards are evergreen.
+A block also contains rewards for all smeshers who successfully submitted a valid, on-time proposal for the layer. Rewards are specified in _relative_ terms as a set of ATXs (i.e., the ATX for the eligible smesher) and relative weights, and get _implicitly_ added to account balances when a layer is processed. These implicitly-calculated rewards are added to the state database once a layer is processed. Block proposals are ephemeral while blocks and rewards are evergreen.
 
 ### Malfeasance
 
@@ -225,7 +225,7 @@ You can fetch the canonical block for a given layer using [`MeshService.LayersQu
 
 #### Multiple Blocks
 
-Unless security assumptions are violated, there will be zero or one block per layer. Examples of security assumption violations are a large number (> 1/3) of miner weight colluding and equivocating, or a long-lived network partition (longer than an epoch) followed by a rejoin.
+Unless security assumptions are violated, there will be zero or one block per layer. Examples of security assumption violations are a large number (> 1/3) of smesher weight colluding and equivocating, or a long-lived network partition (longer than an epoch) followed by a rejoin.
 
 According to the Spacemesh protocol, only one block per layer may be considered canonical and only the transactions in that block may be included in the mesh. For more information on how this works in the protocol, see [explorer-backend#92](https://github.com/spacemeshos/explorer-backend/issues/92#issuecomment-1841293498).
 
