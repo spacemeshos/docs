@@ -441,13 +441,13 @@ Note: there is one additional template: a Vault wallet, this is a special type o
 The process of creating, broadcasting, and tracking a transaction looks something like the following:
 
 1. Calculate the recipient account address, following the instructions above.
-2. Construct a transaction, setting principal, recipient, amount, gasprice, etc.
-3. Sign the transaction using the principal's private key.
-4. Send the transaction to a full node.
-5. The full node gossips the transaction to the network.
-6. Within a few minutes, the transaction should get included in one or more block proposals and then put into a block.
-7. Within a few minutes, the layer gets approved and the transaction gets applied, changing the state.
-8. Check the transaction status with a full node and see that it was applied.
+1. Construct a transaction, setting principal, recipient, amount, gasprice, etc.
+1. Sign the transaction using the principal's private key.
+1. Send the transaction to a full node.
+1. The full node gossips the transaction to the network.
+1. Within a few minutes, the transaction should get included in one or more block proposals and then put into a block.
+1. Within a few minutes, the layer gets approved and the transaction gets applied, changing the state.
+1. Check the transaction status with a full node and see that it was applied.
 
 ### Construction
 
