@@ -21,7 +21,7 @@ To start running a private node, first ensure that your computer meets (or bette
 - [Basic Smeshing](./smeshing/smeshing_basic/smeshing.md/#running-a-local-full-node) guide to easily set up your node using Smapp (GUI), or the
 - [Advanced Smeshing](./smeshing/smeshing_adv/setup.md/#running-a-local-full-node) guide to set up your node using the `go-spacemesh` (CLI).
 
-If you only need to run anNode for integration purposes, you can ignore the instructions for smeshing.
+If you only need to run a node for integration purposes, you can ignore the instructions for smeshing.
 
 We encourage you to run multiple, redundant nodes so that you have a fallback in case one node has issues or falls out of sync. We also encourage you to take regular snapshots of the data directory of your nodes (ideally, after closing the node) so that you can restore your node more quickly in case of a problem, rather than needing to sync from scratch, which is time-consuming.
 
