@@ -233,7 +233,7 @@ Unfortunately, block validity is not currently exposed in the API (we're [workin
 
 ### Fetching Account Balance
 
-To get the balance of an account, use [`GlobalStateService.Account`](https://pkg.go.dev/github.com/spacemeshos/go-spacemesh@v1.2.1/api/grpcserver#GlobalStateService.Account). Balance is denominated in a **smidge**, where 1 SMH = 1 billion smidge (1e9 smidge). `stateCurrent` shows the current account balance while `stateProjected` includes transactions that have been mined into blocks but not yet applied to state (because the layer has not yet been finalized).
+To get the balance of an account, use [`GlobalStateService.Account`](https://pkg.go.dev/github.com/spacemeshos/go-spacemesh@v1.2.1/api/grpcserver#GlobalStateService.Account). Balance is denominated in **smidge**, where 1 SMH = 1 billion smidge (1e9 smidge). `stateCurrent` shows the current account balance while `stateProjected` includes transactions that have been mined into blocks but not yet applied to state (because the layer has not yet been finalized).
 
 ```bash
 > grpcurl -plaintext -d '{ "account_id": { "address": "sm1qqqqqqzlfwsz6j6tgjnhxt489nt0j23h7xy0nacxj0mhg" }}' localhost:9092 spacemesh.v1.GlobalStateService.Account
