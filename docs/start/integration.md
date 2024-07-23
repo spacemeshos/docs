@@ -53,7 +53,7 @@ The global state is the current state of every Spacemesh account (i.e., its bala
 
 ### Time
 
-Time in Spacemesh is broken down into epochs which are two weeks long on the mainnet. An epoch contain layers that are five minutes long, and one epoch is exactly 4032 layers. Epochs and layers are both zero-indexed. The first two epochs (i.e., epochs 0 and 1, consisting of layers [0-8063]) were an initial genesis bootstrapping period that contained no blocks or transactions. Epochs and layers are uniquely identified by their index, and there can never be more than one with the same index. Reason being, it does not make sense to talk about two "different" layers with the same index, just as it does not make sense to talk about two "different" days with the same date.
+Time in Spacemesh is broken down into epochs two weeks long on the mainnet. An epoch contains layers that are five minutes long, and one epoch is exactly 4032 layers. Epochs and layers are both zero-indexed. The first two epochs (i.e., epochs 0 and 1, consisting of layers [0-8063]) were an initial genesis bootstrapping period that contained no blocks or transactions. Epochs and layers are uniquely identified by their index, and there can never be more than one with the same index. It does not make sense to talk about two "different" layers with the same index, just as it does not make sense to talk about two "different" days with the same date.
 
 ### Reorgs and Canonicity
 
