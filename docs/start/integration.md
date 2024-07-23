@@ -229,7 +229,7 @@ Unless security assumptions are violated, there will be zero or one block per la
 
 According to the Spacemesh protocol, only one block per layer may be considered canonical and only the transactions in that block may be included in the mesh. For more information on how this works in the protocol, see [explorer-backend#92](https://github.com/spacemeshos/explorer-backend/issues/92#issuecomment-1841293498).
 
-Unfortunately, block validity is not currently exposed in the API (we're [working on it](https://github.com/spacemeshos/api/issues/287)). However, it can be manually read from the node database.
+Unfortunately, block validity is not currently exposed in the API (we are [working on it](https://github.com/spacemeshos/api/issues/287)). However, it can be manually read from the node database.
 
 ### Fetching Account Balance
 
@@ -432,7 +432,7 @@ Once a transaction has been decoded as above, its type may be parsed by looking 
 - MultiSig spawn: template `sm1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqsl0g40s`, method `0` (or unset)
 - MultiSig spend: template `sm1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqsl0g40s`, method `16`
 
-Spend transactions have a destination (recipient) account and an amount. These are encoded inside the transaction's raw payload. This data is not currently exposed via the API but we're [working on it](https://github.com/spacemeshos/api/issues/288). For now, in order to fully parse a transaction, you will have to manually write code such as this [VM code](https://github.com/spacemeshos/go-spacemesh/blob/3d8eedfd44c6f9f8987e604b768596f6001fe703/genvm/templates/wallet/handler.go#L57-L72) that handles transaction parsing.
+Spend transactions have a destination (recipient) account and an amount. These are encoded inside the transaction's raw payload. These data are not currently exposed via the API but we are [working on it](https://github.com/spacemeshos/api/issues/288). For now, in order to fully parse a transaction, you will have to manually write code such as this [VM code](https://github.com/spacemeshos/go-spacemesh/blob/3d8eedfd44c6f9f8987e604b768596f6001fe703/genvm/templates/wallet/handler.go#L57-L72) that handles transaction parsing.
 
 Note: there is one additional template: a Vault wallet, this is a special type of multisig wallet that is used to access the funds locked in the genesis vaults. However, vaulted funds do not begin to vest until one year post-genesis (i.e., in July 2024). Vault transactions should not appear before that time and will be invalid if they do so
 
