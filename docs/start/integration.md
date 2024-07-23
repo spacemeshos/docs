@@ -81,7 +81,7 @@ The "mesh" (a.k.a. "chain") consists of the canonical set of explicit, evergreen
 
 ### Activations
 
-Smeshers establish their eligibility to smesh by generating and submitting a [Proof of Space-Time (PoST)](../learn/post.md) to the network. This proof is contained in objects called ATXs ("activation transactions", though these are not actually transactions). See the [Advanced Smeshing Guide](./smeshing/smeshing_adv/post_init.md/#initialization) for more information.
+Smeshers establish their eligibility to smesh by generating and submitting a [Proof of Space-Time (PoST)](../learn/post.md) to the network. This proof is contained in objects called ATXs ("activations" or "activation transactions", though these are not actually transactions). See the [Advanced Smeshing Guide](./smeshing/smeshing_adv/post_init.md/#initialization) for more information.
 
 Each ATX is linked to one smesher, is identified by that smesher's `smesherID` (a 32-byte public key), and targets one epoch. If a smesher generates multiple ATXs targeting the same epoch, that smesher becomes guilty of [equivocation](#malfeasance) and its identity will be disqualified.
 
