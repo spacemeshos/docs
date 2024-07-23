@@ -49,7 +49,7 @@ By contrast, evergreen data is kept forever. It is essential for reconstructing 
 
 ### Global State
 
-The global state is the current state of every Spacemesh account (i.e., its balance, code, counter value, and storage). The entire global state as of a current block or layer can be summarized in a single global state hash value (which two nodes can compare to see if they agree on the canonical state at any given point in time). Global state is never gossiped or shared among nodes (except as part of fast sync, which we have not built yet). Tge global state is calculated based on a node's view of history (i.e., every canonical block and transaction since genesis). Global state is therefore _implicit_ rather than _explicit._
+The global state is the current state of every Spacemesh account (i.e., its balance, code, counter value, and storage). The entire global state as of a current block or layer can be summarized in a single global state hash value (which two nodes can compare to see if they agree on the canonical state at any given point in time). Global state is never gossiped or shared among nodes (except as part of fast sync, which we have not built yet). The global state is calculated based on a node's view of history (i.e., every canonical block and transaction since genesis). Global state is therefore _implicit_ rather than _explicit._
 
 ### Time
 
