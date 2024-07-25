@@ -29,6 +29,9 @@ We encourage you to run multiple, redundant nodes so that you have a fallback in
 
 Currently, we do not operate public nodes. However, we do plan to do so in the future. This depends upon improving the existing node API. You may follow [this issue](https://github.com/spacemeshos/pm/issues/250) for updates. For now, if you plan to build an application on Spacemesh, you will need to run your own nodes.
 
+Note that we are currently working on the new version of the Spacemesh API. It is currently available as `v2alpha` but we strongly recommend doing any new integrations with it. The old version `v1` will be deprecated afterwards. The API description is available [here](https://github.com/spacemeshos/api/tree/master/spacemesh/v2alpha1).
+There is also public instance exposing the JSON-RPC api at `mainnet-api.spacemesh.network`.
+
 ## Fundamental Concepts
 
 It helps to have an understanding of some basic concepts before building an application or interacting with Spacemesh data. Please note that Spacemesh differs significantly from other chains you may be used to, such as those based on proof of work or proof of stake.
