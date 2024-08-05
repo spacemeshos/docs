@@ -311,10 +311,10 @@ We strongly encourage developers to only use the official gRPC node API, as docu
 
 Spacemesh accounts are controlled by [Ed25519](https://ed25519.cr.yp.to/) key pairs. Every pubkey (public key) maps to precisely one valid account address. However, this mapping is more complex than in other blockchains due to account abstraction (aka account unification). Every Spacemesh account is an instance of a smart contract that links to one of the four hardcoded templates (aka precompiles):
 
-- **Multisig**: A Wallet controlled by multiple keys.
+- **Multisig**: A wallet controlled by multiple keys.
 - **Vault**: A special account, hardcoded at genesis, with a balance that vests over time.
-- **Vesting**: A special Multisig that is bound to a particular Vault.
-- **Wallet**: A standard wallet controlled by a single key pair.
+- **Vesting**: A special multisig wallet that is bound to a particular Vault.
+- **Wallet**: A standard, wallet controlled by a single key pair.
 
 Most applications only need to concern themselves with `Wallet` and `Multisig` accounts. The other two can be safely ignored.
 
@@ -322,21 +322,21 @@ Most applications only need to concern themselves with `Wallet` and `Multisig` a
 
 Account addresses are 24 bytes long, typically expressed as a [bech32](https://en.bitcoin.it/wiki/Bech32) string starting with the `sm1` HRP for mainnet and `stest1` for testnet. An account address is computed as the [Blake3](https://github.com/BLAKE3-team/BLAKE3) hash of the concatenation of the [SCALE-encoded](https://github.com/paritytech/parity-scale-codec) account template address and the SCALE-encoded args required to spawn the account (otherwise known as the immutable state). 
 
-In case of a simple, single-signature Wallet, the address can be calculated thus:
+In case of a simple, single-signature wallet, the address can be calculated thus:
 
 ```go
 args := WalletTemplate.SpawnArguments{key}
 account_address := Blake3(scale_encode(WalletTemplate.Address) || scale_encode(args))
 ```
 
-and in the case of a multisig:
+and in the case of a multisig wallet:
 
 ```go
 args := MultisigTemplate.SpawnArguments{n, keys}
 account_address := Blake3(scale_encode(MultisigTemplate.Address) || scale_encode(args))
 ```
 
-In the above, `key` is a single `Ed25519` public key, `keys` is an array of such keys, and `n` is the minimum number of required signatures for the multisig.
+In the above, `key` is a single `Ed25519` public key, `keys` is an array of such keys, and `n` is the minimum number of required signatures for the multisig wallet.
 
 ### Spawning
 
@@ -426,7 +426,7 @@ As mentioned above, Spacemesh implements native account abstraction: all account
 Spacemesh currently supports two types of transactions corresponding to the following two templates:
 
 - Single-sig wallet: emulates an EOA and supports two methods, `Spawn` and `Spend`.
-- Multisig wallet: same as Single-sig wallet but implements `m-of-n` key verification. Supports the same two methods, `Spawn` and `Spend`.
+- Multisig wallet: same as single-sig wallet but implements `m-of-n` key verification. Supports the same two methods, `Spawn` and `Spend`.
 
 Once a transaction has been decoded as above, its type may be parsed by looking at the `template` and `method` fields. Here is a legend for mainnet transactions:
 
@@ -491,7 +491,7 @@ The above value is the fixed mainnet genesis ID (in base64 format). In hexadecim
 
 ### Signing
 
-A single sig transaction must be signed using the private key that controls the principal account, i.e., the source of funds for the transaction. A multi sig transaction must be signed by at least the number of keys specified when the Multisig account was spawned, i.e., the `n` value in its spawn arguments/immutable state. See below for sample code.
+A single sig transaction must be signed using the private key that controls the principal account, i.e., the source of funds for the transaction. A multi sig transaction must be signed by at least the number of keys specified when the multisig account was spawned, i.e., the `n` value in its spawn arguments/immutable state. See below for sample code.
 
 ### Broadcasting
 
