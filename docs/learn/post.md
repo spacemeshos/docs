@@ -1,10 +1,9 @@
 ---
 id: post
-title: PoST (Proof of Space-time)
+title: PoST (Proof of Space-Time)
 ---
 
-
-The Proof of Space Time (PoST) is a cornerstone of the consensus algorithm used by the Spacemesh protocol. Put simply, PoST is used to ensure that a smesher reserves a given amount of storage space for a given period of time. In this blog post, we will explore PoST along with its various constituents. In the end, you should have a good understanding of what PoST is, what it does, and how it works.
+The Proof of Space-Time (PoST) is a cornerstone of the consensus algorithm used by the Spacemesh protocol. Put simply, PoST is used to ensure that a smesher reserves a given amount of storage space for a given period of time. In this blog post, we will explore PoST along with its various constituents. In the end, you should have a good understanding of what PoST is, what it does, and how it works.
 
 ### Introduction
 
