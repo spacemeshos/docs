@@ -5,7 +5,7 @@ title: Smeshing
 
 Smeshing is the process of submitting blocks with transactions to the Testnet network according to the Spacemesh protocol. Before you can Smesh blocks, you need to commit free storage on your computer hard drive to Spacemesh
 
-## Running a local node
+## Running a local Full Node
 
 In order to start smeshing you have to run a full Spacemesh p2p node. When running the Smapp for the first time you will be prompted to set up a node. Click **WALLET + NODE**
 
