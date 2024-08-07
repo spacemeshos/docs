@@ -19,7 +19,7 @@ The Spacemesh PoET servers start a new round at **8:00 UTC, the second Monday of
 
 To better understand the PoET generation and submission schedule, take a look at the figure below:
 
-![The PoET Schedule](../../../../static/img/poet/Screenshot%202023-01-11%20at%207.23.25%20PM.png)
+![The PoET Schedule](../../../../static/img/poet/PoET_sched.png)
 
 To better prepare for timely PoET submission, you can use [this unofficial calendar](https://calendar.google.com/calendar/u/0/embed?src=8895d862c4a9ac22c8da2dafd9c618cd47e5c2d22905f920b1231a3b02aacd62@group.calendar.google.com). To reiterate, in most cases, smeshers do not need to concern themselves with the PoET schedule since their node will handle everything for them. The most important thing is that the node remains running and online throughout the epoch so that PoET generation windows are not missed and continuous eligibility is maintained. 
 
