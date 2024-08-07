@@ -38,8 +38,11 @@ SM_DATA_DIR=~/spacemesh/node-data
 # Create a temp directory
 TMP_DIR=$(mktemp -d)
 
-# Download the archive
+# Download the archive (for a specific SM version)
 wget -O $TMP_DIR/state.sql.zst https://quicksync.spacemesh.network/$SM_VERSION/state.zst
+
+# Download the archive (for the latest SM version)
+wget -O $TMP_DIR/state.sql.zst https://quicksync.spacemesh.network/latest.zst
 
 # Extract the archive
 zstd -d --long=31 -o $SM_DATA_DIR/state.sql $TMP_DIR/state.sql.zst
@@ -47,3 +50,5 @@ zstd -d --long=31 -o $SM_DATA_DIR/state.sql $TMP_DIR/state.sql.zst
 # Delete the temp directory
 rm -fr $TMP_DIR
 ```
+
+Note that when you use the link to download the archive for the latest SM version, it will redirect you to the appropriate link hosting the `.zst` archive file.
