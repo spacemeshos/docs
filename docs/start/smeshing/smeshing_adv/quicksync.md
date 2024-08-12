@@ -25,20 +25,40 @@ We have prepared a tool called [quicksync-rs](https://github.com/spacemeshos/qui
 
 The archive can also be downloaded manually by using the CLI. It is assumed that you are smeshing using `go-spacemesh` and not via Smapp. The most recent archive for a given version can be found at: `https://quicksync.spacemesh.io/<version>/latest.zst`. This URL will always redirect to the most recent archive for the given version.
 
-#### Linux and macOS instructions (bash/zsh terminal):
+#### Linux and macOS instructions (bash/zsh terminal)
 
-Before running these commands, make sure you have `wget` and `zstd` installed.
+Before running these commands, make sure you are using the latest `go-spacemesh` version, and have `wget` and `zstd` installed.
 
 ```bash
-#Select your spacemesh version
-SM_VERSION=v1.6.0
 # Default path to the node data directory
 SM_DATA_DIR=~/spacemesh/node-data 
 
 # Create a temp directory
 TMP_DIR=$(mktemp -d)
 
-# Download the archive
+# Download the archive for the latest go-spacemesh version 
+wget -O $TMP_DIR/state.sql.zst https://quicksync.spacemesh.network/latest.zst
+
+# Extract the archive
+zstd -d --long=31 -o $SM_DATA_DIR/state.sql $TMP_DIR/state.sql.zst
+
+# Delete the temp directory
+rm -fr $TMP_DIR
+```
+
+To download the state archive for a specific `go-spacemesh` version (as opposed to the latest one), follow the instructions below:
+
+```bash
+# Select your go-spacemesh version
+SM_VERSION=v1.6.0
+
+# Default path to the node data directory
+SM_DATA_DIR=~/spacemesh/node-data 
+
+# Create a temp directory
+TMP_DIR=$(mktemp -d)
+
+# Download the archive for the specified SM version
 wget -O $TMP_DIR/state.sql.zst https://quicksync.spacemesh.network/$SM_VERSION/state.zst
 
 # Extract the archive
@@ -47,3 +67,5 @@ zstd -d --long=31 -o $SM_DATA_DIR/state.sql $TMP_DIR/state.sql.zst
 # Delete the temp directory
 rm -fr $TMP_DIR
 ```
+
+Note that both URLs (namely `https://quicksync.spacemesh.network/latest.zst` and `https://quicksync.spacemesh.network/$SM_VERSION/state.zst`) will redirect to the appropriate state archive `.zst` file. Thus, the former URL will redirect to the state archive file for the latest `go-spacemesh` version, whereas the latter will redirect to the state archive file for the given `go-spacemesh` version.
