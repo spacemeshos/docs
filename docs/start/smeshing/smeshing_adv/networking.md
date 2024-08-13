@@ -3,7 +3,7 @@ id: networking
 title: Networking
 ---
 
-Most miners should never need to think much about their network settings. The Spacemesh node software ships with a reasonable default set of parameters that should work well for most node operators and most miners, and the software is built on top of the popular [libp2p network stack](https://libp2p.io/) which includes many useful features and support for things like peer discovery and NAT traversal.
+Most smeshers should never need to think much about their network settings. The Spacemesh node software ships with a reasonable default set of parameters that should work well for most node operators and most smeshers, and the software is built on top of the popular [libp2p network stack](https://libp2p.io/) which includes many useful features and support for things like peer discovery and NAT traversal.
 
 ### NAT Traversal
 
@@ -20,7 +20,7 @@ You can disable NAT traversal with the `--disable-natport` commandline flag or c
 
 ### Number of Connections
 
-By default the node attempts to maintain 20-100 peer connections, including both inbound and outbound. The number of inbound and outbound connections is governed by the [p2p config](https://github.com/spacemeshos/go-spacemesh/blob/475b05b6a8900424bedf5b9086881920ed035b8b/p2p/host.go#L75-L106). Miners wishing to manage the details of their node's participation in the p2p network may wish to tweak the following settings:
+By default the node attempts to maintain 20-100 peer connections, including both inbound and outbound. The number of inbound and outbound connections is governed by the [p2p config](https://github.com/spacemeshos/go-spacemesh/blob/475b05b6a8900424bedf5b9086881920ed035b8b/p2p/host.go#L75-L106). Smeshers wishing to manage the details of their node's participation in the p2p network may wish to tweak the following settings:
 
 - `listen`: as mentioned above, this is the inbound connection port
 - `disable-natport` and `p2p-holepunching`: as mentioned above, these features can be used for NAT traversal. See [What are NATs](https://docs.libp2p.io/concepts/nat/overview/) for more information.
@@ -36,6 +36,6 @@ Even more settings are available. See the [p2p config](https://github.com/spacem
 
 ### Private Nodes
 
-A miner running [multiple nodes](./setup.md#multiple-nodes) or [multiple identities](./advanced.md#identity-management) may wish to manually configure how the nodes peer with and communicate with one another. In other words, miners can configure a custom network topology among their own nodes. One very common configuration is to have one or more public "gateway" nodes that are publicly accessible and responsible for communicating with the outside world that relay information from the public p2p network to many private nodes. Such a configuration can save an enormous amount of bandwidth compared to each of several nodes joining the public p2p network directly.
+A smesher running [multiple nodes](./setup.md#multiple-nodes) or [multiple identities](./advanced.md#identity-management) may wish to manually configure how the nodes peer with and communicate with one another. In other words, smeshers can configure a custom network topology among their own nodes. One very common configuration is to have one or more public "gateway" nodes that are publicly accessible and responsible for communicating with the outside world that relay information from the public p2p network to many private nodes. Such a configuration can save an enormous amount of bandwidth compared to each of several nodes joining the public p2p network directly.
 
 Such a configuration is achieved through the use of the `bootnodes` and `direct` parameters in the `p2p` config. The process is fully documented in the [go-spacemesh p2p README](https://github.com/spacemeshos/go-spacemesh/blob/develop/p2p/README.md).

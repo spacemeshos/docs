@@ -7,7 +7,7 @@ title: PoST Initialization
 
 Once an epoch, after the node has received a PoET proof and during the PoET cycle gap, the node will generate a
 [proof of spacetime](#proof-generation), which requires that it sequentially read all of the PoST data. The details
-aren't something most miners need to worry about as the node will handle the process for you; see
+aren't something most smeshers need to worry about as the node will handle the process for you. See
 [Fine-tuning Node Performance](./performance.md) for information on benchmarks and parameters that can be tweaked.
 
 The first part of the proving process is an initial proof of work phase called **k2pow** that uses a proof of work
@@ -33,7 +33,7 @@ invalidation of a smesher ID, which invalidates all of the PoST data associated 
 to be costly, performing PoST initialization and generating PoST data must also be costly.
 
 Note that initialization can theoretically be performed using a CPU (as opposed to a GPU), but it will take so long that
-this option isn't viable for the vast majority of miners.
+this option isn't viable for the vast majority of smeshers.
 
 ### OpenCL
 
@@ -117,10 +117,7 @@ things in mind when choosing a filesystem.
    the disk. In our personal experience, we've found that exFAT is more efficient than EXT4, and may allow one extra
    storage unit to be placed on the same physical disk.
 
-We also recommend that you _not encrypt_ the drive or partition used to store the PoST data. You should of course
-protect the `local.key` file (which contains a miner's private key and is located in the `node_data/identities`
-folder) and not allow it to fall into anyone else's hands, but full drive encryption feels like overkill and could slow
-down [proof generation](#proof-generation).
+We also recommend that you _not encrypt_ the drive or partition used to store the PoST data. You should of course protect the `local.key` file (which contains a smesher's private key and is located in the `node_data/identities` folder) and not allow it to fall into anyone else's hands, but full drive encryption feels like overkill and could slow down [proof generation](#proof-generation).
 
 ## Number of Units
 
