@@ -82,7 +82,8 @@ module.exports = {
       ],
      },
       'start/rewards',
-      'start/integration'
+      'start/integration',
+      'start/ledger'
       ],
   ecosystem: [  'ecosystem/construction-eco',
     'ecosystem/smapp',
