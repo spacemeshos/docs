@@ -67,7 +67,13 @@ Ledger devices work seamlessly with various cryptocurrency wallets, including th
 
 ![select](./../../static/img/ledger/ledger_connect.png)
 
-7.  The next step is to check all requirements:
+:::note
+
+You will NOT see **STEP 7** in cases where **STEP 6** worked correctly on the first try. If you connected on your first try, skip to **STEP 9**.
+
+:::
+
+7. If you failed to connect the first time, the next step is to check all requirements:
 
 ![check](./../../static/img/ledger/ledger3.png)
 
