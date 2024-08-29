@@ -31,6 +31,9 @@ Ledger devices work seamlessly with various cryptocurrency wallets, including th
 
 4.  Find Spacemesh app in the app catalog.
 
+![find](./../../static/img/ledger/spacemesh_app.png)
+
+
 5.  Click the Install button. 
 
     *   An installation window will appear. 
@@ -39,7 +42,7 @@ Ledger devices work seamlessly with various cryptocurrency wallets, including th
 
     *   The app installation is confirmed.
 
-    ![Confirmed](./../../static/img/ledger/ledger1.png)
+    ![install](./../../static/img/ledger/ledger1.jpg)
 
 
 6.  Close Ledger Live.
@@ -57,46 +60,46 @@ Ledger devices work seamlessly with various cryptocurrency wallets, including th
 
 5.  Click “Connect Ledger” button
 
-  ![Confirmed](./../../static/img/ledger/ledger2.png)
+  ![connect](./../../static/img/ledger/ledger2.png)
 
 
 6.  Select a device which you have (Ledger Nano X or Nano S or S Plus):
 
-![Confirmed](./../../static/img/ledger/ledger_connect.png)
+![select](./../../static/img/ledger/ledger_connect.png)
 
 7.  The next step is to check all requirements:
 
-![Confirmed](./../../static/img/ledger/ledger3.png)
+![check](./../../static/img/ledger/ledger3.png)
 
 8.  If all requirements are met click the Reconnect button.
 
 9.  The next step is to click “Settings” button
 
-![Confirmed](./../../static/img/ledger/ledger4.png)
+![settings](./../../static/img/ledger/ledger4.png)
 
 10.  And select “Manage keys & accounts”
 
-![Confirmed](./../../static/img/ledger/ledger5.png)
+![manage](./../../static/img/ledger/ledger5.png)
 
 11.  The next step is to click “Import from Ledger”
 
-![Confirmed](./../../static/img/ledger/ledger7.png)
+![import](./../../static/img/ledger/ledger7.png)
 
 12.  You can give a custom name for your Ledger device and after that confirm operation by your password
 
-![Confirmed](./../../static/img/ledger/ledger16.png)
+![xikIi7c2FHXysxXe3COrVUPSheuBtpcfhbpFj4gmu7KRLYOzANztwUU0IbsqvMqzuNK2](./../../static/img/ledger/ledger16.png)
 
 13.   There is a public key, imported from your Ledger device
 
-![Confirmed](./../../static/img/ledger/ledger_key.png)
+![key](./../../static/img/ledger/ledger_key.png)
 
 14.  You can select your Ledger device by clicking on the “Switch” button
 
-![Confirmed](./../../static/img/ledger/ledger6.png)
+![switch](./../../static/img/ledger/ledger6.png)
 
 15.  Your Ledger device is connected to Spacemesh Wallet and you will see your Ledger account address
 
-![Confirmed](./../../static/img/ledger/ledger8.png)
+![connected](./../../static/img/ledger/ledger8.png)
 
 16.  Please make sure that the address is identical to the address on your Ledger device.
 
@@ -105,14 +108,14 @@ Ledger devices work seamlessly with various cryptocurrency wallets, including th
 
 1.  On the previous step you connected your Ledger device and the balance is shown under the address:
 
-![Confirmed](./../../static/img/ledger/ledger9.png)
+![balance](./../../static/img/ledger/ledger9.png)
 
 
 ### **Receive SMH**
 
 1.  You can get your Receive address by simply copying the address to the clipboard or by scanning the QR Code after clicking on the button “Receive”.
 
-![Confirmed](./../../static/img/ledger/ledger10.png)
+![receive](./../../static/img/ledger/ledger10.png)
 
 2.  Please make sure that this address is identical to the address on your Ledger device.
 
@@ -123,22 +126,26 @@ Ledger devices work seamlessly with various cryptocurrency wallets, including th
 
 1.  To send SMH to another Wallet please click “Send” button and insert the address where you want to send funds and the amount of SMH which you want to send. Click the “Next” button.
 
-![Confirmed](./../../static/img/ledger/ledger11.png)
+![send](./../../static/img/ledger/ledger11.png)
 
 2.  On the next screen make sure that Destination address is the one where you want to send funds and that you sign the transaction with your HW Wallet. After that click the button “Sign & Publish”.
 
+![sign](./../../static/img/ledger/ledger12.png)
 
-![Confirmed](./../../static/img/ledger/ledger12.png)
+![review1](./../../static/img/ledger/ledger13.png)
 
 3.  Please review your transaction on your Ledger device
 
-![Confirmed](./../../static/img/ledger/ledger13.png)
 
-![Confirmed](./../../static/img/ledger/ledger14.png)
+![confirm](./../../static/img/ledger/ledger14.jpg)
 
 4.  Make sure that Destination address and Amount are correct:
 
-![Confirmed](./../../static/img/ledger/ledger15.png)
+![principal](./../../static/img/ledger/ledger15.jpg)
+
+![destination](./../../static/img/ledger/ledger15_2.jpg)
+
+![amount](./../../static/img/ledger/ledger15_3.jpg)
 
 5.  If everything is correct, accept the transaction on the Ledger device. If you noticed that something is wrong, please reject the transaction on the Ledger device.
 
