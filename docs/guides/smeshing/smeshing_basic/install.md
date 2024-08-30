@@ -12,6 +12,7 @@ To join the Spacemesh network, you can either run the Spacemesh App on your desk
 Smapp includes a Spacemesh full p2p node (which we call a Smesher), and a basic Smesh wallet which we call the "Wallet."
 
 ### Smesher
+
 The Smesher is the software that creates and updates the Smesh (SMH) distributed ledger. It also creates and maintains your disk space commitment to the Spacemesh network. The Spacemesh decentralized platform is created by people just like you who run a Smesher on their own desktop computers.
 
 Your Smesher participates in the Spacemesh decentralized consensus protocol and is responsible for the block-Smeshing process. Smeshing is the process of submitting eligible block proposals that are used to generate a block, for which you receive rewards. Here is a [full explanation](https://spacemesh.io/blog/requirements-for-spacemesh-rewards/) of what is required of a node in order to earn these rewards.
@@ -19,9 +20,11 @@ Your Smesher participates in the Spacemesh decentralized consensus protocol and 
 Before you can produce block proposals, you need to commit a minimum of 256GiB of free storage on your hard drive to Spacemesh. The commitment process only happens once, when you first set up Smapp, and is used indefinitely to produce more blocks.
 
 ### Wallet
+
 The Wallet is a basic Smesh (SMH) coin wallet that you use to maintain your Smesh (SMH) coins account, execute transactions and check the status of incoming transactions initiated by other accounts. You can run your app in wallet-only mode, if you'd rather not set up a node.
 
 ### Spacemesh Application
+
 Smapp integrates a Smesher and a Wallet into one package, which we hope you find delightful and easy to use, even without deep technical understanding of cryptocurrency terms and concepts.
 
 > You do NOT need to run any additional software to join the network, besides running Smapp on your computer.
