@@ -30,7 +30,7 @@ Follow the instructions on this page to download, install and run the App.
 
 ## Step 1 - Downloading the Installer
 
-> Before installing, please confirm that your computer meets the [minimum system requirements](https://docs.spacemesh.io/docs/guides/requirements).
+> Before installing, please confirm that your computer meets the [minimum system requirements](https://docs.spacemesh.io/docs/guides/smeshing/requirements).
 
 Next, download the App Installer for your OS by visiting our [main website](https://spacemesh.io/start).
 
