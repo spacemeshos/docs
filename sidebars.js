@@ -43,7 +43,7 @@ module.exports = {
   //   'specs/smart_contracts/opcodes',
   // ],
   start: [
-     // Smeshing Guide > Smeshing Guide Baseic, Smeshing Guid Adv
+     // Smeshing Guide > Smeshing Guide Basic, Smeshing Guides Adv
      {
       type: 'category',
       label: 'Smeshing Guide',

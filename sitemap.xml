@@ -1,205 +1,249 @@
-This XML file does not appear to have any style information associated with it. The document tree is shown below.
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<script/>
-<!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
-<url>
-<loc>https://docs.spacemesh.io/</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>1.00</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/learn/spacemesh</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/start</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/learn/coin</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/learn/smeshing</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/learn/economics</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/learn/post</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/requirements</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/considerations</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/netconfig</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/smeshing_basic/install</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/smeshing_adv/setup</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/rewards</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/integration</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/smeshing_adv/poet</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/learn/poet</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/learn/atx</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/learn/hare</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/learn/tortoise</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/learn/rewards</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/learn/blocks</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/learn/accounts</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/smeshing_adv/advanced</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/smeshing_basic/additional</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/smeshing_basic/advanced_config</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/smeshing_basic/advanced-wallet</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/smeshing_basic/setup</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/smeshing_basic/smeshing</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/smeshing_basic/status</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/smeshing_basic/wallet</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/smeshing_adv/post_init</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/smeshing_adv/api</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/smeshing_adv/networking</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/smeshing_adv/performance</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/smeshing_adv/equivocation</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/smeshing_adv/verification</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/smeshing_adv/quicksync</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/smeshing_adv/post_1n</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/smeshing_adv/multigpu</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
-<url>
-<loc>https://docs.spacemesh.io/docs/start/smeshing/smeshing_adv/troubleshooting</loc>
-<lastmod>2024-08-13T06:51:23+00:00</lastmod>
-<priority>0.51</priority>
-</url>
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://docs.spacemesh.io/</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/start</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/learn/spacemesh</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/learn/smeshing</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/learn/economics</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/learn/coin</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/considerations</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/smeshing_basic/install</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/smeshing_adv/setup</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/netconfig</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/rewards</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/ledger</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/requirements</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/smeshing_adv/poet</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/integration</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/learn/post</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/learn/blocks</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/learn/accounts</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/learn/atx</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/learn/poet</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/learn/rewards</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/learn/tortoise</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/learn/hare</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/smeshing_adv/verification</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/smeshing_adv/post_1n</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/smeshing_adv/troubleshooting</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/smeshing_adv/performance</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/smeshing_adv/equivocation</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/smeshing_adv/api</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/smeshing_adv/quicksync</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/smeshing_adv/post_init</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/smeshing_adv/multigpu</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/smeshing_adv/networking</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/smeshing_basic/advanced_config</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/smeshing_basic/smeshing</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/smeshing_basic/status</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/smeshing_basic/additional</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/smeshing_basic/setup</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/smeshing_basic/advanced-wallet</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/smeshing_basic/wallet</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.spacemesh.io/docs/guides/smeshing/smeshing_adv/advanced</loc>
+    <lastmod>2024-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
