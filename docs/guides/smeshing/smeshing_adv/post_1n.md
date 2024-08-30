@@ -91,7 +91,7 @@ using `postcli`. This process generates a new private key, so a new identity.
 ### Detailed Steps
 
 1. **Initialized PoST Data** : We assume that the data is already initialized. If it's not the case yet then please
-   visit [docs for that](https://docs.spacemesh.io/docs/start/smesher/post_init).
+   visit [docs for that](https://docs.spacemesh.io/docs/guides/smeshing/smeshing_adv/post_init).
 2. **Store The Private Key** : Upon initialization, `postcli` generates a new private key stored as `identity.key` in
    the PoST data directory. This key should then be moved to your `./node_data/identities/` directory, renamed for
    unique identification.

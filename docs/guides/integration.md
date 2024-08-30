@@ -600,6 +600,6 @@ Note that, unlike other blockchains, blocks in Spacemesh do not contain pointers
 
 ## Resources
 
-- [Smeshing guide](../start/smeshing/start.md)
+- [Smeshing guide](../guides/smeshing/start.md)
 - [Awesome Spacemesh: A collection of useful Spacemesh resources](https://github.com/lrettig/awesome-spacemesh/)
 - [Spacemesh block explorer](https://explorer.spacemesh.io/overview)
