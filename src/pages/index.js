@@ -25,7 +25,7 @@ function HomepageHeader() {
         </Link>
         <Link
           className="intro-card"
-          to="docs/guides/smeshing/start">
+          to="docs/start/smeshing/start">
           <div class='intro-card-title'>GUIDES</div>
           <div class='intro-card-content'>Start smeshing on Spacemesh.</div>
         </Link>
