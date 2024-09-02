@@ -15,7 +15,7 @@ title: Initializing a Subset of PoST Data With postcli
 
 3.**Network Bandwidth Constraints** : In environments where network bandwidth is limited or costly, transferring large volumes of data between machines or data centers can be impractical. Initializing data in subsets locally on machines where it will be used can mitigate this issue.
 
-4.**Parallel Processing** : When you have access to multiple machines or compute nodes, you can leverage parallel processing to expedite the initialization process. This is particularly beneficial for a still young network, where speed is of the essence, as the amount of rewards to distribute is lower wich each epoch and the number of miners constantly grows.
+4.**Parallel Processing** : When you have access to multiple machines or compute nodes, you can leverage parallel processing to expedite the initialization process. This is particularly beneficial for a still young network, where speed is of the essence, as the amount of rewards to distribute is lower wich each epoch and the number of smeshers constantly grows.
 
 ### When Not to Use It
 

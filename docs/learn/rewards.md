@@ -13,7 +13,7 @@ Rewards are added to a smesher's coinbase account (the one registered in its ATX
 
 ## Punishment
 
-Every robust system of incentives must include sanctions as well as rewards. In the case of Spacemesh and other permissionless, public blockchains, block producers (miners) must be punished for violating the rules of the protocol or failing to contribute to consensus.
+Every robust system of incentives must include sanctions as well as rewards. In the case of Spacemesh and other permissionless, public blockchains, block producers (i.e., miners, or smeshers in the case of Spacemesh) must be punished for violating the rules of the protocol or failing to contribute to consensus.
 
 In Spacemesh Smeshers are _not_ punished for failing to contribute, e.g., for failing to publish proposals in their eligible slots. However, they do fail to receive rewards in this case which amounts to the same thing economically.
 
@@ -21,4 +21,4 @@ The only sanctionable offense in Spacemesh is equivocation, otherwise known as d
 
 Note that, unlike in proof of stake networks, **there is no slashing in Spacemesh.** In other words the coins earned by a smesher will not be reduced, and all coins earned prior to the moment of malfeasance are still valid and spendable.
 
-However, once a malfeasance proof has been generated and broadcast for that smesher, its identity is effectively burnt. The only option is to delete the PoST files and generate them again from scratch using a new identity. Therefore it's essential that miners use caution when moving identities, and they must **never run two nodes attached to the same identity at the same time.** There's more information on how to avoid this in [our Advanced Smeshing Guide](../start/smeshing/smeshing_adv/equivocation.md).
+However, once a malfeasance proof has been generated and broadcast for that smesher, its identity is effectively burnt. The only option is to delete the PoST files and generate them again from scratch using a new identity. Therefore it's essential that smeshers use caution when moving identities, and they must **never run two nodes attached to the same identity at the same time.** There's more information on how to avoid this in [our Advanced Smeshing Guide](../start/smeshing/smeshing_adv/equivocation.md).

@@ -4,7 +4,7 @@ title: Advanced Setup
 ---
 Now that you have the necessary resources ready, it is time to start smeshing! This section will walk you through how to do that. First, a couple of quick notes:
 
-- This guide is intended as an advanced smeshing guide, covering cases such as parallel init, cloud GPUs, and transferring and managing multiple identities. In particular it does not cover the baseline case of using Smapp to initialize a single smesher. That process is straightforward and mostly automated in Smapp, and the steps are outlined in this explainer video. The guide does explain the differences between mining using Smapp or the CLI where appropriate.
+- This guide is intended as an advanced smeshing guide, covering cases such as parallel init, cloud GPUs, and transferring and managing multiple identities. In particular it does not cover the baseline case of using Smapp to initialize a single smesher. That process is straightforward and mostly automated in Smapp, and the steps are outlined in this explainer video. The guide does explain the differences between smeshing using Smapp or the CLI where appropriate.
 
 - This guide uses Linux. So, all the commands are for a Linux terminal, and should be the same for most UNIX-based systems. In most cases, the same commands should work verbatim on other platforms including Windows and macOS with appropriate tweaks (e.g., using the correct platform-specific paths). Contributions containing correct instructions for different platforms are welcome. Feel free to open an issue with a contribution.
 
