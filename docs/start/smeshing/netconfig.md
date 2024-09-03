@@ -3,7 +3,7 @@ id: netconfig
 title: Network Configuration
 ---
 
-> The Spacemesh App (the App) should work on most home broadband Internet connections without a need to manually configure your network or firewall. If you see a network connection error in the App then try following the steps described below to resolve this issue.
+The Spacemesh App (Smapp) should work on most home broadband Internet connections without a need to manually configure your network or firewall. If you see a network connection error in the App then try following the steps described below to resolve this issue.
 
 ## Overview
 
