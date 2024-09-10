@@ -3,7 +3,7 @@ id: advanced_config
 title: Advanced Smapp Configuration
 ---
 
-After running Smapp, you should see two config files in the Spacemesh data directory:
+After running Smapp, you should see two config files in the Smapp data directory:
 
 ```bash
 node-config.7c8cef2b.json
