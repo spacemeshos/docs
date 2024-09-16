@@ -59,6 +59,10 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [
+        //metatag for hasan@spacemesh.io Google Search Console verification
+        {name: 'google-site-verification', content: 'X71PuqeyvYyDQE1_3384Aml425A-ZELYBf7-ZfFRUoY'}
+      ],
       colorMode: {
         defaultMode: 'dark',
         disableSwitch: true,
