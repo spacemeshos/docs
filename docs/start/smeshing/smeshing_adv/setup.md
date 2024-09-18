@@ -117,7 +117,7 @@ The coinbase account (specified in the config, above, as `smeshing-coinbase`) is
 
 The simplest way to generate a coinbase account is to install and open [Smapp](https://github.com/spacemeshos/smapp/releases); it'll automatically generate a new account the first time it's opened, assuming one doesn't already exist (make sure to backup the recovery mnemonic!).
 
-If you prefer you can use the [`smcli` tool](https://github.com/spacemeshos/smcli) to generate and display a new wallet containing one or more accounts from the command line. See the README in that repository for more information on the tool.
+If you prefer you can use the [`smcli` tool](https://github.com/spacemeshos/smcli) to generate and display a new Wallet containing one or more accounts from the command line. See the README in that repository for more information on the tool.
 
 Either way, you should now have a Spacemesh-compatible address in bech32 format that starts with `sm1`.
 

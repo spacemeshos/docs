@@ -37,7 +37,7 @@ As described in the [Config](#config) section above, these parameters can be pas
 
 ## Identity Management
 
-Each miner in Spacemesh has an identity, known as a miner ID or smesher ID. The ID is simply a 32-byte Ed25519 public key, which is commonly displayed in hexidecimal or base64 format. It should look something like `0x91b8db4fecd9cd5db953275fdefb0b8cdfb08954e9186d9dc6f86b2a81980d40` (hex) or `kbjbT+zZzV25Uydf3vsLjN+wiVTpGG2dxvhrKoGYDUA=` (base64).
+Each miner in Spacemesh has an identity, known as a miner ID or smesher ID. The ID is simply a 32-byte Ed25519 public key, which is commonly displayed in hexadecimal or base64 format. It should look something like `0x91b8db4fecd9cd5db953275fdefb0b8cdfb08954e9186d9dc6f86b2a81980d40` (hex) or `kbjbT+zZzV25Uydf3vsLjN+wiVTpGG2dxvhrKoGYDUA=` (base64).
 
 Note: Miner identities have absolutely nothing to do with accounts or wallet addresses. Both are based on Ed25519 keypairs, but that's all they have in common. A miner also needs to specify a coinbase account to receive its rewards, but that coinbase account is not derived from the miner identity nor connected to it in any way. It can also be changed at any time. The miner identity **is connected** to its PoST data, however. PoST data generated for a given miner ID can never be used by another miner. Moreover, if a miner identity is lost or invalidated for equivocation, the associated PoST data becomes useless.
 
@@ -52,7 +52,7 @@ kbjbT+zZzV25Uydf3vsLjN+wiVTpGG2dxvhrKoGYDUA=
 
 The first time the node runs it will create a new miner identity (if it doesn't see an existing one), which it stores in a file `<data dir>/identities/local.key`, by default `~/spacemesh/identities/local.key`. This file contains both the miner public and private keys. The private key is used to sign messages on behalf of the miner. It's critical both that this file be kept private (its contents should never be revealed or sent to anyone) and that it not be lost. If it's lost, just like a lost wallet there's absolutely no way to restore it, and the associated PoST data would become useless.
 
-You can read the public key portion of the key file, i.e., the hexidecimal miner identity, as follows:
+You can read the public key portion of the key file, i.e., the hexadecimal miner identity, as follows:
 
 ```bash
 > cut -c 65-128 local.key
