@@ -5,41 +5,27 @@ title: PoST Initialization
 
 ## Proof Generation
 
-Once an epoch, after the node has received a PoET proof and during the PoET cycle gap, the node will generate a
-[proof of spacetime](#proof-generation), which requires that it sequentially read all of the PoST data. The details
-aren't something most miners need to worry about as the node will handle the process for you; see
+Once per epoch, after the node has received a PoET and the PoET cycle gap is underway, the node will generate a
+[PoST](../../../learn/post.md), which requires that it sequentially read all of the PoST data. The details
+are not something most smeshers need to worry about as the node will handle the process for you. See
 [Fine-tuning Node Performance](./performance.md) for information on benchmarks and parameters that can be tweaked.
 
-The first part of the proving process is an initial proof of work phase called **k2pow** that uses a proof of work
-algorithm called [RandomX](https://github.com/tevador/RandomX). During this phase, which is CPU bound, you should see
-CPU usage spike briefly for a few minutes. There should be very little network or disk activity during this phase. As
-explained in the [Profiler docs](https://github.com/spacemeshos/post-rs/blob/main/docs/profiler.md#is-that-all-that-is-happening-during-the-proof-generation),
-it should take a low-end CPU around 2.5 minutes to compute k2pow for 4 SU; computation time scales linearly with the
-hash rate and number of storage units being proven. See the [RandomX Benchmark](https://xmrig.com/benchmark) to get a
-sense of your CPU's RandomX hash rate.
+The first part of the proving process is an initial proof-of-work phase called **k2pow** that uses a proof of work algorithm called [RandomX](https://github.com/tevador/RandomX). During this phase, which is CPU bound, you should see CPU usage spike briefly for a few minutes with there being very little network or disk activity. As explained in the [Profiler docs](https://github.com/spacemeshos/post-rs/blob/main/docs/profiler.md#is-that-all-that-is-happening-during-the-proof-generation), it should take a low-end CPU around 2.5 minutes to compute k2pow for 4 SUs. The computation time scales linearly with the hash rate and number of storage units being proven. See the [RandomX Benchmark](https://xmrig.com/benchmark) to get a sense of your CPU's RandomX hash rate.
 
-Once the k2pow phase is complete, the node begins the PoST proving process, which takes longer as it involves reading
-and computing a hash function over all the committed PoST data. How long depends on factors including the disk read
-speed, CPU speed, and configured [nonces and threads](./advanced.md#fine-tuning-proving). This process may be CPU bound
-or IO bound, depending on the configuration. (It also doesn't touch the network.)
+Once the k2pow phase is complete, the node begins the PoST proving process, which takes longer as it involves reading and computing a hash function over all the committed PoST data. The duration of the proving depends on factors including the disk read
+speed, CPU speed, and configured [nonces and threads](./advanced.md#fine-tuning-proving). This process may be CPU bound or IO bound, depending on the configuration. (This phase does not use the network.)
 
 ## Initialization
 
-The most important part of becoming a smesher is the PoST initialization (sometimes referred to as
-"plotting"). This process requires a GPU and is designed to be costly and time-consuming due to the crypto-economic
-design of the protocol. As described above, unlike in proof of stake networks, there's no "slashing" (burning a portion
-of stake) in the Spacemesh protocol. Instead, the sanction for engaging in malicious behavior such as equivocation is
-invalidation of a smesher ID, which invalidates all of the PoST data associated with that ID. In order for this sanction
+The most important part of becoming a smesher is the PoST initialization (sometimes referred to as "PoS initialization" or "plotting"). This process requires a GPU and is designed to be costly and time-consuming due to the crypto-economic design of the protocol. As described above, unlike in proof-of-stake networks, there is no "slashing" (burning a portion
+of stake) in the Spacemesh protocol. Instead, the sanction for engaging in malicious behavior such as equivocation is the invalidation of a smesher ID which, in turn, invalidates all of the PoST data associated with that ID. In order for this sanction
 to be costly, performing PoST initialization and generating PoST data must also be costly.
 
-Note that initialization can theoretically be performed using a CPU (as opposed to a GPU), but it will take so long that
-this option isn't viable for the vast majority of miners.
+Note that initialization can theoretically be performed using a CPU (as opposed to a GPU), but it will take so long that this option is not viable for the vast majority of miners.
 
 ### OpenCL
 
-PoST initialization requires support for [OpenCL](https://en.wikipedia.org/wiki/OpenCL). Installation instructions will
-vary depending upon your operating system, platform, and GPU hardware. A good starting place for Linux users is
-[this wiki page](https://wiki.archlinux.org/title/GPGPU). On Ubuntu and other Debian-compatible systems it may be enough
+PoST initialization requires support for [OpenCL](https://en.wikipedia.org/wiki/OpenCL). Installation instructions will vary depending upon your operating system, platform, and GPU hardware. A good starting place for Linux users is [this wiki page](https://wiki.archlinux.org/title/GPGPU). On Ubuntu and other Debian-compatible systems, it may be enough
 to install these packages:
 
 ```bash
@@ -47,8 +33,7 @@ to install these packages:
 > sudo apt-get install ocl-icd-libopencl1 opencl-headers clinfo
 ```
 
-To test if OpenCL is installed and configured correctly on your system, try running `clinfo`. You should see output
-similar to the following:
+To test if OpenCL is installed and configured correctly on your system, try running `clinfo`. You should see output similar to the following:
 
 ```bash
 > clinfo -l
@@ -58,23 +43,16 @@ Platform #0: NVIDIA CUDA
 
 #### macOS Overview
 
-For macOS users, OpenCL is bundled with the system, and the framework is available out of the box on macOS version 10.6
-(Snow Leopard) and later. Therefore, explicit installation of OpenCL is generally not required. However, to ensure
-compatibility and optimal performance with your specific hardware and software setup, you might need to update your
-macOS.
+For macOS users, OpenCL is bundled with the system and the framework is available out of the box on macOS version 10.6 (Snow Leopard) and later. Therefore, explicit installation of OpenCL is generally not required. However, to ensure compatibility and optimal performance with your specific hardware and software setup, you might need to update your macOS.
 
 ##### Steps
 
-* Update macOS: Keep your macOS up to date to ensure you have the latest OpenCL framework versions and GPU drivers.
-  You can check for updates in the “Software Update” section of System Preferences.
-* Use clinfo: To verify the OpenCL configuration, you can install `clinfo` using the command `brew install clinfo`.
-  Then, run `clinfo` in the terminal to check the available OpenCL platforms and devices.
+* **Update macOS**: Keep your macOS up to date to ensure that you have the latest OpenCL framework versions and GPU drivers. You can check for updates in the “Software Update” section of System Preferences.
+* **Use `clinfo`**: To verify the OpenCL configuration, you can install `clinfo` using the command `brew install clinfo`. Then, run `clinfo` in the terminal to check the available OpenCL platforms and devices.
 
-#### Windows Installation Overview
+#### Windows Overview
 
-Installing OpenCL on Windows requires manual GPU drivers updates, as the operating system does not include these drivers
-by default. The process is similar across different GPU manufacturers but requires visiting the specific manufacturer’s
-website to download the appropriate drivers.
+Installing OpenCL on Windows requires manual GPU drivers updates as the operating system does not include these drivers by default. The process is similar across different GPU manufacturers but requires visiting the specific manufacturer’s website to download the appropriate drivers.
 
 ##### Steps
 
