@@ -27,36 +27,50 @@ In the future, it is likely that instead of all PoET servers running in identica
 
 ## Running a PoET Server
 
-As with the rest of Spacemesh infrastructure, the PoET server is [open source](https://github.com/spacemeshos/poet) and permissionless. Anyone may run their own PoET server for personal or community use. For more information, see the [PoET Operator Manual](https://github.com/spacemeshos/poet/blob/develop/docs/poet_operator_manual.md) and feel free to ask questions in the [#poet channel](https://discord.com/channels/623195163510046732/1151165793590050867) on Discord.
+As with the rest of Spacemesh infrastructure, the PoET server is [open source](https://github.com/spacemeshos/poet) and
+permissionless. Anyone may run their own PoET server for personal or community use. For more information, see the [PoET
+Operator Manual](https://github.com/spacemeshos/poet/blob/develop/docs/poet_operator_manual.md) and feel free to ask
+questions in the [#poet channel](https://discord.com/channels/623195163510046732/1151165793590050867) on Discord.
 
 ## Updating the Node Configuration to Use Different PoET Servers
 
-Smeshers are free to use any PoET server they want. Multiple PoET servers can be added to the existing list of PoET servers in the [node configuration file](../smeshing_basic/advanced_config.md) or can even completely replace another set of PoET servers.
+Smeshers are free to use any PoET server they want. Multiple PoET servers can be added to the existing list of PoET
+servers in the [node configuration file](../smeshing_basic/advanced_config.md) or can even completely replace another
+set of PoET servers.
 
 Adding a PoET server with the same phase as the one being used by the smeshing node is simple:
 
 1. Stop the node.
-1. Update the configuration by adding the new PoET server to the list of existing servers (and remove any you do not wish to use).
+1. Update the configuration by adding the new PoET server to the list of existing servers (and remove any you do not
+   wish to use).
 1. Start the node again.
 
 When the next PoET round starts, the node will start using the new set of PoET servers as per the updated configuration.
 
 ### Switching Phase
 
-If you wish to switch to one or multiple PoET servers that operate on a different phase, then the default set of PoET servers ensures
-that your node and the PoET server(s) you are using have the following configuration parameters set to the _same values_:
+If you wish to switch to one or multiple PoET servers that operate on a different phase than the default set of PoET
+servers ensures that your node and the PoET server(s) you are using have the following configuration parameters set to
+the _same values_:
 
-- `"phase-shift"`: The time (relative to the beginning of an epoch) when a new PoET round starts. For the default
-  set of PoET servers, this value is **240 hours**. Lower values mean that the nodes starting to use the PoET server have to wait longer before
-  they become eligible to collect rewards, while higher values mean that nodes have less time after fetching a PoET to
-  publish their ATX to be eligible to collect rewards.
-- `"cycle-gap"`: The time between the end of a PoET round and the start of a new one. Larger values give nodes
-  more time to generate a PoST - since this has to happen within the cycle gap to not miss an epoch. Smaller values
-  give the PoET server more time to generate the PoET and collect more ticks. For the default set of PoET servers, this value is
-  **12 hours**.
+- `"phase-shift"`: The time (relative to the beginning of an epoch) when a new PoET round starts. For the default set of
+  PoET servers, this value is **240 hours**. Lower values mean that the nodes starting to use the PoET server have to
+  wait longer before they become eligible to collect rewards, while higher values mean that nodes have less time after
+  fetching a PoET to publish their ATX to be eligible to collect rewards.
+- `"cycle-gap"`: The time between the end of a PoET round and the start of a new one. Larger values give nodes more time
+  to generate a PoST - since this has to happen within the cycle gap to not miss an epoch. Smaller values give the PoET
+  server more time to generate the PoET and collect more ticks. For the default set of PoET servers, this value is **12
+  hours**.
 
-You should also ensure that any custom PoET has the same `"genesis-time"` and `"epoch-duration"` properties as the  mainnet
-(`"2023-07-14T08:00:00Z"` and 336 hours, respectively).
+You should also ensure that any custom PoET has the same `"genesis-time"` and `"epoch-duration"` properties as the
+mainnet (`"2023-07-14T08:00:00Z"` and 336 hours, respectively).
+
+**Note**: Switching to an earlier PoET phase than your node is currently using will result in your node missing one
+epoch of rewards. This is because you **must not** register at a PoET of a different phase and then try to use the PoET
+from the previous phase to generate a PoST. Doing this would allow you to accumulate ticks from two PoETs at the same
+time, which is not allowed and will result in your node being disqualified.
+
+Switching to a later PoET phase however is possible without missing rewards if done correctly.
 
 For step-by-step instructions, follow the guide below.
 
@@ -65,28 +79,36 @@ For step-by-step instructions, follow the guide below.
 Switching phase bears the risk of missing a PoET round and thereby forfeiting your eligibility to collect rewards in an
 upcoming epoch. To mitigate this risk, you should properly time your phase switch and follow these steps:
 
-1. Wait until the end of the PoET round of the phase you are currently using. If you are using the default PoET servers, this would be every second Sunday of the month at 20:00 UTC.
+1. Wait until the end of the PoET round of the phase you are currently using. If you are using the default PoET servers,
+   this would be every second Sunday of the month at 20:00 UTC.
 1. Your node will fetch the PoET(s) from all the PoET servers it successfully registered for.
 1. Wait until your node has finished generating a PoST and has published an ATX (check the logs for `ATX published`).
 1. Stop the node.
-1. Update your node configuration by replacing the PoET server(s) in your node config file with the new one(s). Ensure that all the PoET servers you are using have the same phase and cycle gap values and update the `"phase-shift"` and `"cycle-gap"` properties in your node config file accordingly.
+1. Update your node configuration by replacing the PoET server(s) in your node config file with the new one(s). Ensure
+   that all the PoET servers you are using have the same phase and cycle gap values and update the `"phase-shift"` and
+   `"cycle-gap"` properties in your node config file accordingly.
 1. If you do not have sqlite installed on your system, install it:
-    1. On Windows, you can download it from [here](https://www.sqlite.org/download.html) (you will need `sqlite-tools-win-x64`).
+    1. On Windows, you can download it from [here](https://www.sqlite.org/download.html) (you will need
+       `sqlite-tools-win-x64`).
     1. On Ubuntu, you can install it via the terminal with `sudo apt install sqlite3`.
     1. On macOS, you can install it via the terminal with `brew install sqlite3`.
 1. Delete the contents of the `poet_registration` and `nipost` tables using the following terminal commands:
+
     ```bash
     > sqlite3 <node_config_directory>/node_state.sql
     sqlite> delete from poet_registration;
     sqlite> delete from nipost;
     sqlite> .quit
     ```
+
 1. Start the node again.
 
-If the new phase has not started yet, your node will register with the new PoET(s) immediately and fetch a PoET in
-time to be eligible to collect rewards in the next epoch. If, by the time you have restarted your node the new phase has already
-started, your node will register with the new PoET servers in the next epoch and you will miss one epoch of rewards (the epoch
-after the next one).
+If the new phase has not started yet, your node will register with the new PoET(s) immediately and fetch a PoET in time
+to be eligible to collect rewards in the next epoch. If, by the time you have restarted your node the new phase has
+already started, your node will register with the new PoET servers in the next epoch and you will miss one epoch of
+rewards (the epoch after the next one).
 
-**Note**: Before `go-spacemesh` v1.3.x, PoET registration state was stored in a file called `nipost_challenge.bin` and `nipost_builder_state.bin`
-inside the node's PoST data directory. If you are using a node version older than v1.3.x (not recommended, always use the latest version), you will have to delete these files instead of the sqlite tables (steps 6 and 7).
+**Note**: Before `go-spacemesh` v1.3.x, PoET registration state was stored in a file called `nipost_challenge.bin` and
+`nipost_builder_state.bin` inside the node's PoST data directory. If you are using a node version older than v1.3.x (not
+recommended, always use the latest version), you will have to delete these files instead of the sqlite tables (steps 6
+and 7).
