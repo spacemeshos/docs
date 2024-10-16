@@ -66,11 +66,37 @@ You should also ensure that any custom PoET has the same `"genesis-time"` and `"
 mainnet (`"2023-07-14T08:00:00Z"` and 336 hours, respectively).
 
 **Note**: Switching to an earlier PoET phase than your node is currently using will result in your node missing one
-epoch of rewards. This is because you **must not** register at a PoET of a different phase and then try to use the PoET
-from the previous phase to generate a PoST. Doing this would allow you to accumulate ticks from two PoETs at the same
-time, which is not allowed and will result in your node being disqualified.
+epoch of rewards, because your node has to wait between publishing the ATX on the old phase and the PoET round start of
+the new phase before it can register with the new PoET server:
 
-Switching to a later PoET phase however is possible without missing rewards if done correctly.
+1. Your node will publish an ATX in epoch N-1 using the PoET from the old phase on e.g. the 10th day of the epoch. This
+   makes you eligible for rewards in epoch N.
+1. The PoET round of the new phase will start on e.g. the 6th day of the epoch.
+1. Your node registers with the new PoET server in epoch N.
+1. Your node will publish an ATX in epoch N+1 using the PoET from the new phase on the 6th day of the epoch. This makes
+   you eligible for rewards in epoch N+2.
+
+As a result, you will miss the rewards for epoch N+1. This is because you **must not register at overlapping PoET
+rounds** or your node will be disqualified from rewards permanently.
+
+You can however use a intermediary PoET server that has a shorter round duration than the default PoET servers to
+gradually switch to an earlier PoET phase without missing rewards:
+
+1. Your node will publish an ATX in epoch N-1 using the PoET from the old phase on e.g. the 10th day of the epoch. This
+   makes you eligible for rewards in epoch N.
+1. The PoET round of the intermediary phase will start on e.g. the 11th day of the epoch.
+1. Your node registers with the intermediary PoET server in epoch N-1.
+1. Your node will publish an ATX in epoch N using the PoET from the intermediary phase on the 5th day of the epoch. This
+   makes you eligible for rewards in epoch N+1.
+1. The PoET round of the new phase will start on e.g. the 6th day of the epoch.
+1. Your node registers with the new PoET server in epoch N.
+1. Your node will publish an ATX in epoch N+1 using the PoET from the new phase on the 6th day of the epoch. This makes
+   you eligible for rewards in epoch N+2.
+
+This way, you will not miss any rewards.
+
+Switching to a later PoET phase is possible without missing rewards if done correctly and does not require an
+intermediary PoET server.
 
 For step-by-step instructions, follow the guide below.
 
