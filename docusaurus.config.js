@@ -59,6 +59,13 @@ const config = {
       }),
     ],
   ],
+  plugins: [
+    [
+        'docusaurus-pushfeedback',{
+            project: 'nzs6xodw4b'
+        }
+    ]
+  ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
