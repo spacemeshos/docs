@@ -9,3 +9,25 @@
   height: 200px;
   width: 200px;
 }
+
+:root {
+  --feedback-primary-color: #3affa7;
+  --feedback-secondary-color: orange;
+  --feedback-text-color: #ffffff;
+  --feedback-white-color: #3affa7;
+  --feedback-highlight-color: #ffb422;
+  --feedback-light-color: #313131;
+  --feedback-dark-color: #191919;
+      /* Feedback button*/
+      --feedback-button-border-radius: 20px;
+      --feedback-button-dark-bg-color: var(--feedback-dark-color);
+      --feedback-button-dark-text-color: var(--feedback-white-color);
+      --feedback-button-light-bg-color: var(--feedback-white-color);
+      --feedback-button-light-text-color: var(--feedback-dark-color);
+      --feedback-button-text-font-size: var(--feedback-text-font-size);
+      --feedback-button-text-font-weight: 600;
+      --feedback-button-z-index: 300;
+
+      --feedback-modal-button-submit-text-color: var(--feedback-dark-color);
+      --feedback-modal-button-submit-text-color-hover: var(--feedback-dark-color);
+}
