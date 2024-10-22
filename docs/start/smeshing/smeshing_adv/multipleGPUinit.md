@@ -68,7 +68,7 @@ This command outputs the total number of files to be generated, for example, `16
 
 ```bash
 
-./postcli-numUnits100-printNumFiles
+./postcli -numUnits 100 -printNumFiles
 
 
 1600#result
@@ -129,7 +129,7 @@ After running the command, don’t forget to check that all the files are correc
 
 ```bash
 
-ls-la./dataB/*.bin | wc-l
+ls -la ./dataB/*.bin | wc -l
 
 ```
 
@@ -143,9 +143,8 @@ After initializing subsets of the data on different machines, you'll need to com
 
 ```bash
 
-cp./dataA/*.bin./finalData/
+cp ./dataA/*.bin ./finalData/
 
-cp./dataB/*.bin./finalData/
 
 ```
 
