@@ -104,7 +104,7 @@ In computer science, counting often starts at zero rather than one, this concept
 
 ```bash
 
-ls-la./dataA/*.bin | wc-l
+ls -la ./dataA/*.bin | wc -l
 
 800 #result
 ```
@@ -152,7 +152,7 @@ cp ./dataA/*.bin ./finalData/
 
 ```bash
 
-ls-la./finalData/*.bin | wc-l
+ls -la ./finalData/*.bin | wc -l
 
 ```
 
