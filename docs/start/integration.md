@@ -6,8 +6,7 @@ title: Integration Guide
 :::info
 
 We are currently working on the new version of the Spacemesh API. It is currently available as `v2alpha` but we strongly recommend doing any new integrations with it. The old version `v1` will be deprecated afterwards. The API description is available [here](https://github.com/spacemeshos/api/tree/master/spacemesh/v2alpha1).
-There is also public instance exposing the JSON-RPC api at `mainnet-api.spacemesh.network`.
-Please refer to publicly available [API documentation](https://mainnet-api.spacemesh.network/docs).
+There is also a public instance exposing the JSON-RPC api at `mainnet-api.spacemesh.network`. For more information, please refer to the publicly available [API documentation](https://mainnet-api.spacemesh.network/docs).
 
 :::
 
@@ -302,9 +301,9 @@ To fetch a transaction, use [`TransactionService.TransactionsState`](https://pkg
 
 ### Legacy Explorer Backend API
 
-::: info
+:::info
 
-Starting at 8th of October 2024 explorer uses `mainnet-api.spacemesh.network` as it's backend, the old explorer backend API is deprecated and will be removed in the future. We will drop supporting it soon and we encourage you to use the new API.
+From the 8th of October 2024, the explorer will use `mainnet-api.spacemesh.network` as it's backend API. The old explorer backend API has been deprecated and will be removed in the future. We will stop supporting the legacy API soon and thus encourage you to use the new API.
 
 :::
 
