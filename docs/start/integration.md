@@ -6,7 +6,7 @@ title: Integration Guide
 :::info
 
 We are currently working on the new version of the Spacemesh API. It is currently available as `v2alpha` but we strongly recommend doing any new integrations with it. The old version `v1` will be deprecated afterwards. The API description is available [here](https://github.com/spacemeshos/api/tree/master/spacemesh/v2alpha1).
-There is also public instance exposing the JSON-RPC api at `mainnet-api.spacemesh.network`.
+There is also a public instance exposing the JSON-RPC api at `mainnet-api.spacemesh.network`. For more information, please refer to the publicly available [API documentation](https://mainnet-api.spacemesh.network/docs).
 
 :::
 
@@ -299,9 +299,15 @@ To fetch a transaction, use [`TransactionService.TransactionsState`](https://pkg
 }
 ```
 
-### Explorer Backend API
+### Legacy Explorer Backend API
 
-It has come to our attention that due to various shortfalls in the node API (as outlined above), some third-party applications have chosen to instead read data from the [explorer backend API](https://github.com/spacemeshos/explorer-backend/tree/master). Please be aware that **this is not currently a supported method of reading Spacemesh data.** 
+:::info
+
+From the 8th of October 2024, the explorer will use `mainnet-api.spacemesh.network` as it's backend API. The old explorer backend API has been deprecated and will be removed in the future. We will stop supporting the legacy API soon and thus encourage you to use the new API.
+
+:::
+
+It has come to our attention that due to various shortfalls in the node API (as outlined above), some third-party applications have chosen to instead read data from the [explorer backend API](https://github.com/spacemeshos/explorer-backend/tree/master). Please be aware that **this is not currently a supported method of reading Spacemesh data.**
 
 The explorer backend is used to power the official [Spacemesh explorer](https://explorer.spacemesh.io/). However, unlike the official node API, we make no guarantees about its availability, correctness, or completeness. For example, it currently [filters out multisig transactions entirely](https://github.com/spacemeshos/explorer-backend/issues/92#issuecomment-1836105402) and we have found [previous inconsistencies](https://github.com/spacemeshos/explorer-backend/issues/95) between this and the official API. This API also **does not support reorgs.** and is likely to change in the future without notice.
 
@@ -320,7 +326,7 @@ Most applications only need to concern themselves with `Wallet` and `Multisig` a
 
 ### Address Generation
 
-Account addresses are 24 bytes long, typically expressed as a [bech32](https://en.bitcoin.it/wiki/Bech32) string starting with the `sm1` HRP for mainnet and `stest1` for testnet. An account address is computed as the [Blake3](https://github.com/BLAKE3-team/BLAKE3) hash of the concatenation of the [SCALE-encoded](https://github.com/paritytech/parity-scale-codec) account template address and the SCALE-encoded args required to spawn the account (otherwise known as the immutable state). 
+Account addresses are 24 bytes long, typically expressed as a [bech32](https://en.bitcoin.it/wiki/Bech32) string starting with the `sm1` HRP for mainnet and `stest1` for testnet. An account address is computed as the [Blake3](https://github.com/BLAKE3-team/BLAKE3) hash of the concatenation of the [SCALE-encoded](https://github.com/paritytech/parity-scale-codec) account template address and the SCALE-encoded args required to spawn the account (otherwise known as the immutable state).
 
 In case of a simple, single-signature wallet, the address can be calculated thus:
 
@@ -499,12 +505,12 @@ A signed, raw transaction may be submitted to any Spacemesh node that's online a
 
 ### Example
 
-The following is an example of generating a transaction, signing it, parsing it, and broadcasting it. While this example is for a simple send transaction using a single-sig wallet, it should contain enough information to create other types of transactions as well. It uses Go and error handling is not implemented. 
+The following is an example of generating a transaction, signing it, parsing it, and broadcasting it. While this example is for a simple send transaction using a single-sig wallet, it should contain enough information to create other types of transactions as well. It uses Go and error handling is not implemented.
 
 - `amount` contains the amount to send (denominated in smidge).
 - `principal` is an account object containing the principal (i.e., the sender) account.
 - `privkey` contains the corresponding `Ed25519` private key.
-- `recipientAddressStr` contains the address of the recipient in standard `bech32` format (`sm1...`). 
+- `recipientAddressStr` contains the address of the recipient in standard `bech32` format (`sm1...`).
 
 Note how the example reads the Genesis ID from a running node and also gets the latest (projected) principal balance and nonce. `nodeUri` contains the gRPC URI of the running node to talk to (e.g., `localhost:9092`).
 
