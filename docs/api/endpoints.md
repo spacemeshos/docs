@@ -5,11 +5,13 @@ title: Mainnet API Endpoints
 
 The Spacemesh protocol exposes itself through the mainnet API. The following endpoints can be used to interact with the protocol.
 
-## `/spacemesh.v2alpha1.AccountService/List`
+## Account Service
+
+### `/spacemesh.v2alpha1.AccountService/List`
 
 Retrieves a list of accounts, including each account's balance, nonce, and other state details.
 
-### Request
+#### Request
 - **Method**: POST
 - **Request Body**:
   - `filter` (optional): Filters account results based on specific criteria.
@@ -17,7 +19,7 @@ Retrieves a list of accounts, including each account's balance, nonce, and other
   - `max_results` (optional): Maximum number of account entries to return.
   - `offset` (optional): Offset for pagination in case of large data sets.
 
-### Response
+#### Response
 - **Content**:
   - `accounts`: Array of account objects, each containing:
     - `account_id`: Unique identifier for the account.
@@ -25,7 +27,7 @@ Retrieves a list of accounts, including each account's balance, nonce, and other
     - `nonce`: Nonce value of the account.
   - `next_offset`: Offset for the next page of results if pagination is used.
 
-### Example Request
+#### Example Request
 
 ```json
 POST /spacemesh.v2alpha1.AccountService/List
@@ -35,7 +37,7 @@ POST /spacemesh.v2alpha1.AccountService/List
 }
 ```
 
-### Example Response
+#### Example Response
 
 ```json
 {
@@ -50,3 +52,17 @@ POST /spacemesh.v2alpha1.AccountService/List
   "next_offset": 51
 }
 ```
+
+## Activation Service
+
+## Transaction Service
+
+## Layer Service
+
+## Malfeasance Service
+
+## Network Service
+
+## Node Service
+
+## Reward Service
