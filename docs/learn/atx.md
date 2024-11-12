@@ -5,6 +5,10 @@ title: ATX
 
 After successfully generating the PoST, the smesher creates an Activation Transaction (ATX) and submits it to the network. This transaction includes the smesher’s PoST, their wallet address (to which rewards will go), and some other data. The ATX is then used to calculate the smesher's eligibility to participate in the rewards. For all subsequent epochs, the PoET service uses ATXs as the challenge value instead of the initial PoSp. As such, after the smesher’s first epoch, only a single PoSp (the later PoSp) is required per epoch.
 
+The following diagram shows the structure of an ATX:
+
+![ATX](../../static/img/v1.0/ATX_Structure.png)
+
 ## Weight
 
 Every ATX also has a weight. Since multiple smeshers contribute to the same block, it is important to reward them accordingly. The absolute weight is calculated by multiplying the SUs allocated by a smesher by the number of PoET ticks for those allocated SUs (Space Units * PoET ticks). Put simply, the allocated space is multiplied by the time (measured by PoET ticks) that the special data was kept on the disk.

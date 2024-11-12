@@ -5,7 +5,7 @@ title: PoST (Proof of Space-Time)
 
 The Proof of Space-Time (PoST) is a cornerstone of the consensus algorithm used by the Spacemesh protocol. Put simply, PoST is used to ensure that a smesher reserves a given amount of storage space for a given period of time. In this blog post, we will explore PoST along with its various constituents. In the end, you should have a good understanding of what PoST is, what it does, and how it works.
 
-### Introduction
+## Introduction
 
 In any distributed ledger network, the primary goal is for all the participants to agree on a single state of affairs. As such, all nodes would agree that a specific record of transactions is the correct one and everyone should record new transactions on it. One simple way to achieve this could be to allow each participant a single vote and have everyone vote on the state of the blockchain ledger. However, this is a naive solution.
 
