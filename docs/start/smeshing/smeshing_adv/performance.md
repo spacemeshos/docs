@@ -83,11 +83,19 @@ By default `k3` parameter is equal to `k2` which is currently 37. Setting it to 
 
 ##### RandomX Fast mode
 
-To improve ATX verification speed on **public** nodes you can use the following setting. It will require roughly additional 2GB of RAM per node used only during ATX verification.
+To improve ATX verification speed on your nodes you can use the following setting. It will require roughly additional 2GB of RAM per node used only during ATX verification.
 
 ```json
 "smeshing":
   { "smeshing-verifying-opts": { "smeshing-opts-verifying-powflags": 14 } }
 ```
+
+Please note that when running on MacOS, it is additionally required to set the `SECURE_JIT` flag in RandomX (based on this [upstream info](https://github.com/tevador/RandomX/issues/293)). This means that the actual setting for Mac-based systems is:
+
+```json
+"smeshing":
+  { "smeshing-verifying-opts": { "smeshing-opts-verifying-powflags": 30 } }
+```
+
 
 If you have spare ram on the private nodes then that setting is safe to set there too. Please remember about the requirement of 2GiB extra memory per node though.
