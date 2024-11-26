@@ -90,7 +90,7 @@ To improve ATX verification speed on your nodes you can use the following settin
   { "smeshing-verifying-opts": { "smeshing-opts-verifying-powflags": 14 } }
 ```
 
-Please note that when running on MacOS, it is additionally required to set the `SECURE_JIT` flag in RandomX (based on this [upstream info](https://github.com/tevador/RandomX/issues/293)). This means that the actual setting for Mac-based systems is:
+Please note that when running on MacOS AppleSilicon, it is additionally required to set the `SECURE_JIT` flag in RandomX (based on this [upstream info](https://github.com/tevador/RandomX/issues/293)). This means that the actual setting for Mac-based systems is:
 
 ```json
 "smeshing":
