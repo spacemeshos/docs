@@ -92,10 +92,33 @@ module.exports = {
     'ecosystem/dash'
   ],
   api: [
-      'api/construction-api',
-    'api/services',
-    'api/endpoints'
+    {
+      'Spacemesh API': [
+        //'api/construction-api',
+      //'api/services',
+      'api/endpoints'
+      ]
+    }
   ],
+  learn: [
+    {
+      'Spacemesh 101': [
+        'learn/spacemesh',
+        'learn/coin',
+        'learn/smeshing',
+        'learn/economics'],
+      'Protocol 101': [
+        'learn/post',
+        'learn/poet',
+        'learn/atx',
+        'learn/hare',
+        'learn/tortoise',
+        'learn/rewards',
+        'learn/blocks',
+        'learn/accounts'
+      ]
+    }
+],
   node: [
       'node_operation/construction-node',
     'node_operation/serialization',
