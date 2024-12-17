@@ -92,13 +92,7 @@ module.exports = {
     'ecosystem/dash'
   ],
   api: [
-    {
-      'Spacemesh API': [
-        //'api/construction-api',
-      //'api/services',
-      'api/endpoints'
-      ]
-    }
+    'api/api'
   ],
   learn: [
     {
