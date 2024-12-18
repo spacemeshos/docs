@@ -6,19 +6,24 @@ title: PoST Initialization
 ## Proof Generation
 
 Once an epoch, after the node has received a PoET proof and during the PoET cycle gap, the node will generate a
-[proof of spacetime](#proof-generation), which requires that it sequentially read all of the PoST data. The details
+[Proof of Space-Time (PoST)](#proof-generation), which requires that it sequentially read all of the PoST data. The details
 aren't something most miners need to worry about as the node will handle the process for you; see
 [Fine-tuning Node Performance](./performance.md) for information on benchmarks and parameters that can be tweaked.
 
-The first part of the proving process is an initial proof of work phase called **k2pow** that uses a proof of work
-algorithm called [RandomX](https://github.com/tevador/RandomX). During this phase, which is CPU bound, you should see
+The first part of the proving process involves calculating a [K2PoW hash](../../../learn/post.md/#why-require-proof-of-work). During this phase, which is CPU bound, you should see
 CPU usage spike briefly for a few minutes. There should be very little network or disk activity during this phase. As
-explained in the [Profiler docs](https://github.com/spacemeshos/post-rs/blob/main/docs/profiler.md#is-that-all-that-is-happening-during-the-proof-generation),
-it should take a low-end CPU around 2.5 minutes to compute k2pow for 4 SU; computation time scales linearly with the
+explained in the [profiler docs](https://github.com/spacemeshos/post-rs/blob/main/docs/profiler.md#is-that-all-that-is-happening-during-the-proof-generation),
+it should take a low-end CPU around 2.5 minutes to compute K2PoW for 4 SUs. Computation time scales linearly with the
 hash rate and number of storage units being proven. See the [RandomX Benchmark](https://xmrig.com/benchmark) to get a
 sense of your CPU's RandomX hash rate.
 
-Once the k2pow phase is complete, the node begins the PoST proving process, which takes longer as it involves reading
+:::tip
+
+Since K2PoW calculations are intensive, they can be optionally _offloaded_ to **K2PoW service workers**. In this way, your machine does not need to perform the K2PoW calculations locally. Instead, they are automatically handled by a remote node running the K2PoW service worker which then returns the results without storing them. Read more about how to configure and use the K2PoW service workers [here](https://github.com/spacemeshos/post-rs/tree/main/k2pow-service) and [here](https://github.com/spacemeshos/post-rs/tree/main/k2pow-service/examples/haproxy).
+
+:::
+
+Once the K2PoW phase is complete, the node begins the PoST proving process, which takes longer as it involves reading
 and computing a hash function over all the committed PoST data. How long depends on factors including the disk read
 speed, CPU speed, and configured [nonces and threads](./advanced.md#fine-tuning-proving). This process may be CPU bound
 or IO bound, depending on the configuration. (It also doesn't touch the network.)
