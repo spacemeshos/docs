@@ -118,6 +118,7 @@ const config = {
                     position: "left",
                     sidebarId: "api",
                     label: "API",
+                    href: "https://mainnet-api-docs.spacemesh.network/index.html",
           },
         ],
       },
