@@ -50,23 +50,17 @@ For macOS users, OpenCL is bundled with the system and the framework is availabl
 
 #### Windows Overview
 
-Installing OpenCL on Windows requires manual GPU drivers updates as the operating system does not include these drivers by default. The process is similar across different GPU manufacturers but requires visiting the specific manufacturer’s website to download the appropriate drivers.
+Installing OpenCL on Windows requires updating the GPU drivers manually as the operating system does not include these drivers by default. The process is similar across different GPU manufacturers, but requires visiting the specific manufacturer’s website to download the appropriate drivers.
 
 ##### Steps
 
-1. Download Drivers: Navigate to your GPU manufacturer’s website (NVIDIA, AMD, or Intel).
-1. Select your GPU model and download the latest drivers that include the OpenCL runtime support.
-1. Install the Drivers: Execute the downloaded installer and follow the on-screen instructions to complete the
-  installation. Make sure any options related to OpenCL support are selected if given a choice.
-1. Verification
-1. After installation, use the `clinfo` command on Windows to check for OpenCL support. This utility will list all
-  OpenCL-compatible devices on your system and provide detailed information, confirming a successful installation.
+1. Navigate to your GPU manufacturer’s website (NVIDIA, AMD, or Intel) and download the latest drivers for your GPU model. Select drivers that include OpenCL runtime support
+1. Install the drivers by executing downloaded installer and following the on-screen instructions to complete the. Make sure that any options related to OpenCL support are selected if given a choice.
+1. After installation, use the `clinfo` command on Windows to check for OpenCL support. This utility will list all OpenCL-compatible devices on your system and provide detailed information, confirming a successful installation.
 
 #### Troubleshooting
 
-Issues with OpenCL can often be resolved by ensuring your GPU drivers are fully up to date. Check your hardware’s
-compatibility with the version of OpenCL you’re using and look for any software that might conflict with your drivers.
-For specific problems, the support documentation and forums for NVIDIA, AMD, or Intel may offer solutions.
+Issues with OpenCL can often be resolved by ensuring that your GPU drivers are fully up to date. Check your hardware’s compatibility with the version of OpenCL you are using and look for any software that might conflict with your drivers. For specific problems, the support documentation and forums for NVIDIA, AMD, or Intel may offer solutions.
 
 ## Initialization Speed
 
@@ -74,37 +68,23 @@ The amount of time it takes to complete PoST initialization depends upon a numbe
 drive write speed, and the number of storage units being initialized. As a rule of thumb, Nvidia RTX 3090 cards can
 initialize around 3-4 MB/s and 4090 cards can initialize around 6-7 MB/s. Community
 [crowd-sourced benchmarks](https://docs.google.com/spreadsheets/d/1X_E7H9EFdLoEZ8IHwm1ApcnlZ6VtBCWwSMOJIw2rytI/edit#gid=822058896)
-are available for a wide range of cards. Note that hard drive write speeds tend to be much faster than GPU throughput,
-so this should not limit the initialization speed unless the drive is exceptionally slow or exceptionally busy.
+are available for a wide range of cards. Note that hard drive write speeds tend to be much faster than GPU throughput, so this should not limit the initialization speed unless the drive is exceptionally slow or exceptionally busy.
 
 ## Choice of Filesystem
 
-In general Spacemesh is agnostic to the choice of filesystem. You can successfully initialize and run an identity and
-manage the underlying PoST data on any Linux, Windows, or macOS-compatible filesystem. However, you should keep two
-things in mind when choosing a filesystem.
+In general, Spacemesh is agnostic to the choice of filesystem. You can successfully initialize and run an identity and
+manage the underlying PoST data on any Linux, Windows, or macOS-compatible filesystem. However, you should keep two things in mind when choosing a filesystem.
 
-1. If there is any chance you will want to move the identity from one operating system to another, we strongly recommend
-   using the [exFAT](https://en.wikipedia.org/wiki/ExFAT) filesystem. This is the only filesystem that works out of the
-   box across all the major operating systems. Keep in mind that _copying_ an entire identity from one filesystem to
-   another could take a very long time, whereas with an exFAT filesystem you can just "plug and chug" on any computer.
-   You should be able to initialize and format a new exFAT filesystem easily in any operating system.
-1. Different file systems utilize space differently and require different amounts of overhead. As such, the number of
-   storage units you will be able to fit on a given disk will depend to some extent upon the filesystem used to format
-   the disk. In our personal experience, we've found that exFAT is more efficient than EXT4, and may allow one extra
-   storage unit to be placed on the same physical disk.
+1. If there is any chance you will want to *move the identity* from one operating system to another, we strongly recommend using the [exFAT](https://en.wikipedia.org/wiki/ExFAT) filesystem. This is the only filesystem that works out of the box across all the major operating systems. Keep in mind that _copying_ an entire identity from one filesystem to another could take a very long time, whereas with an exFAT filesystem, you can just "plug and chug" on any computer. You should be able to initialize and format a new exFAT filesystem easily in any operating system.
+1. Different file systems utilize space differently and require different amounts of overhead. As such, the number of storage units you will be able to fit on a given disk will depend, to some extent, upon the filesystem used to format the disk. In our personal experience, we have found that exFAT is more efficient than EXT4 and may allow one extra storage unit to be placed on the same physical disk.
 
-We also recommend that you _not encrypt_ the drive or partition used to store the PoST data. You should of course
-protect the `local.key` file (which contains a miner's private key and is located in the `node_data/identities`
-folder) and not allow it to fall into anyone else's hands, but full drive encryption feels like overkill and could slow
-down [proof generation](#proof-generation).
+We also recommend that you _not encrypt_ the drive or partition used to store the PoST data. You should, of course, protect the `local.key` file (which contains a miner's private key and is located in the `node_data/identities` folder) and not allow it to fall into anyone else's hands. However, full drive encryption is likely overkill and could slow down [proof generation](#proof-generation).
 
 ## Number of Units
 
 Determining exactly how many storage units fit on a drive is actually somewhat non-trivial if you want to maximize the
-amount of PoST data you can fit on a drive, maximize the identity size, and maximize the rewards. For one thing, PoST
-identity file sizes are base 2 (e.g., 64GiB) whereas the size of most hard drives is base-10 (e.g., 1TB). Moreover, as
-described in the previous section, different file systems use space differently and require different amounts of
-overhead.
+amount of PoST data you can fit on a drive, the identity size, and the rewards. For one thing, PoST identity file sizes are base 2 (e.g., 64GiB) whereas the size of most hard drives is base-10 (e.g., 1TB). Moreover, as
+described in the previous section, different file systems use space differently and require different amounts of overhead.
 
 Linux users may find a command such as the following helpful in displaying the available space on a drive:
 
@@ -121,7 +101,8 @@ Linux users may also find the [`tune2fs`](https://linux.die.net/man/8/tune2fs) c
 detailed filesystem information and for reducing the amount of
 [reserved space](https://unix.stackexchange.com/questions/7950/reserved-space-for-root-on-a-filesystem-why) on a drive.
 Assuming a drive is exclusively being used to store PoST data, the reserved space may safely be set to zero.
-For example, for the above drive `/dev/sda`:
+
+For example, for the above-mentioned drive `/dev/sda`:
 
 ```bash
 > sudo tune2fs -m 0 /dev/sda
@@ -131,18 +112,10 @@ For example, for the above drive `/dev/sda`:
 
 ## Starting Initialization
 
-As with most other aspects of Spacemesh, the easiest way to begin and monitor initialization is using the Smapp
-application. When you first open it, Smapp will walk you through the process of choosing a location for your PoST data,
-choosing your GPU, and beginning initialization. It'll show you the progress as initialization proceeds.
-See [Smapp Tutorial #4: Proof of Space & Smeshing Setup](https://youtu.be/xwsg7FzuBE0?si=UnTu4wF-db_O2jXE) for more
-information on this process.
+As with most other aspects of Spacemesh, the easiest way to begin and monitor initialization is by using Smapp. When you first open it, Smapp will walk you through the process of choosing a location for your PoST data,
+choosing your GPU, and beginning initialization. It will show you the progress as initialization proceeds. See [Smapp Tutorial #4: Proof of Space & Smeshing Setup](https://www.youtube.com/watch?v=t5oZoodfTrc) for more information on this process.
 
-If you prefer to perform PoST initialization using the command line, you have two options. If you simply run
-`go-spacemesh` directly with the `smeshing` configuration parameters specified above, it'll perform initialization for
-you using the fastest GPU. You can also manually perform initialization using the
-[`postcli` tool](https://github.com/spacemeshos/post/tree/develop/cmd/postcli), which allows you to have even greater
-control of the initialization process, such as running in parallel across multiple systems or multiple GPUs (more
-information on this below).
+If you prefer to perform PoST initialization using the command line, you have two options. If you simply run // RUN ON WHAT OS? `go-spacemesh` directly with the `smeshing` configuration parameters specified above, it will perform initialization for you using the fastest available GPU. You can also manually perform initialization using the [`postcli` tool](https://github.com/spacemeshos/post/tree/develop/cmd/postcli) which allows you to have even greater control of the initialization process, such as running in parallel across multiple systems or multiple GPUs (more information on this below).
 
 ### Choosing a Provider
 

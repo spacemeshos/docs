@@ -68,7 +68,7 @@ This command outputs the total number of files to be generated, for example, `16
 
 ```bash
 
-./postcli-numUnits100-printNumFiles
+./postcli -numUnits 100 -printNumFiles
 
 
 1600#result
@@ -104,7 +104,7 @@ In computer science, counting often starts at zero rather than one, this concept
 
 ```bash
 
-ls-la./dataA/*.bin | wc-l
+ls -la ./dataA/*.bin | wc -l
 
 800 #result
 ```
@@ -129,7 +129,7 @@ After running the command, don’t forget to check that all the files are correc
 
 ```bash
 
-ls-la./dataB/*.bin | wc-l
+ls -la ./dataB/*.bin | wc -l
 
 ```
 
@@ -143,9 +143,8 @@ After initializing subsets of the data on different machines, you'll need to com
 
 ```bash
 
-cp./dataA/*.bin./finalData/
+cp ./dataA/*.bin ./finalData/
 
-cp./dataB/*.bin./finalData/
 
 ```
 
@@ -153,7 +152,7 @@ cp./dataB/*.bin./finalData/
 
 ```bash
 
-ls-la./finalData/*.bin | wc-l
+ls -la ./finalData/*.bin | wc -l
 
 ```
 

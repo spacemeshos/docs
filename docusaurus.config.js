@@ -52,8 +52,19 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        gtag: {
+          trackingID: 'G-2CL6HG3B96',
+          anonymizeIP: true,
+        },
       }),
     ],
+  ],
+  plugins: [
+    [
+        'docusaurus-pushfeedback',{
+            project: 'nzs6xodw4b'
+        }
+    ]
   ],
 
   themeConfig:
