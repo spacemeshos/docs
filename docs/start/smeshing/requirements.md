@@ -49,4 +49,4 @@ The following popular processor models are supported:
 - Intel UHD Graphics
 - Intel Iris Xe GPUs
 
-Having understood the system requirments, it is understanding the [Practical Considerations](../considerations.md) of smeshing.
+Having understood the system requirements, it is understanding the [Practical Considerations](../considerations.md) of smeshing.
