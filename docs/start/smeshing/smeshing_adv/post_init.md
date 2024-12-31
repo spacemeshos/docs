@@ -86,6 +86,8 @@ Determining exactly how many storage units fit on a drive is actually somewhat n
 amount of PoST data you can fit on a drive, the identity size, and the rewards. For one thing, PoST identity file sizes are base 2 (e.g., 64GiB) whereas the size of most hard drives is base-10 (e.g., 1TB). Moreover, as
 described in the previous section, different file systems use space differently and require different amounts of overhead.
 
+### Linux (Ubuntu)
+
 Linux users may find a command such as the following helpful in displaying the available space on a drive:
 
 ```bash
@@ -108,7 +110,50 @@ For example, for the above-mentioned drive `/dev/sda`:
 > sudo tune2fs -m 0 /dev/sda
 ```
 
-**Wanted:** Please fill in information on how to do the same on macOS and Windows.
+### Windows
+
+Windows users can copy and run the following code into a PowerShell window (running as an administrator) to see the drives on which they can initialize the PoST and start smeshing:
+
+```powershell
+Get-PSDrive -PSProvider FileSystem | ForEach-Object {
+    $drive = $_
+    
+    $freeSpaceGiB = [math]::Round($drive.Free / 1GB, 2)
+    $totalSpaceGiB = [math]::Round(($drive.Used + $drive.Free) / 1GB, 2)
+    $freeSpaceGB = [math]::Round($drive.Free / 1GB * 1.073741824, 2)
+    $totalSpaceGB = [math]::Round(($drive.Used + $drive.Free) / 1GB * 1.073741824, 2)
+    $spaceUnits = [math]::Floor($freeSpaceGiB / 64)
+    
+    if ($spaceUnits -ge 4) {
+        $spaceUnitColor = 'Green'
+        $sizeColor = 'Green'
+    }
+    else {
+        $spaceUnitColor = 'DarkYellow'
+        $sizeColor = 'DarkYellow'
+    }
+
+    Write-Host -NoNewline "Drive $($drive.Name): "
+    Write-Host -NoNewline "$freeSpaceGiB GiB" -ForegroundColor $sizeColor
+    Write-Host -NoNewline " ($freeSpaceGB GB)" -ForegroundColor $sizeColor
+    Write-Host -NoNewline " available out of "
+    Write-Host -NoNewline "$totalSpaceGiB GiB" -ForegroundColor $sizeColor
+    Write-Host -NoNewline " ($totalSpaceGB GB)" -ForegroundColor $sizeColor
+    Write-Host -NoNewline " ("
+
+    Write-Host -NoNewline "$spaceUnits SU" -ForegroundColor $spaceUnitColor
+    Write-Host ")."
+
+    if ($spaceUnits -lt 4) {
+        Write-Host "Not enough space on drive $($drive.Name) to smesh. Free space equivalent to 4 SUs (256 GiB/ 275 GB) is required." -ForegroundColor Yellow
+    }
+    else {
+        Write-Host "Smeshing possible on drive $($drive.Name)." -ForegroundColor Green
+    }
+}
+```
+
+**Wanted:** Please fill in information on how to do the same on macOS.
 
 ## Starting Initialization
 
