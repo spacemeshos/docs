@@ -82,9 +82,7 @@ We also recommend that you _not encrypt_ the drive or partition used to store th
 
 ## Number of Units
 
-Determining exactly how many storage units fit on a drive is actually somewhat non-trivial if you want to maximize the
-amount of PoST data you can fit on a drive, the identity size, and the rewards. For one thing, PoST identity file sizes are base 2 (e.g., 64GiB) whereas the size of most hard drives is base-10 (e.g., 1TB). Moreover, as
-described in the previous section, different file systems use space differently and require different amounts of overhead.
+Determining exactly how many storage units fit on a drive is actually somewhat non-trivial if you want to maximize the amount of PoST data you can fit on a drive, the identity size, and the rewards. For one thing, PoST identity file sizes are base 2 (e.g., 64GiB) whereas the size of most hard drives is base-10 (e.g., 1TB). Moreover, as described in the previous section, different file systems use space differently and require different amounts of overhead.
 
 ### Linux (Ubuntu)
 
@@ -96,15 +94,12 @@ Filesystem     1GiB-blocks    Used Available Use% Mounted on
 /dev/sda           3667GiB 3649GiB     19GiB 100% /mnt/smesher-01
 ```
 
-As you can see, this 4TB drive, which should contain 3725.29 GiB, in fact only contains a usable 3667 GiB. After
-initializing 57 storage units of 64 GiB each, it contains around 19 GiB free usable space.
+As you can see, this 4TB drive, which should contain 3725.29 GiB, in fact only contains a usable 3667 GiB. After initializing 57 storage units of 64 GiB each, it contains around 19 GiB free usable space.
 
-Linux users may also find the [`tune2fs`](https://linux.die.net/man/8/tune2fs) command useful, both for displaying more
-detailed filesystem information and for reducing the amount of
-[reserved space](https://unix.stackexchange.com/questions/7950/reserved-space-for-root-on-a-filesystem-why) on a drive.
-Assuming a drive is exclusively being used to store PoST data, the reserved space may safely be set to zero.
+Linux users may also find the [`tune2fs`](https://linux.die.net/man/8/tune2fs) command useful, both for displaying more detailed filesystem information and for reducing the amount of
+[reserved space](https://unix.stackexchange.com/questions/7950/reserved-space-for-root-on-a-filesystem-why) on a drive. Assuming a drive is exclusively being used to store PoST data, the reserved space may safely be set to zero.
 
-For example, for the above-mentioned drive `/dev/sda`:
+For example, for the above-mentioned drive `/dev/sda`, the following command would set the reserve space to 0:
 
 ```bash
 > sudo tune2fs -m 0 /dev/sda
@@ -112,7 +107,7 @@ For example, for the above-mentioned drive `/dev/sda`:
 
 ### Windows
 
-Windows users can copy and run the following code into a PowerShell window (running as an administrator) to see the drives on which they can initialize the PoST and start smeshing:
+Windows users can copy and run the following code into a PowerShell window (running as an administrator) to see the available space on each of their partitions and whether they can store the PoST initialization data on those partitions:
 
 ```powershell
 Get-PSDrive -PSProvider FileSystem | ForEach-Object {
@@ -157,19 +152,15 @@ Get-PSDrive -PSProvider FileSystem | ForEach-Object {
 
 ## Starting Initialization
 
-As with most other aspects of Spacemesh, the easiest way to begin and monitor initialization is by using Smapp. When you first open it, Smapp will walk you through the process of choosing a location for your PoST data,
-choosing your GPU, and beginning initialization. It will show you the progress as initialization proceeds. See [Smapp Tutorial #4: Proof of Space & Smeshing Setup](https://www.youtube.com/watch?v=t5oZoodfTrc) for more information on this process.
+As with most other aspects of Spacemesh, the easiest way to begin and monitor initialization is by using Smapp. When you first open it, Smapp will walk you through the process of choosing a location for storing your PoST data, choosing your GPU, and beginning initialization. It will show you the progress as initialization proceeds. See [Smapp Tutorial #4: Proof of Space & Smeshing Setup](https://www.youtube.com/watch?v=t5oZoodfTrc) for more information on this process.
 
-If you prefer to perform PoST initialization using the command line, you have two options. If you simply run // RUN ON WHAT OS? `go-spacemesh` directly with the `smeshing` configuration parameters specified above, it will perform initialization for you using the fastest available GPU. You can also manually perform initialization using the [`postcli` tool](https://github.com/spacemeshos/post/tree/develop/cmd/postcli) which allows you to have even greater control of the initialization process, such as running in parallel across multiple systems or multiple GPUs (more information on this below).
+If you prefer to perform PoST initialization using the command line, you have two options. If you simply run `go-spacemesh` directly with the `smeshing` configuration parameters specified above, it will perform initialization for you using the fastest available GPU. You can also manually perform initialization using the [`postcli` tool](https://github.com/spacemeshos/post/tree/develop/cmd/postcli) which allows you to have even greater control of the initialization process, such as running in parallel across multiple systems or multiple GPUs (more information on this below).
 
 ### Choosing a Provider
 
-As mentioned, `go-spacemesh` will automatically choose the fastest GPU to perform initialization based on a benchmark.
-You can change the selected GPU with the `smeshing-opts-provider` config item. To see the list of detected GPUs and
-their corresponding indices, run [`postcli`](https://github.com/spacemeshos/post/tree/develop/cmd/postcli) as follows.
-You should see something like the following:
+As mentioned, `go-spacemesh` will automatically choose the fastest GPU to perform initialization based on a benchmark. You can change the selected GPU with the `smeshing-opts-provider` config item. To see the list of detected GPUs and their corresponding indices, run [`postcli`](https://github.com/spacemeshos/post/tree/develop/cmd/postcli) as follows. You should see something like the following:
 
-```console
+```bash
 > postcli -printProviders
 ([]postrs.Provider) (len=3 cap=3) {
  (postrs.Provider) {
@@ -190,8 +181,7 @@ You should see something like the following:
 }
 ```
 
-The first two (with IDs 0 and 1) are the GPUs; the last (with ID 4294967295) is the CPU. To select the second GPU with
-ID 1, use the following config:
+The first two (with IDs 0 and 1) are the GPUs. The last one (with ID 4294967295) is the CPU. To select the second GPU with ID 1, use the following config:
 
 ```json
   "smeshing": {
@@ -207,11 +197,7 @@ ID 1, use the following config:
 
 ## Resizing PoST
 
-The size of the data used for proof generation can be changed after initialization. This is useful if you want to add
-more storage units to your identity, or if you want to reduce the number of storage units to free up space on your
-drive. To do this, you can change the `numunits` parameter in the `smeshing-opts` section of the `config.json` file.
-Stop your node, change the config file, and restart the node. The node will automatically resize the PoST data to the
-new size:
+The size of the data used for proof generation can be changed after initialization. This is useful if you want to add more storage units to your identity, or if you want to reduce the number of storage units to free up space on your drive. To do this, you can change the `numunits` parameter in the `smeshing-opts` section of the `config.json` file. Stop your node, change the config file, and restart the node. The node will automatically resize the PoST data to the new size:
 
 ```json
   "smeshing": {
@@ -225,16 +211,9 @@ new size:
   },
 ```
 
-**Info:** Resizing PoST data is a time-consuming process during which the node is not able to generate proofs. The node
-will automatically generate proofs once the resizing process is complete. Time your resizing process accordingly - start
-after your PoET cycle gap ends and the node has generated a PoST proof and finish before the next PoET cycle gap.
+**Info:** Resizing PoST data is a time-consuming process during which the node is not able to generate proofs. The node will automatically generate proofs once the resizing process is complete. Time your resizing process accordingly - start once your PoET cycle gap ends and the node has generated a PoST proof, and finish before the next PoET cycle gap.
 
-**Be aware:** Decreasing your PoST size will reduce your rewards and becomes affective in the epoch after the resizing
-process is complete and the node has generated a PoST proof. Increasing your PoST size will increase your rewards, but
-it takes 2 epochs to become effective. Example: If you increase your PoST size before the PoET cycle gap in epoch 10,
-your rewards will be increased starting from epoch 12.
+**Beware:** Decreasing your PoST size will reduce your rewards and only becomes effective in the epoch after the resizing process is complete, and the node has generated a PoST proof. Increasing your PoST size will increase your rewards, but it takes 2 epochs to become effective. For example, if you increase your PoST size before the PoET cycle gap in epoch 10, your rewards will be increased starting from epoch 12.
 
-You can also resize PoST data using the [`postcli` tool](https://github.com/spacemeshos/post/tree/develop/cmd/postcli),
-which allows you to have greater control. For information on how to initialize only the data you don't already have and
-merge it with the existing data refer to the section
+You can also resize PoST data using the [`postcli` tool](https://github.com/spacemeshos/post/tree/develop/cmd/postcli), which allows you to have greater control. For information on how to initialize only the data you do not already have and merge it with the existing data, refer to the section
 [Initializing a subset of post data](https://github.com/spacemeshos/post/tree/develop/cmd/postcli#initializing-a-subset-of-post-data).
