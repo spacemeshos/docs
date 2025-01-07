@@ -10,7 +10,7 @@ Once per epoch, after the node has received a PoET and the PoET cycle gap is und
 are not something most smeshers need to worry about as the node will handle the process for you. See
 [Fine-tuning Node Performance](./performance.md) for information on benchmarks and parameters that can be tweaked.
 
-The first part of the proving process is an initial proof-of-work phase called **k2pow** that uses a proof of work algorithm called [RandomX](https://github.com/tevador/RandomX). During this phase, which is CPU bound, you should see CPU usage spike briefly for a few minutes with there being very little network or disk activity. As explained in the [Profiler docs](https://github.com/spacemeshos/post-rs/blob/main/docs/profiler.md#is-that-all-that-is-happening-during-the-proof-generation), it should take a low-end CPU around 2.5 minutes to compute k2pow for 4 storage units (SUs). The computation time scales linearly with the hash rate and number of SUs allocated. See the [RandomX Benchmark](https://xmrig.com/benchmark) to get a sense of your CPU's RandomX hash rate.
+The first part of the proving process is an initial proof-of-work phase called **k2pow** that uses a proof-of-work algorithm called [RandomX](https://github.com/tevador/RandomX). During this phase, which is CPU bound, you should see CPU usage spike briefly for a few minutes with there being very little network or disk activity. As explained in the [Profiler docs](https://github.com/spacemeshos/post-rs/blob/main/docs/profiler.md#is-that-all-that-is-happening-during-the-proof-generation), it should take a low-end CPU around 2.5 minutes to compute k2pow for 4 storage units (SUs). The computation time scales linearly with the hash rate and number of SUs allocated. See the [RandomX Benchmark](https://xmrig.com/benchmark) to get a sense of your CPU's RandomX hash rate.
 
 Once the k2pow phase is complete, the node begins the PoST proving process, which takes longer as it involves reading and computing a hash function over all the initialized PoST data. The duration of the proving depends on factors including the disk read speed, CPU speed, and configured [nonces and threads](./advanced.md#fine-tuning-proving). This process may be CPU bound or IO bound, depending on the configuration. (This phase does not use the network.)
 
@@ -23,7 +23,7 @@ Note that initialization can theoretically be performed using a CPU (as opposed 
 
 ### OpenCL
 
-PoST initialization requires support for [OpenCL](https://en.wikipedia.org/wiki/OpenCL). Installation instructions will vary depending upon your operating system, platform, and GPU hardware. A good starting place for Linux users is [this wiki page](https://wiki.archlinux.org/title/GPGPU). On Ubuntu and other Debian-compatible systems, it may be enough
+PoST initialization requires support for [OpenCL](https://en.wikipedia.org/wiki/OpenCL). Installation instructions will vary depending on your operating system, platform, and GPU hardware. A good starting place for Linux users is [this wiki page](https://wiki.archlinux.org/title/GPGPU). On Ubuntu and other Debian-compatible systems, it may be enough
 to install these packages:
 
 ```bash
@@ -54,7 +54,7 @@ Installing OpenCL on Windows requires updating the GPU drivers manually as the o
 
 ##### Steps
 
-1. Navigate to your GPU manufacturer’s website (NVIDIA, AMD, or Intel) and download the latest drivers for your GPU model. Select drivers that include OpenCL runtime support
+1. Navigate to your GPU manufacturer’s website (NVIDIA, AMD, or Intel) and download the latest drivers for your GPU model. Select drivers that include OpenCL runtime support.
 1. Install the drivers by executing downloaded installer and following the on-screen instructions to complete the. Make sure that any options related to OpenCL support are selected if given a choice.
 1. After installation, use the `clinfo` command on Windows to check for OpenCL support. This utility will list all OpenCL-compatible devices on your system and provide detailed information, confirming a successful installation.
 
@@ -78,7 +78,7 @@ manage the underlying PoST data on any Linux, Windows, or macOS-compatible files
 1. If there is any chance you will want to *move the identity* from one operating system to another, we strongly recommend using the [exFAT](https://en.wikipedia.org/wiki/ExFAT) filesystem. This is the only filesystem that works out of the box across all the major operating systems. Keep in mind that _copying_ an entire identity from one filesystem to another could take a very long time, whereas with an exFAT filesystem, you can just "plug and chug" on any computer. You should be able to initialize and format a new exFAT filesystem easily in any operating system.
 1. Different file systems utilize space differently and require different amounts of overhead. As such, the number of storage units you will be able to fit on a given disk will depend, to some extent, upon the filesystem used to format the disk. In our personal experience, we have found that exFAT is more efficient than EXT4 and may allow one extra storage unit to be placed on the same physical disk.
 
-We also recommend that you _not encrypt_ the drive or partition used to store the PoST data. You should, of course, protect the `local.key` file (which contains a miner's private key and is located in the `node_data/identities` folder) and not allow it to fall into anyone else's hands. However, full drive encryption is likely overkill and could slow down [proof generation](#proof-generation).
+We also recommend that you _not encrypt_ the drive or partition used to store the PoST data. You should, of course, protect the `local.key` file (which contains a miner's private key and is located in the `node_data/identities` folder) and not allow it to fall into anyone else's hands. However, full-drive encryption is likely overkill and could slow down [proof generation](#proof-generation).
 
 ## Number of Units
 
@@ -94,7 +94,7 @@ Filesystem     1GiB-blocks    Used Available Use% Mounted on
 /dev/sda           3667GiB 3649GiB     19GiB 100% /mnt/smesher-01
 ```
 
-As you can see, this 4TB drive, which should contain 3725.29 GiB, in fact only contains a usable 3667 GiB. After initializing 57 storage units of 64 GiB each, it contains around 19 GiB free usable space.
+As you can see, this 4TB drive, which should contain 3725.29 GiB, in fact only contains a usable 3667 GiB. After initializing 57 storage units of 64 GiB each, it contains around 19 GiB of free usable space.
 
 Linux users may also find the [`tune2fs`](https://linux.die.net/man/8/tune2fs) command useful, both for displaying more detailed filesystem information and for reducing the amount of
 [reserved space](https://unix.stackexchange.com/questions/7950/reserved-space-for-root-on-a-filesystem-why) on a drive. Assuming a drive is exclusively being used to store PoST data, the reserved space may safely be set to zero.
@@ -154,11 +154,11 @@ Get-PSDrive -PSProvider FileSystem | ForEach-Object {
 
 As with most other aspects of Spacemesh, the easiest way to begin and monitor initialization is by using Smapp. When you first open it, Smapp will walk you through the process of choosing a location for storing your PoST data, choosing your GPU, and beginning initialization. It will show you the progress as initialization proceeds. See [Smapp Tutorial #4: Proof of Space & Smeshing Setup](https://www.youtube.com/watch?v=t5oZoodfTrc) for more information on this process.
 
-If you prefer to perform PoST initialization using the command line, you have two options. If you simply run `go-spacemesh` directly with the `smeshing` configuration parameters specified above, it will perform initialization for you using the fastest available GPU. You can also manually perform initialization using the [`postcli` tool](https://github.com/spacemeshos/post/tree/develop/cmd/postcli) which allows you to have even greater control of the initialization process, such as running in parallel across multiple systems or multiple GPUs (more information on this below).
+If you prefer to perform PoST initialization using the CLI, you have two options. If you simply run `go-spacemesh` directly with the `smeshing` configuration parameters specified above, it will perform initialization for you using the fastest available GPU. You can also manually perform initialization using the [`postcli` tool](https://github.com/spacemeshos/post/tree/develop/cmd/postcli) which allows you to have even greater control of the initialization process, such as running in parallel across multiple systems or multiple GPUs (more information on this below).
 
 ### Choosing a Provider
 
-As mentioned, `go-spacemesh` will automatically choose the fastest GPU to perform initialization based on a benchmark. You can change the selected GPU with the `smeshing-opts-provider` config item. To see the list of detected GPUs and their corresponding indices, run [`postcli`](https://github.com/spacemeshos/post/tree/develop/cmd/postcli) as follows. You should see something like the following:
+As mentioned, `go-spacemesh` will automatically choose the fastest GPU to perform initialization based on a benchmark. You can change the selected GPU with the `smeshing-opts-provider` config item. To see the list of detected GPUs and their corresponding indices, run [`postcli  -printProviders`](https://github.com/spacemeshos/post/tree/develop/cmd/postcli). You should see something like the following:
 
 ```bash
 > postcli -printProviders
@@ -215,5 +215,4 @@ The size of the data used for proof generation can be changed after initializati
 
 **Beware:** Decreasing your PoST size will reduce your rewards and only becomes effective in the epoch after the resizing process is complete, and the node has generated a PoST proof. Increasing your PoST size will increase your rewards, but it takes 2 epochs to become effective. For example, if you increase your PoST size before the PoET cycle gap in epoch 10, your rewards will be increased starting from epoch 12.
 
-You can also resize PoST data using the [`postcli` tool](https://github.com/spacemeshos/post/tree/develop/cmd/postcli), which allows you to have greater control. For information on how to initialize only the data you do not already have and merge it with the existing data, refer to the section
-[Initializing a subset of post data](https://github.com/spacemeshos/post/tree/develop/cmd/postcli#initializing-a-subset-of-post-data).
+You can also resize PoST data using the [`postcli` tool](https://github.com/spacemeshos/post/tree/develop/cmd/postcli) which allows you to have greater control. For information on how to only initialize the data that you do not already have and merge it with the existing data, refer to [this section](https://github.com/spacemeshos/post/tree/develop/cmd/postcli#initializing-a-subset-of-post-data).
