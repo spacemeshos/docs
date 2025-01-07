@@ -3,9 +3,9 @@ id: api
 title: API
 ---
 
-The node implements a [gRPC](https://grpc.io/) API that can be used to monitor and interact with the running node, and change certain settings. The API is split into two separate instances, one public and one private, each of which implements several services that can be turned on or off at will. "Public" services provide readonly access to data such as node status, epochs/layers/blocks/transactions, account state, etc., whereas "private" services allow the operator to change the params of a running node, e.g., the [smesher coinbase](https://github.com/spacemeshos/api/blob/a7c0b7acd9bc72940a8ab8e22202a77a4c3f438b/spacemesh/v1/smesher.proto#L29) or the [set of PoET servers](https://github.com/spacemeshos/api/blob/a7c0b7acd9bc72940a8ab8e22202a77a4c3f438b/spacemesh/v1/smesher.proto#L55). While "public" endpoints are theoretically safe to open for public API calls, in practice **we strongly recommend that no API services be exposed publicly.** The API design and implementation have not been hardened against denial of service attacks and represent an attack vector against a running node. For this reason, you should run _both the public and private API instances_ on private interfaces (e.g., the loopback/127.0.0.1 interface) and/or put them behind a firewall.
+The node implements a [gRPC](https://grpc.io/) API that can be used to monitor and interact with the running node and change certain settings. The API is split into two separate instances, one public and one private, each of which implements several services that can be turned on or off at will. "Public" services provide read-only access to data such as node status, epochs/layers/blocks/transactions, account state, etc., whereas "private" services allow the operator to change the params of a running node, e.g., the [smesher coinbase](https://github.com/spacemeshos/api/blob/a7c0b7acd9bc72940a8ab8e22202a77a4c3f438b/spacemesh/v1/smesher.proto#L29) or the [set of PoET servers](https://github.com/spacemeshos/api/blob/a7c0b7acd9bc72940a8ab8e22202a77a4c3f438b/spacemesh/v1/smesher.proto#L55). While "public" endpoints are theoretically safe to open for public API calls, in practice, **we strongly recommend that no API services be exposed publicly.** The API design and implementation have not been hardened against denial-of-service (DoS) attacks and represent an attack vector against a running node. For this reason, you should run _both the public and private API instances_ on private interfaces (e.g., the loopback/127.0.0.1 interface) and/or put them behind a firewall.
 
-Default network config files by default enable all API services:
+Default network config files, by default, enable all API services:
 
 ```
   "api": {
@@ -27,9 +27,9 @@ Default network config files by default enable all API services:
   },
 ```
 
-Note that the public instance runs on the interface/port `0.0.0.0:9092` and the private runs on `127.0.0.1:9093`. `grpc-json-listener` refers to a JSON-based [gRPC-Gateway](https://github.com/grpc-ecosystem/grpc-gateway) that allows clients that don't speak gRPC to communicate with the API using JSON instead, and can in general be turned off.
+Note that the public instance runs on the interface/port `0.0.0.0:9092` and the private runs on `127.0.0.1:9093`. `grpc-json-listener` refers to a JSON-based [gRPC-Gateway](https://github.com/grpc-ecosystem/grpc-gateway) that allows clients that do not speak gRPC to communicate with the API using JSON instead, and can, in general, be turned off.
 
-The easiest way to interact with the API from the command line and from scripts is using the [`grpcurl`](https://github.com/fullstorydev/grpcurl) tool. gRPC is self-documenting via a feature known as [reflection](https://github.com/grpc/grpc/blob/master/doc/server-reflection.md) that lets a client traverse an API, list RPC methods, inputs and outputs, and describe data types, e.g.:
+The easiest way to interact with the API from the command line is by using the [`grpcurl`](https://github.com/fullstorydev/grpcurl) tool. gRPC is self-documenting via a feature known as [reflection](https://github.com/grpc/grpc/blob/master/doc/server-reflection.md) that lets a client traverse an API, list RPC methods, inputs and outputs, and describe data types, e.g.:
 
 ```bash
 > grpcurl -plaintext localhost:9092 list
@@ -60,11 +60,11 @@ message NodeInfoResponse {
 }
 ```
 
-For more information gRPC reflection see [gRPC Server Reflection Tutorial](https://github.com/grpc/grpc-go/blob/master/Documentation/server-reflection-tutorial.md#enable-server-reflection).
+For more information on gRPC reflection, see the [gRPC Server Reflection Tutorial](https://github.com/grpc/grpc-go/blob/master/Documentation/server-reflection-tutorial.md#enable-server-reflection).
 
 Common, useful commands for node operators include:
 
-- Check node status (synced layer, verified layer, number of connected peers):
+- Check node status (synced layer, verified layer, and the number of connected peers):
 
 ```bash
 > grpcurl -plaintext localhost:9092 spacemesh.v1.NodeService.Status
@@ -85,7 +85,7 @@ Common, useful commands for node operators include:
 }
 ```
 
-- See the events stream (a useful, high level idea of what the node is doing, including PoST init, PoET registration, publishing ATXs, and publishing proposals):
+- See the events stream (a useful, high-level idea of what the node is doing, including PoST init, PoET registration, publishing ATXs, and publishing proposals):
 
 ```bash
 > grpcurl -plaintext localhost:9093 spacemesh.v1.AdminService.EventsStream
@@ -198,16 +198,16 @@ Common, useful commands for node operators include:
 
 ```
 
-The Spacemesh node gRPC API lives in the [api repository](https://github.com/spacemeshos/api/); see the [service definitions](https://github.com/spacemeshos/api/tree/master/spacemesh/v1). The implementation lives in the [`api` directory](https://github.com/spacemeshos/go-spacemesh/tree/develop/api/grpcserver) of the go-spacemesh repository.
+The Spacemesh node gRPC API lives in the [`api` repository](https://github.com/spacemeshos/api/). The service definitions can be seen [here](https://github.com/spacemeshos/api/tree/master/spacemesh/v1). The implementation lives in the [`api` directory](https://github.com/spacemeshos/go-spacemesh/tree/develop/api/grpcserver) of the go-spacemesh repository.
 
 ## Updates
 
-The Spacemesh team regularly releases updates to GUI and CLI node software. Smapp has a feature that monitors new releases and notifies the user when a new release is available, with a one-click update mechanism (Linux users who installed Smapp using the .deb file will need to manually check for and install updates due to [this issue](https://github.com/spacemeshos/smapp/issues/1299)). Note that, at present, go-spacemesh updates are bundled into Smapp updates, though this may change in the future; and go-spacemesh and Smapp use independent version numbering (e.g., Smapp [v1.0.18](https://github.com/spacemeshos/smapp/releases/tag/v1.0.18) bundles go-spacemesh v1.0.19).
+The Spacemesh team regularly releases updates to the GUI and CLI node software. Smapp has a feature that monitors new releases and notifies the user when a new release is available, with a one-click update mechanism (Linux users who installed Smapp using the .deb file will need to manually check for and install updates due to [this issue](https://github.com/spacemeshos/smapp/issues/1299)). Note that, at present, `go-spacemesh` updates are bundled into Smapp updates, though this may change in the future, and go-spacemesh and Smapp use independent version numbering (e.g., Smapp [v1.0.18](https://github.com/spacemeshos/smapp/releases/tag/v1.0.18) bundles go-spacemesh v1.0.19).
 
-No such notify or update mechanism is built into `go-spacemesh`, so CLI node operators will need to manually keep their software up to date. Node updates vary in severity and, while it's generally safe to be one or two patch releases behind, this isn't always the case and some bigger updates may need to be installed right away in order to keep one's node online and mining, and in order not to receive rewards. Releases are announced on several channels including:
+No such notify or update mechanism is built into `go-spacemesh`, so CLI node operators will need to manually keep their software up to date. Node updates vary in severity and, while it is generally safe to be one or two patch releases behind, this is not always the case and some bigger updates may need to be installed right away in order to keep one's node online and mining, and to receive rewards. Releases are announced on several channels including:
 
-- [go-spacemesh releases](https://github.com/spacemeshos/go-spacemesh/releases) on GitHub
-- the [#announcements channel](https://discord.com/channels/623195163510046732/691258865861394432) on the Spacemesh Discord
-- the official [Spacemesh Twitter](https://twitter.com/teamspacemesh)
+- The [go-spacemesh releases](https://github.com/spacemeshos/go-spacemesh/releases) page on GitHub
+- The [#announcements channel](https://discord.com/channels/623195163510046732/691258865861394432) on the Spacemesh Discord
+- The official [Spacemesh X account](https://twitter.com/teamspacemesh)
 
-You are strongly encouraged to watch one or more of these channels closely and/or [subscribe to GitHub release notifications](https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository) so that your node is up to date.
+You are strongly encouraged to watch one or more of these channels closely and/or [subscribe to GitHub release notifications](https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository) so that you can always keep your node up to date.
