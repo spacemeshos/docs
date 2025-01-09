@@ -19,16 +19,15 @@ The easiest way to understand the setup is to try the PoC yourself. The followin
 
 ## Why is this important?
 
-For the best understanding of the problem and our reasoning behind the node split, we recommend watching this [video](https://www.youtube.com/watch?v=d4jBz1krRHg).
+It's best to watch the [video](https://www.youtube.com/watch?v=d4jBz1krRHg) to get a better understanding of the problem and our reasoning behind the node split.
 
-The current go-spacemesh node is a monolithic application that includes all the logic required for consensus, smeshing, and other services. This makes it difficult to run the node on low-resource devices, as the node requires a significant amount of resources to run. By splitting the node into two separate services, we can enable users to run the smeshing logic on a separate device while still connecting to a remote node for the rest of the services. This allows users to run the node on low-resource devices while still participating in the Spacemesh network.
+The current go-spacemesh node is a monolithic application that includes all the logic required for consensus, smeshing, and other services. This makes it difficult to run the node on low-resource devices, as the node requires a significant amount of resources to run. By splitting the node into two separate services, we can enable users to run the smeshing logic on a separate device, while still connecting to a remote node for the rest of the services. This allows users to run the node on low-resource devices, while still participating in the Spacemesh network.
 
 ### Benefits
-1. **Lower system requirements**: Users can run the smesher service on low-resource devices while connecting to a more powerful node for the rest of the services.
-2. **Better failover and redundancy**: Currently, when you need to restart a node, you also need to restart the smesher service. With the node split, you can restart the node without affecting the smeshing process. Starting smeshing will also be much quicker because it will *not* need to wait for the node to sync, as the node will be running elsewhere. Multiple smesher services can be connected to the same node, and nodes can be hot-swapped without affecting the smeshing process.
-3. **Lower OpEx**: The smesher service can be shut down when not needed to save costs and resources.
-4. **Better node maintainability**: The node can be updated without affecting the smeshing process. This will allow for more frequent updates and bug fixes.
-
+1. **Lower system requirements**: Users can run the smesher service on low-resource devices, while connecting to a more powerfull node for the rest of the services.
+2. **Better failover and redundancy**: Currently when you need to restart a node you also need to restart the smesher service. With the node split you can restart the node without affecting the smeshing process. Starting smeshing will be also much quicker because it will *not* need to wait for the node to sync as the node will be running elsewhere. Multiple smesher services can be connected to the same node, and nodes can be hot swapped without affecting the smeshing process.
+3. **Lower OpEx**: Smesher service can be shut down wherever not needed to save costs and resources. Additionally, only a single node is required for multiple smeshing services and it can run where it's most cost effective, which is not necessarily where the semshing service runs.
+4. **Better node maintanability**: The node can be updated without affecting the smeshing process and the smeshing service can be updated without re-syncing. This makes updates simpler and less risky.
 ## Running the PoC
 
 There are two distinct configuration/setup methods possible:
