@@ -1,10 +1,10 @@
 # Node split PoC
 
-In our ongoing effort to lower the bar for smeshing, we're exploring a new direction for reducing system requirements for smeshers. The idea is to re-architect the internal modules in go-spacemesh, isolating the smeshing logic from the passive consensus code. By dividing the node along these lines, we can enable users to run the lightweight yet sensitive (requiring access to private key) smeshing logic separately from the rest of the node. This allows users with limited resources to use a remote node for their smeshing.
+In our ongoing effort to lower the bar for smeshing, we're exploring a new direction for reducing system requirements for smeshers. The idea is to re-architect the internal modules in go-spacemesh, isolating the smeshing logic from the passive consensus code. By dividing the node along these lines, we can enable users to run the lightweight yet sensitive (requiring access to the private key) smeshing logic separately from the rest of the node. This allows users with limited resources to use a remote node for their smeshing.
 
-We are demonstrating a PoC of the node split, where the smeshing logic is separated from the rest of the node. The PoC is based on the current go-spacemesh codebase and is intended to demonstrate the feasibility of the node split concept. The PoC is not intended to be a production-ready implementation.
+We demonstrate a PoC of the node split, where the smeshing logic is separated from the rest of the node. The PoC is based on the current go-spacemesh codebase and is intended to demonstrate the feasibility of the node split concept. The PoC is not intended to be a production-ready implementation.
 
-The PoC itself is still work in progress so please expect changes and improvement in the future.
+The PoC itself is still a work in progress so please expect changes and improvement in the future.
 
 The architecture of the PoC is as follows:
 
@@ -24,19 +24,19 @@ It's best to watch the [video](https://www.youtube.com/watch?v=d4jBz1krRHg) to g
 The current go-spacemesh node is a monolithic application that includes all the logic required for consensus, smeshing, and other services. This makes it difficult to run the node on low-resource devices, as the node requires a significant amount of resources to run. By splitting the node into two separate services, we can enable users to run the smeshing logic on a separate device, while still connecting to a remote node for the rest of the services. This allows users to run the node on low-resource devices, while still participating in the Spacemesh network.
 
 ### Benefits
-1. **Lower system requirements**: Users can run the smesher service on low-resource devices, while connecting to a more powerfull node for the rest of the services.
-2. **Better failover and redundancy**: Currently when you need to restart a node you also need to restart the smesher service. With the node split you can restart the node without affecting the smeshing process. Starting smeshing will be also much quicker because it will *not* need to wait for the node to sync as the node will be running elsewhere. Multiple smesher services can be connected to the same node, and nodes can be hot swapped without affecting the smeshing process.
-3. **Lower OpEx**: Smesher service can be shut down wherever not needed to save costs and resources. Additionally, only a single node is required for multiple smeshing services and it can run where it's most cost effective, which is not necessarily where the semshing service runs.
-4. **Better node maintanability**: The node can be updated without affecting the smeshing process and the smeshing service can be updated without re-syncing. This makes updates simpler and less risky.
+1. **Lower system requirements**: Users can run the smesher service on low-resource devices while connecting to a more powerful node for the rest of the services.
+2. **Better failover and redundancy**: Currently when you need to restart a node you also need to restart the smesher service. With the node split you can restart the node without affecting the smeshing process. Starting smeshing will be also much quicker because it will *not* need to wait for the node to sync as the node will be running elsewhere. Multiple smesher services can be connected to the same node, and nodes can be hot-swapped without affecting the smeshing process.
+3. **Lower OpEx**: Smesher service can be shut down wherever not needed to save costs and resources. Additionally, only a single node is required for multiple smeshing services and it can run where it's the most cost-effective, which is not necessarily where the smeshing service runs.
+4. **Better node maintainability**: The node can be updated without affecting the smeshing process and the smeshing service can be updated without re-syncing. This makes updates simpler and less risky.
 ## Running the PoC
 
 There are two distinct configuration/setup methods possible:
 1. Using locally running node and smesher service
 2. Using remote running node and local smesher service
 
-We will use a Docker Compose based setup for both options. While it's possible to run the PoC without Docker, it's more complicated, so for simplicity we'll use Docker.
+We will use a Docker Compose-based setup for both options. While it's possible to run the PoC without Docker, it's more complicated, so for simplicity, we'll use Docker.
 
-Both setups will run two smesher services connecting to the same node. Please note that one smesher service can have multiple post services connected to it, as is currently the case with node and post services. However, in this PoC we're using only one post service per smesher service.
+Both setups will run two smesher services connecting to the same node. Please note that one smesher service can have multiple post services connected to it as is currently the case with node and post services. However, in this PoC we're using only one post service per smesher service.
 
 ### Using locally running node and smesher service
 
@@ -67,7 +67,7 @@ git clone https://github.com/spacemeshos/go-spacemesh.git
 cd go-spacemesh
 git checkout node-split-poc
 ```
-2. Change directory to the demo directory
+2. Change the directory to the demo directory
 ```
 cd activation_service_poc/demo
 ```
@@ -76,12 +76,12 @@ cd activation_service_poc/demo
 docker-compose-testnet-both-local.yml
 docker-compose-testnet-remote-node.yml
 ```
-4. Run the docker-compose command according to your chosen setup. For example, to run the setup with locally running node and smesher service, run:
+4. Run the docker-compose command according to your chosen setup. For example, to run the setup with remote node and smesher service, run:
 ```
 docker-compose -f docker-compose-testnet-remote-node.yml up -d
 ```
 
-After all the steps are done please give each smesher service a while to initialize POST and generate inital post proof. This may take up to a few minutes.
+After all the steps are done please give each smesher service a while to initialize POST and generate initial post proof. This may take up to a few minutes.
 
 If all steps are followed correctly, you should see three new Docker containers running. You can check the status of the containers using:
 ```
@@ -95,10 +95,10 @@ You'll also be able to connect to the node's UI by visiting `https://smesher-alp
 
 The first time you open the UI it will be mostly empty as you're running a fresh smeshing service and therefore don't yet have eligibility. Testnet epochs are 24 hours long, so you'll need to wait for the next epoch to start smeshing. You can check the epoch number and exact timing in the UI.
 
-Initially it will look like:
+Initially, it will look like:
 ![initial-app-state.png](./../../static/img/node-split/initial-app-state.png)
 
-After a few epochs you should see a UI that looks similar to:
+After a few epochs, you should see a UI that looks similar to:
 ![smesher-app.png](./../../static/img/node-split/smesher-app.png)
 
 
@@ -137,7 +137,7 @@ While this is not a final solution and will be replaced with a more secure one i
 
 ### Running the PoC without Docker
 
-Use the attached configs, replicate the command line and run the binary files:
+Use the attached configs, replicate the command line, and run the binary files:
 
 1. Download the most recent release of node-split-poc go-spacemesh from the [releases page](https://github.com/spacemeshos/go-spacemesh/releases) and look for `node-split-poc` releases.
 2. Extract the archive and copy the config files (*.json)
@@ -148,4 +148,4 @@ Use the attached configs, replicate the command line and run the binary files:
 
 The actual differences to the default config are pretty minimal.
 
-The most important are addition of `"node-service-address": "http://0.0.0.0:9099"` in the `main` section, and the definition of `"grpc-local-services": ["smeshing_identities_v2alpha1"]` in the `api` section.
+The most important is the addition of `"node-service-address": "http://0.0.0.0:9099"` in the `main` section, and the definition of `"grpc-local-services": ["smeshing_identities_v2alpha1"]` in the `api` section.
