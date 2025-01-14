@@ -93,6 +93,9 @@ demo-activation-service-remote-2-1   spacemeshos/go-spacemesh-dev:2c898bb30   "/
 
 You'll also be able to connect to the node's UI by visiting `https://smesher-alpha.spacemesh.network/` in your browser. This is a PoC of the smesher service UI and is not intended to be a production-ready implementation. It uses the smesher service API directly to interact with the smesher service. It's fully open source and the code can be found [here](https://github.com/spacemeshos/smesher-app).
 
+>[!NOTE]
+If you're running on Mac with Apple Silicon you need to build the docker images yourself by running: `make dockerbuild-go` in the go-spacemesh repo.
+
 The first time you open the UI it will be mostly empty as you're running a fresh smeshing service and therefore don't yet have eligibility. Testnet epochs are 24 hours long, so you'll need to wait for the next epoch to start smeshing. You can check the epoch number and exact timing in the UI.
 
 Initially it will look like:
