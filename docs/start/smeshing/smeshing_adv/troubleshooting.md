@@ -5,10 +5,7 @@ title: Troubleshooting
 
 ## Corrupt PoST Data
 
-One of the realities of hard drives is that, once in a while, they fail, resulting in corrupt data. Data corruption can
-also occur while [copying or moving](./advanced.md#moving-post-files) data across systems. Hopefully you'll never have
-to deal with this situation, but if it does happen, you'll most likely find out when a message like the following
-appears in your log:
+One of the realities of hard drives is that, once in a while, they fail, resulting in corrupt data. Data corruption can also occur while [copying or moving](./advanced.md#moving-post-files) data across systems. Hopefully you will never have to deal with this situation. However, if it does happen, you will most likely find out about it when a message like the following appears in your log:
 
 <!-- markdownlint-disable MD013 -->
 ```console
@@ -19,9 +16,7 @@ appears in your log:
 ```
 <!-- markdownlint-enable MD013 -->
 
-This message indicates that, despite the presence of a complete identity, the miner was unable to generate a PoST proof
-for a particular epoch due to corruption in the PoST data. The best way to verify this is to run
-[`postcli`](https://github.com/spacemeshos/post/tree/develop/cmd/postcli) in verify mode:
+This message indicates that, despite the presence of a complete identity, the smeshing node was unable to generate a [PoST](../../../learn/post.md) for a particular epoch due to corruption of the PoST data. The best way to verify this is to run [`postcli`](https://github.com/spacemeshos/post/tree/develop/cmd/postcli) in verify mode:
 
 <!-- markdownlint-disable MD013 -->
 ```console
@@ -38,27 +33,28 @@ for a particular epoch due to corruption in the PoST data. The best way to verif
 ```
 <!-- markdownlint-enable MD013 -->
 
-You can do this for an entire identity, or only for a subset of files (using `-fromFile` and `-toFile`; see the
+You can do this for an entire identity or only for a subset of files (using `-fromFile` and `-toFile`. See the
 [README](https://github.com/spacemeshos/post/tree/develop/cmd/postcli) for more information). If nothing else is
-touching the drive (e.g., if the node is shut down and the drive isn't being used for any other purpose), then running
-`postcli verify` with `-fraction 0.01` should be quite quick; you can run with a larger fraction for a more thorough
-check. Note also that multiple files may be corrupt; `postcli verify` will quit after detecting a single corrupt file,
-and you can restart it with a higher `-fromFile` to continue the process. Serious miners may wish to run such a
-verification process periodically to detect corruption issues before they lead to failures in proof generation and lost
-rewards.
+using the drive (e.g., if the node is shut down and the drive is not being used for any other purpose), then running
+`postcli verify` with `-fraction 0.01` should be quite quick. You can run the command with a larger fraction value for a more thorough
+check. 
 
-Once corrupt data is detected, the only option is to delete and regenerate the affected files. If the files are deleted
-and the node is restarted, it'll automatically restart the PoST initialization process to fill in the missing data, or
-this can be done manually using `postcli`.
+:::info
 
-## Additional troubleshooting
+It is possible for multiple files to be corrupt. `postcli verify` will quit itself after detecting a single corrupt file, and you can restart it with a higher `-fromFile` to continue the process right after the corrupt file. Serious smeshers may wish to run such a verification process periodically to detect corruption issues before they lead to failures in proof generation and lost rewards.
+
+:::
+
+Once corrupt data is detected, the only option is to delete and regenerate the affected files. If the files are deleted and the node is restarted, it will automatically restart the PoST initialization process to fill in the missing data. This can also be done manually using `postcli`.
+
+## Additional Troubleshooting
 
 ### `timesync: peers are not time synced`
 
 Please make sure that your system clock is synced with the internet. Please refer to time synchronization instructions
 for your operating system.
 
-If you're 100% certain that your time is correct you can disable the time sync check by setting the following config:
+If you're 100% certain that your system time is correct, you can disable the time sync check by setting the following config:
 
 ```json
 {
@@ -70,11 +66,7 @@ If you're 100% certain that your time is correct you can disable the time sync c
 }
 ```
 
-### My node uses too much memory and I don't know why
+### Node Uses Too Much Memory
 
-Please add a `"pprof-server": true`, to the config at the main level or add `--pprof-server` to the command line.
-Restart the node and then visit <http://127.0.0.1:6060/debug/pprof/profile?seconds=30> and
-<http://127.0.0.1:6060/debug/pprof/heap> in your default browser and download the files. Please share then these files
-on discord or github issue.
-
-Advanced users can use `go tool pprof http://localhost:6060/debug/pprof/heap` to see what is using the memory.
+Please add a `"pprof-server": true` to the config at the main level or add `--pprof-server` to the command line. Restart the node and then visit <http://127.0.0.1:6060/debug/pprof/profile?seconds=30> and
+<http://127.0.0.1:6060/debug/pprof/heap> in your default browser and download the files. Please share then these files on Discord or in a GitHub issue. Advanced users can use `go tool pprof http://localhost:6060/debug/pprof/heap` to see what is using the memory.
