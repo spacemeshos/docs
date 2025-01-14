@@ -85,14 +85,28 @@ module.exports = {
     "start/integration",
     "start/ledger",
   ],
-  ecosystem: [
-    "ecosystem/construction-eco",
-    "ecosystem/smapp",
-    "ecosystem/node",
-    "ecosystem/poet",
-    "ecosystem/dash",
+  api: [
+    'api/api'
   ],
-  api: ["api/construction-api", "api/services", "api/endpoints"],
+  learn: [
+    {
+      'Spacemesh 101': [
+        'learn/spacemesh',
+        'learn/coin',
+        'learn/smeshing',
+        'learn/economics'],
+      'Protocol 101': [
+        'learn/post',
+        'learn/poet',
+        'learn/atx',
+        'learn/hare',
+        'learn/tortoise',
+        'learn/rewards',
+        'learn/blocks',
+        'learn/accounts'
+      ]
+    }
+],
   node: [
     "node_operation/construction-node",
     "node_operation/serialization",
