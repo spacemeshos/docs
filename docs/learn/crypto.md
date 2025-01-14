@@ -19,4 +19,4 @@ This represents a paradigm shift from our existing system, especially in the rea
 
 ## Digital Gold
 
-One of the key features of cryptocurrencies is that they are not fiat currencies. That is, they are tied to a another commodity and must be "mined", meaning that they can't be printed at will. So, like currencies tied to hard commodities like gold, they are inflation-resistant because they cannot be printed at will by central banks.
+One of the key features of cryptocurrencies is that they are not fiat currencies. That is, they are tied to a another commodity and must be "mined", meaning that they cannot be printed at will. So, like currencies tied to hard commodities like gold, they are inflation-resistant because they cannot be printed at will by central banks.

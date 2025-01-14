@@ -23,7 +23,7 @@ Please make sure that your computer clock is synced to a time server such as `ti
 
 > You may see a Windows security alert when you launch the App for the first time. Check the checkbox 'Private networks' and click 'Allow access'.
 
-If you didn't click on `Allow access` when prompted by Windows, you may need to manually permit the App to receive connections from the internet on TCP port 7153 and on UDP port 7153.
+If you did not click on `Allow access` when prompted by Windows, you may need to manually permit the App to receive connections from the internet on TCP port 7153 and on UDP port 7153.
 
 > Follow these instructions to configure incoming connections rules for these two ports.
 
@@ -36,7 +36,7 @@ If you didn't click on `Allow access` when prompted by Windows, you may need to 
 5. Select `Port` for the new rule type and click `Next`.
 6. Select `TCP` and, enter `7153` in the `Specific local ports` text box click `Next`.
 7. Select `Allow the connection` in the next screen and click `Next`.
-8. Don't change the default options in the `Apply Rule` screen and click `Next`.
+8. Do not change the default options in the `Apply Rule` screen and click `Next`.
 9. Name the rule `Spacemesh TCP` and click Finish.
 
 
@@ -49,7 +49,7 @@ If you didn't click on `Allow access` when prompted by Windows, you may need to 
 5. Select `Port` for the new rule type and click `Next`.
 6. Select `UDP` and, enter `7153` in the `Specific local ports` text box click `Next`.
 7. Select `Allow the connection` in the next screen and click `Next`.
-8. Don't change the default options in the `Apply Rule` screen and click `Next`.
+8. Do not change the default options in the `Apply Rule` screen and click `Next`.
 9. Name the rule `Spacemesh UDP` and click Finish.
 
 
@@ -79,6 +79,6 @@ If you are running Linux then you should be able to configure your firewall via 
 
 Your home router or Internet access point (or both) may be blocking the App from receiving data from the network. The App attempts to automatically configure your router using UPnP so in most cases you do not need to manually configure your router.
 
-If you still can't connect to the p2p network then you need to configure your router to forward both UDP and TCP incoming network traffic on port 7153 to the computer that you are running the App on.
+If you still cannot connect to the p2p network then you need to configure your router to forward both UDP and TCP incoming network traffic on port 7153 to the computer that you are running the App on.
 
 To configure your router follow the instructions provided by your router hardware maker for your router model.
