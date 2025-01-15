@@ -5,14 +5,17 @@ title: PoST Initialization
 
 ## Proof Generation
 
-Once per epoch, after the node has received a PoET and the PoET cycle gap is underway, the node will generate a
-[PoST](../../../learn/post.md), which requires that it sequentially read all the PoST data. The details
-are not something most smeshers need to worry about as the node will handle the process for you. See
-[Fine-tuning Node Performance](./performance.md) for information on benchmarks and parameters that can be tweaked.
+Once per epoch, after the node has received a PoET and the PoET cycle gap is underway, the node will generate a [PoST](../../../learn/post.md), which requires that it sequentially read all the PoST data. The details are not something most smeshers need to worry about as the node will handle the process for you. See [Fine-tuning Node Performance](./performance.md) for information on benchmarks and parameters that can be tweaked.
 
-The first part of the proving process is an initial proof-of-work phase called **k2pow** that uses a proof-of-work algorithm called [RandomX](https://github.com/tevador/RandomX). During this phase, which is CPU bound, you should see CPU usage spike briefly for a few minutes with there being very little network or disk activity. As explained in the [Profiler docs](https://github.com/spacemeshos/post-rs/blob/main/docs/profiler.md#is-that-all-that-is-happening-during-the-proof-generation), it should take a low-end CPU around 2.5 minutes to compute k2pow for 4 storage units (SUs). The computation time scales linearly with the hash rate and number of SUs allocated. See the [RandomX Benchmark](https://xmrig.com/benchmark) to get a sense of your CPU's RandomX hash rate.
+The first part of the proving process is an initial proof-of-work phase called **K2PoW** that uses a proof-of-work algorithm called [RandomX](https://github.com/tevador/RandomX). During this phase, which is CPU bound, you should see CPU usage spike briefly for a few minutes with there being very little network or disk activity. As explained in the [Profiler docs](https://github.com/spacemeshos/post-rs/blob/main/docs/profiler.md#is-that-all-that-is-happening-during-the-proof-generation), it should take a low-end CPU around 2.5 minutes to compute k2pow for 4 storage units (SUs). The computation time scales linearly with the hash rate and number of SUs allocated. See the [RandomX Benchmark](https://xmrig.com/benchmark) to get a sense of your CPU's RandomX hash rate.
 
-Once the k2pow phase is complete, the node begins the PoST proving process, which takes longer as it involves reading and computing a hash function over all the initialized PoST data. The duration of the proving depends on factors including the disk read speed, CPU speed, and configured [nonces and threads](./advanced.md#fine-tuning-proving). This process may be CPU bound or IO bound, depending on the configuration. (This phase does not use the network.)
+:::tip
+
+Since K2PoW calculations are intensive, they can be optionally _offloaded_ to **K2PoW service workers**. In this way, your machine does not need to perform the K2PoW calculations locally. Instead, they are automatically handled by a remote node running the K2PoW service worker which then returns the results without storing them. Read more about how to configure and use the K2PoW service workers [here](https://github.com/spacemeshos/post-rs/tree/main/k2pow-service) and [here](https://github.com/spacemeshos/post-rs/tree/main/k2pow-service/examples/haproxy).
+
+:::
+
+Once the k2pow phase is complete, the node begins the PoST proving process, which takes longer as it involves reading and computing a hash function over all the initialized PoST data. The duration of the proving depends on factors including the disk read speed, CPU speed, and configured [nonces and threads](./advanced.md#fine-tuning-proving). This process may be CPU-bound or IO-bound, depending on the configuration. (This phase does not use the network.)
 
 ## Initialization
 
@@ -78,7 +81,7 @@ manage the underlying PoST data on any Linux, Windows, or macOS-compatible files
 1. If there is any chance you will want to *move the identity* from one operating system to another, we strongly recommend using the [exFAT](https://en.wikipedia.org/wiki/ExFAT) filesystem. This is the only filesystem that works out of the box across all the major operating systems. Keep in mind that _copying_ an entire identity from one filesystem to another could take a very long time, whereas with an exFAT filesystem, you can just "plug and chug" on any computer. You should be able to initialize and format a new exFAT filesystem easily in any operating system.
 1. Different file systems utilize space differently and require different amounts of overhead. As such, the number of storage units you will be able to fit on a given disk will depend, to some extent, upon the filesystem used to format the disk. In our personal experience, we have found that exFAT is more efficient than EXT4 and may allow one extra storage unit to be placed on the same physical disk.
 
-We also recommend that you _not encrypt_ the drive or partition used to store the PoST data. You should, of course, protect the `local.key` file (which contains a miner's private key and is located in the `node_data/identities` folder) and not allow it to fall into anyone else's hands. However, full-drive encryption is likely overkill and could slow down [proof generation](#proof-generation).
+We also recommend that you _not encrypt_ the drive or partition used to store the PoST data. You should, of course, protect the `local.key` file (which contains a smesher's private key and is located in the `node_data/identities` folder) and not allow it to fall into anyone else's hands. However, full-drive encryption is likely overkill and could slow down [proof generation](#proof-generation).
 
 ## Number of Units
 
