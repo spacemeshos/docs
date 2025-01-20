@@ -9,3 +9,9 @@ To help you get started, we've prepared a comprehensive smart contract template 
 The devnet configuration is available [here](https://configs.spacemesh.network/config.devnet-athena-13.json). Important note: You'll need to use the specialized `athena-devnet` version of go-spacemesh, as the mainline version is not compatible with this network. The latest release (version `athena-devnet-13-1.0.1`) can be downloaded [here](https://github.com/spacemeshos/go-spacemesh/releases/tag/athena-devnet-13-1.0.1).
 
 You can explore the network in real-time through our web interface [here](https://explorer-devnet-athena.spacemesh.network/overview).
+
+
+## Community Support
+
+Join us on the #athena-vm channel in [Spacemesh Discord](https://discord.com/invite/yVhQ7rC)
+for discussions, support, and sharing ideas about Athena VM development.
