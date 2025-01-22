@@ -62,7 +62,7 @@ PoST verification can be disabled completely on selected nodes by using `--smesh
 }
 ```
 
-:::warning
+:::caution Warning
 
 Disabling PoST verification is **only safe on the private** nodes because the **public** node will verify ATXs sent to it. Given that the private nodes are only connected to public nodes, there is no risk involved here. It is strongly **discouraged** to use this setting on **public** nodes.
 
@@ -76,7 +76,7 @@ Disabling PoST verification is **only safe on the private** nodes because the **
 
 Setting the `k3` parameter to 0 will significantly lower the CPU requirements while verifying the incoming ATXs. By default, the `k3` parameter is equal to `k2` which is currently 37. Setting it to a value lower than 37 will check fewer labels in the proofs and therefore speed up the checks. The downside is that it will lower the security of the ATX verification. The lower the value, the lower the security. Setting it to 0 will completely disable the verification of proof labels. The node will still verify the k2pow with RandomX though.
 
-:::warning 
+:::caution Warning
 
 Setting k3 to 0 is safe to use on **only on the private** nodes because the **public** node will verify whole proofs and not just one label as set in the config above. And given that the private nodes are only connected to public nodes then there is no risk involved here. It is strongly **discouraged** to use this setting on **public** nodes.
 
