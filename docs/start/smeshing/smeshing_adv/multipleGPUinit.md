@@ -9,38 +9,38 @@ title: Initializing a Subset of PoST Data With postcli
 
 ### When to Initialize a Subset of PoST Data
 
-1.**Large Data Volumes** : For substantial PoS data volumes, such as several Tebibytes, initializing the entire dataset on a single machine may be impractical due to time constraints or hardware limitations. Splitting the task across multiple machines can significantly reduce the overall initialization time.
+1. **Large Data Volumes**: For substantial PoS data volumes, such as several Tebibytes, initializing the entire dataset on a single machine may be impractical due to time constraints or hardware limitations. Splitting the task across multiple machines can significantly reduce the overall initialization time.
 
-2.**Limited Hardware Resources** : If the available hardware (especially GPU) on a single machine is not powerful enough to efficiently process the gib=ven amount of data, dividing the workload allows you to utilize the combined resources of multiple machines.
+1. **Limited Hardware Resources**: If the available hardware (especially GPU) on a single machine is not powerful enough to efficiently process the gib=ven amount of data, dividing the workload allows you to utilize the combined resources of multiple machines.
 
-3.**Network Bandwidth Constraints** : In environments where network bandwidth is limited or costly, transferring large volumes of data between machines or data centers can be impractical. Initializing data in subsets locally on machines where it will be used can mitigate this issue.
+1. **Network Bandwidth Constraints**: In environments where network bandwidth is limited or costly, transferring large volumes of data between machines or data centers can be impractical. Initializing data in subsets locally on machines where it will be used can mitigate this issue.
 
-4.**Parallel Processing** : When you have access to multiple machines or compute nodes, you can leverage parallel processing to expedite the initialization process. This is particularly beneficial for a still young network, where speed is of the essence, as the amount of rewards to distribute is lower wich each epoch and the number of miners constantly grows.
+1. **Parallel Processing**: When you have access to multiple machines or compute nodes, you can leverage parallel processing to expedite the initialization process. This is particularly beneficial for a still young network, where speed is of the essence, as the amount of rewards to distribute gets lower with each epoch and the number of miners constantly grows.
 
 ### When Not to Use It
 
-1.**Small Data Volumes** : For smaller volumes of PoS data that can be easily and quickly initialized on a single machine, the complexity of splitting the task may not be justified.
+1. **Small Data Volumes**: For smaller volumes of PoS data that can be easily and quickly initialized on a single machine, the complexity of splitting the task may not be justified.
 
-2.**Limited Access to Multiple Machines** : If you do not have easy access to multiple machines with sufficient resources, the effort to set up and coordinate the initialization process across machines may not be worthwhile.
+1. **Limited Access to Multiple Machines**: If you do not have easy access to multiple machines with sufficient resources, the effort to set up and coordinate the initialization process across machines may not be worthwhile.
 
-3.**Simplicity Preference** : When simplicity and ease of setup are prioritized, especially for users new to Spacemesh or tech in general, or those with straightforward use cases, initializing data in one go on a single machine may be preferred to avoid the complexity of managing multiple subsets.
+1. **Simplicity Preference**: When simplicity and ease of setup are prioritized, especially for users new to Spacemesh or tech in general, or those with straightforward use cases, initializing data in one go on a single machine may be preferred to avoid the complexity of managing multiple subsets.
 
 ## Prerequisites
 
 - Basic familiarity with command-line operations.
 
--`postcli` installed on your machine. For installation instructions, refer to the [Getting `postcli`](#getting-postcli) section.
+- `postcli` installed on your machine. For installation instructions, refer to the [Getting `postcli`](#getting-postcli) section.
 
 - OpenCL support on your system. Instructions for verifying and installing OpenCL can be found in the [Get OpenCL](#get-opencl) section.
 
 ## Getting `postcli`
 
 1. Download the latest release for your platform from [Spacemeshos GitHub releases page](https://github.com/spacemeshos/post/releases).
-2. Alternatively, build from the source or use the Docker image following the instructions provided in the original document.
+1. Alternatively, build from the source or use the Docker image following the instructions provided in the original document.
 
 ## Get OpenCL
 
-Ensure your system supports OpenCL, as it's required for `postcli` to function. This might involve installing specific drivers for Nvidia, AMD, or Intel graphics processors. Use the `clinfo -l` command to list available OpenCL providers.
+Ensure that your system supports OpenCL, as it is required for `postcli` to function. This might involve installing specific drivers for Nvidia, AMD, or Intel graphics processors. Use the `clinfo -l` command to list available OpenCL providers.
 
 ## Initializing a Subset of PoS Data
 
@@ -48,17 +48,17 @@ Start by figuring out how many computers you have or may have access to and thei
 
 ### Step 1: Determine the Total Number of Files
 
-It's important to determine the exact number of files that need to be created. You can do this through basic mathematics or by using the CLI command, as outlined below.
+It is important to determine the exact number of files that need to be created. You can do this through basic mathematics or by using the CLI command, as outlined below.
 
 #### **Understanding Storage Units and Data Volume**
 
-1.**Space Units to Data Volume** : The minimum storage allocation for PoS data is 4 Space Units (1SU=64GiB), equivalent to 256GiB (Gibibytes) in total. Therefore, for example, 10 TiB (Tebibytes) of data represent 40 times the minimum storage allocation, equating to 160 Space Units.
+1. **Space Units to Data Volume**: The minimum storage allocation for PoS data is 4 Space Units (1SU=64GiB), equivalent to 256GiB (Gibibytes) in total. Therefore, for example, 10 TiB (Tebibytes) of data represent 40 times the minimum storage allocation, equating to 160 Space Units.
 
-2.**File Size and Total Files** : Given the default file size is 4096MiB, the total number of files can be calculated based on the total data volume divided by the file size.
+2. **File Size and Total Files**: Given the default file size is 4096MiB, the total number of files can be calculated based on the total data volume divided by the file size.
 
 #### Calculating the Number of Files
 
-Let's calculate the total number of files for 10TiB of PoS data. Since 10TiB equals 10485760MiB, dividing this by the file size (4096MiB) gives the total number of files.
+Let us calculate the total number of files for 10TiB of PoS data. Since 10TiB equals 10485760MiB, dividing this by the file size (4096MiB) gives the total number of files.
 
 Total Number of Files : $\frac{10485760 \, \text{MiB}}{4096 \, \text{MiB}}$ = 2560
 
@@ -164,8 +164,8 @@ During the initialization process, `postcli` searches for a special number known
 
 Here’s what you need to look for in the `postdata_metadata.json` files:
 
-- **Nonce** : This is the index or position of the label.
-- **NonceValue** : This is the actual value of the label, a 16-byte number in hexadecimal format (for example, "0000ffda94993723a980bf557509773e").
+- **Nonce**: This is the index or position of the label.
+- **NonceValue**: This is the actual value of the label, a 16-byte number in hexadecimal format (for example, "0000ffda94993723a980bf557509773e").
 
 Given two `postdata_metadata.json` examples:
 
@@ -181,6 +181,6 @@ Given two `postdata_metadata.json` examples:
 "NonceValue": "0000488e171389cce69344d68b66f6b4"
 ```
 
-The nonce in the second file (please see the `NonceValue` not `Nonce` field) is the global minimum since its value is smaller than the first one. The operator is **required** to find the smallest VRF nonce by hand and ensure that its index and value are in the `postdata_metadata.json` of the merged directory on the target machine.
+The nonce in the second file (please see the `NonceValue`, not `Nonce` field) is the global minimum since its value is smaller than the first one. The operator is **required** to find the smallest VRF nonce by hand and ensure that its index and value are in the `postdata_metadata.json` of the merged directory on the target machine.
 
 Not every chunk will contain a VRF nonce in its `postdata_metadata.json`, but at least one should. If for the very unlikely case that no VRF nonce was found in any chunk, the operator can run `postcli` again **after merging the data** without `-fromFile` and `-toFile` flags to find a VRF nonce.

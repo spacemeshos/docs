@@ -1,25 +1,25 @@
-
-
 module.exports = {
   learn: [
     {
-      'Spacemesh 101': [
-        'learn/spacemesh',
-        'learn/coin',
-        'learn/smeshing',
-        'learn/economics'],
-      'Protocol 101': [
-        'learn/post',
-        'learn/poet',
-        'learn/atx',
-        'learn/hare',
-        'learn/tortoise',
-        'learn/rewards',
-        'learn/blocks',
-        'learn/accounts'
-      ]
-    }
-],
+      "Spacemesh 101": [
+        "learn/spacemesh",
+        "learn/coin",
+        "learn/smeshing",
+        "learn/economics",
+      ],
+      "Protocol 101": [
+        "learn/post",
+        "learn/poet",
+        "learn/atx",
+        "learn/hare",
+        "learn/tortoise",
+        "learn/rewards",
+        "learn/blocks",
+        "learn/accounts",
+      ],
+      "Experimental features": ["experimental/node-split"],
+    },
+  ],
   // specs: [
   //       'specs/consensus/construction-cons',
   //       'specs/consensus/overview',
@@ -43,65 +43,77 @@ module.exports = {
   //   'specs/smart_contracts/opcodes',
   // ],
   start: [
-     // Smeshing Guide > Smeshing Guide Basic, Smeshing Guides Adv
-     {
-      type: 'category',
-      label: 'Smeshing Guide',
+    // Smeshing Guide > Smeshing Guide Basic, Smeshing Guides Adv
+    {
+      type: "category",
+      label: "Smeshing Guide",
       items: [
-        'start/smeshing/start',
-        'start/smeshing/requirements',
-        'start/considerations',
-        'start/smeshing/netconfig',
+        "start/smeshing/start",
+        "start/smeshing/requirements",
+        "start/considerations",
+        "start/smeshing/netconfig",
         {
-          'Basic Smeshing Guide': [
-            'start/smeshing/smeshing_basic/install',
-            'start/smeshing/smeshing_basic/additional',
-            'start/smeshing/smeshing_basic/advanced_config',
-            'start/smeshing/smeshing_basic/advanced-wallet',
-            'start/smeshing/smeshing_basic/setup',
-            'start/smeshing/smeshing_basic/smeshing',
-            'start/smeshing/smeshing_basic/status',
-            'start/smeshing/smeshing_basic/wallet',
+          "Basic Smeshing Guide": [
+            "start/smeshing/smeshing_basic/install",
+            "start/smeshing/smeshing_basic/additional",
+            "start/smeshing/smeshing_basic/advanced_config",
+            "start/smeshing/smeshing_basic/advanced-wallet",
+            "start/smeshing/smeshing_basic/setup",
+            "start/smeshing/smeshing_basic/smeshing",
+            "start/smeshing/smeshing_basic/status",
+            "start/smeshing/smeshing_basic/wallet",
           ],
-          'Advanced Smeshing Guide': [
-          'start/smeshing/smeshing_adv/setup',
-          'start/smeshing/smeshing_adv/post_init',
-          'start/smeshing/smeshing_adv/api',
-          'start/smeshing/smeshing_adv/poet',
-          'start/smeshing/smeshing_adv/networking',
-          'start/smeshing/smeshing_adv/performance',
-          'start/smeshing/smeshing_adv/equivocation',
-          'start/smeshing/smeshing_adv/verification',
-          'start/smeshing/smeshing_adv/quicksync',
-          'start/smeshing/smeshing_adv/advanced',
-          'start/smeshing/smeshing_adv/post_1n',
-          'start/smeshing/smeshing_adv/multigpu',
-          'start/smeshing/smeshing_adv/troubleshooting'
-        ],
-        }
+          "Advanced Smeshing Guide": [
+            "start/smeshing/smeshing_adv/setup",
+            "start/smeshing/smeshing_adv/post_init",
+            "start/smeshing/smeshing_adv/api",
+            "start/smeshing/smeshing_adv/poet",
+            "start/smeshing/smeshing_adv/networking",
+            "start/smeshing/smeshing_adv/performance",
+            "start/smeshing/smeshing_adv/equivocation",
+            "start/smeshing/smeshing_adv/verification",
+            "start/smeshing/smeshing_adv/quicksync",
+            "start/smeshing/smeshing_adv/advanced",
+            "start/smeshing/smeshing_adv/post_1n",
+            "start/smeshing/smeshing_adv/multigpu",
+            "start/smeshing/smeshing_adv/troubleshooting",
+          ],
+        },
       ],
-     },
-      'start/rewards',
-      'start/integration',
-      'start/ledger'
-      ],
-  ecosystem: [  'ecosystem/construction-eco',
-    'ecosystem/smapp',
-    'ecosystem/node',
-    'ecosystem/poet',
-    'ecosystem/dash'
+    },
+    "start/rewards",
+    "start/integration",
+    "start/ledger",
   ],
   api: [
-      'api/construction-api',
-    'api/services',
-    'api/endpoints'
+    'api/api'
   ],
+  learn: [
+    {
+      'Spacemesh 101': [
+        'learn/spacemesh',
+        'learn/coin',
+        'learn/smeshing',
+        'learn/economics'],
+      'Protocol 101': [
+        'learn/post',
+        'learn/poet',
+        'learn/atx',
+        'learn/hare',
+        'learn/tortoise',
+        'learn/rewards',
+        'learn/blocks',
+        'learn/accounts'
+      ]
+    }
+],
   node: [
-      'node_operation/construction-node',
-    'node_operation/serialization',
-    'node_operation/startup',
-    'node_operation/sync',
-    'node_operation/time',
-    'node_operation/local-data-model',
-    'node_operation/blacklisting'],
+    "node_operation/construction-node",
+    "node_operation/serialization",
+    "node_operation/startup",
+    "node_operation/sync",
+    "node_operation/time",
+    "node_operation/local-data-model",
+    "node_operation/blacklisting",
+  ],
 };

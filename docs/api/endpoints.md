@@ -1,4 +1,4 @@
 ---
 id: endpoints
-title: API Endpoints
+title: Mainnet API Endpoints
 ---

@@ -3,19 +3,19 @@ id: poet
 title: PoET Configuration
 ---
 
-As described in the [PoST explainer](./../../../learn/poet.md), for its security, the Spacemesh protocol relies not only on committed _disk space_ but also on _elapsed time_ (the time dimension in the Proofs of Space-Time). For the time component, smeshers rely on a third-party service called a PoET server. 
+As described in the [PoST explainer](./../../../learn/post.md), for its security, the Spacemesh protocol relies not only on committed _disk space_ but also on _elapsed time_ (the time dimension in the Proofs of Space-Time). For the time component, smeshers rely on a third-party service called a PoET server. 
 
-Anyone can run their own PoET server, but this is non-trivial, expensive, and requires specialized hardware and DevOps. More importantly, a single PoET server can generate PoETs for thousands of smeshers. Given that the PoET server performs intensive, expensive computation on behalf of the smeshers it serves and a smesher only needs a single PoET proof for a given epoch, it is more efficient and less energy-intensive to run a small number of PoET servers than having each smesher run their own. In general, smeshers do not need to give much thought to PoET servers. The smeshing node (whether [running Smapp](../smeshing_basic/setup.md) or [`go-spacemesh`](../smeshing_adv/setup.md) directly) manages the process of discovering PoET servers, registering with them, and retrieving proofs when they are ready. A node is also intelligent enough to register with many PoET servers redundantly so that if one server goes offline, it will still be able to retrieve the PoET from another PoET server.
+Anyone can run their own PoET server, but this is non-trivial, expensive, and requires specialized hardware and DevOps. More importantly, a single PoET server can generate PoETs for thousands of smeshers. Given that the PoET server performs intensive, expensive computation on behalf of the smeshers it serves and a smesher only needs a single PoET proof for a given epoch, it is more efficient and less energy-intensive to run a small number of PoET servers than having each smesher run their own. In general, smeshers do not need to give much thought to PoET servers. The smeshing node (whether [running Smapp](../smeshing_basic/setup.md) or [`go-spacemesh`](../smeshing_adv/setup.md#installing-and-compiling-go-spacemesh) directly) manages the process of discovering PoET servers, registering with them, and retrieving proofs when they are ready. A node is also intelligent enough to register with many PoET servers redundantly so that if one server goes offline, it will still be able to retrieve the PoET from another PoET server.
 
 ## Ticks and Weight
 
-Smeshers establish eligibility to submit [block proposals](../../../learn/atx.md#block-proposals) and earn [rewards](../../../learn/rewards.md) by bundling their PoSTs into a special data structure known as an [Activation Transaction](../../../learn/atx.md)(ATX). Each ATX has a certain **weight** which is simply calculated as the number of Space Units (SUs) proven multiplied by the tick count from the PoET proof (ticks are used as a proxy for the passage of time). Rewards earned by a smesher in a given epoch are ultimately proportional to the weight of their ATX targeting that epoch. Thus, if a smesher uses a PoET with fewer ticks, it will earn proportionally fewer rewards for at least the duration of one epoch (the reverse is also true). Note that, in addition to retrieving PoETs from multiple PoET servers, the node is also intelligent enough to use the proof with the highest tick count to ensure that it maximizes its rewards.
+Smeshers establish the eligibility to submit [block proposals](../../../learn/atx.md#block-proposals) and earn [rewards](../../../learn/rewards.md) by bundling their PoSTs into a special data structure known as an [Activation Transaction](../../../learn/atx.md) (ATX). Each ATX has a certain **weight** which is simply calculated as the number of Space Units (SUs) proven multiplied by the tick count from the PoET proof (ticks are used as a proxy for the passage of time). Rewards earned by a smesher in a given epoch are ultimately proportional to the weight of their ATX targeting that epoch. Thus, if a smesher uses a PoET with fewer ticks, it will earn proportionally fewer rewards for at least the duration of one epoch (the reverse is also true). Note that, in addition to retrieving PoETs from multiple PoET servers, the node is also intelligent enough to use the proof with the highest tick count to ensure that it maximizes its rewards.
 
 ## Timing
 
 The Spacemesh team currently operates several PoET servers for public use and their addresses are hardcoded into the `poet-server` section of the mainnet node config file (for Smapp, `node-config.7c8cef2b.json`, for `go-spacemesh`, the file input as the `--config` CLI argument). All PoET servers operate on exactly the same schedule. In order to establish eligibility for epoch N, a smesher must register with a PoET server during the PoET round in epoch N-2. Afterwards, the node must retrieve the PoET proof, use it to generate a PoST proof, bundle this into an ATX, and submit it to the network prior to the end of epoch N-1 (all of this is done automatically by the node).
 
-The Spacemesh PoET servers start a new round at **8:00 UTC, the second Monday of an epoch** (i.e., four days prior to the end of the epoch). Subsequently, there is a 12-hour **cycle gap** window during which no PoET round is running, and after which the next PoET round kicks off and the cycle repeats itself. During this 12-hour window, all smeshing nodes must retrieve their PoET from a PoET server, use it to generate a PoST proof, bundle this into an ATX, broadcast the ATX to the network, and then register with the PoET again in order to maintain continuous eligibility.
+The Spacemesh PoET servers start a new round at **8:00 UTC, the second Monday of an epoch** (i.e., four days prior to the end of the epoch). Subsequently, there is a 12-hour **cycle gap** window during which no PoET round is running, after which the next PoET round kicks off and the cycle repeats itself. During this 12-hour window, all smeshing nodes must retrieve their PoET from a PoET server, use it to generate a PoST proof, bundle this into an ATX, broadcast the ATX to the network, and then register with the PoET again in order to maintain continuous eligibility.
 
 To better understand the PoET generation and submission schedule, take a look at the figure below:
 
@@ -27,7 +27,7 @@ In the future, it is likely that instead of all PoET servers running in identica
 
 ## Running a PoET Server
 
-As with the rest of Spacemesh infrastructure, the PoET server is [open source](https://github.com/spacemeshos/poet) and permissionless. Anyone may run their own PoET server for personal or community use. For more information, see the [PoET Operator Manual](https://github.com/spacemeshos/poet/blob/develop/docs/poet_operator_manual.md) and feel free to ask questions in the [#poet channel](https://discord.com/channels/623195163510046732/1151165793590050867) on Discord.
+As with the rest of Spacemesh infrastructure, the PoET server is [open source](https://github.com/spacemeshos/poet) and permissionless. Anyone may run their own PoET server for personal or community use. For more information, see the [PoET Operator Manual](https://github.com/spacemeshos/poet/blob/develop/docs/poet_operator_manual.md), and feel free to ask questions in the [#poet channel](https://discord.com/channels/623195163510046732/1151165793590050867) on Discord.
 
 ## Updating the Node Configuration to Use Different PoET Servers
 
@@ -43,7 +43,7 @@ When the next PoET round starts, the node will start using the new set of PoET s
 
 ### Switching Phase
 
-If you wish to switch to one or multiple PoET servers that operate on a different phase than the default set of PoET servers ensures
+If you wish to switch to one or multiple PoET servers that operate on a different phase than the default set of PoET servers, please ensure
 that your node and the PoET server(s) you are using have the following configuration parameters set to the _same values_:
 
 - `"phase-shift"`: The time (relative to the beginning of an epoch) when a new PoET round starts. For the default
@@ -62,40 +62,36 @@ mainnet (`"2023-07-14T08:00:00Z"` and 336 hours, respectively).
 epoch of rewards, because your node has to wait between publishing the ATX on the old phase and the PoET round start of
 the new phase before it can register with the new PoET server:
 
-1. Your node will publish an ATX in epoch N-1 using the PoET from the old phase on e.g. the 10th day of the epoch. This
+1. Your node will publish an ATX in epoch N-1 using the PoET from the old phase on ,e.g., the 10th day of the epoch. This
    makes you eligible for rewards in epoch N.
-1. The PoET round of the new phase will start on e.g. the 6th day of the epoch.
+1. The PoET round of the new phase will start on, e.g., the 6th day of the epoch.
 1. Your node registers with the new PoET server in epoch N.
 1. Your node will publish an ATX in epoch N+1 using the PoET from the new phase on the 6th day of the epoch. This makes
    you eligible for rewards in epoch N+2.
 
 As a result, you will miss the rewards for epoch N+1. This is because you **must not register at overlapping PoET
-rounds** or your node will be disqualified from rewards permanently.
-
-You can however use a intermediary PoET server that has a shorter round duration than the default PoET servers to
+rounds** or your node will be disqualified from rewards permanently. You can, however, use an intermediary PoET server that has a shorter round duration than the default PoET servers to
 gradually switch to an earlier PoET phase without missing rewards:
 
-1. Your node will publish an ATX in epoch N-1 using the PoET from the old phase on e.g. the 10th day of the epoch. This
+1. Your node will publish an ATX in epoch N-1 using the PoET from the old phase on, e.g., the 10th day of the epoch. This
    makes you eligible for rewards in epoch N.
-1. The PoET round of the intermediary phase will start on e.g. the 11th day of the epoch.
+1. The PoET round of the intermediary phase will start on, e.g., the 11th day of the epoch.
 1. Your node registers with the intermediary PoET server in epoch N-1.
 1. Your node will publish an ATX in epoch N using the PoET from the intermediary phase on the 5th day of the epoch. This
    makes you eligible for rewards in epoch N+1.
-1. The PoET round of the new phase will start on e.g. the 6th day of the epoch.
+1. The PoET round of the new phase will start on, e.g., the 6th day of the epoch.
 1. Your node registers with the new PoET server in epoch N.
-1. Your node will publish an ATX in epoch N+1 using the PoET from the new phase on the 6th day of the epoch. This makes
-   you eligible for rewards in epoch N+2.
+1. Your node will publish an ATX in epoch N+1 using the PoET from the new phase on the 6th day of the epoch. This makes you eligible for rewards in epoch N+2.
 
 This way, you will not miss any rewards.
 
-Switching to a later PoET phase is possible without missing rewards if done correctly and does not require an
-intermediary PoET server.
+Switching to a later PoET phase is possible without missing rewards if done correctly and does not require an intermediary PoET server.
 
 For step-by-step instructions, follow the guide below.
 
 ### Timing a Phase Switch
 
-Switching phase bears the risk of missing a PoET round and thereby forfeiting your eligibility to collect rewards in an
+Switching the phase bears the risk of missing a PoET round and thereby forfeiting your eligibility to collect rewards in an
 upcoming epoch. To mitigate this risk, you should properly time your phase switch and follow these steps:
 
 1. Wait until the end of the PoET round of the phase you are currently using. If you are using the default PoET servers, this would be every second Sunday of the month at 20:00 UTC.
@@ -124,4 +120,4 @@ started, your node will register with the new PoET servers in the next epoch and
 after the next one).
 
 **Note**: Before `go-spacemesh` v1.3.x, PoET registration state was stored in a file called `nipost_challenge.bin` and `nipost_builder_state.bin`
-inside the node's PoST data directory. If you are using a node version older than v1.3.x (not recommended, always use the latest version), you will have to delete these files instead of the sqlite tables (steps 6 and 7).
+inside the node's PoST data directory. If you are using a node version older than v1.3.x (not recommended, please always use the latest version), you will have to delete these files instead of the sqlite tables (steps 6 and 7).
