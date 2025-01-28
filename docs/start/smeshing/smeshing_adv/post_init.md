@@ -151,7 +151,19 @@ Get-PSDrive -PSProvider FileSystem | ForEach-Object {
 }
 ```
 
-**Wanted:** Please fill in information on how to do the same on macOS.
+### MacOS
+
+Mac users can copy and run the following code into a bash/terminal window to see the available space on each of their partitions:
+
+```bash
+df -g | awk 'NR>1 && $1 ~ /^\/dev\/disk/ {space_units=$4/64; print $4 " GiB available on " $9 " (" space_units " SU)"}'
+```
+
+In addition to being shown in GiB, the available space on each mounted drive will also be shown in SUs. At least 4 SUs (256 GiB) are needed to start smeshing. Note that the physical drive (i.e., the disk drive on your Mac) is denoted with a solitary `/`. For example, the following line in the output of this command shows that there is 42 GiB (0.65 SU) is available on the disk:
+
+`42 GiB available on / (0.65625 SU)`
+
+As such, you need to make sure that you have enough space on the physical drive.
 
 ## Starting Initialization
 
