@@ -6,7 +6,7 @@ This devnet represents an innovative Proof of Concept integration in go-spacemes
 
 To help you get started, we've prepared a comprehensive smart contract template and guide, which you can find [here](https://github.com/athenavm/athena/blob/main/examples/contract_template/README.md).
 
-The devnet configuration is available [here](https://configs.spacemesh.network/config.devnet-athena-13.json). Important note: You'll need to use the specialized `athena-devnet` version of go-spacemesh, as the mainline version is not compatible with this network. The latest release (version `athena-devnet-13-1.0.1`) can be downloaded [here](https://github.com/spacemeshos/go-spacemesh/releases/tag/athena-devnet-13-1.0.1).
+The devnet configuration is available [here](https://configs.spacemesh.network/config.devnet-athena-13.json). Important note: You'll need to use the specialized `athena-devnet` version of go-spacemesh, as the mainline version is not compatible with this network. The latest release is at the top [here](https://github.com/spacemeshos/go-spacemesh/releases?q=athena-devnet&expanded=true)
 
 You can explore the network in real-time through our web interface [here](https://explorer-devnet-athena.spacemesh.network/overview).
 
