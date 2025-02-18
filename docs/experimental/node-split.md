@@ -54,3 +54,17 @@ Please note that we're NOT providing example configs for node-service for mainne
 There are no protocol related changes in the node split implementation. A node split relaese is compatible with the devnet/testnet and with the specified go-spacemesh version mentioned in the release notes of the node split release.
 
 Currently we're relaesing node split as `node-split-{semver-here}` and go-spacemesh compatibility will be mentioned in the release notes of the node split release.
+
+
+### Migration from node to node-split setup
+
+Assuming that you're currently running **put here info about how to migrate**
+
+
+### Where is the UI
+
+As mentioned previously there is next-gen UI called smesher-app fully open sourced and available on Github. You can find it here: https://github.com/spacemeshos/smesher-app
+
+Anyone can run that UI as it only requires a browser and a connection to the node split.
+
+For the easiness we're hosting the publicly available instance at http://smesher-beta.spacemesh.network it does NOT communicate with ANY servers other than the ones that you specify. It talks to your local apis only.
