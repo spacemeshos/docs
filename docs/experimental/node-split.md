@@ -40,3 +40,17 @@ The current go-spacemesh node is a monolithic application that includes all the 
 There are two distinct configuration/setup methods possible:
 1. Using locally running node and smesher service
 2. Using remote running node and local smesher service
+
+
+For the easiness we're hosting a example configs for node and smeshing service:
+* Mainnet compaitble config for smeshing service: https://configs.spacemesh.network/config.mainnet-smeshing-service.json
+* Devnet3 compatible for node service: https://configs.spacemesh.network/config.devnet3-node-service.json
+* Devnet3 compatible for smeshing service: https://configs.spacemesh.network/config.devnet3-smeshing-service.json
+
+Please note that we're NOT providing example configs for node-service for mainnet as all that's needed is to enable one api endpoint more.
+
+### Versions compatibility
+
+There are no protocol related changes in the node split implementation. A node split relaese is compatible with the devnet/testnet and with the specified go-spacemesh version mentioned in the release notes of the node split release.
+
+Currently we're relaesing node split as `node-split-{semver-here}` and go-spacemesh compatibility will be mentioned in the release notes of the node split release.
