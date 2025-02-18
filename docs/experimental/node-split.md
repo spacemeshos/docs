@@ -61,6 +61,12 @@ Currently we're relaesing node split as `node-split-{semver-here}` and go-spacem
 Assuming that you're currently running **put here info about how to migrate**
 
 
+### Accessing the hosted node-service
+
+For the easiness we're hosting the publicly node-service that runs against mainnet that you can connect to by setting up following `--node-service-address https://PUT_HERE_THE_FINAL_ADDRESS` flag when running your smeshing-service
+
+This service is provided without any warranty or support other than community support.
+
 ### Where is the UI
 
 As mentioned previously there is next-gen UI called smesher-app fully open sourced and available on Github. You can find it here: https://github.com/spacemeshos/smesher-app
