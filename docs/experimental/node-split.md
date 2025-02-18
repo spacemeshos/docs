@@ -63,9 +63,20 @@ Assuming that you're currently running **put here info about how to migrate**
 
 ### Accessing the hosted node-service
 
-For the easiness we're hosting the publicly node-service that runs against mainnet that you can connect to by setting up following `--node-service-address https://PUT_HERE_THE_FINAL_ADDRESS` flag when running your smeshing-service
+For the easiness we're hosting the publicly node-service that runs against mainnet that you can connect to by setting up following
+* `--node-service-address` to `https://mainnet-node-service-api.spacemesh.network`
+* `--proxy-api-v2-address` to `https://mainnet-node-service-json-api.spacemesh.network`
+flags when running your smeshing-service.
+
+`--node-service-address` is an url to the node-service api endpoint on *any* synced node in the given network.
+`--proxy-api-v2-address` is an url to the v2 api endpoint on *any* synced node in the given network.
 
 This service is provided without any warranty or support other than community support.
+Please use it at your own risk.
+
+### How to run the node-service
+
+Node-service is just a full spacemesh node with two exposed apis. As mentioned above smeshing-service needs to connect to the node-service api endpoint and v2 api endpoint. Therefore the matching configuration options are `--grpc-json-listener` and `--node-service-listener`.
 
 ### Where is the UI
 
@@ -74,3 +85,5 @@ As mentioned previously there is next-gen UI called smesher-app fully open sourc
 Anyone can run that UI as it only requires a browser and a connection to the node split.
 
 For the easiness we're hosting the publicly available instance at http://smesher-beta.spacemesh.network it does NOT communicate with ANY servers other than the ones that you specify. It talks to your local apis only.
+
+Wherever opening please specify the url to the`--grpc-json-listener` specified on the smeshing service.
