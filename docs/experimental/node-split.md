@@ -28,9 +28,9 @@ It's best to watch the [video](https://www.youtube.com/watch?v=d4jBz1krRHg) to g
 The current go-spacemesh node is a monolithic application that includes all the logic required for consensus, smeshing, and other services. This makes it difficult to run the node on low-resource devices, as the node requires a significant amount of resources to run. By splitting the node into two separate services, we can enable users to run the smeshing logic on a separate device, while still connecting to a remote node for the rest of the services. This allows users to run the node on low-resource devices, while still participating in the Spacemesh network.
 
 ### Benefits
-1. **Lower system requirements**: Users can run the smesher service on low-resource devices while connecting to a more powerful node for the rest of the services.
-2. **Better failover and redundancy**: Currently when you need to restart a node you also need to restart the smesher service. With the node split you can restart the node without affecting the smeshing process. Starting smeshing will be also much quicker because it will *not* need to wait for the node to sync as the node will be running elsewhere. Multiple smesher services can be connected to the same node, and nodes can be hot-swapped without affecting the smeshing process.
-3. **Lower OpEx**: Smesher service can be shut down wherever not needed to save costs and resources. Additionally, only a single node is required for multiple smeshing services and it can run where it's the most cost-effective, which is not necessarily where the smeshing service runs.
+1. **Lower system requirements**: Users can run the smeshing service on low-resource devices while connecting to a more powerful node for the rest of the services.
+2. **Better failover and redundancy**: Currently when you need to restart a node you also need to restart the smeshing service. With the node split you can restart the node without affecting the smeshing process. Starting smeshing will be also much quicker because it will *not* need to wait for the node to sync as the node will be running elsewhere. Multiple smeshing services can be connected to the same node, and nodes can be hot-swapped without affecting the smeshing process.
+3. **Lower OpEx**: smeshing service can be shut down wherever not needed to save costs and resources. Additionally, only a single node is required for multiple smeshing services and it can run where it's the most cost-effective, which is not necessarily where the smeshing service runs.
 4. **Better node maintainability**: The node can be updated without affecting the smeshing process and the smeshing service can be updated without re-syncing. This makes updates simpler and less risky.
 
 
@@ -38,8 +38,8 @@ The current go-spacemesh node is a monolithic application that includes all the 
 ## Running the Node Split
 
 There are two distinct configuration/setup methods possible:
-1. Using locally running node and smesher service
-2. Using remote running node and local smesher service
+1. Using locally running node and smeshing service
+2. Using remote running node and local smeshing service
 
 
 For the easiness we're hosting a example configs for node and smeshing service:
@@ -55,11 +55,14 @@ There are no protocol related changes in the node split implementation. A node s
 
 Currently we're relaesing node split as `node-split-{semver-here}` and go-spacemesh compatibility will be mentioned in the release notes of the node split release.
 
-
 ### Migration from node to node-split setup
 
-Assuming that you're currently running **put here info about how to migrate**
 
+:::note
+
+TDB
+
+:::
 
 ### Accessing the hosted node-service
 
@@ -69,7 +72,7 @@ For the easiness we're hosting the publicly node-service that runs against mainn
 flags when running your smeshing-service.
 
 `--node-service-address` is an url to the node-service api endpoint on *any* synced node in the given network.
-`--proxy-api-v2-address` is an url to the v2 api endpoint on *any* synced node in the given network.
+`--proxy-api-v2-address` is an url to the v2 api endpoint on *any* synced node in the given network. It's needed by integrations to query the node-service api directly via the smeshing-service. Smeshing-service then acts like a middle man and relays the requests to the node-service api endpoint.
 
 This service is provided without any warranty or support other than community support.
 Please use it at your own risk.
@@ -87,3 +90,7 @@ Anyone can run that UI as it only requires a browser and a connection to the nod
 For the easiness we're hosting the publicly available instance at http://smesher-beta.spacemesh.network it does NOT communicate with ANY servers other than the ones that you specify. It talks to your local apis only.
 
 Wherever opening please specify the url to the`--grpc-json-listener` specified on the smeshing service.
+
+This UI uses ONLY the json api endpoint and communicates fully over http(s).
+
+And because a smeshing-service by default also uses the proxied v2 api endpoint there is no need to specify a node endpoint in the UI.
