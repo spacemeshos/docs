@@ -42,12 +42,26 @@ There are two distinct configuration/setup methods possible:
 2. Using remote running node and local smeshing service
 
 
-For convenience, we're hosting example configs for node and smeshing service:
+#### Smeshing service
+
+For convenience, we're hosting example config smeshing service:
 * Mainnet compatible config for smeshing service: https://configs.spacemesh.network/config.mainnet-smeshing-service.json
+
+As you see config for smeshing-service is stipped down node config. The essential part is the `api` section. As for now, any valid node config is valid smeshing-service config IF the `api` section is altered to match the config shared above.
+
+#### Node service
+
+Please note that we're NOT providing example configs for node-service for mainnet as all that's needed is to enable one additional API endpoint.
+
+Node-service is just a full Spacemesh node with two exposed APIs. As mentioned above, smeshing-service needs to connect to the node-service API endpoint and v2 API endpoint. Therefore the matching configuration options are `--grpc-json-listener` and `--node-service-listener`.
+
+#### Other than mainnet configs
+
+We're also sharing non mainnet configs.
+
 * Devnet3 compatible for node service: https://configs.spacemesh.network/config.devnet3-node-service.json
 * Devnet3 compatible for smeshing service: https://configs.spacemesh.network/config.devnet3-smeshing-service.json
 
-Please note that we're NOT providing example configs for node-service for mainnet as all that's needed is to enable one additional API endpoint.
 
 ### Versions compatibility
 
@@ -55,31 +69,31 @@ There are no protocol-related changes in the node split implementation. A node s
 
 Currently, we're releasing node split as `node-split-{semver-here}` and go-spacemesh compatibility will be mentioned in the release notes of the node split release.
 
-### Migration from node to node-split setup
 
+## Migration from node to node-split setup
 
-:::note
+To migrate from existing node to node-split setup, you need to follow these steps:
 
-TDB
+1. Stop the existing node.
+2. Backup all local.sql* files.
+3. Edit the configuration by adding the required flags as listed above.
+4. Start the smesher-service as you'd start normal go-spacemesh node just by adding `smeshing` as a first argument.
+5. If you're satisfied with the setup you can delete all state.sql files as the smesher-service is not using them. (there is no need to keep the whole state locally)
 
-:::
 
 ### Accessing the hosted node-service
 
 For convenience, we're hosting the public node-service that runs against mainnet that you can connect to by setting up the following
 * `--node-service-address` to `https://mainnet-node-service-api.spacemesh.network`
-* `--proxy-api-v2-address` to `https://mainnet-node-service-json-api.spacemesh.network`
+* `--proxy-api-v2-address` to `https://mainnet-api.spacemesh.network`
 flags when running your smeshing-service.
 
 `--node-service-address` is a URL to the node-service API endpoint on *any* synced node in the given network.
-`--proxy-api-v2-address` is a URL to the v2 API endpoint on *any* synced node in the given network. It's needed by integrations to query the node-service API directly via the smeshing-service. Smeshing-service then acts as a middleman and relays the requests to the node-service API endpoint.
+`--proxy-api-v2-address` is a URL to the v2 API endpoint on *any* synced node in the given network. It's needed by integrations to query the node-service API directly via the smeshing-service. Smeshing-service then acts as a middleman and relays the requests to the node-service API endpoint. That's why we're recommending here to use the normal publicly available mainnet-api.
 
 This service is provided without any warranty or support other than community support.
 Please use it at your own risk.
 
-### How to run the node-service
-
-Node-service is just a full Spacemesh node with two exposed APIs. As mentioned above, smeshing-service needs to connect to the node-service API endpoint and v2 API endpoint. Therefore the matching configuration options are `--grpc-json-listener` and `--node-service-listener`.
 
 ### Where is the UI
 
@@ -94,3 +108,39 @@ When opening, please specify the URL to the `--grpc-json-listener` specified on 
 This UI uses ONLY the JSON API endpoint and communicates fully over http(s).
 
 And because a smeshing-service by default also uses the proxied v2 API endpoint, there is no need to specify a node endpoint in the UI.
+
+
+
+## Q & A
+
+#### Do I need to run node-split based setup
+
+Definitely not, if you currently run a spacemesh node and you're happy with it you can keep it running. That's still a supported option.
+
+#### Can I actually use *any* go-spacemesh node as my smeshing-service?
+
+Yes, any node can be migrated to smeshing-service setup. To do so, please follow the migration instructions.
+
+
+#### I have 10s of nodes what would be my setup?
+
+If you're currently running multiple nodes to scale your operation the safest optimization is to run 2-3 nodes as your full nodes and convert all other nodes to smeshing-service nodes.
+This will allow you to update nodes without interrupting of the smeshing operation (submitting proposals etc).
+
+
+#### Can I use load balancer to add HA to the setup?
+
+Yes, but please setup session stickiness or similar mechanism (active-passive etc) to keep smeshing-service to stick to a node unless node fails.
+Balancing v2 api is 100% safe.
+
+#### Who keeps the network state?
+
+In node-split situation it's node which keeps the network state. Smeshing-service will ask node for any information needed to perform its duties (publishing proposals, hare participation etc).
+
+#### Does the hosted UI use only my smeshing-service?
+
+Yes, hosted UI *never* connects to anyhing else that your specified smeshing-service json-rpc api address.
+
+#### Can I run the UI locally?
+
+Yes absolutely, please refer to the smesher-app readme located at [Github](https://github.com/spacemeshos/smesher-app).
