@@ -8,7 +8,7 @@ Previously here there was a doc page about Node split PoC. It has been moved to 
 
 Node split is currently considered a Beta feature that is stable enough to run on the mainnet.
 
-In our ongoing effort to lower the bar for smeshing, we're exploring a new direction for reducing system requirements for smeshers. The idea is to re-architect the internal modules in go-spacemesh, isolating the smeshing logic from the passive consensus code. By dividing the node along these lines, we can enable users to run the lightweight yet sensitive (requiring access to the private key) smeshing logic separately from the rest of the node. This allows users with limited resources to use a remote node for their smeshing.
+In our ongoing effort to lower the barrier for smeshing, we're exploring a new direction for reducing system requirements for smeshers. The idea is to re-architect the internal modules in go-spacemesh, isolating the smeshing logic from the passive consensus code. By dividing the node along these lines, we can enable users to run the lightweight yet sensitive (requiring access to the private key) smeshing logic separately from the rest of the node. This allows users with limited resources to use a remote node for their smeshing.
 
 The Node split is still a work in progress, so please expect changes and improvements in the future.
 
@@ -29,7 +29,7 @@ The current go-spacemesh node is a monolithic application that includes all the 
 
 ### Benefits
 1. **Lower system requirements**: Users can run the smeshing service on low-resource devices while connecting to a more powerful node for the rest of the services.
-2. **Better failover and redundancy**: Currently when you need to restart a node you also need to restart the smeshing service. With the node split, you can restart the node without affecting the smeshing process. Starting smeshing will also be much quicker because it will *not* need to wait for the node to sync as the node will be running elsewhere. Multiple smeshing services can be connected to the same node, and nodes can be hot-swapped without affecting the smeshing process.
+2. **Better failover and redundancy**: Currently, when you need to restart a node, you also need to restart the smeshing service. With the node split, you can restart the node without affecting the smeshing process. Starting smeshing will also be much quicker because it will *not* need to wait for the node to sync as the node will be running elsewhere. Multiple smeshing services can be connected to the same node, and nodes can be hot-swapped without affecting the smeshing process.
 3. **Lower OpEx**: The smeshing service can be shut down when not needed to save costs and resources. Additionally, only a single node is required for multiple smeshing services and it can run where it's most cost-effective, which is not necessarily where the smeshing service runs.
 4. **Better node maintainability**: The node can be updated without affecting the smeshing process and the smeshing service can be updated without re-syncing. This makes updates simpler and less risky.
 
@@ -38,32 +38,33 @@ The current go-spacemesh node is a monolithic application that includes all the 
 ## Running the Node Split
 
 There are two distinct configuration/setup methods possible:
-1. Using locally running node and smeshing service
-2. Using remote running node and local smeshing service
+1. Using a locally running node and smeshing service
+2. Using a remote running node and local smeshing service
 
 Wherever the `node` is mentioned, it means the node service. It's basically a normal go-spacemesh node with proper version and API exposed.
 
 #### Smeshing service
 
-For convenience, we're hosting example config smeshing service:
+For convenience, we're hosting an example config smeshing service:
 * Mainnet compatible config for smeshing service: https://configs.spacemesh.network/config.mainnet-smeshing-service.json
 
-As you see config for smeshing-service is stipped down node config. The essential part is the `api` section. As for now, any valid node config is valid smeshing-service config IF the `api` section is altered to match the config shared above.
+As you can see, the config for smeshing-service is a stripped-down node config. The essential part is the `api` section. As of now, any valid node config is a valid smeshing-service config IF the `api` section is altered to match the config shared above.
 
 #### Node service
 
 Please note that we're NOT providing example configs for node-service for mainnet as all that's needed is to enable one additional API endpoint.
 
-Node-service is just a full Spacemesh node with two exposed APIs. As mentioned above, smeshing-service needs to connect to the node-service API endpoint and v2 API endpoint. Therefore the matching configuration is `--node-service-listener`.
+Node-service is just a full Spacemesh node with two exposed APIs. As mentioned above, smeshing-service needs to connect to the node-service API endpoint and v2 API endpoint. Therefore, the matching configuration is `--node-service-listener`.
 We highly recommend setting up the `json-rpc-listener` as well, as then this node can be used as a source in proxy in smeshing-service.
 
 #### Other than mainnet configs
 
-We're also sharing non mainnet configs.
+We're also sharing non-mainnet configs.
 
 * Devnet3 compatible for node service: https://configs.spacemesh.network/config.devnet3-node-service.json
 * Devnet3 compatible for smeshing service: https://configs.spacemesh.network/config.devnet3-smeshing-service.json
 
+This network is currently live and it's having epoch duration of 2h.
 
 ### Versions compatibility
 
@@ -74,13 +75,20 @@ Currently, we're releasing node split as `node-split-{semver-here}` and go-space
 
 ## Migration from node to node-split setup
 
-To migrate from existing node to node-split setup, you need to follow these steps:
+To migrate from an existing node to node-split setup, you need to follow these steps:
 
 1. Stop the existing node.
 2. Backup all local.sql* files.
 3. Edit the configuration by adding the required flags as listed above.
-4. Start the smesher-service as you'd start normal go-spacemesh node just by adding `smeshing` as a first argument.
-5. If you're satisfied with the setup you can delete all state.sql files as the smesher-service is not using them. (there is no need to keep the whole state locally)
+4. Start the smesher-service as you'd start a normal go-spacemesh node just by adding `smeshing` as the first argument.
+5. If you're satisfied with the setup, you can delete all state.sql files as the smesher-service is not using them. (there is no need to keep the whole state locally)
+
+
+:::note
+
+Because in the normal go-spacemesh node the events are NOT persisted, you might have partially wrong state reflected by the `spacemesh.v2alpha1.SmeshingIdentitiesService/States` endpoint. This is only cometic issue and will *NOT* affect the rewards etc.
+
+:::
 
 
 ### Accessing the hosted node-service
@@ -115,9 +123,9 @@ And because a smeshing-service by default also uses the proxied v2 API endpoint,
 
 ## Q & A
 
-#### Do I need to run node-split based setup
+#### Do I need to run node-split based setup?
 
-Definitely not, if you currently run a spacemesh node and you're happy with it you can keep it running. That's still a supported option.
+Definitely not. If you currently run a Spacemesh node and you're happy with it, you can keep it running. That's still a supported option.
 
 #### Can I actually use *any* go-spacemesh node as my smeshing-service?
 
@@ -126,22 +134,22 @@ Yes, any node can be migrated to smeshing-service setup. To do so, please follow
 
 #### I have 10s of nodes what would be my setup?
 
-If you're currently running multiple nodes to scale your operation the safest optimization is to run 2-3 nodes as your full nodes and convert all other nodes to smeshing-service nodes.
-This will allow you to update nodes without interrupting of the smeshing operation (submitting proposals etc).
+If you're currently running multiple nodes to scale your operation, the safest optimization is to run 2-3 nodes as your full nodes and convert all other nodes to smeshing-service nodes.
+This will allow you to update nodes without interrupting the smeshing operation (submitting proposals etc).
 
 
-#### Can I use load balancer to add HA to the setup?
+#### Can I use a load balancer to add HA to the setup?
 
-Yes, but please setup session stickiness or similar mechanism (active-passive etc) to keep smeshing-service to stick to a node unless node fails.
+Yes, but please set up session stickiness or a similar mechanism (active-passive etc) to keep smeshing-service stick to a node unless the node fails.
 Balancing v2 api is 100% safe.
 
 #### Who keeps the network state?
 
-In node-split situation it's node which keeps the network state. Smeshing-service will ask node for any information needed to perform its duties (publishing proposals, hare participation etc).
+In a node-split situation, it's the node which keeps the network state. Smeshing-service will ask the node for any information needed to perform its duties (publishing proposals, hare participation etc).
 
 #### Does the hosted UI use only my smeshing-service?
 
-Yes, hosted UI *never* connects to anyhing else that your specified smeshing-service json-rpc api address.
+Yes, hosted UI *never* connects to anything else than your specified smeshing-service json-rpc api address.
 
 #### Can I run the UI locally?
 
