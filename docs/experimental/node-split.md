@@ -41,6 +41,7 @@ There are two distinct configuration/setup methods possible:
 1. Using locally running node and smeshing service
 2. Using remote running node and local smeshing service
 
+Wherever the `node` is mentioned, it means the node service. It's basically a normal go-spacemesh node with proper version and API exposed.
 
 #### Smeshing service
 
@@ -53,7 +54,8 @@ As you see config for smeshing-service is stipped down node config. The essentia
 
 Please note that we're NOT providing example configs for node-service for mainnet as all that's needed is to enable one additional API endpoint.
 
-Node-service is just a full Spacemesh node with two exposed APIs. As mentioned above, smeshing-service needs to connect to the node-service API endpoint and v2 API endpoint. Therefore the matching configuration options are `--grpc-json-listener` and `--node-service-listener`.
+Node-service is just a full Spacemesh node with two exposed APIs. As mentioned above, smeshing-service needs to connect to the node-service API endpoint and v2 API endpoint. Therefore the matching configuration is `--node-service-listener`.
+We highly recommend setting up the `json-rpc-listener` as well, as then this node can be used as a source in proxy in smeshing-service.
 
 #### Other than mainnet configs
 
