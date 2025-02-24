@@ -30,7 +30,7 @@ Moreover, even if one is running a monolithic go-spacemesh node (default mode) w
 
 ### Benefits
 1. **Lower system requirements**: Users can run the smeshing service on low-resource devices while connecting to a more powerful node for the rest of the services.
-2. **Better failover and redundancy**: Currently, when you need to restart a node, you also need to restart the smeshing service. With the node split, you can restart the node without affecting the smeshing process. Starting smeshing will also be much quicker because it will *not* need to wait for the node to sync as the node will be running elsewhere. Multiple smeshing services can be connected to the same node, and nodes can be hot-swapped without affecting the smeshing process.
+2. **Better failover and redundancy**: Currently, whenever you need to restart your node, it takes a long time because it needs to re-sync, warm up large in-memory caches, etc. With node-split, you can restart the node without affecting the smeshing process. Starting smeshing will also be much quicker because it will *not* need to wait for the node to sync, as the node will be running elsewhere. Multiple smeshing services can be connected to the same node, and nodes can be hot-swapped without affecting the smeshing process.
 3. **Lower OpEx**: The smeshing service can be shut down when not needed to save costs and resources. Additionally, only a single node is required for multiple smeshing services and it can run where it's most cost-effective, which is not necessarily where the smeshing service runs.
 4. **Better node maintainability**: The node can be updated without affecting the smeshing process and the smeshing service can be updated without re-syncing. This makes updates simpler and less risky.
 
@@ -80,8 +80,8 @@ To migrate from an existing node to node-split setup, you need to follow these s
 
 1. Stop the existing node.
 2. Backup all local.sql* files.
-3. Edit the configuration by adding the required flags as listed above.
-4. Start the smesher-service as you'd start a normal go-spacemesh node just by adding `smeshing` as the first argument.
+3. Edit the configuration by adding the required flags as listed above (`node-service-address` and `json-rpc-listener`)
+4. Start the smesher-service as you'd start a normal go-spacemesh node just by adding `smeshing` as the first argument: `go-spacemesh smeshing <other arguments>`
 5. If you're satisfied with the setup, you can delete all state.sql files as the smesher-service is not using them. (there is no need to keep the whole state locally)
 
 
@@ -137,12 +137,15 @@ Yes, any node can be migrated to smeshing-service setup. To do so, please follow
 
 If you're currently running multiple nodes to scale your operation, the safest optimization is to run 2-3 nodes as your full nodes and convert all other nodes to smeshing-service nodes.
 This will allow you to update nodes without interrupting the smeshing operation (submitting proposals etc).
+Additionally, you will also benefit from:
+* reduced total state DB size
+* reduced total CPU usage
+* reduced total memory usage
 
 
 #### Can I use a load balancer to add HA to the setup?
 
-Yes, but please set up session stickiness or a similar mechanism (active-passive etc) to keep smeshing-service stick to a node unless the node fails.
-Balancing v2 api is 100% safe.
+Yes.
 
 #### Who keeps the network state?
 
