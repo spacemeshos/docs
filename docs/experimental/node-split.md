@@ -102,8 +102,12 @@ flags when running your smeshing-service.
 `--node-service-address` is a URL to the node-service API endpoint on *any* synced node in the given network.
 `--proxy-api-v2-address` is a URL to the v2 API endpoint on *any* synced node in the given network. It's needed by integrations to query the node-service API directly via the smeshing-service. Smeshing-service then acts as a middleman and relays the requests to the node-service API endpoint. That's why we're recommending here to use the normal publicly available mainnet-api.
 
-This service is provided without any warranty or support other than community support.
-Please use it at your own risk.
+:::warning
+
+This service is provided with no warranty. Support is available only through standard Discord channels.
+Please use at your own risk.
+
+:::
 
 
 ### Where is the UI
