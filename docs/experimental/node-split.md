@@ -25,7 +25,8 @@ The Node Split consists of two separate processes:
 
 It's best to watch the [video](https://www.youtube.com/watch?v=d4jBz1krRHg) to get a better understanding of the problem and our reasoning behind the node split.
 
-The current go-spacemesh node is a monolithic application that includes all the logic required for consensus, smeshing, and other services. This makes it difficult to run the node on low-resource devices, as the node requires a significant amount of resources to run. By splitting the node into two separate services, we can enable users to run the smeshing logic on a separate device while still connecting to a remote node for the rest of the services. This allows users to run the node on low-resource devices while still participating in the Spacemesh network.
+In the current architecture, one can optimize operations by running node, post-service, and k2pow-service to properly balance specific service performance requirements. However, when smeshing, it was not possible to split the smeshing operation from the consensus and p2p logic. Node-split enables this last crucial capability that will allow for further optimization.
+Moreover, even if one is running a monolithic go-spacemesh node (default mode) with node-split setup, users can run the smeshing logic on a separate device while still connecting to a separate node to save on costs and resources.
 
 ### Benefits
 1. **Lower system requirements**: Users can run the smeshing service on low-resource devices while connecting to a more powerful node for the rest of the services.
