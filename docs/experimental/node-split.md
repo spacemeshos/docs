@@ -17,8 +17,8 @@ The architecture is as follows:
 ![design.png](./../../static/img/node-split/design.png)
 
 The Node Split consists of two separate processes:
-* `node service` aka node
-* `smeshing service` aka client
+* `node service`
+* `smeshing service`
 
 
 ## Why is this important?
