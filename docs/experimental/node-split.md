@@ -58,6 +58,9 @@ Please note that we're NOT providing example configs for node-service for mainne
 Node-service is just a full Spacemesh node with two exposed APIs. As mentioned above, smeshing-service needs to connect to the node-service API endpoint and v2 API endpoint. Therefore, the matching configuration is `--node-service-listener`.
 We highly recommend setting up the `json-rpc-listener` as well, as then this node can be used as a source in proxy in smeshing-service.
 
+`--node-service-address` is a URL to the node-service API endpoint on *any* synced node in the given network.
+`--proxy-api-v2-address` is a URL to the v2 API endpoint on *any* synced node in the given network. It's needed by integrations to query the node-service API directly via the smeshing-service. Smeshing-service then acts as a middleman and relays the requests to the node-service API endpoint. That's why we're recommending here to use the normal publicly available mainnet-api.
+
 #### Other than mainnet configs
 
 We're also sharing non-mainnet configs.
@@ -98,9 +101,6 @@ For convenience, we're hosting the public node-service that runs against mainnet
 * `--node-service-address` to `https://mainnet-node-service-api.spacemesh.network`
 * `--proxy-api-v2-address` to `https://mainnet-api.spacemesh.network`
 flags when running your smeshing-service.
-
-`--node-service-address` is a URL to the node-service API endpoint on *any* synced node in the given network.
-`--proxy-api-v2-address` is a URL to the v2 API endpoint on *any* synced node in the given network. It's needed by integrations to query the node-service API directly via the smeshing-service. Smeshing-service then acts as a middleman and relays the requests to the node-service API endpoint. That's why we're recommending here to use the normal publicly available mainnet-api.
 
 :::warning
 
