@@ -84,7 +84,7 @@ To migrate from an existing node to node-split setup, you need to follow these s
 
 1. Stop the existing node.
 2. Backup all local.sql* files.
-3. Edit the configuration by adding the required flags as listed above (`node-service-address` and `json-rpc-listener`)
+3. Edit the configuration by adding the required flags as listed above (`node-service-address` and `grpc-json-listener`)
 4. Start the smesher-service as you'd start a normal go-spacemesh node just by adding `smeshing` as the first argument: `go-spacemesh smeshing <other arguments>`
 5. If you're satisfied with the setup, you can delete all state.sql files since the smeshing service does not need the whole state. However, note that the smeshing service will recreate state.sql files and keep the data it needs to operate, but it will maintain only a minimal subset of the data.
 
