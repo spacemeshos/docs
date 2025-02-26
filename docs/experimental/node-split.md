@@ -117,7 +117,7 @@ As mentioned previously, there is a next-gen UI called smesher-app fully open-so
 
 Anyone can run that UI as it only requires a browser and a connection to the node split.
 
-For convenience, we're hosting the publicly available instance at http://smesher-beta.spacemesh.network. It does NOT communicate with ANY servers other than the ones that you specify. It talks to your local APIs only.
+For convenience, we're hosting the publicly available instance at https://smesher-beta.spacemesh.network. It does NOT communicate with ANY servers other than the ones that you specify. It talks to your local APIs only.
 
 When opening, please specify the URL to the `--grpc-json-listener` specified on the smeshing service.
 
