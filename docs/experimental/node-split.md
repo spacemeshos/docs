@@ -2,9 +2,10 @@
 
 
 :::info
+
 Previously here there was a doc page about Node split PoC. It has been moved to [here](./node-split-poc).
 
-::
+:::
 
 Node split is currently considered a Beta feature that is stable enough to run on the mainnet.
 
