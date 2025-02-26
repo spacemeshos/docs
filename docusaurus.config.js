@@ -45,7 +45,7 @@ const config = {
           editUrl: 'https://github.com/spacemeshos/docs/edit/main/',
           admonitions: {
             tag: ':::',
-            keywords: ['note', 'tip', 'info', 'caution', 'danger'],
+            keywords: ['note', 'tip', 'info', 'warning', 'danger'],
           },
         },
         blog: false,
