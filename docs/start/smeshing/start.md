@@ -75,3 +75,35 @@ Some advantages of smeshing using `go-spacemesh` and `postcli` over Smapp includ
     - Can be used to generate PoS data on a cloud compute service.
 
 Note that we recommend only the more advanced users to smesh using the CLI programs. See our [Advanced Smeshing Guide](./smeshing_adv/setup.md) for more information.
+
+
+### Node-Split
+
+Node split is a Beta feature that divides the Spacemesh node into two separate processes:
+- **Node service**: Handles consensus and P2P logic
+- **Smeshing service**: Manages the smeshing logic with private key access
+
+#### Benefits
+
+1. **Lower system requirements**: Run smeshing on low-resource devices while connecting to a more powerful remote node
+2. **Better failover and redundancy**: Restart nodes without affecting smeshing process
+3. **Lower operational costs**: Smeshing services can be shut down when not needed
+4. **Improved maintainability**: Update components independently without re-syncing
+
+#### Setup Options
+
+1. Local node and smeshing service
+2. Remote node with local smeshing service
+
+#### Key Configuration
+
+- For smeshing service: Use the mainnet config at https://configs.spacemesh.network/config.mainnet-smeshing-service.json
+- For node service: Enable the node-service-listener API endpoint
+- A hosted public node service is available at https://mainnet-node-service-api.spacemesh.network
+
+#### UI Access
+
+- Use the smesher-app UI: https://github.com/spacemeshos/smesher-app
+- A hosted version is available at https://smesher-beta.spacemesh.network
+
+For more info please see the [Node Split guide](./node-split.md).
