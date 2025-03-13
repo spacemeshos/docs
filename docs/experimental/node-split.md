@@ -1,12 +1,5 @@
 # Node split
 
-
-:::info
-
-Previously here there was a doc page about Node split PoC. It has been moved to [here](./node-split-poc).
-
-:::
-
 Node split is currently considered a Beta feature that is stable enough to run on the mainnet.
 
 In our ongoing effort to lower the barrier for smeshing, we're exploring a new direction for reducing system requirements for smeshers. The idea is to re-architect the internal modules in go-spacemesh, isolating the smeshing logic from the passive consensus code. By dividing the node along these lines, we can enable users to run the lightweight yet sensitive (requiring access to the private key) smeshing logic separately from the rest of the node. This allows users with limited resources to use a remote node for their smeshing.
