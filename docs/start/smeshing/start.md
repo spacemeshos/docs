@@ -106,4 +106,4 @@ Node split is a Beta feature that divides the Spacemesh node into two separate p
 - Use the smesher-app UI: https://github.com/spacemeshos/smesher-app
 - A hosted version is available at https://smesher-beta.spacemesh.network
 
-For more info please see the [Node Split guide](./experimental/node-split.md).
+For more info please see the [Node Split guide](../../experimental/node-split.md).
